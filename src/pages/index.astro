@@ -1,11 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-// Content migrated verbatim from the current Squarespace site (verified live).
-// This is the OLD chapter's voice — kept faithful as a starting draft; the
-// voice/design pass reworks it for the new chapter.
+import wordmark from '../assets/brand/wordmark.png';
+// Body copy migrated verbatim from the current Squarespace site (old chapter's
+// voice) — kept faithful; reword in the new chapter's voice when ready.
 ---
 <BaseLayout title="Finn Astle" register="art">
-  <h1>Finn Astle</h1>
+  <section class="hero">
+    <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">Finn Astle · Astle Creative</p>
+    <h1 class="duality">Fearless <span class="amp">&amp;</span> Answers</h1>
+    <p class="hero-sub">Copywriter and practising visual artist. Working one question:
+      what happens to making when machines can make.</p>
+  </section>
+
+  <div class="wordmark-card">
+    <img src={wordmark.src} alt="Finn Astle — hand-brushed collage wordmark" />
+  </div>
+
   <p><em>is currently searching fearlessly for answers.</em></p>
 
   <p>You would say Finn is unavailable in the sense of the word, and the state of
@@ -27,8 +37,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     sometimes and ignore you other times, and both are part of the plan.</p>
 
   <p>— Finn</p>
-
-  <!-- TODO(content): decide home vs /fearlessanswer split; the manifesto text
-       (in _migration/squarespace-content.md) is a candidate for /fearlessanswer.
-       TODO(design): FA sun signature, chapter visual language. -->
 </BaseLayout>

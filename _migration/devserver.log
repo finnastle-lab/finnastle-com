@@ -1,0 +1,28 @@
+
+> finnastle@0.1.0 dev
+> astro dev
+
+16:07:14 [types] Generated 5ms
+16:07:14 [vite] Re-optimizing dependencies because vite config has changed
+
+ astro  v4.16.19 ready in 135 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+16:07:15 watching for file changes...
+16:07:15 [200] /studio 11ms
+16:07:17 [200] / 2ms
+16:07:24 [200] / 3ms
+16:08:08 [200] /work 6ms
+16:08:11 [200] /_image 183ms
+16:08:11 [200] /_image 277ms
+16:08:11 [200] /_image 301ms
+16:08:11 [200] /_image 352ms
+16:08:11 [200] /_image 437ms
+16:08:11 [200] /_image 199ms
+16:08:11 [200] /_image 517ms
+16:08:11 [200] /_image 163ms
+16:08:11 [200] /_image 380ms
+16:08:11 [200] /_image 199ms
+16:08:11 [200] /_image 385ms

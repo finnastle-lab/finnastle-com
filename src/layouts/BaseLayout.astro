@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import { SITE } from '../consts';
+import sun from '../assets/brand/sun.png';
 import '../styles/global.css';
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 const { title, description = SITE.description, register = 'art' } = Astro.props;
 const fullTitle = title === SITE.title ? title : `${title} — ${SITE.title}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const year = new Date().getFullYear();
 ---
 <!doctype html>
 <html lang={SITE.locale} data-register={register}>
@@ -21,22 +23,52 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title={`${SITE.title} — Writing`}
-      href="/rss.xml"
-    />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.title} — Writing`} href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+    />
+
+    <!-- No-flash theme: apply stored choice before first paint. -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('fa-theme');
+          if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <Nav />
-    <main id="main">
-      <slot />
-    </main>
-    <footer>
-      <p>F.A. · {new Date().getFullYear()} · finnastle.com</p>
-    </footer>
+    <div class="frame">
+      <a class="skip" href="#main">Skip to content</a>
+      <Nav />
+      <main id="main">
+        <slot />
+      </main>
+      <footer>
+        <img class="mark" src={sun.src} alt="" width="18" aria-hidden="true" />
+        <span>F.A. · {year} · finnastle.com</span>
+      </footer>
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      const btn = document.querySelector('[data-theme-toggle]');
+      const prefersDark = () => matchMedia('(prefers-color-scheme: dark)').matches;
+      const current = () => root.getAttribute('data-theme') || (prefersDark() ? 'dark' : 'light');
+      const sync = () => { if (btn) btn.textContent = current() === 'dark' ? 'Light' : 'Dark'; };
+      sync();
+      btn?.addEventListener('click', () => {
+        const next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('fa-theme', next); } catch (e) {}
+        sync();
+      });
+    </script>
   </body>
 </html>

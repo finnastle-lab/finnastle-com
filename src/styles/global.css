@@ -1,35 +1,55 @@
 /*
-  NEUTRAL BASELINE ONLY. This is deliberately plain — the visual design pass
-  (palette, type system, FA sun signature, chapter language) comes later via the
-  design-like-finn system. Tokens below are hooks for that pass, not final values.
+  FA / Astle Creative design system — monochrome-first, built on tension.
+  Three type voices held apart (Instrument Serif italic · Cousine · Inter),
+  monochrome + one vermilion guest, sage web-chrome frame. Tokens from the
+  FA Brand Reference. See design-like-finn.
 */
 
 :root {
-  --measure: 68ch;
-  --gap: 1.5rem;
+  --ink: #0f0f0e;
+  --graphite: #6f6b63;
+  --paper: #faf9f6;
+  --card: #ffffff;
+  --line: #e6e3db;
+  --line-strong: #d3cfc5;
+  --frame: #c9d0c0;        /* sage — web chrome only */
+  --accent: #d9360f;       /* vermilion — the one guest */
+  --accent-press: #a82908;
+  --mark-adj: 0;           /* brightness(0) keeps ink marks black in light */
+  --mark-inv: 0;           /* invert off in light */
 
-  --ink: #111111;
-  --paper: #ffffff;
-  --muted: #666666;
-  --rule: #e6e6e6;
-  --accent: #ff5a1f; /* FA sun orange — placeholder, chapter-variable */
+  --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --mono: 'Cousine', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: Georgia, "Times New Roman", serif;
-}
-
-/* Business register: monochrome, per plan §Identity (two registers, one site). */
-[data-register="studio"] {
-  --accent: #111111;
+  --maxw: 62rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #f2f2f2;
-    --paper: #0c0c0c;
-    --muted: #9a9a9a;
-    --rule: #232323;
+  :root:not([data-theme="light"]) {
+    --ink: #eeece6;
+    --graphite: #a29d94;
+    --paper: #121211;
+    --card: #171716;
+    --line: #2c2b27;
+    --line-strong: #3a3934;
+    --frame: #1b1b19;
+    --accent: #e5451a;
+    --accent-press: #f0673d;
+    --mark-inv: 1;         /* flip ink marks to white on dark */
   }
+}
+:root[data-theme="dark"] {
+  --ink: #eeece6;
+  --graphite: #a29d94;
+  --paper: #121211;
+  --card: #171716;
+  --line: #2c2b27;
+  --line-strong: #3a3934;
+  --frame: #1b1b19;
+  --accent: #e5451a;
+  --accent-press: #f0673d;
+  --mark-inv: 1;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -37,147 +57,201 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  font-family: var(--font-serif);
+  background: var(--frame);          /* sage frame shows at the edges */
   color: var(--ink);
+  font-family: var(--mono);          /* Cousine — the body/technical voice */
+  font-size: 0.98rem;
+  line-height: 1.65;
+  font-feature-settings: "liga" 1;
+}
+
+/* Sage frame + paper card — the web/app shell chrome */
+.frame {
   background: var(--paper);
-  line-height: 1.6;
+  max-width: 84rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  border-inline: 1px solid var(--line);
 }
 
 main {
-  max-width: var(--measure);
+  max-width: var(--maxw);
   margin-inline: auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 3rem 1.5rem 5rem;
 }
 
-h1, h2, h3, .brand, nav, footer { font-family: var(--font-sans); }
-h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; }
+/* --- Type voices, kept apart ------------------------------------------------ */
 
-a { color: inherit; text-underline-offset: 0.15em; }
+/* Display voice: Instrument Serif, italic. Headlines only. */
+h1, h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 2.5rem 0 0.75rem; }
+
+/* Interface voice: Inter. Labels, section heads, metadata chrome. */
+h3, .label, .meta, nav, .tag, .tool-links, figcaption {
+  font-family: var(--sans);
+}
+h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--graphite);
+  margin: 2rem 0 0.4rem;
+}
+
+p { margin: 0 0 1.15rem; max-width: 40rem; }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 a:hover { text-decoration-color: var(--accent); }
 
+/* Emphasis inside the mono body is an underline, never a colour swap. */
+strong, b { font-weight: 400; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.2em; }
+em, i { font-style: italic; }
+
+hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+
 .skip { position: absolute; left: -9999px; }
-.skip:focus { left: 1rem; top: 1rem; background: var(--paper); padding: 0.5rem 1rem; z-index: 10; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--card); padding: 0.5rem 1rem; z-index: 20; }
 
-header { border-bottom: 1px solid var(--rule); }
-header nav {
-  max-width: var(--measure);
-  margin-inline: auto;
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--gap);
-  padding: 1rem 1.25rem;
+.accent { color: var(--accent); }
+
+/* --- Marks ------------------------------------------------------------------ */
+/* Ink marks: recolour to ink in light, white in dark (theme-driven, no redraw). */
+.mark {
+  filter: brightness(0) invert(var(--mark-inv));
 }
-.brand { font-weight: 700; text-decoration: none; margin-right: auto; }
-header ul { display: flex; flex-wrap: wrap; gap: var(--gap); list-style: none; margin: 0; padding: 0; }
-header a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--accent); }
 
+/* --- Masthead --------------------------------------------------------------- */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.masthead-in {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.85rem 1.5rem;
+}
+.brand { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+.brand .mark { width: 26px; height: auto; display: block; }
+.brand .name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+.masthead nav { margin-left: auto; }
+.masthead nav ul {
+  display: flex; flex-wrap: wrap; gap: 1.1rem; list-style: none; margin: 0; padding: 0;
+  font-size: 0.82rem;
+}
+.masthead nav a { text-decoration: none; color: var(--graphite); }
+.masthead nav a:hover { color: var(--ink); }
+.masthead nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.3em; }
+
+/* Inverted control (theme toggle) — the black-background chrome element. */
+.invert-btn {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+.invert-btn:hover { background: var(--accent); }
+
+/* --- Home hero: duality construction ---------------------------------------- */
+.hero { padding: 1.5rem 0 1rem; }
+.duality {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(3rem, 11vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+.duality .amp { color: var(--accent); font-style: italic; }
+.hero-sub { font-family: var(--mono); color: var(--graphite); max-width: 34rem; }
+
+.wordmark-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 2rem;
+  margin: 2.5rem 0;
+}
+.wordmark-card img { width: 100%; height: auto; display: block; }
+
+/* --- Footer ----------------------------------------------------------------- */
 footer {
-  max-width: var(--measure);
+  max-width: var(--maxw);
   margin-inline: auto;
-  border-top: 1px solid var(--rule);
-  padding: 1.5rem 1.25rem;
-  color: var(--muted);
-  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+  padding: 2rem 1.5rem;
+  color: var(--graphite);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  display: flex; align-items: center; gap: 0.6rem;
 }
+footer .mark { width: 18px; height: auto; }
 
-article :where(h2, h3) { margin-top: 2.5rem; }
-
-/* Temporary marker so stub pages read as unfinished, not broken. Remove in content pass. */
-.stub { color: var(--muted); font-style: italic; }
+/* --- Components -------------------------------------------------------------- */
+.stub { color: var(--graphite); font-style: italic; }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--gap);
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 .gallery figure { margin: 0; }
-.gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--rule);
-  background: var(--paper);
-}
-.gallery figcaption {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.4rem;
-}
+.gallery img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
+.gallery figcaption { font-size: 0.78rem; color: var(--graphite); margin-top: 0.4rem; }
 
-/* Studio (business register) case studies */
-.case {
-  margin: 3rem 0;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-.case img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--rule);
-  margin-bottom: 1.25rem;
-}
+.case { margin: 3rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+.case img { width: 100%; height: auto; display: block; border: 1px solid var(--line); margin-bottom: 1.25rem; }
 .case h2 { margin: 0 0 0.25rem; }
 .case .meta {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  margin: 0 0 1rem;
-}
-.case h3 {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin: 1.5rem 0 0.25rem;
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--graphite); margin: 0 0 1rem;
 }
 
-/* Tools hub */
 .tool-list { margin-top: 2rem; }
-.tool {
-  margin: 0 0 2.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--rule);
-}
-.tool h2 { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin: 0 0 0.5rem; }
+.tool { margin: 0 0 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.tool h2 { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin: 0 0 0.5rem; font-family: var(--serif); font-style: italic; }
 .tool .tag {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-  border: 1px solid var(--rule);
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--graphite); border: 1px solid var(--line); padding: 0.1rem 0.5rem; border-radius: 999px;
 }
-.tool-links { font-family: var(--font-sans); font-size: 0.85rem; }
+.tool-links { font-size: 0.85rem; }
 
-/* Code blocks (copyable) */
+/* Code blocks */
 .code-block { position: relative; margin: 1.5rem 0; }
 .code-block pre {
-  overflow-x: auto;
-  background: #14140f;
-  color: #e8e6df;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: 1rem 1.1rem;
-  font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, Consolas, monospace);
-  font-size: 0.82rem;
-  line-height: 1.5;
+  overflow-x: auto; background: #14140f; color: #e8e6df;
+  border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem;
+  font-family: var(--mono); font-size: 0.8rem; line-height: 1.5;
 }
 .code-block .copy {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  padding: 0.2rem 0.6rem;
-  color: #e8e6df;
-  background: #26261f;
-  border: 1px solid #3a3a30;
-  border-radius: 4px;
-  cursor: pointer;
+  position: absolute; top: 0.5rem; right: 0.5rem;
+  font-family: var(--sans); font-size: 0.7rem; padding: 0.2rem 0.6rem;
+  color: #e8e6df; background: #26261f; border: 1px solid #3a3a30; border-radius: 4px; cursor: pointer;
 }
 .code-block .copy:hover { background: #33332a; }
-code { font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, Consolas, monospace); }
+code { font-family: var(--mono); font-size: 0.9em; }
+
+article :where(h2, h3) { margin-top: 2.5rem; }
