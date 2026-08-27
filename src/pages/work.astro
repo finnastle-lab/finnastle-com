@@ -1,9 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+// Curated from the salvaged Webflow art library. Astro's <Image> optimises
+// these to responsive WebP at build. This is a first cut — curate/reorder,
+// confirm titles, and add year/medium once Finn reviews.
+import brightIdea from '../assets/work/bright-idea.png';
+import superannuation from '../assets/work/superannuation.png';
+import astleSex from '../assets/work/astle-sex.png';
+import artworkUzi from '../assets/work/artwork-uzi.png';
+import artwork2023 from '../assets/work/artwork-2023.jpg';
+import aSunnyDay from '../assets/work/a-sunny-day.jpg';
+import boxers from '../assets/work/boxers.png';
+import flying from '../assets/work/flying-there-is-no-ground.png';
+import paperUniverse from '../assets/work/paper-universe.jpg';
+import afterTheTone from '../assets/work/after-the-tone.png';
+import phosphene from '../assets/work/phosphene.png';
+
+const works = [
+  { src: brightIdea, title: 'Bright Idea' },
+  { src: superannuation, title: 'Superannuation' },
+  { src: astleSex, title: 'Astle Sex' },
+  { src: artworkUzi, title: 'Uzi' },
+  { src: artwork2023, title: 'Artwork, 2023' },
+  { src: aSunnyDay, title: 'A Sunny Day' },
+  { src: boxers, title: 'Boxers' },
+  { src: flying, title: 'Flying — There Is No Ground' },
+  { src: paperUniverse, title: 'Paper Universe' },
+  { src: afterTheTone, title: 'After the Tone' },
+  { src: phosphene, title: 'Phosphene' },
+];
 ---
-<BaseLayout title="Work" description="Visual work — collage, mixed media, and the art chapters." register="art">
+<BaseLayout title="Work" description="Collage, painting, and mixed media." register="art">
   <h1>Work</h1>
-  <p class="stub">Stub. Absorbs the retired Webflow portfolio
-    (finnastleworld.webflow.io) — salvage its images + copy before cancelling.
-    Likely becomes an image-led collection at 4:5 native ratio.</p>
+  <p>Collage, painting, and mixed media.</p>
+  <div class="gallery">
+    {works.map((w) => (
+      <figure>
+        <Image src={w.src} alt={w.title} widths={[400, 800]} sizes="(max-width: 700px) 50vw, 340px" />
+        <figcaption>{w.title}</figcaption>
+      </figure>
+    ))}
+  </div>
+  <!-- TODO(content): confirm titles; add year/medium/dimensions; add more pieces
+       + the animated works (Creative Process, ezgif series) from _migration. -->
 </BaseLayout>

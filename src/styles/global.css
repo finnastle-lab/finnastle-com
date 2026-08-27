@@ -82,3 +82,24 @@ article :where(h2, h3) { margin-top: 2.5rem; }
 
 /* Temporary marker so stub pages read as unfinished, not broken. Remove in content pass. */
 .stub { color: var(--muted); font-style: italic; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--gap);
+  margin-top: 2rem;
+}
+.gallery figure { margin: 0; }
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.gallery figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
