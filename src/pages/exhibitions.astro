@@ -1,9 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Verified from the live Squarespace site (27 Aug 2026). The gallery track =
+// the credential (five-year plan §The buyer).
+type Show = { year: string; venue: string; show: string; href?: string };
+const exhibitions: Show[] = [
+  { year: '2024', venue: 'E55 Exhibition Street', show: 'Local Space', href: 'https://www.fifty-five.com.au/' },
+  { year: '2024', venue: 'Workshop Bar, Melbourne', show: 'Local Space', href: 'https://www.workshopbar.com.au/' },
+  { year: '2022', venue: 'That Paper Joint, Brunswick', show: 'Paper Universe', href: 'https://www.thatpaperjoint.com/' },
+  { year: '2018', venue: 'Collingwood Yards', show: '', href: 'https://collingwoodyards.org/' },
+  { year: '2017', venue: 'The Lockup / Courthouse Gallery, Newcastle', show: 'via Univ. Newcastle Tertiary Arts Grant', href: 'https://thelockup.org.au/' },
+  { year: '2017', venue: 'Student Space, Melbourne University', show: '' },
+  { year: '2016', venue: 'Harry Brookes Allen Museum', show: 'Open Night', href: 'https://harrybrookesallenmuseum.mdhs.unimelb.edu.au/' },
+  { year: '2015', venue: 'Fiona & Sidney Myer Gallery, VCA', show: 'Student Exhibition / Grad Show', href: 'https://finearts-music.unimelb.edu.au/about-us/fiona-and-sidney-myer-gallery' },
+];
+const ongoing: Show[] = [
+  { year: '—', venue: 'Testing Grounds', show: 'Phosphene + other projects', href: 'https://www.testing-grounds.com.au/' },
+  { year: '—', venue: "King's Artist Run Gallery", show: 'incl. film premiere — Black Box / Phosphene', href: 'https://www.kingsartistrun.org.au/program/black_box-phosphene/' },
+];
 ---
-<BaseLayout title="Exhibitions" description="The gallery track — exhibition history and the credential." register="art">
+<BaseLayout title="Exhibitions" description="Exhibition history, 2015–2024 — the gallery track." register="art">
   <h1>Exhibitions</h1>
-  <p class="stub">Stub. The 2015–2024 exhibition history lives in the current
-    Squarespace page's text — migrate it here as the credential record. Candidate
-    for a content collection (year, venue, title) if the list gets long.</p>
+  <ul>
+    {exhibitions.map((e) => (
+      <li>
+        <strong>{e.year}</strong> — {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
+      </li>
+    ))}
+    {ongoing.map((e) => (
+      <li>
+        <strong>{e.year}</strong> — {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
+      </li>
+    ))}
+  </ul>
+  <!-- TODO(content): confirm exact show titles/dates against Finn's records;
+       some venue/show labels had extraction noise. -->
 </BaseLayout>

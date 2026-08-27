@@ -122,10 +122,13 @@ saving, off the critical path.
 
 ### Phase 2 · Build & stage the new site (zero risk to live site)
 - [x] Generator: **Astro** (decided 27 Aug 2026 — already using it at work; suits the two-register design, reads markdown, RSS via `@astrojs/rss`).
-- [ ] GitHub repo → Cloudflare Pages → `*.pages.dev` preview URL.
-- [ ] Build core pages incl. `/studio` (monochrome business register); reserve `/fast-as`.
-- [ ] Add internal `_redirects` (Phase 1 map), **RSS**, **canonical tags** → home.
+- [x] **Scaffold built + committed** (local git repo at `04_WORK/website/`, branch `main`, commit `96503da`). All 7 routes + `/fast-as` + RSS build clean. ✅ 27 Aug 2026.
+- [x] Internal `_redirects` (`/finnastle` → `/` 301), **RSS** (`/rss.xml`), **canonical tags**, two-register layout — all wired in and verified in the build output.
+- [ ] Content pass: migrate current Squarespace text + salvaged Webflow assets into the stub pages.
+- [ ] Visual design pass (design-like-finn) — the scaffold ships a neutral baseline only.
+- [ ] Push repo to GitHub → connect Cloudflare Pages → `*.pages.dev` preview URL.
 - [ ] Test fully on the preview URL. Nothing points at a real domain yet.
+- [ ] Re-add a sitemap (deferred — @astrojs/sitemap 3.1.6 needs Astro 5; pin versions at deploy).
 
 ### Phase 3 · Cut `finnastle.com` over (reversible)
 - [ ] Add `finnastle.com` to Cloudflare (free); it imports DNS — verify every record carried over (watch for any TXT/verification; you're on gmail so likely no MX).
