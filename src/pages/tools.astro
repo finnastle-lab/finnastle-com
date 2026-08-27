@@ -2,29 +2,50 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // On-territory hub. Each tool is a specimen of "machines that make."
-// Links out to the live app / repo; the site itself stays static.
 const tools = [
   {
-    name: 'unwrite',
-    blurb: 'Detects and strips AI-writing patterns from text.',
-    href: '#', // TODO: live app URL (was un-write; repo on origin/main)
+    name: 'un-write',
+    tag: 'Live tool',
+    href: 'https://finnastle-lab.github.io/un-write/',
+    repo: 'https://github.com/finnastle-lab/un-write',
+    blurb:
+      'A Hemingway-style editor that flags AI writing tells inline. Paste prose, get colour-coded highlights and a visible “how AI does this read” score. The joke it owns: a tool that rewrites your text to sound less like AI is an AI rewriting your text. Detection, obsolete by design.',
   },
   {
     name: 'fa-art-namer',
-    blurb: 'Gemini-powered auto-keywording for art uploads (the Google naming script).',
-    href: '#', // TODO: repo / docs URL
+    tag: 'How-to + code',
+    href: '/tools/fa-art-namer',
+    internal: true,
+    blurb:
+      'A read-only pipeline for cataloguing an art element library — dimensions, transparency, duplicates, keyword-soup names — so a machine can help name and dedupe what a human made. A walk-through with copyable code.',
+  },
+  {
+    name: 'FA Brand Reference',
+    tag: 'Design system',
+    href: '/tools/design-system/',
+    internal: true,
+    blurb:
+      'The monochrome-first brand system behind this site: the palette, three voices in tension, marks & motifs, and structural patterns.',
   },
 ];
 ---
 <BaseLayout title="Tools" description="Small tools — specimens of making when machines can make." register="art">
   <h1>Tools</h1>
-  <p>Small machines that make. On-territory by construction.</p>
-  <ul>
+  <p>Small machines that make, and the methods behind them. On-territory by construction.</p>
+
+  <div class="tool-list">
     {tools.map((t) => (
-      <li>
-        <a href={t.href}>{t.name}</a> — {t.blurb}
-      </li>
+      <article class="tool">
+        <h2>
+          <a href={t.href}>{t.name}</a>
+          <span class="tag">{t.tag}</span>
+        </h2>
+        <p>{t.blurb}</p>
+        <p class="tool-links">
+          <a href={t.href}>{t.internal ? 'Open →' : 'Open the tool →'}</a>
+          {t.repo && <> · <a href={t.repo}>Source</a></>}
+        </p>
+      </article>
     ))}
-  </ul>
-  <p class="stub">Stub. Fill in live URLs / repos and a real frame for each.</p>
+  </div>
 </BaseLayout>
