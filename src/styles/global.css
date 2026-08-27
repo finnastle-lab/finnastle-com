@@ -103,3 +103,32 @@ article :where(h2, h3) { margin-top: 2.5rem; }
   color: var(--muted);
   margin-top: 0.4rem;
 }
+
+/* Studio (business register) case studies */
+.case {
+  margin: 3rem 0;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.case img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  margin-bottom: 1.25rem;
+}
+.case h2 { margin: 0 0 0.25rem; }
+.case .meta {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+.case h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 1.5rem 0 0.25rem;
+}

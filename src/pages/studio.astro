@@ -1,11 +1,57 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import aglNetflix from '../assets/studio/agl-netflix.png';
+import sevenEleven from '../assets/studio/seven-eleven.jpeg';
+
+// Case-study copy migrated from Finn's own writing:
+// 04_WORK/Career/…resume_extended-case-studies_v1 (verified source, not the
+// Webflow cache). Lines preserved per his ground rules; no invented metrics.
+const cases = [
+  {
+    title: 'AGL × Netflix — "Join the Change"',
+    meta: 'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
+    hero: aglNetflix,
+    brief:
+      'Differentiate AGL in a commoditised energy market with a universal truth. We landed on the relatable “dad-at-home” moments — thermostat-controlling, F1-watching, household management — and built the “Join the Change” rebrand platform around a shift in what energy is for: its value defined by what it powers. In the modern home, Netflix is as essential as heating.',
+    execution:
+      'Developed the “TV Dad” persona as the centrepiece of the platform launch, using archetypal household friction to introduce the AGL Netflix plan — energy framed as the power source for the home’s actual priorities, like streaming. Rolled out across broadcast and tactical, price-based retail assets.',
+    wrote:
+      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots — including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook — and managed the brand-voice rollout across retail.',
+  },
+  {
+    title: '7-Eleven — "Summer 24/7"',
+    meta: '7-Eleven · CHEP Network · Copywriter · 2021–22',
+    hero: sevenEleven,
+    brief:
+      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience — a looping day-into-night hook that mirrored summer energy, day into night and back again.',
+    execution:
+      'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique — talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
+    wrote:
+      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed — punchy and tuned to morning-coffee-to-late-night-snack habits.',
+  },
+];
 ---
-<BaseLayout title="Studio" description="Astle Creative — AI-enabled content operations for marketing teams." register="studio">
+<BaseLayout title="Studio" description="Astle Creative — copywriting and campaign work for marketing teams." register="studio">
   <h1>Studio</h1>
-  <p>Astle Creative. The business register — pipelines that ship quality at
-    volume, with human judgment kept in the machine process.</p>
-  <p class="stub">Stub, monochrome register. This is the 301 target for
-    astlecreative.com. Content pass: the offer, the method, proof. TODO: FA
-    monochrome system.</p>
+  <p>Astle Creative. Copywriting and creative that ships at volume without losing
+    the idea — full-service strategy, campaigns, tone of voice, and retail rollout.</p>
+
+  {cases.map((c) => (
+    <article class="case">
+      <Image src={c.hero} alt={c.title} widths={[600, 1000]} sizes="(max-width: 700px) 100vw, 640px" />
+      <h2>{c.title}</h2>
+      <p class="meta">{c.meta}</p>
+      <h3>The brief</h3>
+      <p>{c.brief}</p>
+      <h3>The execution</h3>
+      <p>{c.execution}</p>
+      <h3>What I wrote</h3>
+      <p>{c.wrote}</p>
+    </article>
+  ))}
+
+  <!-- TODO(content): add the third folio set (Coca-Cola/VERSA, G8 Education,
+       Afterpay, Youi) from astlecreative.com/…/copywritingcampaigns.
+       TODO(strategy): the forward AI-content-ops offer per five-year-plan. -->
 </BaseLayout>
