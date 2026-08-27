@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// On-territory hub. Each tool is a specimen of "machines that make."
+// Links out to the live app / repo; the site itself stays static.
+const tools = [
+  {
+    name: 'unwrite',
+    blurb: 'Detects and strips AI-writing patterns from text.',
+    href: '#', // TODO: live app URL (was un-write; repo on origin/main)
+  },
+  {
+    name: 'fa-art-namer',
+    blurb: 'Gemini-powered auto-keywording for art uploads (the Google naming script).',
+    href: '#', // TODO: repo / docs URL
+  },
+];
+---
+<BaseLayout title="Tools" description="Small tools — specimens of making when machines can make." register="art">
+  <h1>Tools</h1>
+  <p>Small machines that make. On-territory by construction.</p>
+  <ul>
+    {tools.map((t) => (
+      <li>
+        <a href={t.href}>{t.name}</a> — {t.blurb}
+      </li>
+    ))}
+  </ul>
+  <p class="stub">Stub. Fill in live URLs / repos and a real frame for each.</p>
+</BaseLayout>

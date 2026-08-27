@@ -1,0 +1,42 @@
+---
+import Nav from '../components/Nav.astro';
+import { SITE } from '../consts';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  register?: 'art' | 'studio';
+}
+
+const { title, description = SITE.description, register = 'art' } = Astro.props;
+const fullTitle = title === SITE.title ? title : `${title} — ${SITE.title}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang={SITE.locale} data-register={register}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${SITE.title} — Writing`}
+      href="/rss.xml"
+    />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <footer>
+      <p>F.A. · {new Date().getFullYear()} · finnastle.com</p>
+    </footer>
+  </body>
+</html>

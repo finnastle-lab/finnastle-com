@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects. 301 = permanent.
+# Legacy Squarespace duplicate-home path -> canonical root.
+/finnastle    /    301

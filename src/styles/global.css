@@ -1,0 +1,84 @@
+/*
+  NEUTRAL BASELINE ONLY. This is deliberately plain — the visual design pass
+  (palette, type system, FA sun signature, chapter language) comes later via the
+  design-like-finn system. Tokens below are hooks for that pass, not final values.
+*/
+
+:root {
+  --measure: 68ch;
+  --gap: 1.5rem;
+
+  --ink: #111111;
+  --paper: #ffffff;
+  --muted: #666666;
+  --rule: #e6e6e6;
+  --accent: #ff5a1f; /* FA sun orange — placeholder, chapter-variable */
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+/* Business register: monochrome, per plan §Identity (two registers, one site). */
+[data-register="studio"] {
+  --accent: #111111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2f2f2;
+    --paper: #0c0c0c;
+    --muted: #9a9a9a;
+    --rule: #232323;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+main {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1, h2, h3, .brand, nav, footer { font-family: var(--font-sans); }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; }
+
+a { color: inherit; text-underline-offset: 0.15em; }
+a:hover { text-decoration-color: var(--accent); }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--paper); padding: 0.5rem 1rem; z-index: 10; }
+
+header { border-bottom: 1px solid var(--rule); }
+header nav {
+  max-width: var(--measure);
+  margin-inline: auto;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--gap);
+  padding: 1rem 1.25rem;
+}
+.brand { font-weight: 700; text-decoration: none; margin-right: auto; }
+header ul { display: flex; flex-wrap: wrap; gap: var(--gap); list-style: none; margin: 0; padding: 0; }
+header a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--accent); }
+
+footer {
+  max-width: var(--measure);
+  margin-inline: auto;
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+article :where(h2, h3) { margin-top: 2.5rem; }
+
+/* Temporary marker so stub pages read as unfinished, not broken. Remove in content pass. */
+.stub { color: var(--muted); font-style: italic; }

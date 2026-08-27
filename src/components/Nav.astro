@@ -1,0 +1,20 @@
+---
+import { NAV } from '../consts';
+const path = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  path === href || (href !== '/' && path.startsWith(href));
+---
+<header>
+  <nav aria-label="Primary">
+    <a class="brand" href="/">Finn Astle</a>
+    <ul>
+      {NAV.map((item) => (
+        <li>
+          <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
