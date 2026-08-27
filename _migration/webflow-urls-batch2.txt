@@ -1,0 +1,43 @@
+#CAT:personal-collage-artworks
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f76_Finn%20Astle%20Bright%20Idea-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f75_Astle%20Supperannuation-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f74_Astle%20Sex-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f6d_Ast.%20(3).png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f6b_Ast.-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f6a_AST.%20(1).png
+#CAT:ezgif-animations
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f73_ezgif.com-gif-maker%20(21)-p-130x130q80.jpeg
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f72_ezgif.com-gif-maker%20(20)-p-130x130q80.jpeg
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f71_ezgif.com-gif-maker%20(19)-p-130x130q80.jpeg
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f52_ezgif.com-gif-maker%20(18)-p-130x130q80.jpeg
+#CAT:group-graphics
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f70_Group%2022-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f6f_Group%2021-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f6e_Group%2017-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f6c_Group%2016.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f59_Group%2012%20(2)-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f56_Group%209-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f55_Group%2011-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f54_Group%2010-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f4f_Group%206-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f4e_Group%205-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f4d_Group%204-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f4c_Group%202-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f4b_Group%201-p-130x130q80.png
+#CAT:noun-icons
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f58_noun_point_659681%20(2)-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f57_noun_point_659681%20(3)-p-130x130q80.png
+#CAT:frames
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f50_Frame%201.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f47_Frame%201%20(1).png
+#CAT:weather-cloud
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f4a_cloud_2601%20(1)%202-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f44_cloud_2601-p-130x130q80.png
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f45_water-wave_1f30a-p-130x130q80.png
+#CAT:misc-animations
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f53_1_8Co7gaBPmBfjQml_hvgTeA-p-130x130q80.jpeg
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f51_Thinking%20(1)-p-130x130q80.jpeg
+gif	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f46_giphy-p-130x130q80.jpeg
+#CAT:screenshots-misc
+jpeg	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f43_Screen%20Shot%202020-06-14%20at%2010.23.45-p-130x130q80.jpeg
+png	https://uploads-ssl.webflow.com/65fb97bf71a790050ff68f22/65fb97bf71a790050ff68f42_download-p-130x130q80.png
