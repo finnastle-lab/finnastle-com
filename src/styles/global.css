@@ -285,3 +285,39 @@ footer .mark { width: 18px; height: auto; }
 code { font-family: var(--mono); font-size: 0.9em; }
 
 article :where(h2, h3) { margin-top: 2.5rem; }
+
+/* Icon pack grid */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.icon-tile { margin: 0; }
+.icon-frame {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  background-color: var(--card);
+  /* checkerboard so transparency is legible */
+  background-image:
+    linear-gradient(45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--line) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--line) 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+}
+.icon-frame img { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+.icon-tile figcaption {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--graphite);
+  margin-top: 0.35rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
