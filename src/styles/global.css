@@ -57,7 +57,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--frame);          /* sage frame shows at the edges */
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--mono);          /* Cousine — the body/technical voice */
   font-size: 0.98rem;
@@ -68,10 +68,11 @@ body {
 /* Sage frame + paper card — the web/app shell chrome */
 .frame {
   background: var(--paper);
-  max-width: 84rem;
+  max-width: 78rem;
   margin: 0 auto;
   min-height: 100vh;
   border-inline: 1px solid var(--line);
+  overflow-x: clip;                 /* contain collage stamps */
 }
 
 main {
@@ -188,13 +189,30 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 .duality .amp { color: var(--accent); font-style: italic; }
 .hero-sub { font-family: var(--mono); color: var(--graphite); max-width: 34rem; }
 
+/* Hand-brushed collage wordmark — on a light card so it survives dark mode. */
 .wordmark-card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
-  padding: 2rem;
-  margin: 2.5rem 0;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  margin: 1rem 0 3rem;
 }
-.wordmark-card img { width: 100%; height: auto; display: block; }
+.wordmark-card img { width: 100%; height: auto; display: block; position: relative; z-index: 1; }
+
+/* --- Collage stamps: found-ephemera texture in open space -------------------- */
+.hero, .wordmark-card, .section-stamped { position: relative; }
+.hero > *:not(.stamp), .section-stamped > *:not(.stamp) { position: relative; z-index: 1; }
+.stamp {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  height: auto;
+}
+.stamp--ink { filter: brightness(0) invert(var(--mark-inv)); }
+
+/* Section-break device: the hand-drawn sun-ray flourish pair. */
+.flourish { display: block; width: 76px; height: auto; margin: 3.5rem auto; opacity: 0.95; }
 
 /* --- Footer ----------------------------------------------------------------- */
 footer {
@@ -221,6 +239,18 @@ footer .mark { width: 18px; height: auto; }
 .gallery figure { margin: 0; }
 .gallery img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
 .gallery figcaption { font-size: 0.78rem; color: var(--graphite); margin-top: 0.4rem; }
+
+/* Art chapters: one key image + optional gallery */
+.chapter { margin: 3.5rem 0; padding-bottom: 3rem; border-bottom: 1px solid var(--line); }
+.chapter h2 { margin: 0 0 1rem; }
+.chapter-key { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
+.chapter-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.9rem;
+}
+.chapter-thumbs img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
 
 .case { margin: 3rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
 .case img { width: 100%; height: auto; display: block; border: 1px solid var(--line); margin-bottom: 1.25rem; }

@@ -26,3 +26,31 @@
 16:08:11 [200] /_image 380ms
 16:08:11 [200] /_image 199ms
 16:08:11 [200] /_image 385ms
+16:09:52 [200] / 2ms
+16:09:55 [200] /exhibitions 5ms
+16:09:58 [200] /writing 14ms
+16:10:02 [200] /tools 3ms
+17:07:07 [200] /work 20ms
+17:07:07 [200] /tools 3ms
+21:37:31 [watch] /src/styles/global.css
+21:37:38 [watch] /src/styles/global.css
+21:37:50 [watch] /src/styles/global.css
+21:38:18 [watch] src/pages/index.astro
+21:38:18 [200] /tools 14ms
+21:40:05 [watch] src/pages/work.astro
+21:40:06 [200] /tools 7ms
+21:40:14 [watch] src/styles/global.css
+21:40:15 [200] /tools 2ms
+21:40:52 [200] / 3ms
+21:40:57 [200] / 2ms
+21:42:38 [watch] src/pages/index.astro
+21:42:39 [200] /tools 3ms
+21:42:39 [200] / 3ms
+21:42:51 [200] / 2ms
+21:43:12 [200] /work 5ms
+21:43:15 [200] /_image 183ms
+21:43:15 [200] /_image 226ms
+21:43:15 [200] /_image 436ms
+21:43:15 [200] /_image 511ms
+21:43:15 [200] /_image 607ms
+21:43:15 [200] /_image 662ms

@@ -1,16 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import wordmark from '../assets/brand/wordmark.png';
-// Body copy migrated verbatim from the current Squarespace site (old chapter's
-// voice) — kept faithful; reword in the new chapter's voice when ready.
+import sunFlourish from '../assets/brand/sun-flourish.png';
+import sunset from '../assets/brand/stamps/sunset.png';
 ---
 <BaseLayout title="Finn Astle" register="art">
   <section class="hero">
+    <img class="stamp" src={sunset.src} alt="" aria-hidden="true"
+      style="top:-0.5rem; right:-0.5rem; width:112px; transform:rotate(7deg);" />
+
     <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">Finn Astle · Astle Creative</p>
     <h1 class="duality">Fearless <span class="amp">&amp;</span> Answers</h1>
     <p class="hero-sub">Copywriter and practising visual artist. Working one question:
       what happens to making when machines can make.</p>
   </section>
+
+  <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
 
   <div class="wordmark-card">
     <img src={wordmark.src} alt="Finn Astle — hand-brushed collage wordmark" />

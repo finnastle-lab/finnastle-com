@@ -2,46 +2,58 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
-// Curated from the salvaged Webflow art library. Astro's <Image> optimises
-// these to responsive WebP at build. This is a first cut — curate/reorder,
-// confirm titles, and add year/medium once Finn reviews.
-import brightIdea from '../assets/work/bright-idea.png';
-import superannuation from '../assets/work/superannuation.png';
-import astleSex from '../assets/work/astle-sex.png';
-import artworkUzi from '../assets/work/artwork-uzi.png';
-import artwork2023 from '../assets/work/artwork-2023.jpg';
-import aSunnyDay from '../assets/work/a-sunny-day.jpg';
-import boxers from '../assets/work/boxers.png';
-import flying from '../assets/work/flying-there-is-no-ground.png';
-import paperUniverse from '../assets/work/paper-universe.jpg';
-import afterTheTone from '../assets/work/after-the-tone.png';
-import phosphene from '../assets/work/phosphene.png';
+// Art chapters, sourced from 01_ART project folders. Each chapter = one key
+// image + an optional gallery. Add/curate chapters by dropping images into
+// src/assets/work/<chapter>/ (00-key.* sorts first).
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/work/*/*.{png,jpg,jpeg}',
+  { eager: true },
+);
 
-const works = [
-  { src: brightIdea, title: 'Bright Idea' },
-  { src: superannuation, title: 'Superannuation' },
-  { src: astleSex, title: 'Astle Sex' },
-  { src: artworkUzi, title: 'Uzi' },
-  { src: artwork2023, title: 'Artwork, 2023' },
-  { src: aSunnyDay, title: 'A Sunny Day' },
-  { src: boxers, title: 'Boxers' },
-  { src: flying, title: 'Flying — There Is No Ground' },
-  { src: paperUniverse, title: 'Paper Universe' },
-  { src: afterTheTone, title: 'After the Tone' },
-  { src: phosphene, title: 'Phosphene' },
-];
+const meta: Record<string, { title: string; note?: string }> = {
+  'bougainvillea': { title: 'Bougainvillea — Sydney Views' },
+  'blues-angels-crossing': { title: 'Blues Angels Crossing' },
+  'paper-universe': { title: 'Paper Universe' },
+  'highway-blues': { title: 'Highway Blues' },
+  'vintage-car-gas-station': { title: 'Vintage Car, Gas Station' },
+  'mays-end': { title: "May's End" },
+};
+const order = ['bougainvillea', 'blues-angels-crossing', 'paper-universe', 'highway-blues', 'vintage-car-gas-station', "mays-end"];
+
+const groups: Record<string, ImageMetadata[]> = {};
+for (const [path, mod] of Object.entries(files)) {
+  const m = path.match(/\/work\/([^/]+)\//);
+  if (!m) continue;
+  (groups[m[1]] ??= []).push(mod.default);
+}
+// 00-key.* sorts first by filename.
+for (const k in groups) groups[k].sort((a, b) => (a.src < b.src ? -1 : 1));
+
+const chapters = order.filter((k) => groups[k]);
 ---
-<BaseLayout title="Work" description="Collage, painting, and mixed media." register="art">
+<BaseLayout title="Work" description="Collage, painting, and mixed media — by chapter." register="art">
   <h1>Work</h1>
-  <p>Collage, painting, and mixed media.</p>
-  <div class="gallery">
-    {works.map((w) => (
-      <figure>
-        <Image src={w.src} alt={w.title} widths={[400, 800]} sizes="(max-width: 700px) 50vw, 340px" />
-        <figcaption>{w.title}</figcaption>
-      </figure>
-    ))}
-  </div>
-  <!-- TODO(content): confirm titles; add year/medium/dimensions; add more pieces
-       + the animated works (Creative Process, ezgif series) from _migration. -->
+  <p>Collage, painting, and mixed media — a range of projects, by chapter.</p>
+
+  {chapters.map((k) => {
+    const imgs = groups[k];
+    const rest = imgs.slice(1);
+    return (
+      <article class="chapter">
+        <h2>{meta[k].title}</h2>
+        <Image class="chapter-key" src={imgs[0]} alt={meta[k].title}
+          widths={[640, 1100]} sizes="(max-width: 700px) 100vw, 680px" />
+        {rest.length > 0 && (
+          <div class="chapter-thumbs">
+            {rest.map((im, i) => (
+              <Image src={im} alt={`${meta[k].title} — ${i + 2}`} widths={[260, 520]} sizes="220px" />
+            ))}
+          </div>
+        )}
+      </article>
+    );
+  })}
+
+  <!-- TODO(content): confirm chapter titles/order; add year/medium; pull more
+       chapters (data-centre-hivis, violent-life, found-collage, all-cut-up). -->
 </BaseLayout>
