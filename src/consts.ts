@@ -5,12 +5,25 @@ export const SITE = {
   locale: 'en-AU',
 } as const;
 
-// Primary nav. `/fast-as` is intentionally omitted — reserved until it has
-// paying customers who aren't Finn (per five-year plan §FAST AS).
-export const NAV = [
-  { href: '/work', label: 'Work' },
-  { href: '/exhibitions', label: 'Exhibitions' },
-  { href: '/writing', label: 'Writing' },
-  { href: '/tools', label: 'Tools' },
-  { href: '/studio', label: 'Studio' },
-] as const;
+type NavLink = { href: string; label: string };
+type NavItem = { label: string; href?: string; items?: NavLink[] };
+
+// Three groups. `/fast-as` stays out until it has paying customers (per plan).
+export const NAV: NavItem[] = [
+  {
+    label: 'Work',
+    items: [
+      { href: '/work', label: 'Work' },
+      { href: '/exhibitions', label: 'Exhibitions' },
+    ],
+  },
+  { label: 'Studio', href: '/studio' },
+  {
+    label: 'Words & Tools',
+    items: [
+      { href: '/writing', label: 'Writing' },
+      { href: '/tools', label: 'Tools' },
+      { href: '/tools/icon-pack', label: 'Icon Pack' },
+    ],
+  },
+];

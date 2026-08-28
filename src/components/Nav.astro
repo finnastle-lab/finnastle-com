@@ -3,7 +3,9 @@ import { NAV } from '../consts';
 import sun from '../assets/brand/sun.png';
 const path = Astro.url.pathname;
 const isCurrent = (href: string) =>
-  path === href || (href !== '/' && path.startsWith(href));
+  path === href || (href !== '/' && path === href) || (href !== '/' && path.startsWith(href + '/'));
+const groupCurrent = (items?: { href: string }[]) =>
+  !!items && items.some((i) => isCurrent(i.href));
 ---
 <header class="masthead">
   <div class="masthead-in">
@@ -11,17 +13,33 @@ const isCurrent = (href: string) =>
       <img class="mark" src={sun.src} alt="" width="26" aria-hidden="true" />
       <span class="name">Finn Astle</span>
     </a>
-    <nav aria-label="Primary">
-      <ul>
-        {NAV.map((item) => (
-          <li>
-            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <nav class="nav" aria-label="Primary">
+      {NAV.map((item) =>
+        item.href ? (
+          <a href={item.href} class="nav-top" aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+        ) : (
+          <details class="nav-group">
+            <summary class="nav-top" data-current={groupCurrent(item.items) ? 'true' : undefined}>{item.label}</summary>
+            <ul class="nav-panel">
+              {item.items!.map((sub) => (
+                <li><a href={sub.href} aria-current={isCurrent(sub.href) ? 'page' : undefined}>{sub.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        ),
+      )}
     </nav>
     <button class="invert-btn" type="button" aria-label="Toggle colour theme" data-theme-toggle>Dark</button>
   </div>
 </header>
+
+<script>
+  // Close any open nav dropdown on outside click or Escape.
+  const groups = () => document.querySelectorAll<HTMLDetailsElement>('.nav-group');
+  document.addEventListener('click', (e) => {
+    groups().forEach((g) => { if (!g.contains(e.target as Node)) g.open = false; });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') groups().forEach((g) => (g.open = false));
+  });
+</script>

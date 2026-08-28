@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 
-// Art chapters, sourced from 01_ART project folders. Each chapter = one key
-// image + an optional gallery. Add/curate chapters by dropping images into
+// Art chapters from 01_ART. Each chapter = one key image + a gallery whose
+// thumbnails swap into the main view. Add chapters by dropping images into
 // src/assets/work/<chapter>/ (00-key.* sorts first).
 const files = import.meta.glob<{ default: ImageMetadata }>(
   '../assets/work/*/*.{png,jpg,jpeg}',
   { eager: true },
 );
 
-const meta: Record<string, { title: string; note?: string }> = {
+const meta: Record<string, { title: string }> = {
   'bougainvillea': { title: 'Bougainvillea — Sydney Views' },
   'blues-angels-crossing': { title: 'Blues Angels Crossing' },
   'paper-universe': { title: 'Paper Universe' },
@@ -26,34 +26,51 @@ for (const [path, mod] of Object.entries(files)) {
   if (!m) continue;
   (groups[m[1]] ??= []).push(mod.default);
 }
-// 00-key.* sorts first by filename.
 for (const k in groups) groups[k].sort((a, b) => (a.src < b.src ? -1 : 1));
 
-const chapters = order.filter((k) => groups[k]);
+const chapters = await Promise.all(
+  order.filter((k) => groups[k]).map(async (k) => {
+    const imgs = groups[k];
+    const large = await Promise.all(imgs.map((im) => getImage({ src: im, width: 1100, format: 'webp' })));
+    const thumb = await Promise.all(imgs.map((im) => getImage({ src: im, width: 320, format: 'webp' })));
+    return { key: k, title: meta[k].title, count: imgs.length, large, thumb };
+  }),
+);
 ---
 <BaseLayout title="Work" description="Collage, painting, and mixed media — by chapter." register="art">
   <h1>Work</h1>
   <p>Collage, painting, and mixed media — a range of projects, by chapter.</p>
 
-  {chapters.map((k) => {
-    const imgs = groups[k];
-    const rest = imgs.slice(1);
-    return (
-      <article class="chapter">
-        <h2>{meta[k].title}</h2>
-        <Image class="chapter-key" src={imgs[0]} alt={meta[k].title}
-          widths={[640, 1100]} sizes="(max-width: 700px) 100vw, 680px" />
-        {rest.length > 0 && (
-          <div class="chapter-thumbs">
-            {rest.map((im, i) => (
-              <Image src={im} alt={`${meta[k].title} — ${i + 2}`} widths={[260, 520]} sizes="220px" />
-            ))}
-          </div>
-        )}
-      </article>
-    );
-  })}
+  {chapters.map((c) => (
+    <article class="chapter" data-chapter>
+      <h2>{c.title}</h2>
+      <img class="chapter-key" data-main src={c.large[0].src} alt={c.title} />
+      {c.count > 1 && (
+        <div class="chapter-thumbs" role="group" aria-label={`${c.title} — images`}>
+          {c.large.map((lg, i) => (
+            <button type="button" class="thumb" data-full={lg.src} aria-current={i === 0 ? 'true' : undefined}>
+              <img src={c.thumb[i].src} alt={`${c.title} — ${i + 1}`} loading="lazy" />
+            </button>
+          ))}
+        </div>
+      )}
+    </article>
+  ))}
 
-  <!-- TODO(content): confirm chapter titles/order; add year/medium; pull more
+  <!-- TODO(content): confirm chapter key image + order; add year/medium; more
        chapters (data-centre-hivis, violent-life, found-collage, all-cut-up). -->
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('[data-chapter]').forEach((ch) => {
+    const main = ch.querySelector('[data-main]') as HTMLImageElement | null;
+    const thumbs = ch.querySelectorAll<HTMLButtonElement>('.thumb');
+    thumbs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (main && btn.dataset.full) main.src = btn.dataset.full;
+        thumbs.forEach((b) => b.removeAttribute('aria-current'));
+        btn.setAttribute('aria-current', 'true');
+      });
+    });
+  });
+</script>

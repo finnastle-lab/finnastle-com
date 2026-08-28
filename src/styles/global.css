@@ -153,14 +153,35 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
   font-size: 0.9rem;
   letter-spacing: 0.02em;
 }
-.masthead nav { margin-left: auto; }
-.masthead nav ul {
-  display: flex; flex-wrap: wrap; gap: 1.1rem; list-style: none; margin: 0; padding: 0;
-  font-size: 0.82rem;
+.nav {
+  margin-left: auto;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 1.3rem;
+  font-family: var(--sans); font-size: 0.82rem;
 }
-.masthead nav a { text-decoration: none; color: var(--graphite); }
-.masthead nav a:hover { color: var(--ink); }
-.masthead nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.3em; }
+.nav-top {
+  color: var(--graphite); text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0; font: inherit; list-style: none;
+}
+.nav-top::-webkit-details-marker { display: none; }
+.nav .nav-top:hover { color: var(--ink); }
+.nav a.nav-top[aria-current="page"],
+.nav summary.nav-top[data-current="true"] {
+  color: var(--ink); text-decoration: underline;
+  text-decoration-color: var(--accent); text-underline-offset: 0.3em;
+}
+.nav-group { position: relative; }
+.nav-group summary { display: inline-flex; align-items: center; gap: 0.25rem; }
+.nav-group summary::after { content: "\25BE"; font-size: 0.7em; color: var(--graphite); }
+.nav-panel {
+  position: absolute; top: calc(100% + 0.7rem); right: 0;
+  min-width: 12rem; list-style: none; margin: 0; padding: 0.4rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14); z-index: 20;
+}
+.nav-panel li { margin: 0; }
+.nav-panel a { display: block; padding: 0.45rem 0.6rem; color: var(--ink); text-decoration: none; border-radius: 4px; }
+.nav-panel a:hover { background: var(--paper); }
+.nav-panel a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
 
 /* Inverted control (theme toggle) — the black-background chrome element. */
 .invert-btn {
@@ -246,11 +267,21 @@ footer .mark { width: 18px; height: auto; }
 .chapter-key { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
 .chapter-thumbs {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.9rem;
-  margin-top: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.6rem;
 }
-.chapter-thumbs img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
+.chapter-thumbs .thumb {
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.chapter-thumbs .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.chapter-thumbs .thumb:hover { border-color: var(--ink); }
+.chapter-thumbs .thumb[aria-current="true"] { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
 
 .case { margin: 3rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
 .case img { width: 100%; height: auto; display: block; border: 1px solid var(--line); margin-bottom: 1.25rem; }
