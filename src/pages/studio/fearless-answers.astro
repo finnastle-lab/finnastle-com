@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import cloud from '../../assets/elements/the-cloud-they-warned-you-about-fluffy-cloud.png';
+
+// Content salvaged from astlecreative.com before retirement — the
+// philosophy/bio page (/fearlessanswer) combined with the homepage's
+// positioning, skills, and client list. See _migration/astlecreative-content.md
+// for the verified source. This is the redirect-map.md target for
+// astlecreative.com/fearlessanswer.
+const fearless = ['Freedom', 'Rawness', 'Courage', 'Soul'];
+const answers = ['Structure', 'Strategy', 'Certainty', 'Truth'];
+
+const skills = [
+  { name: 'Copywriting', body: 'Grew up with a writer dad, a publisher mum — the craft is the constant across every register, from a broadcast script to a product line.' },
+  { name: 'Branding', body: 'Helping brands find their voice through design and writing — tone of voice, messaging architecture, brand platforms.' },
+  { name: 'Strategy', body: 'Schooled by Creative & Strategy Directors alongside agency owners. Balancing creative thinking in strategic reasoning to express ideas that feel just as fun or fearless as they are effective.' },
+  { name: 'Content Design', body: 'Government websites, chatbots, apps — content that has to work, not just read well.' },
+  { name: 'Platforms & Campaigns', body: 'Global campaigns for major brands, built from a single idea that can flex across every channel.' },
+  { name: 'Social', body: 'A meta native, trained in Snapchat, TikTok, and a follower of pop culture and cultural trends. Finds the right words for ads and creates ideas that feel native to their home.' },
+];
+
+const clients = [
+  'AGL', 'Youi', 'Afterpay', 'Big Red', 'BRX', 'CHEP Network', '7-Eleven',
+  'Stegbar', 'G8 Education', 'Telstra', 'Flybuys', 'VERSA', 'Nova', 'Ford',
+  'Dialogflow', 'Coca-Cola', 'Deepend', 'Fuel Agency',
+];
+---
+<BaseLayout title="Fearless Answers" description="Freedom needs a frame. Expression needs strategy. The philosophy behind the practice." register="studio">
+  <p><a href="/studio">← Studio</a></p>
+
+  <section class="fa-duality">
+    <div class="fa-col">
+      <h1 class="fa-word">Fearless</h1>
+      <ul>{fearless.map((w) => <li>{w}</li>)}</ul>
+    </div>
+    <div class="fa-col fa-col--right">
+      <h1 class="fa-word">Answers</h1>
+      <ul>{answers.map((w) => <li>{w}</li>)}</ul>
+    </div>
+    <img class="stamp" src={cloud.src} alt="" aria-hidden="true"
+      style="top:-1rem; right:-1rem; width:96px; opacity:.6;" />
+  </section>
+
+  <p class="fa-lede">The modern creative is difficult to capture in a sentence
+    because they are <strong>not one single thing</strong>.</p>
+
+  <p>Fearless Answering combines freedom and rawness with structure and
+    strategy — a modern creative who thinks strategically, knows psychology,
+    and sees beauty. Freedom needs a frame. Expression needs strategy. Leave
+    ego and assumption at the door. Focus on what you can change. Meet
+    infinite possibilities with true direction.</p>
+
+  <h3>Background</h3>
+  <p>Published projects, written for national campaigns, and led teams
+    implementing content strategies — at Melbourne’s top creative shops:
+    CHEP Network, Big Red, Deepend & VERSA, Fuel Agency.</p>
+
+  <h3>Credentials</h3>
+  <ul>
+    <li>Bachelor’s Degree in Communication, RMIT</li>
+    <li>Tertiary Arts Grant recipient (2018)</li>
+    <li>B&amp;T’s 30 Under 30 Creative Award honoree</li>
+    <li>D&amp;AD Young Bloods and Snapchat Lions finalist</li>
+  </ul>
+
+  <h2>Skills and counting</h2>
+  <div class="fa-skills">
+    {skills.map((s) => (
+      <details>
+        <summary>{s.name}</summary>
+        <p>{s.body}</p>
+      </details>
+    ))}
+  </div>
+
+  <h2>Working for clients with purpose</h2>
+  <p>Communications for all kinds of business — copywriting and creative
+    direction or content strategy, for E-Commerce, Health, Lifestyle, and B2B.</p>
+  <ul class="fa-clients">
+    {clients.map((c) => <li>{c}</li>)}
+  </ul>
+
+  <hr />
+  <p class="stub">For a freelance writer/designer/wizard. Enquiries via
+    <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a>.</p>
+
+  <!-- TODO(content): "Not commencing any freelance work until Q2 2026" was on
+       the old site — confirm current availability before this goes live.
+       TODO(design): source real client wordmarks/logos for a proper monochrome
+       wall (currently a plain text list); gif-led project heroes per the
+       reference deep-dive are a further design pass. -->
+</BaseLayout>
+
+<style>
+  .fa-duality {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1.5rem 0 3rem;
+  }
+  .fa-col--right { text-align: right; }
+  .fa-word {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    margin: 0 0 1.5rem;
+  }
+  .fa-col ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); }
+  .fa-col li { padding: 0.3rem 0; color: var(--graphite); }
+  .fa-lede { font-family: var(--serif); font-style: italic; font-size: 1.3rem; max-width: 30rem; }
+  .fa-lede strong { text-decoration: underline; text-decoration-color: var(--accent); }
+  .fa-skills { border-top: 1px solid var(--line); margin-top: 1.5rem; }
+  .fa-skills details { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
+  .fa-skills summary {
+    font-family: var(--serif); font-style: italic; font-size: 1.2rem;
+    cursor: pointer; list-style: none;
+  }
+  .fa-skills summary::-webkit-details-marker { display: none; }
+  .fa-skills p { margin: 0.75rem 0 0; color: var(--graphite); }
+  .fa-clients {
+    list-style: none; margin: 1.5rem 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 0.6rem 1rem;
+    font-family: var(--sans); font-size: 0.82rem; color: var(--graphite);
+  }
+  .fa-clients li { border: 1px solid var(--line); padding: 0.25rem 0.7rem; border-radius: 999px; }
+</style>

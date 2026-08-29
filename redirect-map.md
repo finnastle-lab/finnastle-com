@@ -35,11 +35,11 @@ Current indexed host is **`www.finnastle.com`**. Pick one canonical host; 301 th
 | Domain / path | Target | Type |
 |---|---|---|
 | `astlecreative.com` (apex + www) | `finnastle.com/studio` | 301 |
-| `astlecreative.com/fearlessanswer` | **<destination TBD>** | 301 |
+| `astlecreative.com/fearlessanswer` | `finnastle.com/studio/fearless-answers` | 301 |
 | `finnastlecreative.com` | `finnastle.com` | 301 |
 | `fineasscreative.com` | — (burner: parked, no redirect) | — |
 
 ## Open items
-- **`/fearlessanswer` destination** — no such page exists yet. The current home already runs the "searching fearlessly for answers" / F.A. theme. Decide where this 301 lands (likely the new home, or a dedicated manifesto section).
+- **`/fearlessanswer` destination — DECIDED (29 Aug 2026):** `finnastle.com/studio/fearless-answers`. Built from the actual salvaged philosophy/bio page content, not a redirect to home.
 - **www vs apex** canonical (section B).
 - **Webflow property — DECIDED (27 Aug 2026): retire it.** New finnastle.com absorbs its role (this is the whole point — consolidate, cut cost, rebuild on a controlled baseline). ⚠️ **Salvage first:** the current finnastle.com is text-only, so `finnastleworld.webflow.io` is where the *visual/portfolio* work lives — export/download all copy + image assets **before** cancelling. Check if it's on a paid Webflow plan (another cost to cut). Consequence for structure: the new site needs a **visual-work surface** (`/work`), which the current text-only site lacks.
