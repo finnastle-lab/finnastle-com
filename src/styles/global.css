@@ -210,13 +210,18 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 .duality .amp { color: var(--accent); font-style: italic; }
 .hero-sub { font-family: var(--mono); color: var(--graphite); max-width: 34rem; }
 
-/* Hand-brushed collage wordmark — on a light card so it survives dark mode. */
+/* Hand-brushed collage wordmark — a pinned cut-out, not a boxed sticker.
+   Card stays light (the art needs a light ground to read), but a soft shadow +
+   slight rotation + overlapping stamp read as "placed on the page" rather than
+   a flat rectangle dropped onto dark chrome. */
 .wordmark-card {
   position: relative;
   background: var(--card);
-  border: 1px solid var(--line);
-  padding: clamp(1.5rem, 5vw, 3.5rem);
-  margin: 1rem 0 3rem;
+  padding: clamp(1.25rem, 4vw, 2.25rem) clamp(1.5rem, 5vw, 3.5rem);
+  margin: 1.5rem auto 3.5rem;
+  max-width: 34rem;
+  transform: rotate(-0.6deg);
+  box-shadow: 0 1.5rem 3rem -1rem rgba(0, 0, 0, 0.35), 0 0.25rem 0.6rem rgba(0, 0, 0, 0.12);
 }
 .wordmark-card img { width: 100%; height: auto; display: block; position: relative; z-index: 1; }
 
@@ -268,7 +273,16 @@ footer .mark { width: 18px; height: auto; }
   padding: 1rem 0; border-bottom: 1px solid var(--line);
 }
 .exhibition:first-child { padding-top: 0; }
-.exhibition-img { width: 96px; height: 96px; object-fit: cover; flex: none; border: 1px solid var(--line); }
+.exhibition-img { width: 96px; height: 96px; object-fit: cover; flex: none; border: 1px solid var(--line); display: block; }
+.exhibition-img--placeholder {
+  background: var(--card);
+  background-image:
+    linear-gradient(45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--line) 25%, transparent 25%);
+  background-size: 12px 12px;
+  background-position: 0 0, 0 6px;
+  opacity: 0.5;
+}
 .exhibition-text { flex: 1; }
 .exhibition-line { margin: 0; }
 .exhibition-note { margin: 0.35rem 0 0; color: var(--graphite); font-size: 0.9rem; max-width: 34rem; }
@@ -310,6 +324,17 @@ footer .mark { width: 18px; height: auto; }
 
 .case { margin: 3rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
 .case img { width: 100%; height: auto; display: block; border: 1px solid var(--line); margin-bottom: 1.25rem; }
+.case-img-placeholder {
+  width: 100%; aspect-ratio: 16 / 9; margin-bottom: 1.25rem;
+  border: 1px solid var(--line);
+  background-color: var(--card);
+  background-image:
+    linear-gradient(45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--line) 25%, transparent 25%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px;
+  opacity: 0.5;
+}
 .case h2 { margin: 0 0 0.25rem; }
 .case .meta {
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;

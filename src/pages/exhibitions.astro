@@ -35,8 +35,10 @@ const all = [...exhibitions, ...ongoing];
   <ul class="exhibitions">
     {all.map((e) => (
       <li class="exhibition">
-        {e.image && (
+        {e.image ? (
           <Image class="exhibition-img" src={e.image} alt={`${e.venue} — ${e.show}`} widths={[400, 700]} sizes="220px" />
+        ) : (
+          <span class="exhibition-img exhibition-img--placeholder" aria-hidden="true"></span>
         )}
         <div class="exhibition-text">
           <p class="exhibition-line">

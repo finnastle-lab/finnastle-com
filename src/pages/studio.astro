@@ -3,11 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import aglNetflix from '../assets/studio/agl-netflix.png';
 import sevenEleven from '../assets/studio/seven-eleven.jpeg';
+import g8Education from '../assets/studio/g8-education.png';
 
-// Case-study copy migrated from Finn's own writing:
-// 04_WORK/Career/…resume_extended-case-studies_v1 (verified source, not the
-// Webflow cache). Lines preserved per his ground rules; no invented metrics.
-const cases = [
+// Case-study copy migrated from Finn's own writing. AGL/7-Eleven verified
+// against 04_WORK/Career/…resume_extended-case-studies_v1; Coca-Cola/VERSA,
+// G8, Afterpay, Youi verified against the live astlecreative.com folio page
+// ("Pure Hard Copywriting") before its retirement — same standard, no invented
+// details. `hero` and full `meta` are optional; only what's actually stated in
+// source copy is included — no invented roles/years where the source is silent.
+type Case = {
+  title: string; meta?: string; hero?: ImageMetadata;
+  brief: string; execution: string; wrote: string;
+};
+const cases: Case[] = [
   {
     title: 'AGL × Netflix — "Join the Change"',
     meta: 'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
@@ -30,6 +38,47 @@ const cases = [
     wrote:
       'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed — punchy and tuned to morning-coffee-to-late-night-snack habits.',
   },
+  {
+    title: 'Coca-Cola × Amazon — "Alexa, Let’s Share a Coke"',
+    meta: 'Coca-Cola Australia · VERSA, CHEP, BRX · Copywriter & Chat Flow Designer',
+    brief:
+      'A limited voice-commerce promotion built between Ogilvy, Coca-Cola Australia, and Amazon: ask Alexa to “Share a Coke” and get a free personalised can — conversational design for one of the first voice-led FMCG promotions in the region.',
+    execution:
+      'Designed the Alexa conversation flow to sit on top of Ogilvy’s creative platform, keeping the exchange elegant enough to feel like a gift, not a form. Layered in sonic branding to give the interaction its own “fizz.”',
+    wrote:
+      'Wrote the chat-flow dialogue — prompts, confirmations, the personalisation moment — and the sonic-branding brief that shaped how the promotion sounded, not just read.',
+  },
+  {
+    title: 'G8 Education — the Film-Diary Platform',
+    meta: 'G8 Education',
+    hero: g8Education,
+    brief:
+      '“If drop-off guilt is real, how do you help parents feel okay?” A platform and campaign for re-engaging post-COVID early-education enrolment, built on the emotional arc of growing up — from the difficulty of the drop-off to the quiet pride of graduation.',
+    execution:
+      'A Film-Diary structure merging fragments from diverse families to find common ground in the drop-off drama — the shift from tears to unforced smiles. The strategy isolated the sublime in the mundane: a handhold on the bus, a fleeting smile in the back seat.',
+    wrote:
+      'Wrote the platform line — “You aren’t leaving them; you are loving them with us” — and the copy framework built around those small, currency-of-affirmation moments.',
+  },
+  {
+    title: 'Afterpay — "However You Christmas Afterpay It"',
+    meta: 'Afterpay',
+    brief:
+      'The insight: “Everyone Christmases differently.” People don’t just do Christmas, they execute a specific style — the Grinch, the Giver, the long luncher, the summer holidayer — and Afterpay’s partnership network is the precise transactional means for every one of them.',
+    execution:
+      'Built the campaign line to hold every Christmas archetype under one platform, letting the retail network do the work of proving it rather than picking a single “type” of shopper to speak to.',
+    wrote:
+      'Wrote the platform line “However You Christmas Afterpay It” and the archetype copy — the Grinch, the Giver, the long luncher, the summer holidayer.',
+  },
+  {
+    title: 'Youi — You-Shaped Insurance',
+    meta: 'Youi · Big Red Communications · Copywriter & Creative Ideator',
+    brief:
+      'Extend the You-Shaped Insurance platform beyond the policy and across the brand ecosystem — the promise that cover should fit the person, not the other way round.',
+    execution:
+      'Took the idea from the tangible — You-shaped car air fresheners — to the massive scale: a sponsored You-shaped goal post at the NRL. An integrated campaign anchored on one throughline.',
+    wrote:
+      'Wrote the ecosystem extensions and the anchoring promise: capturing the moments when your insurance “truly fits ‘you.’”',
+  },
 ];
 ---
 <BaseLayout title="Studio" description="Astle Creative — copywriting and campaign work for marketing teams." register="studio">
@@ -39,9 +88,13 @@ const cases = [
 
   {cases.map((c) => (
     <article class="case">
-      <Image src={c.hero} alt={c.title} widths={[600, 1000]} sizes="(max-width: 700px) 100vw, 640px" />
+      {c.hero ? (
+        <Image src={c.hero} alt={c.title} widths={[600, 1000]} sizes="(max-width: 700px) 100vw, 640px" />
+      ) : (
+        <div class="case-img-placeholder" aria-hidden="true"></div>
+      )}
       <h2>{c.title}</h2>
-      <p class="meta">{c.meta}</p>
+      {c.meta && <p class="meta">{c.meta}</p>}
       <h3>The brief</h3>
       <p>{c.brief}</p>
       <h3>The execution</h3>
@@ -51,7 +104,13 @@ const cases = [
     </article>
   ))}
 
-  <!-- TODO(content): add the third folio set (Coca-Cola/VERSA, G8 Education,
-       Afterpay, Youi) from astlecreative.com/…/copywritingcampaigns.
-       TODO(strategy): the forward AI-content-ops offer per five-year-plan. -->
+  <!-- GO-LIVE SCOPE:
+       - Hero images missing for Coca-Cola/VERSA, Afterpay, Youi (none in the
+         Webflow salvage) — source from Drive or screenshot before astlecreative.com
+         is retired.
+       - Years/agency unstated in source for G8 and Afterpay — left out rather
+         than invented; confirm if they should be added.
+       - Coca-Cola case is voice/chat-flow work, not a traditional ad — confirmed
+         framing before go-live.
+       - TODO(strategy): the forward AI-content-ops offer per five-year-plan. -->
 </BaseLayout>

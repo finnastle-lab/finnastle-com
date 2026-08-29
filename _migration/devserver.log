@@ -2,70 +2,19 @@
 > finnastle@0.1.0 dev
 > astro dev
 
-10:44:23 [types] Generated 2ms
-10:44:23 [vite] Re-optimizing dependencies because vite config has changed
+10:59:21 [types] Generated 1ms
+10:59:21 [vite] Re-optimizing dependencies because vite config has changed
 
- astro  v4.16.19 ready in 153 ms
+ astro  v4.16.19 ready in 168 ms
 
 ┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
 
-10:44:23 watching for file changes...
-10:44:23 [200] / 15ms
-10:44:49 [200] /tools/icon-pack 8ms
-10:44:51 [200] /_image 71ms
-10:44:51 [200] /_image 104ms
-10:44:51 [200] /_image 124ms
-10:44:51 [200] /_image 126ms
-10:44:51 [200] /_image 128ms
-10:44:52 [200] /_image 187ms
-10:44:52 [200] /_image 130ms
-10:44:52 [200] /_image 73ms
-10:44:52 [200] /_image 82ms
-10:44:52 [200] /_image 119ms
-10:44:52 [200] /_image 50ms
-10:44:52 [200] /_image 49ms
-10:44:52 [200] /_image 126ms
-10:44:52 [200] /_image 48ms
-10:44:52 [200] /_image 76ms
-10:44:52 [200] /_image 72ms
-10:44:52 [200] /_image 61ms
-10:44:52 [200] /_image 56ms
-10:44:52 [200] /_image 41ms
-10:44:52 [200] /_image 85ms
-10:44:52 [200] /_image 63ms
-10:44:52 [200] /_image 106ms
-10:44:52 [200] /_image 77ms
-10:44:52 [200] /_image 50ms
-10:44:52 [200] /_image 66ms
-10:44:52 [200] /_image 95ms
-10:44:52 [200] /_image 62ms
-10:44:52 [200] /_image 75ms
-10:44:52 [200] /_image 48ms
-10:44:52 [200] /_image 42ms
-10:44:52 [200] /_image 83ms
-10:44:52 [200] /_image 75ms
-10:44:52 [200] /_image 78ms
-10:44:52 [200] /_image 50ms
-10:44:52 [200] /_image 60ms
-10:44:52 [200] /_image 66ms
-10:44:52 [200] /_image 55ms
-10:49:16 [watch] /src/styles/global.css
-10:49:31 [200] /work 7ms
-10:49:31 [200] /_image 101ms
-10:49:31 [200] /_image 99ms
-10:49:31 [200] /_image 242ms
-10:49:31 [200] /_image 98ms
-10:49:31 [200] /_image 489ms
-10:49:31 [200] /_image 503ms
-10:49:39 [200] /work/bougainvillea 9ms
-10:49:40 [200] /_image 70ms
-10:49:40 [200] /_image 393ms
-10:49:40 [200] /_image 485ms
-10:49:40 [200] /_image 513ms
-10:49:40 [200] /_image 870ms
-10:49:40 [200] /_image 875ms
-10:50:20 [watch] src/styles/global.css
-10:50:20 [200] /work/bougainvillea 6ms
-10:50:35 [200] /exhibitions 10ms
-10:50:35 [200] /_image 274ms
+10:59:21 watching for file changes...
+10:59:22 [200] / 12ms
+10:59:30 [200] / 4ms
+10:59:45 [200] /exhibitions 4ms
+10:59:50 [200] /_image 264ms
+10:59:55 [200] /studio 5ms
+11:00:00 [200] /_image 109ms
+11:00:00 [200] /_image 221ms

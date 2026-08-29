@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import wordmark from '../assets/brand/wordmark.png';
 import sunFlourish from '../assets/brand/sun-flourish.png';
 import sunset from '../assets/brand/stamps/sunset.png';
+import sunStamp from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.png';
 ---
 <BaseLayout title="Finn Astle" register="art">
   <section class="hero">
@@ -18,6 +19,8 @@ import sunset from '../assets/brand/stamps/sunset.png';
   <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
 
   <div class="wordmark-card">
+    <img class="stamp stamp--ink" src={sunStamp.src} alt="" aria-hidden="true"
+      style="top:-1.6rem; right:1rem; width:64px; transform:rotate(6deg);" />
     <img src={wordmark.src} alt="Finn Astle — hand-brushed collage wordmark" />
   </div>
 
