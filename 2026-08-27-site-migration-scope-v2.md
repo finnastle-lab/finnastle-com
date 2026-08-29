@@ -126,16 +126,19 @@ saving, off the critical path.
 - [x] Internal `_redirects` (`/finnastle` → `/` 301), **RSS** (`/rss.xml`), **canonical tags**, two-register layout — all wired in and verified in the build output.
 - [ ] Content pass: migrate current Squarespace text + salvaged Webflow assets into the stub pages.
 - [ ] Visual design pass (design-like-finn) — the scaffold ships a neutral baseline only.
-- [ ] Push repo to GitHub → connect Cloudflare Pages → `*.pages.dev` preview URL.
+- [x] Pushed to GitHub (`finnastle-lab/finnastle-com`, public) → connected Cloudflare Pages (Astro preset, `npm run build`, `dist`, `NODE_VERSION=20`). ✅ 29 Aug 2026.
 - [x] Tested on the preview URL — **https://finnastle-com.pages.dev** is live and verified (home, redirect, dynamic chapter routes, images). ✅ 29 Aug 2026. Nothing points at a real domain yet.
 - [ ] Re-add a sitemap (deferred — @astrojs/sitemap 3.1.6 needs Astro 5; pin versions at deploy).
 
-### Phase 3 · Cut `finnastle.com` over (reversible)
-- [ ] Add `finnastle.com` to Cloudflare (free); it imports DNS — verify every record carried over (watch for any TXT/verification; you're on gmail so likely no MX).
-- [ ] At **IONOS**, change nameservers → the two Cloudflare NS. **Registration stays at IONOS.**
-- [ ] Point apex + `www` at the Pages project.
-- [ ] Verify: loads, SSL valid, spot-check 10 old URLs 301, RSS resolves. Submit sitemap to **Google Search Console**; watch coverage 2–4 weeks.
-- [ ] Rollback if needed: revert nameservers at IONOS (or restore the A record → 198.185.159.144).
+### Phase 3 · Cut `finnastle.com` over (reversible) ✅ DONE 29 Aug 2026
+- [x] Added `finnastle.com` to Cloudflare (free, Full DNS setup). All records verified carried over correctly, including a real finding: **live IONOS email (MX `mx00/mx01.ionos.com` + SPF TXT)** — untouched, still "DNS only" after cutover. (Corrects the earlier gmail-only assumption.)
+- [x] At **IONOS**, nameservers → `kimora.ns.cloudflare.com` / `rustam.ns.cloudflare.com`. Registration stayed at IONOS. Propagated in minutes (much faster than the quoted 24–48h).
+- [x] Custom domains added on the Pages project: `finnastle.com` + `www.finnastle.com`, both **Active, SSL enabled**.
+- [x] Verified live: both hosts load over HTTPS, `/finnastle` → 301 → `/` confirmed on the real domain, MX/SPF intact.
+- [ ] Minor follow-up (non-blocking): no `www` → apex redirect yet — both currently serve independently rather than canonicalizing. Add a Cloudflare Redirect Rule when convenient.
+- [ ] Submit sitemap to Google Search Console; watch coverage 2–4 weeks. (Sitemap itself still deferred — see Phase 2 note.)
+- [ ] Optional: Cloudflare suggested adding a DMARC record (anti-spoofing) — not urgent, own decision.
+- Rollback if ever needed: revert nameservers at IONOS to `ns1033.ui-dns.org` / `ns1066.ui-dns.biz` / `ns1086.ui-dns.com` / `ns1110.ui-dns.de`.
 
 ### Phase 4 · Redirect the other three
 - [ ] Move `astlecreative.com` (Squarespace) and `finnastlecreative.com` (IONOS) nameservers → Cloudflare. Registrations stay put.
