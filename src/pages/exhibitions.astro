@@ -1,13 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import paperUniverse from '../assets/work/paper-universe/00-key.jpg';
 
 // Verified from the live Squarespace site (27 Aug 2026). The gallery track =
-// the credential (five-year plan §The buyer).
-type Show = { year: string; venue: string; show: string; href?: string };
+// the credential (five-year plan §The buyer). `image` and `note` are optional —
+// add a photo or a short featured line as records surface; both render only
+// when present, so the list degrades gracefully without them.
+type Show = {
+  year: string; venue: string; show: string; href?: string;
+  image?: ImageMetadata; note?: string;
+};
 const exhibitions: Show[] = [
   { year: '2024', venue: 'E55 Exhibition Street', show: 'Local Space', href: 'https://www.fifty-five.com.au/' },
   { year: '2024', venue: 'Workshop Bar, Melbourne', show: 'Local Space', href: 'https://www.workshopbar.com.au/' },
-  { year: '2022', venue: 'That Paper Joint, Brunswick', show: 'Paper Universe', href: 'https://www.thatpaperjoint.com/' },
+  {
+    year: '2022', venue: 'That Paper Joint, Brunswick', show: 'Paper Universe',
+    href: 'https://www.thatpaperjoint.com/', image: paperUniverse,
+  },
   { year: '2018', venue: 'Collingwood Yards', show: '', href: 'https://collingwoodyards.org/' },
   { year: '2017', venue: 'The Lockup / Courthouse Gallery, Newcastle', show: 'via Univ. Newcastle Tertiary Arts Grant', href: 'https://thelockup.org.au/' },
   { year: '2017', venue: 'Student Space, Melbourne University', show: '' },
@@ -18,21 +28,26 @@ const ongoing: Show[] = [
   { year: '—', venue: 'Testing Grounds', show: 'Phosphene + other projects', href: 'https://www.testing-grounds.com.au/' },
   { year: '—', venue: "King's Artist Run Gallery", show: 'incl. film premiere — Black Box / Phosphene', href: 'https://www.kingsartistrun.org.au/program/black_box-phosphene/' },
 ];
+const all = [...exhibitions, ...ongoing];
 ---
 <BaseLayout title="Exhibitions" description="Exhibition history, 2015–2024 — the gallery track." register="art">
   <h1>Exhibitions</h1>
-  <ul>
-    {exhibitions.map((e) => (
-      <li>
-        <strong>{e.year}</strong> — {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
-      </li>
-    ))}
-    {ongoing.map((e) => (
-      <li>
-        <strong>{e.year}</strong> — {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
+  <ul class="exhibitions">
+    {all.map((e) => (
+      <li class="exhibition">
+        {e.image && (
+          <Image class="exhibition-img" src={e.image} alt={`${e.venue} — ${e.show}`} widths={[400, 700]} sizes="220px" />
+        )}
+        <div class="exhibition-text">
+          <p class="exhibition-line">
+            <strong>{e.year}</strong> — {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
+          </p>
+          {e.note && <p class="exhibition-note">{e.note}</p>}
+        </div>
       </li>
     ))}
   </ul>
   <!-- TODO(content): confirm exact show titles/dates against Finn's records;
-       some venue/show labels had extraction noise. -->
+       some venue/show labels had extraction noise. Add photos/featured notes
+       as they surface — the `image`/`note` fields render automatically. -->
 </BaseLayout>

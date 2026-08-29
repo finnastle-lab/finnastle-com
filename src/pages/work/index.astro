@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getChapterCards } from '../../lib/work-chapters';
+
+const chapters = await getChapterCards();
+---
+<BaseLayout title="Work" description="Collage, painting, and mixed media — by chapter." register="art">
+  <h1>Work</h1>
+  <p>Collage, painting, and mixed media — a range of projects, by chapter.</p>
+
+  <div class="work-grid">
+    {chapters.map((c) => (
+      <a class="work-card" href={`/work/${c.slug}`}>
+        <img src={c.key.src} alt={c.title} />
+        <h2>{c.title}</h2>
+        {c.count > 1 && <p class="meta">{c.count} images</p>}
+      </a>
+    ))}
+  </div>
+
+  <!-- TODO(content): confirm chapter key image + order; add year/medium; more
+       chapters (data-centre-hivis, violent-life, found-collage, all-cut-up). -->
+</BaseLayout>

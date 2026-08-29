@@ -50,3 +50,22 @@
 10:44:52 [200] /_image 60ms
 10:44:52 [200] /_image 66ms
 10:44:52 [200] /_image 55ms
+10:49:16 [watch] /src/styles/global.css
+10:49:31 [200] /work 7ms
+10:49:31 [200] /_image 101ms
+10:49:31 [200] /_image 99ms
+10:49:31 [200] /_image 242ms
+10:49:31 [200] /_image 98ms
+10:49:31 [200] /_image 489ms
+10:49:31 [200] /_image 503ms
+10:49:39 [200] /work/bougainvillea 9ms
+10:49:40 [200] /_image 70ms
+10:49:40 [200] /_image 393ms
+10:49:40 [200] /_image 485ms
+10:49:40 [200] /_image 513ms
+10:49:40 [200] /_image 870ms
+10:49:40 [200] /_image 875ms
+10:50:20 [watch] src/styles/global.css
+10:50:20 [200] /work/bougainvillea 6ms
+10:50:35 [200] /exhibitions 10ms
+10:50:35 [200] /_image 274ms
