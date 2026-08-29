@@ -9,4 +9,9 @@ import { defineConfig } from 'astro/config';
 // version / small static endpoint).
 export default defineConfig({
   site: 'https://finnastle.com',
+  // Clean URLs, no trailing slash: /work not /work/. Astro's default
+  // (directory format -> route/index.html) is what caused the trailing
+  // slash on Cloudflare. `file` format emits route.html, served at /route.
+  trailingSlash: 'never',
+  build: { format: 'file' },
 });

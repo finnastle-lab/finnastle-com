@@ -127,7 +127,7 @@ saving, off the critical path.
 - [ ] Content pass: migrate current Squarespace text + salvaged Webflow assets into the stub pages.
 - [ ] Visual design pass (design-like-finn) — the scaffold ships a neutral baseline only.
 - [ ] Push repo to GitHub → connect Cloudflare Pages → `*.pages.dev` preview URL.
-- [ ] Test fully on the preview URL. Nothing points at a real domain yet.
+- [x] Tested on the preview URL — **https://finnastle-com.pages.dev** is live and verified (home, redirect, dynamic chapter routes, images). ✅ 29 Aug 2026. Nothing points at a real domain yet.
 - [ ] Re-add a sitemap (deferred — @astrojs/sitemap 3.1.6 needs Astro 5; pin versions at deploy).
 
 ### Phase 3 · Cut `finnastle.com` over (reversible)
