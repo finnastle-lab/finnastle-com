@@ -141,17 +141,19 @@ saving, off the critical path.
 - Rollback if ever needed: revert nameservers at IONOS to `ns1033.ui-dns.org` / `ns1066.ui-dns.biz` / `ns1086.ui-dns.com` / `ns1110.ui-dns.de`.
 
 ### Phase 4 · Redirect the other three
-- [ ] Move `astlecreative.com` (Squarespace) and `finnastlecreative.com` (IONOS) nameservers → Cloudflare. Registrations stay put.
-- [ ] Cloudflare Redirect Rules (301):
-      - `astlecreative.com` (apex+www) → `finnastle.com/studio`
-      - `astlecreative.com/fearlessanswer` → its specific destination
-      - `finnastlecreative.com` → `finnastle.com`
-      - *(`fineasscreative.com` — no rule; stays parked and off-name.)*
+- [x] `astlecreative.com` (Squarespace) nameservers → Cloudflare (`kimora`/`rustam.ns.cloudflare.com`). Registration stayed at Squarespace. Zone active same-day. ✅ 29 Aug 2026.
+- [x] Cloudflare Redirect Rules deployed, verified via direct-IP curl (bypassing local DNS cache staleness):
+      - `astlecreative.com` (apex+www) → `finnastle.com/studio` — confirmed 301, `server: cloudflare`
+      - `astlecreative.com/fearlessanswer` → `finnastle.com/studio/fearless-answers` — confirmed 301 (rule ordered **first** — redirect rules are terminal, so the more specific rule must run before the general wildcard, not after; "last wins" only applies to non-terminal actions)
+      - No MX records on astlecreative.com (unlike finnastle.com) — no custom email to preserve here.
+- [ ] `finnastlecreative.com` (IONOS) → `finnastle.com` — not done this session; lower priority (no live Squarespace subscription costing money on it).
 - [ ] Calendar reminder: renew `astlecreative.com` + `finnastle.com` indefinitely.
 
-### Phase 5 · Decommission + (optional) consolidation
-- [ ] After the new site is **stable ~2–4 weeks and rankings hold**: cancel the Squarespace **website** subscription. `astlecreative.com` stays as a **domain-only** registration at Squarespace (~$20/yr) — the subscription and the domain are separate products, so this is safe.
-- [ ] *(Optional, later, off critical path)* Consolidate registrars to **Cloudflare Registrar** (at-cost ~$10/domain) once DNS is already on Cloudflare. Needs: unlock + auth/EPP code from current registrar, domain >60 days old. One at a time; keep auth codes.
+### Phase 5 · Decommission + (optional) consolidation ✅ DONE 29 Aug 2026 (ahead of the original "wait 2-4 weeks" plan — accelerated because both sites' content was fully salvaged and re-hosted with working redirects before cancelling, removing the risk the wait was hedging against)
+- [x] Cancelled the **finnastle.com** Squarespace website subscription (A$24/mo). Site stays live/accessible until the current cycle ends **Sep 5, 2026**; resubscribable if ever needed. Domain registration (IONOS) completely untouched.
+- [x] Cancelled the **astlecreative.com** Squarespace website subscription (A$24/mo). Stays live until **Sep 26, 2026**; resubscribable. Domain registration (Squarespace, separate product) completely untouched — confirmed via the account dashboard, no change to domain status.
+- [x] Both Squarespace properties' content was fully captured (`_migration/squarespace-content.md`, `_migration/astlecreative-content.md` + all images) and live redirects verified working **before** either cancellation — so nothing is at risk of loss.
+- [ ] *(Optional, later, off critical path)* Consolidate registrars to **Cloudflare Registrar** (at-cost ~$10/domain) once DNS is already on Cloudflare (finnastle.com, astlecreative.com both qualify now). Needs: unlock + auth/EPP code from current registrar, domain >60 days old. One at a time; keep auth codes.
 
 ---
 
