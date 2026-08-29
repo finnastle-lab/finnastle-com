@@ -1,9 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import wordmark from '../assets/brand/wordmark.png';
 import sunFlourish from '../assets/brand/sun-flourish.png';
 import sunset from '../assets/brand/stamps/sunset.png';
 import sunStamp from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.png';
+import portrait from '../assets/brand/finn-portrait.png';
+
+const explore = [
+  { href: '/work', label: 'Work', body: 'Collage, painting, mixed media — by chapter.' },
+  { href: '/exhibitions', label: 'Exhibitions', body: 'The gallery track, 2015–2024.' },
+  { href: '/tools', label: 'Tools', body: 'Small machines that make, and the methods behind them.' },
+];
 ---
 <BaseLayout title="Finn Astle" register="art">
   <section class="hero">
@@ -35,6 +43,15 @@ import sunStamp from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.
   <p>Let this be a statement of my intention: a place to publish with impermanence
     in mind first, because the weight of free expression costs too much.</p>
 
+  <nav class="explore" aria-label="Explore the site">
+    {explore.map((e) => (
+      <a class="explore-card" href={e.href}>
+        <span class="explore-label">{e.label}</span>
+        <span class="explore-body">{e.body}</span>
+      </a>
+    ))}
+  </nav>
+
   <hr />
 
   <p>Some day this will be a place to see.</p>
@@ -44,5 +61,54 @@ import sunStamp from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.
     born-lonely city, consider this an alley you can shout into. I will answer
     sometimes and ignore you other times, and both are part of the plan.</p>
 
-  <p>— Finn</p>
+  <div class="sign-off">
+    <Image class="portrait" src={portrait} alt="Finn Astle" width={96} height={96} />
+    <p>— Finn</p>
+  </div>
 </BaseLayout>
+
+<style>
+  .explore {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .explore-card {
+    display: block;
+    border: 1px solid var(--line);
+    padding: 1.1rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .explore-card:hover { border-color: var(--accent); }
+  .explore-label {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-bottom: 0.35rem;
+  }
+  .explore-card:hover .explore-label { color: var(--accent); }
+  .explore-body {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--graphite);
+  }
+
+  .sign-off {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: -0.5rem;
+  }
+  .sign-off .portrait {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+  }
+  .sign-off p { margin: 0; }
+</style>
