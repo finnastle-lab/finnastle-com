@@ -9,7 +9,7 @@ const files = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 export const CHAPTER_META: Record<string, { title: string; blurb?: string }> = {
-  'bougainvillea': { title: 'Bougainvillea — Sydney Views' },
+  'bougainvillea': { title: 'Bougainvillea: Sydney Views' },
   'blues-angels-crossing': { title: 'Blues Angels Crossing' },
   'paper-universe': { title: 'Paper Universe' },
   'highway-blues': { title: 'Highway Blues' },

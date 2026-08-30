@@ -8,7 +8,7 @@ const essays = (await getCollection('essays', ({ data }) => !data.draft)).sort(
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
-<BaseLayout title="Writing" description="Essays — the canonical home. Medium and LinkedIn are syndication only." register="art">
+<BaseLayout title="Writing" description="Essays: the canonical home. Medium and LinkedIn are syndication only." register="art">
   <h1>Writing</h1>
   <p>Canonical home for the essays. Medium and LinkedIn carry syndicated copies
     that point back here.</p>
@@ -21,7 +21,7 @@ const fmt = (d: Date) =>
       {essays.map((e) => (
         <li>
           <a href={`/writing/${e.slug}/`}>{e.data.title}</a>
-          {' — '}
+          {' · '}
           <time datetime={e.data.pubDate.toISOString()}>{fmt(e.data.pubDate)}</time>
         </li>
       ))}

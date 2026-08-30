@@ -12,14 +12,6 @@ const tools = [
       'A Hemingway-style editor that flags AI writing tells inline. Paste prose, get colour-coded highlights and a visible “how AI does this read” score. The joke it owns: a tool that rewrites your text to sound less like AI is an AI rewriting your text. Detection, obsolete by design.',
   },
   {
-    name: 'fa-art-namer',
-    tag: 'How-to + code',
-    href: '/tools/fa-art-namer',
-    internal: true,
-    blurb:
-      'A read-only pipeline for cataloguing an art element library — dimensions, transparency, duplicates, keyword-soup names — so a machine can help name and dedupe what a human made. A walk-through with copyable code.',
-  },
-  {
     name: 'FA Brand Reference',
     tag: 'Design system',
     href: '/tools/design-system/',
@@ -33,13 +25,13 @@ const tools = [
     href: '/tools/icon-pack',
     internal: true,
     blurb:
-      'Page two of the brand reference: the scanned collage elements, processed to production-ready transparent cut-outs — the raw material of the work.',
+      'Page two of the brand reference: the scanned collage elements, the raw material of the work.',
   },
 ];
 ---
-<BaseLayout title="Tools" description="Small tools — specimens of making when machines can make." register="art">
+<BaseLayout title="Tools" description="Small tools: specimens of making when machines can make." register="art">
   <h1>Tools</h1>
-  <p>Small machines that make, and the methods behind them. On-territory by construction.</p>
+  <p>Small machines that make. On-territory by construction.</p>
 
   <div class="tool-list">
     {tools.map((t) => (

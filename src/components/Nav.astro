@@ -6,6 +6,23 @@ const isCurrent = (href: string) =>
   path === href || (href !== '/' && path === href) || (href !== '/' && path.startsWith(href + '/'));
 const groupCurrent = (items?: { href: string }[]) =>
   !!items && items.some((i) => isCurrent(i.href));
+
+// Flat list for the mobile icon menu — groups dissolve into their links.
+const flat = NAV.flatMap((item) =>
+  item.href ? [{ href: item.href, label: item.label }] : item.items!,
+);
+
+// Minimal monochrome line icons, keyed by href. stroke=currentColor so they
+// follow the theme like the rest of the chrome.
+const icons: Record<string, string> = {
+  '/work': '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="9" r="1.4"/>',
+  '/exhibitions': '<path d="M3 8l9-5 9 5"/><path d="M5 8v10M10 8v10M14 8v10M19 8v10"/><path d="M3 21h18"/>',
+  '/studio': '<path d="M4 20l3.5-1L19 7.5a2 2 0 0 0-2.8-2.8L4.5 16.5z"/><path d="M14 7l3 3"/>',
+  '/writing': '<path d="M4 6h16M4 12h16M4 18h10"/>',
+  '/tools': '<path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4z"/><path d="M18 15l.9 2.2L21 18l-2.1.8L18 21l-.9-2.2L15 18l2.1-.8z"/>',
+  '/tools/icon-pack': '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+};
+const icon = (href: string) => icons[href] ?? '<circle cx="12" cy="12" r="8"/>';
 ---
 <header class="masthead">
   <div class="masthead-in">
@@ -13,7 +30,9 @@ const groupCurrent = (items?: { href: string }[]) =>
       <img class="mark" src={sun.src} alt="" width="26" aria-hidden="true" />
       <span class="name">Finn Astle</span>
     </a>
-    <nav class="nav" aria-label="Primary">
+
+    <!-- Desktop: inline nav with dropdown groups -->
+    <nav class="nav nav--desktop" aria-label="Primary">
       {NAV.map((item) =>
         item.href ? (
           <a href={item.href} class="nav-top" aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
@@ -29,17 +48,46 @@ const groupCurrent = (items?: { href: string }[]) =>
         ),
       )}
     </nav>
+
+    <!-- Mobile: a single icon-led menu, groups flattened -->
+    <details class="nav-mobile">
+      <summary class="menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path class="menu-open" d="M3 6h18M3 12h18M3 18h18" />
+          <path class="menu-close" d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      </summary>
+      <ul class="mobile-panel">
+        {flat.map((link) => (
+          <li>
+            <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+              <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icon(link.href)} />
+              <span>{link.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+
     <button class="invert-btn" type="button" aria-label="Toggle colour theme" data-theme-toggle>Dark</button>
   </div>
 </header>
 
 <script>
-  // Close any open nav dropdown on outside click or Escape.
-  const groups = () => document.querySelectorAll<HTMLDetailsElement>('.nav-group');
+  // Close any open nav dropdown (desktop groups + mobile menu) on outside click
+  // or Escape.
+  const groups = () => document.querySelectorAll<HTMLDetailsElement>('.nav-group, .nav-mobile');
   document.addEventListener('click', (e) => {
     groups().forEach((g) => { if (!g.contains(e.target as Node)) g.open = false; });
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') groups().forEach((g) => (g.open = false));
   });
+  // Close the mobile menu once a destination is chosen.
+  document.querySelectorAll('.mobile-panel a').forEach((a) =>
+    a.addEventListener('click', () => {
+      const m = a.closest('details') as HTMLDetailsElement | null;
+      if (m) m.open = false;
+    }),
+  );
 </script>

@@ -2,15 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import wordmark from '../assets/brand/wordmark.png';
+import wordmarkDark from '../assets/brand/wordmark-dark.png';
 import sunFlourish from '../assets/brand/sun-flourish.png';
 import sunset from '../assets/brand/stamps/sunset.png';
 import sunStamp from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.png';
 import portrait from '../assets/brand/finn-portrait.png';
 
 const explore = [
-  { href: '/work', label: 'Work', body: 'Collage, painting, mixed media — by chapter.' },
+  { href: '/work', label: 'Work', body: 'Collage, painting and mixed media, by chapter.' },
   { href: '/exhibitions', label: 'Exhibitions', body: 'The gallery track, 2015–2024.' },
-  { href: '/tools', label: 'Tools', body: 'Small machines that make, and the methods behind them.' },
+  { href: '/tools', label: 'Tools', body: 'Small machines that make.' },
 ];
 ---
 <BaseLayout title="Finn Astle" register="art">
@@ -29,15 +30,23 @@ const explore = [
   <div class="wordmark-card">
     <img class="stamp stamp--ink" src={sunStamp.src} alt="" aria-hidden="true"
       style="top:-1.6rem; right:1rem; width:64px; transform:rotate(6deg);" />
-    <img src={wordmark.src} alt="Finn Astle — hand-brushed collage wordmark" />
+    <img class="wordmark-light" src={wordmark.src} alt="Finn Astle, hand-brushed collage wordmark" />
+    <img class="wordmark-dark" src={wordmarkDark.src} alt="" aria-hidden="true" />
   </div>
 
   <p><em>is currently searching fearlessly for answers.</em></p>
 
-  <p>You would say Finn is unavailable in the sense of the word, and the state of
-    our world. He does not have anything worth sharing, caught between the stories
-    started to impress, half shared and half expressed, letters that never left,
-    and yet here we are — a website that is mostly an experiment in polite
+  <p>F.A. turns up everywhere on this site before you're told what it stands for.
+    Finn Astle on the invoices, Fearless Answers on the studio work, and no tidy
+    way to pick just one thing for it to mean. Most days it's both at once.</p>
+
+  <p>The modern creative is hard to catch in a sentence because they refuse to be
+    one thing. Copywriter, painter, occasional collagist of whatever's left in the
+    gutter. Freedom needs a frame, expression needs strategy, so he picked both
+    and called it a practice (mostly to justify the paint).</p>
+
+  <p>What's left after that is half shared and half expressed, the letters that
+    never got sent, and a website that's mostly an experiment in polite
     disappearance.</p>
 
   <p>Let this be a statement of my intention: a place to publish with impermanence
@@ -63,7 +72,7 @@ const explore = [
 
   <div class="sign-off">
     <Image class="portrait" src={portrait} alt="Finn Astle" width={96} height={96} />
-    <p>— Finn</p>
+    <p>Finn</p>
   </div>
 </BaseLayout>
 
@@ -76,10 +85,12 @@ const explore = [
   }
   .explore-card {
     display: block;
+    position: relative;
     border: 1px solid var(--line);
     padding: 1.1rem 1.2rem;
     text-decoration: none;
     color: inherit;
+    transition: border-color 0.2s ease, transform 0.2s ease;
   }
   .explore-card:hover { border-color: var(--accent); }
   .explore-label {
@@ -95,6 +106,22 @@ const explore = [
     font-family: var(--sans);
     font-size: 0.8rem;
     color: var(--graphite);
+  }
+  /* Subtle desktop hover affordance: an arrow that slides in, and a small lift. */
+  .explore-card::after {
+    content: "→";
+    position: absolute;
+    top: 1.1rem;
+    right: 1.2rem;
+    font-family: var(--sans);
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-0.35rem);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  @media (hover: hover) {
+    .explore-card:hover { transform: translateY(-2px); }
+    .explore-card:hover::after { opacity: 1; transform: translateX(0); }
   }
 
   .sign-off {

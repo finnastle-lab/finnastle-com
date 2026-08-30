@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Phase 1 inventory — element library.
+Phase 1 inventory: element library.
 
 READ-ONLY. Walks an art corpus, records one row per image, and writes
 catalog.csv next to this script. Never renames, moves, or modifies a source
@@ -35,7 +35,7 @@ from pathlib import Path
 
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff", ".heic", ".psd", ".gif", ".bmp"}
 
-# Directory names (any depth) that are reel-build byproducts — never index.
+# Directory names (any depth) that are reel-build byproducts; never index.
 SKIP_DIR_PREFIXES = ("verify", "frames", "bounds_", "sheets", "check", "cand", "gcand", "prev")
 SKIP_DIR_EXACT = {".git", "node_modules", "__pycache__"}
 
@@ -78,7 +78,7 @@ def corpus_scope_of(rel_path: str, filename: str) -> str:
 def should_skip_dir(name: str) -> bool:
     if name in SKIP_DIR_EXACT:
         return True
-    # `_`-prefixed dirs are staging/meta (e.g. _dedupe-trash, _lost-rescan) — never index
+    # `_`-prefixed dirs are staging/meta (e.g. _dedupe-trash, _lost-rescan); never index
     if name.startswith("_"):
         return True
     return any(name.lower().startswith(p) for p in SKIP_DIR_PREFIXES)
@@ -147,7 +147,7 @@ def main() -> int:
     ap.add_argument("--out", default=str(Path(__file__).with_name("catalog.csv")))
     ap.add_argument("--no-hash", action="store_true", help="skip sha256 (faster on Drive)")
     ap.add_argument("--no-probe", action="store_true",
-                    help="skip sips dims/alpha — metadata only, no file hydration "
+                    help="skip sips dims/alpha; metadata only, no file hydration "
                          "(fast + safe first pass over Drive FUSE)")
     ap.add_argument("--probe-under", type=int, default=None, metavar="BYTES",
                     help="only probe (sips) + hash files at/under this size; larger "
@@ -240,7 +240,7 @@ def main() -> int:
         writer.writeheader()
         writer.writerows(rows)
 
-    # summary to stderr — the CSV is the deliverable
+    # summary to stderr; the CSV is the deliverable
     total = len(rows)
     insitu = sum(1 for r in rows if r["usability_guess"].startswith("in-situ-ready"))
     core = sum(1 for r in rows if r["corpus_scope"] == "core")

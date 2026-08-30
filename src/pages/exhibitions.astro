@@ -25,24 +25,24 @@ const exhibitions: Show[] = [
   { year: '2015', venue: 'Fiona & Sidney Myer Gallery, VCA', show: 'Student Exhibition / Grad Show', href: 'https://finearts-music.unimelb.edu.au/about-us/fiona-and-sidney-myer-gallery' },
 ];
 const ongoing: Show[] = [
-  { year: '—', venue: 'Testing Grounds', show: 'Phosphene + other projects', href: 'https://www.testing-grounds.com.au/' },
-  { year: '—', venue: "King's Artist Run Gallery", show: 'incl. film premiere — Black Box / Phosphene', href: 'https://www.kingsartistrun.org.au/program/black_box-phosphene/' },
+  { year: 'Ongoing', venue: 'Testing Grounds', show: 'Phosphene + other projects', href: 'https://www.testing-grounds.com.au/' },
+  { year: 'Ongoing', venue: "King's Artist Run Gallery", show: 'incl. film premiere: Black Box / Phosphene', href: 'https://www.kingsartistrun.org.au/program/black_box-phosphene/' },
 ];
 const all = [...exhibitions, ...ongoing];
 ---
-<BaseLayout title="Exhibitions" description="Exhibition history, 2015–2024 — the gallery track." register="art">
+<BaseLayout title="Exhibitions" description="Exhibition history, 2015–2024: the gallery track." register="art">
   <h1>Exhibitions</h1>
   <ul class="exhibitions">
     {all.map((e) => (
       <li class="exhibition">
         {e.image ? (
-          <Image class="exhibition-img" src={e.image} alt={`${e.venue} — ${e.show}`} widths={[400, 700]} sizes="220px" />
+          <Image class="exhibition-img" src={e.image} alt={`${e.venue}: ${e.show}`} widths={[400, 700]} sizes="220px" />
         ) : (
           <span class="exhibition-img exhibition-img--placeholder" aria-hidden="true"></span>
         )}
         <div class="exhibition-text">
           <p class="exhibition-line">
-            <strong>{e.year}</strong> — {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
+            <strong>{e.year}</strong> · {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
           </p>
           {e.note && <p class="exhibition-note">{e.note}</p>}
         </div>

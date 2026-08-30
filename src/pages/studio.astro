@@ -3,7 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import aglNetflix from '../assets/studio/agl-netflix.png';
 import sevenEleven from '../assets/studio/seven-eleven.jpeg';
+import cocaColaAlexa from '../assets/studio/coca-cola-alexa.png';
 import g8Education from '../assets/studio/g8-education.png';
+import afterpay from '../assets/studio/afterpay.png';
+import youi from '../assets/studio/youi.png';
+import grove from '../assets/studio/grove-distillery.jpg';
 import welly from '../assets/studio/welly.webp';
 
 // Case-study copy migrated from Finn's own writing. AGL/7-Eleven verified
@@ -18,95 +22,99 @@ type Case = {
 };
 const cases: Case[] = [
   {
-    title: 'AGL × Netflix — "Join the Change"',
+    title: 'AGL × Netflix: "Join the Change"',
     meta: 'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
     hero: aglNetflix,
     brief:
-      'Differentiate AGL in a commoditised energy market with a universal truth. We landed on the relatable “dad-at-home” moments — thermostat-controlling, F1-watching, household management — and built the “Join the Change” rebrand platform around a shift in what energy is for: its value defined by what it powers. In the modern home, Netflix is as essential as heating.',
+      'Differentiate AGL in a commoditised energy market with a universal truth. We landed on the relatable “dad-at-home” moments (thermostat-controlling, F1-watching, household management) and built the “Join the Change” rebrand platform around a shift in what energy is for: its value defined by what it powers. In the modern home, Netflix is as essential as heating.',
     execution:
-      'Developed the “TV Dad” persona as the centrepiece of the platform launch, using archetypal household friction to introduce the AGL Netflix plan — energy framed as the power source for the home’s actual priorities, like streaming. Rolled out across broadcast and tactical, price-based retail assets.',
+      'Developed the “TV Dad” persona as the centrepiece of the platform launch, using archetypal household friction to introduce the AGL Netflix plan: energy framed as the power source for the home’s actual priorities, like streaming. Rolled out across broadcast and tactical, price-based retail assets.',
     wrote:
-      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots — including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook — and managed the brand-voice rollout across retail.',
+      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots (including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook) and managed the brand-voice rollout across retail.',
   },
   {
-    title: '7-Eleven — "Summer 24/7"',
+    title: '7-Eleven: "Summer 24/7"',
     meta: '7-Eleven · CHEP Network · Copywriter · 2021–22',
     hero: sevenEleven,
     brief:
-      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience — a looping day-into-night hook that mirrored summer energy, day into night and back again.',
+      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience: a looping day-into-night hook that mirrored summer energy, day into night and back again.',
     execution:
-      'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique — talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
+      'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique: talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
     wrote:
-      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed — punchy and tuned to morning-coffee-to-late-night-snack habits.',
+      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits.',
   },
   {
-    title: 'Coca-Cola × Amazon — "Alexa, Let’s Share a Coke"',
+    title: 'Coca-Cola × Amazon: "Alexa, Let’s Share a Coke"',
     meta: 'Coca-Cola Australia · VERSA, CHEP, BRX · Copywriter & Chat Flow Designer',
+    hero: cocaColaAlexa,
     brief:
-      'A limited voice-commerce promotion built between Ogilvy, Coca-Cola Australia, and Amazon: ask Alexa to “Share a Coke” and get a free personalised can — conversational design for one of the first voice-led FMCG promotions in the region.',
+      'A limited voice-commerce promotion built between Ogilvy, Coca-Cola Australia, and Amazon: ask Alexa to “Share a Coke” and get a free personalised can. Conversational design for one of the first voice-led FMCG promotions in the region.',
     execution:
       'Designed the Alexa conversation flow to sit on top of Ogilvy’s creative platform, keeping the exchange elegant enough to feel like a gift, not a form. Layered in sonic branding to give the interaction its own “fizz.”',
     wrote:
-      'Wrote the chat-flow dialogue — prompts, confirmations, the personalisation moment — and the sonic-branding brief that shaped how the promotion sounded, not just read.',
+      'Wrote the chat-flow dialogue (prompts, confirmations, the personalisation moment) and the sonic-branding brief that shaped how the promotion sounded, not just read.',
   },
   {
-    title: 'G8 Education — the Film-Diary Platform',
+    title: 'G8 Education: the Film-Diary Platform',
     meta: 'G8 Education',
     hero: g8Education,
     brief:
-      '“If drop-off guilt is real, how do you help parents feel okay?” A platform and campaign for re-engaging post-COVID early-education enrolment, built on the emotional arc of growing up — from the difficulty of the drop-off to the quiet pride of graduation.',
+      '“If drop-off guilt is real, how do you help parents feel okay?” A platform and campaign for re-engaging post-COVID early-education enrolment, built on the emotional arc of growing up: from the difficulty of the drop-off to the quiet pride of graduation.',
     execution:
-      'A Film-Diary structure merging fragments from diverse families to find common ground in the drop-off drama — the shift from tears to unforced smiles. The strategy isolated the sublime in the mundane: a handhold on the bus, a fleeting smile in the back seat.',
+      'A Film-Diary structure merging fragments from diverse families to find common ground in the drop-off drama: the shift from tears to unforced smiles. The strategy isolated the sublime in the mundane: a handhold on the bus, a fleeting smile in the back seat.',
     wrote:
-      'Wrote the platform line — “You aren’t leaving them; you are loving them with us” — and the copy framework built around those small, currency-of-affirmation moments.',
+      'Wrote the platform line, “You aren’t leaving them; you are loving them with us,” and the copy framework built around those small, currency-of-affirmation moments.',
   },
   {
-    title: 'Afterpay — "However You Christmas Afterpay It"',
+    title: 'Afterpay: "However You Christmas Afterpay It"',
     meta: 'Afterpay',
+    hero: afterpay,
     brief:
-      'The insight: “Everyone Christmases differently.” People don’t just do Christmas, they execute a specific style — the Grinch, the Giver, the long luncher, the summer holidayer — and Afterpay’s partnership network is the precise transactional means for every one of them.',
+      'The insight: “Everyone Christmases differently.” People don’t just do Christmas, they execute a specific style (the Grinch, the Giver, the long luncher, the summer holidayer), and Afterpay’s partnership network is the precise transactional means for every one of them.',
     execution:
       'Built the campaign line to hold every Christmas archetype under one platform, letting the retail network do the work of proving it rather than picking a single “type” of shopper to speak to.',
     wrote:
-      'Wrote the platform line “However You Christmas Afterpay It” and the archetype copy — the Grinch, the Giver, the long luncher, the summer holidayer.',
+      'Wrote the platform line “However You Christmas Afterpay It” and the archetype copy: the Grinch, the Giver, the long luncher, the summer holidayer.',
   },
   {
-    title: 'Youi — You-Shaped Insurance',
+    title: 'Youi: You-Shaped Insurance',
     meta: 'Youi · Big Red Communications · Copywriter & Creative Ideator',
+    hero: youi,
     brief:
-      'Extend the You-Shaped Insurance platform beyond the policy and across the brand ecosystem — the promise that cover should fit the person, not the other way round.',
+      'Extend the You-Shaped Insurance platform beyond the policy and across the brand ecosystem: the promise that cover should fit the person, not the other way round.',
     execution:
-      'Took the idea from the tangible — You-shaped car air fresheners — to the massive scale: a sponsored You-shaped goal post at the NRL. An integrated campaign anchored on one throughline.',
+      'Took the idea from the tangible (You-shaped car air fresheners) to the massive scale: a sponsored You-shaped goal post at the NRL. An integrated campaign anchored on one throughline.',
     wrote:
       'Wrote the ecosystem extensions and the anchoring promise: capturing the moments when your insurance “truly fits ‘you.’”',
   },
   {
-    title: 'The Grove Distillery — Brand Platform',
+    title: 'The Grove Distillery: Brand Platform',
     meta: 'The Grove Distillery · Freelance · Tone of Voice, Messaging & Web Copy',
+    hero: grove,
     brief:
-      'The first craft spirit distillery in the Margaret River region needed a brand platform to carry it from family hobby to a serious East Coast expansion — tone of voice, messaging architecture, and web copy built around one throughline: the story in every bottle.',
+      'The first craft spirit distillery in the Margaret River region needed a brand platform to carry it from family hobby to a serious East Coast expansion: tone of voice, messaging architecture, and web copy built around one throughline, the story in every bottle.',
     execution:
-      'Built the platform on the brand’s own history — a still bought in 2010, the first sent to Western Australia — and translated it into a tone that could flex across the distillery, the accommodation, and the product range without losing the thread.',
+      'Built the platform on the brand’s own history (a still bought in 2010, the first sent to Western Australia) and translated it into a tone that could flex across the distillery, the accommodation, and the product range without losing the thread.',
     wrote:
-      'Wrote the platform line “Distilled with a story. Delivered to you.” and the supporting territory: “Made on this land. Distilled in history.” Developed the positioning statement — “Pioneers of the craft” — used across web and social.',
+      'Wrote the platform line “Distilled with a story. Delivered to you.” and the supporting territory: “Made on this land. Distilled in history.” Developed the positioning statement, “Pioneers of the craft,” used across web and social.',
   },
   {
-    title: 'Welly — Instant Fruit & Veg Smoothies',
+    title: 'Welly: Instant Fruit & Veg Smoothies',
     meta: 'Welly · Freelance · Brand Voice & Web Copy',
     hero: welly,
     brief:
-      'A sustainability-led smoothie brand needed copy that made “5 a day” feel achievable rather than virtuous — for both a kids’ range and an adult range, built on freeze-dried, upcycled produce that would otherwise go to landfill.',
+      'A sustainability-led smoothie brand needed copy that made “5 a day” feel achievable rather than virtuous, for both a kids’ range and an adult range, built on freeze-dried, upcycled produce that would otherwise go to landfill.',
     execution:
-      'Anchored the brand voice in the actual insight — 96% of children and 90% of adults miss their recommended fruit and veg intake — and turned the sustainability angle into brand substance rather than a footnote: transparent sourcing, upcycled produce, a 2025 zero-waste target.',
+      'Anchored the brand voice in the actual insight (96% of children and 90% of adults miss their recommended fruit and veg intake) and turned the sustainability angle into brand substance rather than a footnote: transparent sourcing, upcycled produce, a 2025 zero-waste target.',
     wrote:
-      'Wrote the core platform lines — “Easy way to get 5 a day,” “100% transparent goodness,” “From the earth, for you” — across web copy, product range messaging, and the kids/adults range split.',
+      'Wrote the core platform lines (“Easy way to get 5 a day,” “100% transparent goodness,” “From the earth, for you”) across web copy, product range messaging, and the kids/adults range split.',
   },
 ];
 ---
-<BaseLayout title="Studio" description="Astle Creative — copywriting and campaign work for marketing teams." register="studio">
+<BaseLayout title="Studio" description="Astle Creative: copywriting and campaign work for marketing teams." register="studio">
   <h1>Studio</h1>
   <p>Astle Creative. Copywriting and creative that ships at volume without losing
-    the idea — full-service strategy, campaigns, tone of voice, and retail rollout.</p>
+    the idea: full-service strategy, campaigns, tone of voice, and retail rollout.</p>
 
   {cases.map((c) => (
     <article class="case">
@@ -127,9 +135,9 @@ const cases: Case[] = [
   ))}
 
   <!-- GO-LIVE SCOPE:
-       - Hero images missing for Coca-Cola/VERSA, Afterpay, Youi (none in the
-         Webflow salvage) — source from Drive or screenshot before astlecreative.com
-         is retired.
+       - Hero images sourced from Drive (04_WORK/Folio) 30 Aug 2026: Coca-Cola/Alexa,
+         Afterpay, Youi. Grove hero is the Caribbean Spiced product shot from the
+         2021 rum campaign archive (99_ARCHIVE/The Grove Rum Campaign.zip).
        - Years/agency unstated in source for G8 and Afterpay — left out rather
          than invented; confirm if they should be added.
        - Coca-Cola case is voice/chat-flow work, not a traditional ad — confirmed

@@ -2,9 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
-// Finn Astle icon pack — processed collage elements (fa-art-namer Phase 2).
-// Populate by running process.py over a Drive element folder into
-// src/assets/elements/. Source of truth is Drive.
+// Finn Astle icon pack. Source of truth is Drive.
 const files = import.meta.glob<{ default: ImageMetadata }>(
   '../../assets/elements/*.png',
   { eager: true },
@@ -17,10 +15,10 @@ const els = Object.entries(files)
   })
   .sort((a, b) => a.label.localeCompare(b.label));
 ---
-<BaseLayout title="Icon Pack" description="Finn Astle icon pack — processed collage elements." register="art">
+<BaseLayout title="Icon Pack" description="Finn Astle icon pack: processed collage elements." register="art">
   <h1>Icon Pack</h1>
-  <p><a href="/tools">← Tools</a> · Page two of the brand reference. Processed
-    collage elements — background-removed, trimmed, standardised. {els.length} elements.</p>
+  <p><a href="/tools">← Tools</a> · Page two of the brand reference. The scanned
+    collage elements, {els.length} of them.</p>
 
   <div class="icon-grid">
     {els.map((e) => (

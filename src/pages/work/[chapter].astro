@@ -10,7 +10,7 @@ const { chapter } = Astro.params;
 const c = await getChapterDetail(chapter!);
 if (!c) throw new Error(`Unknown chapter: ${chapter}`);
 ---
-<BaseLayout title={c.title} description={`${c.title} — collage, painting, mixed media.`} register="art">
+<BaseLayout title={c.title} description={`${c.title}: collage, painting, mixed media.`} register="art">
   <p><a href="/work">← Work</a></p>
   <h1>{c.title}</h1>
   {c.blurb && <p>{c.blurb}</p>}
@@ -18,10 +18,10 @@ if (!c) throw new Error(`Unknown chapter: ${chapter}`);
   <article class="chapter" data-chapter>
     <img class="chapter-key" data-main src={c.large[0].src} alt={c.title} />
     {c.count > 1 && (
-      <div class="chapter-thumbs" role="group" aria-label={`${c.title} — images`}>
+      <div class="chapter-thumbs" role="group" aria-label={`${c.title} images`}>
         {c.large.map((lg, i) => (
           <button type="button" class="thumb" data-full={lg.src} aria-current={i === 0 ? 'true' : undefined}>
-            <img src={c.thumb[i].src} alt={`${c.title} — ${i + 1}`} loading="lazy" />
+            <img src={c.thumb[i].src} alt={`${c.title} ${i + 1}`} loading="lazy" />
           </button>
         ))}
       </div>

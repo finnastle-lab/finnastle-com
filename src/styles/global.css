@@ -152,6 +152,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 .nav {
   margin-left: auto;
@@ -197,6 +198,45 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 }
 .invert-btn:hover { background: var(--accent); }
 
+/* --- Mobile icon menu ------------------------------------------------------- */
+/* Hidden on desktop; the inline .nav--desktop is shown instead. */
+.nav-mobile { display: none; position: relative; margin-left: auto; }
+.nav-mobile > summary { list-style: none; }
+.nav-mobile > summary::-webkit-details-marker { display: none; }
+.menu-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; margin: -0.35rem 0;
+  color: var(--graphite); cursor: pointer;
+  border: 1px solid var(--line); border-radius: 8px; background: none;
+}
+.menu-btn:hover { color: var(--ink); border-color: var(--line-strong); }
+.nav-mobile[open] .menu-btn { color: var(--ink); border-color: var(--line-strong); }
+.menu-btn .menu-close { display: none; }
+.nav-mobile[open] .menu-btn .menu-open { display: none; }
+.nav-mobile[open] .menu-btn .menu-close { display: inline; }
+.mobile-panel {
+  position: absolute; top: calc(100% + 0.6rem); right: 0;
+  min-width: 13.5rem; list-style: none; margin: 0; padding: 0.4rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18); z-index: 30;
+}
+.mobile-panel li { margin: 0; }
+.mobile-panel a {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.7rem 0.7rem; color: var(--ink); text-decoration: none;
+  border-radius: 6px; font-family: var(--sans); font-size: 0.95rem;
+}
+.mobile-panel a:hover, .mobile-panel a:focus-visible { background: var(--paper); }
+.mobile-panel .nav-icon { flex: none; color: var(--graphite); }
+.mobile-panel a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+.mobile-panel a[aria-current="page"] .nav-icon { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .nav--desktop { display: none; }
+  .nav-mobile { display: block; }
+  .masthead-in { gap: 0.75rem; }
+}
+
 /* --- Home hero: duality construction ---------------------------------------- */
 .hero { padding: 1.5rem 0 1rem; }
 .duality {
@@ -224,6 +264,20 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
   box-shadow: 0 1.5rem 3rem -1rem rgba(0, 0, 0, 0.35), 0 0.25rem 0.6rem rgba(0, 0, 0, 0.12);
 }
 .wordmark-card img { width: 100%; height: auto; display: block; position: relative; z-index: 1; }
+
+/* Dark mode swaps in the lightness-inverted, background-removed wordmark so the
+   brush lettering reads on dark while the collage colours stay intact. */
+.wordmark-card .wordmark-dark { display: none; }
+/* On dark, the wordmark is a transparent cut-out — drop the light card + slab
+   shadow so it reads as placed on the page, not a grey box. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .wordmark-card { background: transparent; box-shadow: none; }
+  :root:not([data-theme="light"]) .wordmark-card .wordmark-light { display: none; }
+  :root:not([data-theme="light"]) .wordmark-card .wordmark-dark { display: block; }
+}
+:root[data-theme="dark"] .wordmark-card { background: transparent; box-shadow: none; }
+:root[data-theme="dark"] .wordmark-card .wordmark-light { display: none; }
+:root[data-theme="dark"] .wordmark-card .wordmark-dark { display: block; }
 
 /* --- Collage stamps: found-ephemera texture in open space -------------------- */
 .hero, .wordmark-card, .section-stamped { position: relative; }
@@ -295,10 +349,28 @@ footer .mark { width: 18px; height: auto; }
   margin-top: 2.5rem;
 }
 .work-card { text-decoration: none; color: inherit; display: block; }
-.work-card img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--card); }
+.work-card-media {
+  display: block; position: relative; overflow: hidden;
+  border: 1px solid var(--line); background: var(--card);
+}
+.work-card img { width: 100%; height: auto; display: block; }
+.work-card-cue {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--paper);
+  padding: 1.4rem 0.7rem 0.55rem;
+  background: linear-gradient(to top, rgba(15, 15, 14, 0.72), transparent);
+  opacity: 0; transform: translateY(0.4rem);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
 .work-card h2 { margin: 0.9rem 0 0.15rem; font-size: 1.5rem; }
 .work-card:hover h2 { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
 .work-card .meta { font-family: var(--sans); font-size: 0.78rem; color: var(--graphite); margin: 0; }
+@media (hover: hover) {
+  .work-card img { transition: transform 0.4s ease; }
+  .work-card:hover img { transform: scale(1.04); }
+  .work-card:hover .work-card-cue, .work-card:focus-visible .work-card-cue { opacity: 1; transform: translateY(0); }
+}
 
 /* Art chapters: one key image + optional gallery */
 .chapter { margin: 3.5rem 0; padding-bottom: 3rem; border-bottom: 1px solid var(--line); }
