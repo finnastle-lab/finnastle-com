@@ -8,8 +8,26 @@ const tools = [
     tag: 'Live tool',
     href: 'https://finnastle-lab.github.io/un-write/',
     repo: 'https://github.com/finnastle-lab/un-write',
+    external: true,
     blurb:
       'A Hemingway-style editor that flags AI writing tells inline. Paste prose, get colour-coded highlights and a visible “how AI does this read” score. The joke it owns: a tool that rewrites your text to sound less like AI is an AI rewriting your text. Detection, obsolete by design.',
+  },
+  {
+    name: 'Monthly Visual & Social Performance Studio',
+    tag: 'Live tool',
+    href: 'https://monthly-visual-social-performance-studio.ai.studio',
+    external: true,
+    blurb:
+      "A monthly dashboard pairing Instagram engagement data with Gemini's own read of each image's visual style — history and comparison instead of a single stale export.",
+  },
+  {
+    name: 'DreadSwipe',
+    tag: 'Live tool',
+    href: 'https://dreadswipe.ai.studio',
+    repo: 'https://github.com/finnastle-lab/Dread-Swipe',
+    external: true,
+    blurb:
+      'Horror and thriller discovery, Tinder-style — swipe against a custom taste taxonomy, Google Sheets holding persistent memory, Letterboxd export for the keepers.',
   },
   {
     name: 'FA Brand Reference',
@@ -37,13 +55,13 @@ const tools = [
     {tools.map((t) => (
       <article class="tool">
         <h2>
-          <a href={t.href}>{t.name}</a>
+          <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined}>{t.name}</a>
           <span class="tag">{t.tag}</span>
         </h2>
         <p>{t.blurb}</p>
         <p class="tool-links">
-          <a href={t.href}>{t.internal ? 'Open →' : 'Open the tool →'}</a>
-          {t.repo && <> · <a href={t.repo}>Source</a></>}
+          <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined}>{t.internal ? 'Open →' : 'Open the tool →'}</a>
+          {t.repo && <> · <a href={t.repo} target="_blank" rel="noopener">Source</a></>}
         </p>
       </article>
     ))}

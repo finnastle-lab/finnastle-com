@@ -310,6 +310,11 @@ footer .mark { width: 18px; height: auto; }
 /* --- Components -------------------------------------------------------------- */
 .stub { color: var(--graphite); font-style: italic; }
 
+.essay-list { list-style: none; padding: 0; margin: 0; }
+.essay-item { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; }
+.essay-thumb { flex: none; display: block; width: 96px; height: 64px; overflow: hidden; }
+.essay-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -438,6 +443,7 @@ footer .mark { width: 18px; height: auto; }
 code { font-family: var(--mono); font-size: 0.9em; }
 
 article :where(h2, h3) { margin-top: 2.5rem; }
+article img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 
 /* Icon pack grid */
 .icon-grid {

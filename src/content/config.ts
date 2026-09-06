@@ -4,14 +4,17 @@ import { defineCollection, z } from 'astro:content';
 // Medium/LinkedIn are syndication only.
 const essays = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-    pubDate: z.coerce.date(),
-    // Where this was syndicated, so canonical stays pointed home.
-    canonicalUrl: z.string().url().optional(),
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      pubDate: z.coerce.date(),
+      // Where this was syndicated, so canonical stays pointed home.
+      canonicalUrl: z.string().url().optional(),
+      draft: z.boolean().default(false),
+      heroImage: image().optional(),
+      heroImageAlt: z.string().optional(),
+    }),
 });
 
 export const collections = { essays };
