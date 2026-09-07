@@ -442,8 +442,10 @@ footer .mark { width: 18px; height: auto; }
 .code-block .copy:hover { background: #33332a; }
 code { font-family: var(--mono); font-size: 0.9em; }
 
-article :where(h2, h3) { margin-top: 2.5rem; }
-article img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
+.essay { max-width: 40rem; }
+.essay :where(h1, h2, h3) { max-width: none; }
+.essay :where(h2, h3) { margin-top: 2.5rem; }
+.essay img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 
 /* Icon pack grid */
 .icon-grid {

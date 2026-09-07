@@ -19,7 +19,7 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <BaseLayout title={entry.data.title} description={entry.data.description} register="art">
-  <article>
+  <article class="essay">
     <h1>{entry.data.title}</h1>
     <p><time datetime={entry.data.pubDate.toISOString()}>{fmt(entry.data.pubDate)}</time></p>
     {entry.data.heroImage && (
