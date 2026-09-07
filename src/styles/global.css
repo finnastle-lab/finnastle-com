@@ -447,6 +447,34 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .essay :where(h2, h3) { margin-top: 2.5rem; }
 .essay img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 
+/* Icon pack filter */
+.icon-filter {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  margin-top: 1.5rem;
+  padding: 0.55rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.icon-filter:focus { outline: none; border-color: var(--line-strong); }
+.icon-filter-count {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--graphite);
+  margin: 0.5rem 0 0;
+}
+.icon-filter-empty {
+  font-family: var(--sans);
+  color: var(--graphite);
+  font-style: italic;
+  margin-top: 2rem;
+}
+
 /* Icon pack grid */
 .icon-grid {
   display: grid;
