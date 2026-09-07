@@ -4,7 +4,7 @@ description: "Eight Google AI certificates, four things actually built with them
 pubDate: 2026-09-06
 draft: false
 heroImage: ../../assets/writing/four-things-i-built-hero.png
-heroImageAlt: A screenshot of this article's own earlier draft — old title, old image — now standing in as the new hero image
+heroImageAlt: The eight Google AI certificate badges arranged in a sunburst, with hand-drawn marks scattered around them
 ---
 
 A certificate only proves you sat still. That's the sentence I kept coming back to over the eight Google AI Professional Certificates I've spent the year working through, the last of which I added to my profile today. Sitting still isn't nothing. But it isn't the thing either, and I didn't want to be the guy who finishes a course and calls it a skill.
