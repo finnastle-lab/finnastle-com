@@ -1,0 +1,646 @@
+{
+  "name": "FA icon pack",
+  "count": 106,
+  "format": "webp",
+  "canvas": "512x512 transparent, artwork centred in an 880/1024 content box",
+  "source": "Google Drive 01_ART/00_icon-pack (1024px PNG masters)",
+  "note": "Filenames are descriptive placeholders; an editorial rename pass is planned. Expect URLs to change once; redirects will be added.",
+  "icons": [
+    {
+      "name": "american-spirit",
+      "file": "american-spirit.webp",
+      "url": "https://finnastle.com/icons/american-spirit.webp",
+      "bytes": 41204
+    },
+    {
+      "name": "ancient-statue",
+      "file": "ancient-statue.webp",
+      "url": "https://finnastle.com/icons/ancient-statue.webp",
+      "bytes": 49112
+    },
+    {
+      "name": "angel-statue-church",
+      "file": "angel-statue-church.webp",
+      "url": "https://finnastle.com/icons/angel-statue-church.webp",
+      "bytes": 40336
+    },
+    {
+      "name": "angel-wings-spread-blue",
+      "file": "angel-wings-spread-blue.webp",
+      "url": "https://finnastle.com/icons/angel-wings-spread-blue.webp",
+      "bytes": 5246
+    },
+    {
+      "name": "angelic-baby",
+      "file": "angelic-baby.webp",
+      "url": "https://finnastle.com/icons/angelic-baby.webp",
+      "bytes": 22708
+    },
+    {
+      "name": "apache-helicopter",
+      "file": "apache-helicopter.webp",
+      "url": "https://finnastle.com/icons/apache-helicopter.webp",
+      "bytes": 19750
+    },
+    {
+      "name": "audi-quattro",
+      "file": "audi-quattro.webp",
+      "url": "https://finnastle.com/icons/audi-quattro.webp",
+      "bytes": 32954
+    },
+    {
+      "name": "basic-ned-kelly",
+      "file": "basic-ned-kelly.webp",
+      "url": "https://finnastle.com/icons/basic-ned-kelly.webp",
+      "bytes": 27328
+    },
+    {
+      "name": "batman",
+      "file": "batman.webp",
+      "url": "https://finnastle.com/icons/batman.webp",
+      "bytes": 33312
+    },
+    {
+      "name": "billboard-spokane",
+      "file": "billboard-spokane.webp",
+      "url": "https://finnastle.com/icons/billboard-spokane.webp",
+      "bytes": 22840
+    },
+    {
+      "name": "black-panther",
+      "file": "black-panther.webp",
+      "url": "https://finnastle.com/icons/black-panther.webp",
+      "bytes": 6326
+    },
+    {
+      "name": "blue-sedan-car",
+      "file": "blue-sedan-car.webp",
+      "url": "https://finnastle.com/icons/blue-sedan-car.webp",
+      "bytes": 16308
+    },
+    {
+      "name": "boeing-advert-jet",
+      "file": "boeing-advert-jet.webp",
+      "url": "https://finnastle.com/icons/boeing-advert-jet.webp",
+      "bytes": 24140
+    },
+    {
+      "name": "boeing-jet-airliner-blue",
+      "file": "boeing-jet-airliner-blue.webp",
+      "url": "https://finnastle.com/icons/boeing-jet-airliner-blue.webp",
+      "bytes": 6270
+    },
+    {
+      "name": "born-to-kill-helmet",
+      "file": "born-to-kill-helmet.webp",
+      "url": "https://finnastle.com/icons/born-to-kill-helmet.webp",
+      "bytes": 12792
+    },
+    {
+      "name": "bottlebrush-flower",
+      "file": "bottlebrush-flower.webp",
+      "url": "https://finnastle.com/icons/bottlebrush-flower.webp",
+      "bytes": 34140
+    },
+    {
+      "name": "boundlessness-text",
+      "file": "boundlessness-text.webp",
+      "url": "https://finnastle.com/icons/boundlessness-text.webp",
+      "bytes": 23496
+    },
+    {
+      "name": "boxing-frame",
+      "file": "boxing-frame.webp",
+      "url": "https://finnastle.com/icons/boxing-frame.webp",
+      "bytes": 7784
+    },
+    {
+      "name": "boy-praying-kneeling",
+      "file": "boy-praying-kneeling.webp",
+      "url": "https://finnastle.com/icons/boy-praying-kneeling.webp",
+      "bytes": 8732
+    },
+    {
+      "name": "bull-skull-stars",
+      "file": "bull-skull-stars.webp",
+      "url": "https://finnastle.com/icons/bull-skull-stars.webp",
+      "bytes": 9664
+    },
+    {
+      "name": "checkered-flag",
+      "file": "checkered-flag.webp",
+      "url": "https://finnastle.com/icons/checkered-flag.webp",
+      "bytes": 3332
+    },
+    {
+      "name": "climax-film-still",
+      "file": "climax-film-still.webp",
+      "url": "https://finnastle.com/icons/climax-film-still.webp",
+      "bytes": 7644
+    },
+    {
+      "name": "cloud-outline",
+      "file": "cloud-outline.webp",
+      "url": "https://finnastle.com/icons/cloud-outline.webp",
+      "bytes": 26786
+    },
+    {
+      "name": "comic-panel-captain",
+      "file": "comic-panel-captain.webp",
+      "url": "https://finnastle.com/icons/comic-panel-captain.webp",
+      "bytes": 46432
+    },
+    {
+      "name": "comic-swimmer-torn",
+      "file": "comic-swimmer-torn.webp",
+      "url": "https://finnastle.com/icons/comic-swimmer-torn.webp",
+      "bytes": 31766
+    },
+    {
+      "name": "cool-smoking",
+      "file": "cool-smoking.webp",
+      "url": "https://finnastle.com/icons/cool-smoking.webp",
+      "bytes": 7724
+    },
+    {
+      "name": "cowboy-boot",
+      "file": "cowboy-boot.webp",
+      "url": "https://finnastle.com/icons/cowboy-boot.webp",
+      "bytes": 29242
+    },
+    {
+      "name": "crucifix-ornate",
+      "file": "crucifix-ornate.webp",
+      "url": "https://finnastle.com/icons/crucifix-ornate.webp",
+      "bytes": 5392
+    },
+    {
+      "name": "dog-and-traffic-light",
+      "file": "dog-and-traffic-light.webp",
+      "url": "https://finnastle.com/icons/dog-and-traffic-light.webp",
+      "bytes": 15016
+    },
+    {
+      "name": "dog-running-hound",
+      "file": "dog-running-hound.webp",
+      "url": "https://finnastle.com/icons/dog-running-hound.webp",
+      "bytes": 8208
+    },
+    {
+      "name": "dolphins-silhouette",
+      "file": "dolphins-silhouette.webp",
+      "url": "https://finnastle.com/icons/dolphins-silhouette.webp",
+      "bytes": 2472
+    },
+    {
+      "name": "drag-race-dragway",
+      "file": "drag-race-dragway.webp",
+      "url": "https://finnastle.com/icons/drag-race-dragway.webp",
+      "bytes": 16506
+    },
+    {
+      "name": "eighties-call-girl",
+      "file": "eighties-call-girl.webp",
+      "url": "https://finnastle.com/icons/eighties-call-girl.webp",
+      "bytes": 33982
+    },
+    {
+      "name": "end-lettering",
+      "file": "end-lettering.webp",
+      "url": "https://finnastle.com/icons/end-lettering.webp",
+      "bytes": 15340
+    },
+    {
+      "name": "falcon-sketch-1",
+      "file": "falcon-sketch-1.webp",
+      "url": "https://finnastle.com/icons/falcon-sketch-1.webp",
+      "bytes": 14730
+    },
+    {
+      "name": "falcon-sketch-2",
+      "file": "falcon-sketch-2.webp",
+      "url": "https://finnastle.com/icons/falcon-sketch-2.webp",
+      "bytes": 13814
+    },
+    {
+      "name": "falcon-sun",
+      "file": "falcon-sun.webp",
+      "url": "https://finnastle.com/icons/falcon-sun.webp",
+      "bytes": 21692
+    },
+    {
+      "name": "flame-animation-01",
+      "file": "flame-animation-01.webp",
+      "url": "https://finnastle.com/icons/flame-animation-01.webp",
+      "bytes": 17254
+    },
+    {
+      "name": "flame-animation-02",
+      "file": "flame-animation-02.webp",
+      "url": "https://finnastle.com/icons/flame-animation-02.webp",
+      "bytes": 22100
+    },
+    {
+      "name": "flame-animation-03",
+      "file": "flame-animation-03.webp",
+      "url": "https://finnastle.com/icons/flame-animation-03.webp",
+      "bytes": 21686
+    },
+    {
+      "name": "flower-yellow",
+      "file": "flower-yellow.webp",
+      "url": "https://finnastle.com/icons/flower-yellow.webp",
+      "bytes": 7408
+    },
+    {
+      "name": "flying-jets-in-formation",
+      "file": "flying-jets-in-formation.webp",
+      "url": "https://finnastle.com/icons/flying-jets-in-formation.webp",
+      "bytes": 25762
+    },
+    {
+      "name": "food-tray-cutout",
+      "file": "food-tray-cutout.webp",
+      "url": "https://finnastle.com/icons/food-tray-cutout.webp",
+      "bytes": 7074
+    },
+    {
+      "name": "full-elevator",
+      "file": "full-elevator.webp",
+      "url": "https://finnastle.com/icons/full-elevator.webp",
+      "bytes": 22002
+    },
+    {
+      "name": "golden-marilyn",
+      "file": "golden-marilyn.webp",
+      "url": "https://finnastle.com/icons/golden-marilyn.webp",
+      "bytes": 17284
+    },
+    {
+      "name": "good-game",
+      "file": "good-game.webp",
+      "url": "https://finnastle.com/icons/good-game.webp",
+      "bytes": 25454
+    },
+    {
+      "name": "greco-wrestlers",
+      "file": "greco-wrestlers.webp",
+      "url": "https://finnastle.com/icons/greco-wrestlers.webp",
+      "bytes": 33064
+    },
+    {
+      "name": "hand-pointing-index",
+      "file": "hand-pointing-index.webp",
+      "url": "https://finnastle.com/icons/hand-pointing-index.webp",
+      "bytes": 10124
+    },
+    {
+      "name": "handcuffs-cutout",
+      "file": "handcuffs-cutout.webp",
+      "url": "https://finnastle.com/icons/handcuffs-cutout.webp",
+      "bytes": 4882
+    },
+    {
+      "name": "heart-sacred-flaming",
+      "file": "heart-sacred-flaming.webp",
+      "url": "https://finnastle.com/icons/heart-sacred-flaming.webp",
+      "bytes": 2930
+    },
+    {
+      "name": "intermission-text",
+      "file": "intermission-text.webp",
+      "url": "https://finnastle.com/icons/intermission-text.webp",
+      "bytes": 4884
+    },
+    {
+      "name": "jesus-superstar-crucifix",
+      "file": "jesus-superstar-crucifix.webp",
+      "url": "https://finnastle.com/icons/jesus-superstar-crucifix.webp",
+      "bytes": 10196
+    },
+    {
+      "name": "jumping-horse",
+      "file": "jumping-horse.webp",
+      "url": "https://finnastle.com/icons/jumping-horse.webp",
+      "bytes": 16146
+    },
+    {
+      "name": "lady-swimming-comic",
+      "file": "lady-swimming-comic.webp",
+      "url": "https://finnastle.com/icons/lady-swimming-comic.webp",
+      "bytes": 26356
+    },
+    {
+      "name": "late-night-w-the-devil",
+      "file": "late-night-w-the-devil.webp",
+      "url": "https://finnastle.com/icons/late-night-w-the-devil.webp",
+      "bytes": 14284
+    },
+    {
+      "name": "life-in-layers-text",
+      "file": "life-in-layers-text.webp",
+      "url": "https://finnastle.com/icons/life-in-layers-text.webp",
+      "bytes": 8388
+    },
+    {
+      "name": "long-legs",
+      "file": "long-legs.webp",
+      "url": "https://finnastle.com/icons/long-legs.webp",
+      "bytes": 17028
+    },
+    {
+      "name": "lying-nude-blue-and-yellow",
+      "file": "lying-nude-blue-and-yellow.webp",
+      "url": "https://finnastle.com/icons/lying-nude-blue-and-yellow.webp",
+      "bytes": 25182
+    },
+    {
+      "name": "mario-anarchists",
+      "file": "mario-anarchists.webp",
+      "url": "https://finnastle.com/icons/mario-anarchists.webp",
+      "bytes": 24564
+    },
+    {
+      "name": "marlboro-horses",
+      "file": "marlboro-horses.webp",
+      "url": "https://finnastle.com/icons/marlboro-horses.webp",
+      "bytes": 31780
+    },
+    {
+      "name": "matchsticks-element",
+      "file": "matchsticks-element.webp",
+      "url": "https://finnastle.com/icons/matchsticks-element.webp",
+      "bytes": 3204
+    },
+    {
+      "name": "mother-mary-halo",
+      "file": "mother-mary-halo.webp",
+      "url": "https://finnastle.com/icons/mother-mary-halo.webp",
+      "bytes": 15144
+    },
+    {
+      "name": "muscle-man-larger",
+      "file": "muscle-man-larger.webp",
+      "url": "https://finnastle.com/icons/muscle-man-larger.webp",
+      "bytes": 23850
+    },
+    {
+      "name": "muscle-man",
+      "file": "muscle-man.webp",
+      "url": "https://finnastle.com/icons/muscle-man.webp",
+      "bytes": 21282
+    },
+    {
+      "name": "ned-kelly-2",
+      "file": "ned-kelly-2.webp",
+      "url": "https://finnastle.com/icons/ned-kelly-2.webp",
+      "bytes": 23844
+    },
+    {
+      "name": "ned-kelly",
+      "file": "ned-kelly.webp",
+      "url": "https://finnastle.com/icons/ned-kelly.webp",
+      "bytes": 23428
+    },
+    {
+      "name": "neighbourhood-watch",
+      "file": "neighbourhood-watch.webp",
+      "url": "https://finnastle.com/icons/neighbourhood-watch.webp",
+      "bytes": 6334
+    },
+    {
+      "name": "nude-figure-olympian",
+      "file": "nude-figure-olympian.webp",
+      "url": "https://finnastle.com/icons/nude-figure-olympian.webp",
+      "bytes": 23756
+    },
+    {
+      "name": "ohm-symbol",
+      "file": "ohm-symbol.webp",
+      "url": "https://finnastle.com/icons/ohm-symbol.webp",
+      "bytes": 4276
+    },
+    {
+      "name": "oil-companies-in-a-desert",
+      "file": "oil-companies-in-a-desert.webp",
+      "url": "https://finnastle.com/icons/oil-companies-in-a-desert.webp",
+      "bytes": 14418
+    },
+    {
+      "name": "phallic-objects",
+      "file": "phallic-objects.webp",
+      "url": "https://finnastle.com/icons/phallic-objects.webp",
+      "bytes": 7878
+    },
+    {
+      "name": "photoshop-horse",
+      "file": "photoshop-horse.webp",
+      "url": "https://finnastle.com/icons/photoshop-horse.webp",
+      "bytes": 19794
+    },
+    {
+      "name": "picturesque-fountain",
+      "file": "picturesque-fountain.webp",
+      "url": "https://finnastle.com/icons/picturesque-fountain.webp",
+      "bytes": 24184
+    },
+    {
+      "name": "plane-blue-painted",
+      "file": "plane-blue-painted.webp",
+      "url": "https://finnastle.com/icons/plane-blue-painted.webp",
+      "bytes": 11534
+    },
+    {
+      "name": "pole-dancer",
+      "file": "pole-dancer.webp",
+      "url": "https://finnastle.com/icons/pole-dancer.webp",
+      "bytes": 10662
+    },
+    {
+      "name": "pool-balls-triangle",
+      "file": "pool-balls-triangle.webp",
+      "url": "https://finnastle.com/icons/pool-balls-triangle.webp",
+      "bytes": 67086
+    },
+    {
+      "name": "repco-1920s-logo",
+      "file": "repco-1920s-logo.webp",
+      "url": "https://finnastle.com/icons/repco-1920s-logo.webp",
+      "bytes": 18010
+    },
+    {
+      "name": "rose-bloom-red",
+      "file": "rose-bloom-red.webp",
+      "url": "https://finnastle.com/icons/rose-bloom-red.webp",
+      "bytes": 4084
+    },
+    {
+      "name": "runnin-dog",
+      "file": "runnin-dog.webp",
+      "url": "https://finnastle.com/icons/runnin-dog.webp",
+      "bytes": 22320
+    },
+    {
+      "name": "running-horse-2",
+      "file": "running-horse-2.webp",
+      "url": "https://finnastle.com/icons/running-horse-2.webp",
+      "bytes": 8152
+    },
+    {
+      "name": "running-horse",
+      "file": "running-horse.webp",
+      "url": "https://finnastle.com/icons/running-horse.webp",
+      "bytes": 13420
+    },
+    {
+      "name": "sacred-heart",
+      "file": "sacred-heart.webp",
+      "url": "https://finnastle.com/icons/sacred-heart.webp",
+      "bytes": 31286
+    },
+    {
+      "name": "shooting-star",
+      "file": "shooting-star.webp",
+      "url": "https://finnastle.com/icons/shooting-star.webp",
+      "bytes": 8670
+    },
+    {
+      "name": "silence-death-aids-poster",
+      "file": "silence-death-aids-poster.webp",
+      "url": "https://finnastle.com/icons/silence-death-aids-poster.webp",
+      "bytes": 23284
+    },
+    {
+      "name": "sitting-nude",
+      "file": "sitting-nude.webp",
+      "url": "https://finnastle.com/icons/sitting-nude.webp",
+      "bytes": 11596
+    },
+    {
+      "name": "smile-please-lettering",
+      "file": "smile-please-lettering.webp",
+      "url": "https://finnastle.com/icons/smile-please-lettering.webp",
+      "bytes": 14660
+    },
+    {
+      "name": "smiley-face",
+      "file": "smiley-face.webp",
+      "url": "https://finnastle.com/icons/smiley-face.webp",
+      "bytes": 4982
+    },
+    {
+      "name": "snoopy-comic-strip-2",
+      "file": "snoopy-comic-strip-2.webp",
+      "url": "https://finnastle.com/icons/snoopy-comic-strip-2.webp",
+      "bytes": 42312
+    },
+    {
+      "name": "snoopy-comic-strip",
+      "file": "snoopy-comic-strip.webp",
+      "url": "https://finnastle.com/icons/snoopy-comic-strip.webp",
+      "bytes": 34082
+    },
+    {
+      "name": "speed-cartoon-racecar",
+      "file": "speed-cartoon-racecar.webp",
+      "url": "https://finnastle.com/icons/speed-cartoon-racecar.webp",
+      "bytes": 7650
+    },
+    {
+      "name": "staple-gun-arrow",
+      "file": "staple-gun-arrow.webp",
+      "url": "https://finnastle.com/icons/staple-gun-arrow.webp",
+      "bytes": 51834
+    },
+    {
+      "name": "star-burst-flourish-radiant",
+      "file": "star-burst-flourish-radiant.webp",
+      "url": "https://finnastle.com/icons/star-burst-flourish-radiant.webp",
+      "bytes": 75700
+    },
+    {
+      "name": "star-burst-flourish-scallop",
+      "file": "star-burst-flourish-scallop.webp",
+      "url": "https://finnastle.com/icons/star-burst-flourish-scallop.webp",
+      "bytes": 49604
+    },
+    {
+      "name": "star-burst-gold",
+      "file": "star-burst-gold.webp",
+      "url": "https://finnastle.com/icons/star-burst-gold.webp",
+      "bytes": 8002
+    },
+    {
+      "name": "statue-classical-torso",
+      "file": "statue-classical-torso.webp",
+      "url": "https://finnastle.com/icons/statue-classical-torso.webp",
+      "bytes": 13950
+    },
+    {
+      "name": "sun-newspaper",
+      "file": "sun-newspaper.webp",
+      "url": "https://finnastle.com/icons/sun-newspaper.webp",
+      "bytes": 37646
+    },
+    {
+      "name": "sunflower-burst",
+      "file": "sunflower-burst.webp",
+      "url": "https://finnastle.com/icons/sunflower-burst.webp",
+      "bytes": 9014
+    },
+    {
+      "name": "super-starliner",
+      "file": "super-starliner.webp",
+      "url": "https://finnastle.com/icons/super-starliner.webp",
+      "bytes": 5024
+    },
+    {
+      "name": "the-free-country",
+      "file": "the-free-country.webp",
+      "url": "https://finnastle.com/icons/the-free-country.webp",
+      "bytes": 34110
+    },
+    {
+      "name": "traffic-jam",
+      "file": "traffic-jam.webp",
+      "url": "https://finnastle.com/icons/traffic-jam.webp",
+      "bytes": 19418
+    },
+    {
+      "name": "truck-stop",
+      "file": "truck-stop.webp",
+      "url": "https://finnastle.com/icons/truck-stop.webp",
+      "bytes": 33156
+    },
+    {
+      "name": "union-lettering",
+      "file": "union-lettering.webp",
+      "url": "https://finnastle.com/icons/union-lettering.webp",
+      "bytes": 14426
+    },
+    {
+      "name": "unlimited-red-lettering",
+      "file": "unlimited-red-lettering.webp",
+      "url": "https://finnastle.com/icons/unlimited-red-lettering.webp",
+      "bytes": 24766
+    },
+    {
+      "name": "unlimited-steamship-woodcut",
+      "file": "unlimited-steamship-woodcut.webp",
+      "url": "https://finnastle.com/icons/unlimited-steamship-woodcut.webp",
+      "bytes": 40064
+    },
+    {
+      "name": "vintage-sedan-red",
+      "file": "vintage-sedan-red.webp",
+      "url": "https://finnastle.com/icons/vintage-sedan-red.webp",
+      "bytes": 8554
+    },
+    {
+      "name": "yin-yang-brush",
+      "file": "yin-yang-brush.webp",
+      "url": "https://finnastle.com/icons/yin-yang-brush.webp",
+      "bytes": 10014
+    }
+  ]
+}
