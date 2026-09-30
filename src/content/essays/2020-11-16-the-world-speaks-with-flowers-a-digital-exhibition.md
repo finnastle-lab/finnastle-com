@@ -1,6 +1,6 @@
 ---
 title: 'The world speaks with flowers, a digital exhibition'
-description: 'Flowers inspire us all, the gardener, the artist, the bird, the bee. A digital exhibition, remembering a year of looking at\xa0flowers.'
+description: 'Flowers inspire us all, the gardener, the artist, the bird, the bee. A digital exhibition, remembering a year of looking at flowers.'
 pubDate: 2020-11-16
 canonicalUrl: https://medium.com/@finn.astle/the-world-speaks-with-flowers-a-digital-exhibition-c92fe9160f7a
 draft: true
@@ -33,5 +33,3 @@ Is there an intern or a purpose behind the beauty we see in flowers?
 ![](https://cdn-images-1.medium.com/max/1024/1*de2ZQYkJrFZJ9d2KjSibkg.png)
 
 [Find out the answer to that and more, at Finn Astle’s digital exhibition, Floriography, open now.](https://astlecreative.com/floriography)
-
-![](https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=c92fe9160f7a)

@@ -1,12 +1,14 @@
 ---
 title: 'Chatbots save lives'
-description: 'Typing….'
+description: 'Written in the first months of 2020, when a chatbot was the thing standing between overwhelmed services and the people waiting on them.'
 pubDate: 2020-05-28
 canonicalUrl: https://medium.com/versa-agency/chatbots-save-lives-a35fd635c17
 draft: false
+instagramCta: 'I still think the words are the job. Six years on I’m mostly making pictures about it instead — that part lives on Instagram.'
 syndicatedFrom: medium
+heroImage: ../../assets/elements/how-things-used-to-connect.png
+heroImageAlt: A hand-drawn diagram of how things used to connect.
 ---
-![](https://cdn-images-1.medium.com/max/498/1*Dy-0_X91479Bdff45XUvDA.gif)
 Typing….
 
 Together, we are in the midst of a public health crisis and all we can do is wait and stay home. We’re slowing down, giving services time to prepare, but while the world waits for a cure, time is our treatment.
@@ -28,7 +30,7 @@ Welfare services have [been unable to provide answers or services completely](ht
 
 Not saying we replace customer service with chatbots, I’m saying we hold the hold music.
 
-![](https://cdn-images-1.medium.com/max/1024/0*zPncVOZtHPYOev1m)
+![A collage of news photographs showing long queues outside Centrelink offices during the 2020 shutdown, with a chat bubble reading "Here's the images I have of Centrelink queues during coronavirus".](../../assets/writing/chatbots-save-lives/02.png)
 
 **There are real issues with virtual customer service.**
 
@@ -63,7 +65,7 @@ In 2020, the average wait time for Centrelink’s customer service team is 15 mi
 
 So let’s ask the bot;
 
-![](https://cdn-images-1.medium.com/max/666/0*yqO7uU1T5cBXeNaA)
+![A chat thread doing the arithmetic: 15 minutes times 250,000 calls is 3,750,000 minutes, which is 62,510 hours, or 2,604 days.](../../assets/writing/chatbots-save-lives/03.png)
 
 **7 years of time.250,000 people’s 15 minutes.**
 
@@ -74,7 +76,7 @@ Clever conversational automation does more than just answer questions. Nowadays 
 
 AI can be taught to register keywords, sentiment, intents while a customer is speaking to a customer service staff member. This information can then be used to feed into services, transcripts or data.
 
-![](https://cdn-images-1.medium.com/max/600/0*A8GXiynFKh2zxh0H)
+![A McDonald's drive-through sign against a flat blue sky.](../../assets/writing/chatbots-save-lives/04.gif)
 
 This example is a prototype from McDonald's America. It’s live transcribing an order through a drive-through and formatting the customers' voice transcription into McDonald’s’ Ordering Structure.
 
@@ -109,7 +111,7 @@ Let’s start using conversation, the thing we’ve done for thousands of years 
 
 Check out the WHO approach to a chatbot for the world. They’ve balanced length of content and amount of questions really well with natural language. Ask to hear “your questions answered❓”
 
-![](https://cdn-images-1.medium.com/max/780/0*1pvwyNgCG6SJmSRU)
+![The World Health Organization's Messenger bot offering a numbered menu of nine coronavirus topics, from latest numbers to changing language.](../../assets/writing/chatbots-save-lives/05.png)
 
 [Speak to it here.](https://www.messenger.com/t/WHO)
 
@@ -119,3 +121,5 @@ It’s our responsibility as digital writers, providing info to the world throug
 
 #### **Save time save lives ✌️**
 If you’ve got questions about how to implement this, or want to chat about chat, say g’day at [Finn Astle](https://au.linkedin.com/in/finn-astle-794003123), or see some of our work at [Versa Agency](https://versa.agency/)
+
+![An iMessage typing indicator: three dots pulsing inside a grey bubble.](../../assets/writing/chatbots-save-lives/01.gif)

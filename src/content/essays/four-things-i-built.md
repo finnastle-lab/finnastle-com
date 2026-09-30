@@ -3,6 +3,7 @@ title: 'I got all the Google AI certificates'
 description: "Eight Google AI certificates, four things actually built with them, and the very ordinary problem each one was solving."
 pubDate: 2026-09-06
 draft: false
+instagramCta: 'Eight certificates got me four tools. The half-built ones, the ones that never worked, and whatever I’m making instead of writing — those go on Instagram.'
 heroImage: ../../assets/writing/four-things-i-built-hero.png
 heroImageAlt: The eight Google AI certificate badges arranged in a sunburst, with hand-drawn marks scattered around them
 ---
