@@ -62,6 +62,19 @@ const cta =
 
     <Content />
 
+    <script>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const clips = document.querySelectorAll('.essay-clip');
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) e.target.play().catch(() => {});
+            else e.target.pause();
+          }
+        }, { rootMargin: '200px' });
+        clips.forEach((c) => io.observe(c));
+      }
+    </script>
+
     <aside class="essay-follow">
       <p class="essay-follow-copy">{cta}</p>
       <a class="essay-follow-btn" href={SOCIAL.instagram} rel="me">

@@ -487,6 +487,7 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .essay :where(h1, h2, h3) { max-width: none; }
 .essay :where(h2, h3) { margin-top: 2.5rem; }
 .essay img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
+.essay-clip { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 
 /* Hero never upscales into mush — small hand-drawn marks render at native
    size, flush with the text column. Cap is set inline from the asset's width. */
