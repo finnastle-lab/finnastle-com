@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import sunFlourish from '../assets/brand/sun-flourish.png';
+import yinYang from '../assets/brand/stamps/yin-yang.png';
+
+// Astro emits this as dist/404.html; Cloudflare Pages serves it for any
+// unmatched path with a real 404 status. Before this existed every missing
+// URL returned the homepage at HTTP 200 — a soft 404.
+const waysBack = [
+  { href: '/', label: 'Home', body: 'The front door, such as it is.' },
+  { href: '/work', label: 'Work', body: 'Collage, painting and mixed media, by chapter.' },
+  { href: '/writing', label: 'Writing', body: 'Essays, oldest mistakes included.' },
+  { href: '/tools', label: 'Tools', body: 'Small machines that make.' },
+];
+---
+<BaseLayout
+  title="Not found"
+  description="Nothing at this address. The nav still works; whatever you came for might not."
+  register="art"
+>
+  <section class="hero">
+    <img class="stamp" src={yinYang.src} alt="" aria-hidden="true"
+      style="top:-0.75rem; right:-0.5rem; width:104px; transform:rotate(-8deg);" />
+
+    <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">404 · Nothing here</p>
+    <h1 class="duality">Lost <span class="amp">&amp;</span> Found</h1>
+    <p class="hero-sub">No page at this address. It moved, or it never existed, or it
+      existed for a while and then I thought better of it.</p>
+  </section>
+
+  <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
+
+  <p>This site was built to publish with impermanence in mind first, so a dead
+    link here isn't strictly a bug. (It isn't strictly a feature either. It's a
+    dead link.)</p>
+
+  <p>If you typed the address, check it for a stray character. If you followed
+    something to get here, the thing that sent you is out of date and I'd rather
+    know — though I make no promises about the speed of the fix.</p>
+
+  <nav class="ways-back" aria-label="Ways back into the site">
+    {waysBack.map((w) => (
+      <a class="way" href={w.href}>
+        <span class="way-label">{w.label}</span>
+        <span class="way-body">{w.body}</span>
+      </a>
+    ))}
+  </nav>
+
+  <p class="parting">The nav still works. Whatever you came for might not.</p>
+</BaseLayout>
+
+<style>
+  /* Wayfinding cards. Same vocabulary as the homepage's .explore grid — kept
+     local rather than shared, since global.css has unrelated edits in flight. */
+  .ways-back {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  .way {
+    display: block;
+    position: relative;
+    border: 1px solid var(--line);
+    padding: 1.1rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .way:hover { border-color: var(--accent); }
+  .way-label {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-bottom: 0.35rem;
+  }
+  .way:hover .way-label { color: var(--accent); }
+  .way-body {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--graphite);
+  }
+  .way::after {
+    content: "→";
+    position: absolute;
+    top: 1.1rem;
+    right: 1.2rem;
+    font-family: var(--sans);
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-0.35rem);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  @media (hover: hover) {
+    .way:hover { transform: translateY(-2px); }
+    .way:hover::after { opacity: 1; transform: translateX(0); }
+  }
+
+  .parting { color: var(--graphite); font-style: italic; }
+</style>
