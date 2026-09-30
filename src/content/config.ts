@@ -11,7 +11,11 @@ const essays = defineCollection({
       pubDate: z.coerce.date(),
       // Where this was syndicated, so canonical stays pointed home.
       canonicalUrl: z.string().url().optional(),
+      // Which platform the copy came from, for the provenance line.
+      syndicatedFrom: z.enum(['medium', 'linkedin']).optional(),
       draft: z.boolean().default(false),
+      // Closing Instagram line, written per essay. Falls back to a default.
+      instagramCta: z.string().optional(),
       heroImage: image().optional(),
       heroImageAlt: z.string().optional(),
     }),

@@ -310,10 +310,51 @@ footer .mark { width: 18px; height: auto; }
 /* --- Components -------------------------------------------------------------- */
 .stub { color: var(--graphite); font-style: italic; }
 
+/* Writing index — eras, signposts, and image-led rows */
+.essay-era { margin-top: 2.5rem; }
+.essay-era:first-of-type { margin-top: 2rem; }
+.essay-era-label {
+  font-style: italic;
+  color: var(--graphite);
+  margin: 0 0 0.5rem;
+}
+.essay-signpost {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--graphite);
+  max-width: 34rem;
+  margin: 0 0 1.5rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent);
+}
+.essay-era .flourish { margin: 2.5rem auto 3rem; }
+
 .essay-list { list-style: none; padding: 0; margin: 0; }
-.essay-item { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; }
-.essay-thumb { flex: none; display: block; width: 96px; height: 64px; overflow: hidden; }
+.essay-item {
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  padding: 1.25rem 0; border-bottom: 1px solid var(--line);
+}
+.essay-item:first-child { padding-top: 0; }
+.essay-thumb {
+  flex: none; display: block; width: 120px; height: 80px;
+  overflow: hidden; background: var(--card); border: 1px solid var(--line);
+}
 .essay-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.essay-copy { display: flex; flex-direction: column; gap: 0.3rem; }
+.essay-title {
+  font-family: var(--serif); font-size: 1.4rem; line-height: 1.15;
+}
+.essay-dek {
+  font-family: var(--sans); font-size: 0.85rem; color: var(--graphite);
+  margin: 0; max-width: 40rem;
+}
+.essay-date {
+  font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--graphite);
+}
+@media (max-width: 34rem) {
+  .essay-thumb { width: 84px; height: 84px; }
+}
 
 .gallery {
   display: grid;
@@ -446,6 +487,66 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .essay :where(h1, h2, h3) { max-width: none; }
 .essay :where(h2, h3) { margin-top: 2.5rem; }
 .essay img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
+
+/* Hero never upscales into mush — small hand-drawn marks render at native
+   size, flush with the text column. Cap is set inline from the asset's width. */
+
+/* Standfirst: the index dek, carried onto the article. */
+.essay-standfirst {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 1.25rem;
+}
+/* Date + syndication provenance, one quiet line. */
+.essay-meta {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin: 0 0 1.5rem;
+}
+/* Top follow line: small, above the hero, easy to skip. */
+.essay-follow-top {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--graphite);
+  margin: 0 0 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+/* End-of-article follow card: the one that's meant to be clicked. */
+.essay-follow {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.essay-follow-copy {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 0 0 1.25rem;
+}
+.essay-follow-btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--ink);
+}
+.essay-follow-btn:hover {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--accent);
+}
 
 /* Icon pack filter */
 .icon-filter {

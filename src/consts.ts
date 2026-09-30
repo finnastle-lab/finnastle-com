@@ -5,6 +5,13 @@ export const SITE = {
   locale: 'en-AU',
 } as const;
 
+// The one social account that gets linked from the writing. Handle sourced from
+// the salvaged astlecreative.com contact block.
+export const SOCIAL = {
+  instagram: 'https://www.instagram.com/finnastle/',
+  instagramHandle: '@finnastle',
+} as const;
+
 type NavLink = { href: string; label: string };
 type NavItem = { label: string; href?: string; items?: NavLink[] };
 

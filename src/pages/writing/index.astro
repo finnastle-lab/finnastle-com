@@ -2,37 +2,61 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+import sunFlourish from '../../assets/brand/sun-flourish.png';
 
 const essays = (await getCollection('essays', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// Group into eras by year, newest first. The gap between eras is the point:
+// the writing was on this territory in 2020, before the tools caught up.
+const byYear = new Map<number, typeof essays>();
+for (const e of essays) {
+  const y = e.data.pubDate.getFullYear();
+  (byYear.get(y) ?? byYear.set(y, []).get(y)!).push(e);
+}
+const eras = [...byYear.entries()].sort((a, b) => b[0] - a[0]);
+
+// Optional signpost line under an era heading. Keyed by year; easy to extend.
+const signposts: Record<number, string> = {
+  2020: 'The first pass at the same question, syndicated from Medium. Kept as written — the point is that the territory was here before the tools were.',
+};
 ---
 <BaseLayout title="Writing" description="Essays: the canonical home. Medium and LinkedIn are syndication only." register="art">
   <h1>Writing</h1>
-  <p>Canonical home for the essays. Medium and LinkedIn carry syndicated copies
-    that point back here.</p>
+  <p>Canonical home for the essays. Medium and LinkedIn carry syndicated
+    copies that point back here.</p>
 
   {essays.length === 0 ? (
     <p class="stub">No published essays yet. The placeholder is a draft and is
       hidden. First real essay ships from the cascade.</p>
   ) : (
-    <ul class="essay-list">
-      {essays.map((e) => (
-        <li class="essay-item">
-          {e.data.heroImage && (
-            <a href={`/writing/${e.slug}/`} class="essay-thumb">
-              <Image src={e.data.heroImage} alt={e.data.heroImageAlt ?? ''} widths={[160, 320]} sizes="120px" />
-            </a>
-          )}
-          <span>
-            <a href={`/writing/${e.slug}/`}>{e.data.title}</a>
-            {' · '}
-            <time datetime={e.data.pubDate.toISOString()}>{fmt(e.data.pubDate)}</time>
-          </span>
-        </li>
-      ))}
-    </ul>
+    eras.map(([year, items], i) => (
+      <section class="essay-era">
+        {i > 0 && (
+          <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
+        )}
+        <h2 class="essay-era-label">{year}</h2>
+        {signposts[year] && <p class="essay-signpost">{signposts[year]}</p>}
+        <ul class="essay-list">
+          {items.map((e) => (
+            <li class="essay-item">
+              {e.data.heroImage && (
+                <a href={`/writing/${e.slug}`} class="essay-thumb" aria-hidden="true" tabindex="-1">
+                  <Image src={e.data.heroImage} alt="" widths={[160, 320]} sizes="140px" />
+                </a>
+              )}
+              <div class="essay-copy">
+                <a href={`/writing/${e.slug}`} class="essay-title">{e.data.title}</a>
+                {e.data.description && <p class="essay-dek">{e.data.description}</p>}
+                <time class="essay-date" datetime={e.data.pubDate.toISOString()}>{fmt(e.data.pubDate)}</time>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
   )}
 </BaseLayout>
