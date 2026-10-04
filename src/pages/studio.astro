@@ -20,6 +20,11 @@ import welly from '../assets/studio/welly.webp';
 // Every section is optional and renders only when present. A case with no
 // write-up yet still lists (logo, line, tag) but doesn't expand. Gaps are
 // tracked in 2026-10-04-studio-case-assets-brief.md.
+//
+// UNVERIFIED (4 Oct 2026): copy for Inke, Tekspace, Bowen St Press, Google
+// Assistant × Smiling Mind, Blue Space, Olive, the Join the Change execution,
+// and the added AGL Netflix / 7-Eleven quotes came from Gemini's Drive
+// extraction, which returned no file paths. Finn to confirm before go-live.
 type Case = {
   slug: string;        // anchor: /studio#slug opens the case
   brand: string;       // client, as named in the row
@@ -41,6 +46,8 @@ const cases: Case[] = [
       'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
     brief:
       'Differentiate AGL in a commoditised energy market with a universal truth. We landed on the relatable “dad-at-home” moments (thermostat-controlling, F1-watching, household management) and built the “Join the Change” rebrand platform around a shift in what energy is for: its value defined by what it powers. In the modern home, Netflix is as essential as heating.',
+    execution:
+      'Moved AGL past price-matching and greenwashing and into cultural relevance: the company that lit cobbled streets in the 1900s, now powering electric vehicles, home energy and streaming subscriptions.',
   },
   {
     slug: 'agl-netflix',
@@ -53,7 +60,7 @@ const cases: Case[] = [
     execution:
       'Developed the “TV Dad” persona as the centrepiece of the platform launch, using archetypal household friction to introduce the AGL Netflix plan: energy framed as the power source for the home’s actual priorities, like streaming. Rolled out across broadcast and tactical, price-based retail assets.',
     wrote:
-      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots (including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook) and managed the brand-voice rollout across retail.',
+      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots (including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook) and managed the brand-voice rollout across retail, down to the tactical lines: “AGL do do that!” and “Stack it up. Stack it in.”',
   },
   {
     slug: 'afterpay',
@@ -98,7 +105,7 @@ const cases: Case[] = [
     execution:
       'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique: talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
     wrote:
-      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits.',
+      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits. One of them: “A morning coffee turns into a late-night hot chocolate after the first sip.”',
   },
   {
     slug: 'welly',
@@ -120,6 +127,11 @@ const cases: Case[] = [
     brand: 'Inke',
     line: 'Send Joy',
     logos: ['inke'],
+    meta: 'Inke · Freelance Copywriter',
+    brief:
+      'A brand platform for Inke’s custom, sustainably designed packaging for e-commerce businesses.',
+    wrote:
+      'Wrote the platform, “Send Joy”, on the back of a saying everyone already knows: if something doesn’t spark joy, it’s probably not worth spending time on.',
   },
   {
     slug: 'grove-distillery',
@@ -159,6 +171,13 @@ const cases: Case[] = [
     line: 'Research',
     logos: ['tekspace'],
     tag: 'Content Strategy',
+    meta: 'Tekspace · B2B Marketing Specialist & Content Strategist',
+    brief:
+      'Position the Tekspace Shield security bundle, and give a B2B cybersecurity brand something to say that the rest of the category wasn’t already saying.',
+    execution:
+      'Produced three benchmark research reports evaluating 51 cybersecurity vendors.',
+    wrote:
+      'Authored the Tekspace Writing & Voice Catalogue: human-first rules for B2B writing. No “in today’s threat landscape”. No em dashes. Lead with a position, not a raw statistic.',
   },
   {
     slug: 'bowen-st-press',
@@ -166,6 +185,11 @@ const cases: Case[] = [
     line: 'Bowen St Press',
     logos: ['bowen-st-press'],
     tag: 'Branding',
+    meta: 'Bowen St Press · RMIT · Identity',
+    brief:
+      'A logo mark and visual identity for Bowen St Press, the RMIT student-run publishing imprint behind the Pulse anthology series. Built as an identity exercise.',
+    execution:
+      'A clean typographic hierarchy, set up to frame literary anthologies, student work and press releases.',
   },
   {
     slug: 'google-assistant-smiling-mind',
@@ -173,18 +197,29 @@ const cases: Case[] = [
     line: 'Google Assistant × Smiling Mind',
     logos: ['google-assistant', 'smiling-mind'],
     tag: 'UX Writing',
+    meta: 'Smiling Mind · VERSA / Deepend',
+    brief:
+      'Translate the Smiling Mind app’s UX into conversational voice flows for Google Assistant.',
   },
   {
     slug: 'victoria-police-blue-space',
     brand: 'Victoria Police',
     line: 'Blue Space',
     logos: ['victoria-police'],
+    meta: 'Victoria Police · VERSA / Deepend',
+    brief:
+      'A mental health and wellbeing platform for Victoria Police officers. Made for police, by police.',
+    wrote:
+      'Wrote the core platform copy: “As a police officer, your duty is to protect the public. But your first duty is your own mental health and wellbeing.”',
   },
   {
     slug: 'woolworths-olive',
     brand: 'Woolworths',
     line: 'Olive, the Woolworths chatbot',
     logos: ['woolworths'],
+    meta: 'Woolworths · VERSA · Conversational Writer & UX Designer',
+    brief:
+      'Personality development and dialogue design for Olive, the customer-facing digital assistant for Woolworths.',
   },
   {
     slug: 'g8-education',
