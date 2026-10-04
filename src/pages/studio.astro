@@ -14,61 +14,55 @@ import welly from '../assets/studio/welly.webp';
 // against 04_WORK/Career/…resume_extended-case-studies_v1; Coca-Cola/VERSA,
 // G8, Afterpay, Youi verified against the live astlecreative.com folio page
 // ("Pure Hard Copywriting") before its retirement — same standard, no invented
-// details. `hero` and full `meta` are optional; only what's actually stated in
-// source copy is included — no invented roles/years where the source is silent.
+// details. AGL was one case; it's now split into the platform (Join the Change)
+// and the Netflix plan launch, with the original copy divided between them.
+//
+// Every section is optional and renders only when present. A case with no
+// write-up yet still lists (logo, line, tag) but doesn't expand. Gaps are
+// tracked in 2026-10-04-studio-case-assets-brief.md.
 type Case = {
-  title: string; meta?: string; hero?: ImageMetadata;
-  brief: string; execution: string; wrote: string;
+  slug: string;        // anchor: /studio#slug opens the case
+  brand: string;       // client, as named in the row
+  line: string;        // platform line or campaign name, the row's headline
+  logos: string[];     // brand keys -> src/assets/studio/logos/<key>.(svg|png|webp)
+  tag?: string;        // discipline, shown small; optional
+  hero?: ImageMetadata;
+  meta?: string;
+  brief?: string; execution?: string; wrote?: string;
 };
+
 const cases: Case[] = [
   {
-    title: 'AGL × Netflix: "Join the Change"',
-    meta: 'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
-    hero: aglNetflix,
+    slug: 'agl-join-the-change',
+    brand: 'AGL',
+    line: 'Join the Change',
+    logos: ['agl'],
+    meta:
+      'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
     brief:
       'Differentiate AGL in a commoditised energy market with a universal truth. We landed on the relatable “dad-at-home” moments (thermostat-controlling, F1-watching, household management) and built the “Join the Change” rebrand platform around a shift in what energy is for: its value defined by what it powers. In the modern home, Netflix is as essential as heating.',
+  },
+  {
+    slug: 'agl-netflix',
+    brand: 'AGL × Netflix',
+    line: 'Can’t live without Netflix',
+    logos: ['agl', 'netflix'],
+    hero: aglNetflix,
+    meta:
+      'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
     execution:
       'Developed the “TV Dad” persona as the centrepiece of the platform launch, using archetypal household friction to introduce the AGL Netflix plan: energy framed as the power source for the home’s actual priorities, like streaming. Rolled out across broadcast and tactical, price-based retail assets.',
     wrote:
       'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots (including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook) and managed the brand-voice rollout across retail.',
   },
   {
-    title: '7-Eleven: "Summer 24/7"',
-    meta: '7-Eleven · CHEP Network · Copywriter · 2021–22',
-    hero: sevenEleven,
-    brief:
-      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience: a looping day-into-night hook that mirrored summer energy, day into night and back again.',
-    execution:
-      'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique: talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
-    wrote:
-      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits.',
-  },
-  {
-    title: 'Coca-Cola × Amazon: "Alexa, Let’s Share a Coke"',
-    meta: 'Coca-Cola Australia · VERSA, CHEP, BRX · Copywriter & Chat Flow Designer',
-    hero: cocaColaAlexa,
-    brief:
-      'A limited voice-commerce promotion built between Ogilvy, Coca-Cola Australia, and Amazon: ask Alexa to “Share a Coke” and get a free personalised can. Conversational design for one of the first voice-led FMCG promotions in the region.',
-    execution:
-      'Designed the Alexa conversation flow to sit on top of Ogilvy’s creative platform, keeping the exchange elegant enough to feel like a gift, not a form. Layered in sonic branding to give the interaction its own “fizz.”',
-    wrote:
-      'Wrote the chat-flow dialogue (prompts, confirmations, the personalisation moment) and the sonic-branding brief that shaped how the promotion sounded, not just read.',
-  },
-  {
-    title: 'G8 Education: the Film-Diary Platform',
-    meta: 'G8 Education',
-    hero: g8Education,
-    brief:
-      '“If drop-off guilt is real, how do you help parents feel okay?” A platform and campaign for re-engaging post-COVID early-education enrolment, built on the emotional arc of growing up: from the difficulty of the drop-off to the quiet pride of graduation.',
-    execution:
-      'A Film-Diary structure merging fragments from diverse families to find common ground in the drop-off drama: the shift from tears to unforced smiles. The strategy isolated the sublime in the mundane: a handhold on the bus, a fleeting smile in the back seat.',
-    wrote:
-      'Wrote the platform line, “You aren’t leaving them; you are loving them with us,” and the copy framework built around those small, currency-of-affirmation moments.',
-  },
-  {
-    title: 'Afterpay: "However You Christmas Afterpay It"',
-    meta: 'Afterpay',
+    slug: 'afterpay',
+    brand: 'Afterpay',
+    line: 'However You Christmas Afterpay It',
+    logos: ['afterpay'],
     hero: afterpay,
+    meta:
+      'Afterpay',
     brief:
       'The insight: “Everyone Christmases differently.” People don’t just do Christmas, they execute a specific style (the Grinch, the Giver, the long luncher, the summer holidayer), and Afterpay’s partnership network is the precise transactional means for every one of them.',
     execution:
@@ -77,9 +71,13 @@ const cases: Case[] = [
       'Wrote the platform line “However You Christmas Afterpay It” and the archetype copy: the Grinch, the Giver, the long luncher, the summer holidayer.',
   },
   {
-    title: 'Youi: You-Shaped Insurance',
-    meta: 'Youi · Big Red Communications · Copywriter & Creative Ideator',
+    slug: 'youi',
+    brand: 'Youi',
+    line: 'You-Shaped Insurance',
+    logos: ['youi'],
     hero: youi,
+    meta:
+      'Youi · Big Red Communications · Copywriter & Creative Ideator',
     brief:
       'Extend the You-Shaped Insurance platform beyond the policy and across the brand ecosystem: the promise that cover should fit the person, not the other way round.',
     execution:
@@ -88,9 +86,50 @@ const cases: Case[] = [
       'Wrote the ecosystem extensions and the anchoring promise: capturing the moments when your insurance “truly fits ‘you.’”',
   },
   {
-    title: 'The Grove Distillery: Brand Platform',
-    meta: 'The Grove Distillery · Freelance · Tone of Voice, Messaging & Web Copy',
+    slug: 'seven-eleven',
+    brand: '7-Eleven',
+    line: 'Summer 24/7',
+    logos: ['7-eleven'],
+    hero: sevenEleven,
+    meta:
+      '7-Eleven · CHEP Network · Copywriter · 2021–22',
+    brief:
+      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience: a looping day-into-night hook that mirrored summer energy, day into night and back again.',
+    execution:
+      'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique: talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
+    wrote:
+      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits.',
+  },
+  {
+    slug: 'welly',
+    brand: 'Welly',
+    line: '5 a day the easy way',
+    logos: ['welly'],
+    hero: welly,
+    meta:
+      'Welly · Freelance · Brand Voice & Web Copy',
+    brief:
+      'A sustainability-led smoothie brand needed copy that made “5 a day” feel achievable rather than virtuous, for both a kids’ range and an adult range, built on freeze-dried, upcycled produce that would otherwise go to landfill.',
+    execution:
+      'Anchored the brand voice in the actual insight (96% of children and 90% of adults miss their recommended fruit and veg intake) and turned the sustainability angle into brand substance rather than a footnote: transparent sourcing, upcycled produce, a 2025 zero-waste target.',
+    wrote:
+      'Wrote the core platform lines (“Easy way to get 5 a day,” “100% transparent goodness,” “From the earth, for you”) across web copy, product range messaging, and the kids/adults range split.',
+  },
+  {
+    slug: 'inke',
+    brand: 'Inke',
+    line: 'Send Joy',
+    logos: ['inke'],
+  },
+  {
+    slug: 'grove-distillery',
+    brand: 'The Grove Distillery',
+    line: 'The Spirit Of',
+    logos: ['grove-distillery'],
+    tag: 'Copywriting',
     hero: grove,
+    meta:
+      'The Grove Distillery · Freelance · Tone of Voice, Messaging & Web Copy',
     brief:
       'The first craft spirit distillery in the Margaret River region needed a brand platform to carry it from family hobby to a serious East Coast expansion: tone of voice, messaging architecture, and web copy built around one throughline, the story in every bottle.',
     execution:
@@ -99,17 +138,86 @@ const cases: Case[] = [
       'Wrote the platform line “Distilled with a story. Delivered to you.” and the supporting territory: “Made on this land. Distilled in history.” Developed the positioning statement, “Pioneers of the craft,” used across web and social.',
   },
   {
-    title: 'Welly: Instant Fruit & Veg Smoothies',
-    meta: 'Welly · Freelance · Brand Voice & Web Copy',
-    hero: welly,
+    slug: 'coca-cola-alexa',
+    brand: 'Coca-Cola × Amazon Alexa',
+    line: 'Share a Coke with Alexa',
+    logos: ['coca-cola', 'amazon-alexa'],
+    tag: 'Copywriting',
+    hero: cocaColaAlexa,
+    meta:
+      'Coca-Cola Australia · VERSA, CHEP, BRX · Copywriter & Chat Flow Designer',
     brief:
-      'A sustainability-led smoothie brand needed copy that made “5 a day” feel achievable rather than virtuous, for both a kids’ range and an adult range, built on freeze-dried, upcycled produce that would otherwise go to landfill.',
+      'A limited voice-commerce promotion built between Ogilvy, Coca-Cola Australia, and Amazon: ask Alexa to “Share a Coke” and get a free personalised can. Conversational design for one of the first voice-led FMCG promotions in the region.',
     execution:
-      'Anchored the brand voice in the actual insight (96% of children and 90% of adults miss their recommended fruit and veg intake) and turned the sustainability angle into brand substance rather than a footnote: transparent sourcing, upcycled produce, a 2025 zero-waste target.',
+      'Designed the Alexa conversation flow to sit on top of Ogilvy’s creative platform, keeping the exchange elegant enough to feel like a gift, not a form. Layered in sonic branding to give the interaction its own “fizz.”',
     wrote:
-      'Wrote the core platform lines (“Easy way to get 5 a day,” “100% transparent goodness,” “From the earth, for you”) across web copy, product range messaging, and the kids/adults range split.',
+      'Wrote the chat-flow dialogue (prompts, confirmations, the personalisation moment) and the sonic-branding brief that shaped how the promotion sounded, not just read.',
+  },
+  {
+    slug: 'tekspace',
+    brand: 'Tekspace',
+    line: 'Research',
+    logos: ['tekspace'],
+    tag: 'Content Strategy',
+  },
+  {
+    slug: 'bowen-st-press',
+    brand: 'Bowen St Press',
+    line: 'Bowen St Press',
+    logos: ['bowen-st-press'],
+    tag: 'Branding',
+  },
+  {
+    slug: 'google-assistant-smiling-mind',
+    brand: 'Google Assistant × Smiling Mind',
+    line: 'Google Assistant × Smiling Mind',
+    logos: ['google-assistant', 'smiling-mind'],
+    tag: 'UX Writing',
+  },
+  {
+    slug: 'victoria-police-blue-space',
+    brand: 'Victoria Police',
+    line: 'Blue Space',
+    logos: ['victoria-police'],
+  },
+  {
+    slug: 'woolworths-olive',
+    brand: 'Woolworths',
+    line: 'Olive, the Woolworths chatbot',
+    logos: ['woolworths'],
+  },
+  {
+    slug: 'g8-education',
+    brand: 'G8 Education',
+    line: 'The Film Diary',
+    logos: ['g8-education'],
+    hero: g8Education,
+    meta:
+      'G8 Education',
+    brief:
+      '“If drop-off guilt is real, how do you help parents feel okay?” A platform and campaign for re-engaging post-COVID early-education enrolment, built on the emotional arc of growing up: from the difficulty of the drop-off to the quiet pride of graduation.',
+    execution:
+      'A Film-Diary structure merging fragments from diverse families to find common ground in the drop-off drama: the shift from tears to unforced smiles. The strategy isolated the sublime in the mundane: a handhold on the bus, a fleeting smile in the back seat.',
+    wrote:
+      'Wrote the platform line, “You aren’t leaving them; you are loving them with us,” and the copy framework built around those small, currency-of-affirmation moments.',
   },
 ];
+
+// Logos drop in by filename, no code change: save a transparent SVG/PNG as
+// src/assets/studio/logos/<key>.svg and every case naming that key picks it up.
+// They render as flat ink (black on light, white on dark) via the .mark filter,
+// so they need a transparent background. Until a file exists, the brand name
+// stands in as type.
+const logoFiles = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/studio/logos/*.{svg,png,webp}', { eager: true },
+);
+const logoFor = (key: string) =>
+  Object.entries(logoFiles).find(([path]) => path.split('/').pop()!.replace(/\.\w+$/, '') === key)?.[1].default;
+
+const hasBody = (c: Case) => !!(c.hero || c.brief || c.execution || c.wrote);
+const sections = (c: Case) => ([
+  ['The brief', c.brief], ['The execution', c.execution], ['What I wrote', c.wrote],
+] as const).filter(([, text]) => text);
 ---
 <BaseLayout title="Studio" description="Astle Creative: copywriting and campaign work for marketing teams." register="studio">
   <h1>Studio</h1>
@@ -120,23 +228,65 @@ const cases: Case[] = [
     work is the third option: an AI-assisted pipeline built to hold quality at a
     pace it couldn't manage by hand.</p>
 
-  {cases.map((c) => (
-    <article class="case">
-      {c.hero ? (
-        <Image src={c.hero} alt={c.title} widths={[600, 1000]} sizes="(max-width: 700px) 100vw, 640px" />
-      ) : (
-        <div class="case-img-placeholder" aria-hidden="true"></div>
-      )}
-      <h2>{c.title}</h2>
-      {c.meta && <p class="meta">{c.meta}</p>}
-      <h3>The brief</h3>
-      <p>{c.brief}</p>
-      <h3>The execution</h3>
-      <p>{c.execution}</p>
-      <h3>What I wrote</h3>
-      <p>{c.wrote}</p>
-    </article>
-  ))}
+  <ul class="cases">
+    {cases.map((c) => {
+      const hasLogo = c.logos.some((key) => logoFor(key));
+      const head = (
+        <>
+          <span class="case-logos">
+            {c.logos.map((key) => {
+              const logo = logoFor(key);
+              return logo
+                ? <Image class="case-logo mark" src={logo} alt="" height={64} />
+                : null;
+            })}
+            {!hasLogo && (
+              <span class="case-logo-type" aria-hidden="true">{c.brand}</span>
+            )}
+          </span>
+          <span class="case-head">
+            <span class="case-line">{c.line}</span>
+            <span class="case-sub">
+              {/* With no logo yet the brand is already set as type on the left. */}
+              {hasLogo && <span class="case-brand">{c.brand}</span>}
+              {c.tag && <span class="case-tag" data-sep={hasLogo ? '' : undefined}>{c.tag}</span>}
+            </span>
+          </span>
+        </>
+      );
+      return (
+        <li class="case">
+          {hasBody(c) ? (
+            <details id={c.slug} name="studio-case">
+              <summary class="case-row">
+                {head}
+                <span class="case-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="case-body">
+                {c.hero && (
+                  <Image class="case-hero" src={c.hero} alt={`${c.brand}: ${c.line}`}
+                    widths={[600, 1000, 1400]} sizes="(max-width: 62rem) 100vw, 59rem" />
+                )}
+                {c.meta && <p class="meta">{c.meta}</p>}
+                {sections(c).map(([label, text]) => (
+                  <>
+                    <h3>{label}</h3>
+                    <p>{text}</p>
+                  </>
+                ))}
+                <a class="case-link" href={`#${c.slug}`}>Link to this case</a>
+              </div>
+            </details>
+          ) : (
+            <div id={c.slug} class="case-row case-row--soon">
+              {head}
+              <span class="case-soon">Write-up soon</span>
+            </div>
+          )}
+        </li>
+      );
+    })}
+  </ul>
 
   <hr />
   <p>The thinking behind the work lives at <a href="/studio/fearless-answers">Fearless
@@ -151,5 +301,150 @@ const cases: Case[] = [
          than invented; confirm if they should be added.
        - Coca-Cola case is voice/chat-flow work, not a traditional ad — confirmed
          framing before go-live.
+       - Logos, missing heroes and the write-ups for the newer cases: see
+         2026-10-04-studio-case-assets-brief.md.
        - TODO(strategy): the forward AI-content-ops offer per five-year-plan. -->
 </BaseLayout>
+
+<script>
+  // Anchored accordion. /studio#youi opens that case on arrival; opening a case
+  // puts its anchor in the address bar so the URL can be copied and shared;
+  // closing it takes the anchor back off. `name` on the <details> makes them
+  // exclusive (one open at a time) where supported; elsewhere they stack.
+  const items = [...document.querySelectorAll<HTMLDetailsElement>('details[name="studio-case"]')];
+
+  const openFromHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = items.find((d) => d.id === id);
+    if (!target) return;
+    target.open = true;
+    target.scrollIntoView({ block: 'start' });
+  };
+
+  items.forEach((d) => {
+    d.addEventListener('toggle', () => {
+      const url = location.pathname + location.search;
+      if (d.open) {
+        history.replaceState(null, '', `${url}#${d.id}`);
+        // When another case closes above this one the page jumps; pull the
+        // opened row back into view if its header has been pushed off-screen.
+        const top = d.getBoundingClientRect().top;
+        if (top < 0) d.scrollIntoView({ block: 'start' });
+      } else if (location.hash === `#${d.id}`) {
+        history.replaceState(null, '', url);
+      }
+    });
+  });
+
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+</script>
+
+<style>
+  .cases { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .case { border-bottom: 1px solid var(--line); }
+
+  details { scroll-margin-top: 5rem; }      /* clear the sticky masthead */
+  .case-row--soon { scroll-margin-top: 5rem; }
+
+  .case-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.1rem 0;
+    list-style: none;
+    cursor: pointer;
+  }
+  .case-row::-webkit-details-marker { display: none; }
+  .case-row--soon { cursor: default; }
+
+  /* Logo slot: fixed width so the lines align down the list. */
+  .case-logos {
+    display: flex; align-items: center; gap: 0.6rem;
+    min-height: 2.25rem;
+  }
+  .case-logo {
+    display: block;
+    height: auto; width: auto;
+    max-height: 1.9rem;
+    max-width: 100%;
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+  .case-logos:has(.case-logo + .case-logo) .case-logo { max-height: 1.5rem; max-width: 46%; }
+  .case-logo-type {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .case-head { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+  .case-line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    line-height: 1.1;
+  }
+  .case-sub {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+  .case-tag { white-space: nowrap; }
+  .case-tag[data-sep]::before { content: "·"; margin: 0 0.45rem; }
+
+  /* Plus that turns into a minus. Monochrome, ink only. */
+  .case-toggle { position: relative; width: 14px; height: 14px; flex: none; }
+  .case-toggle::before, .case-toggle::after {
+    content: ""; position: absolute; left: 0; top: 50%;
+    width: 100%; height: 1.5px; background: var(--ink);
+    transition: transform 0.2s ease;
+  }
+  .case-toggle::after { transform: rotate(90deg); }
+  details[open] .case-toggle::after { transform: rotate(0deg); }
+
+  .case-soon {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--graphite); white-space: nowrap;
+  }
+  .case-row--soon .case-line { color: var(--graphite); }
+
+  @media (hover: hover) {
+    summary.case-row:hover .case-line { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--accent); }
+  }
+  summary.case-row:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  .case-body { padding: 0.25rem 0 2.25rem calc(7.5rem + 1.25rem); }
+  .case-body .case-hero {
+    width: 100%; height: auto; display: block;
+    max-height: 34rem; object-fit: cover;
+    border: 1px solid var(--line);
+    margin: 0 0 1.25rem;
+  }
+  .case-body .meta {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--graphite); margin: 0 0 0.5rem;
+  }
+  .case-body h3 { margin-top: 1.5rem; }
+  .case-link {
+    display: inline-block; margin-top: 0.5rem;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--graphite);
+  }
+
+  @media (max-width: 40rem) {
+    .case-row { grid-template-columns: 4.5rem 1fr auto; gap: 0.9rem; }
+    .case-logo { max-height: 1.5rem; }
+    .case-logos:has(.case-logo + .case-logo) { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .case-logos:has(.case-logo + .case-logo) .case-logo { max-width: 100%; max-height: 1.1rem; }
+    .case-logo-type { font-size: 0.62rem; }
+    .case-body { padding-left: 0; }
+    .case-soon { display: none; }
+  }
+</style>

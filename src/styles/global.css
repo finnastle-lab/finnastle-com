@@ -440,24 +440,7 @@ footer .mark { width: 18px; height: auto; }
 .chapter-thumbs .thumb:hover { border-color: var(--ink); }
 .chapter-thumbs .thumb[aria-current="true"] { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
 
-.case { margin: 3rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
-.case img { width: 100%; height: auto; display: block; border: 1px solid var(--line); margin-bottom: 1.25rem; }
-.case-img-placeholder {
-  width: 100%; aspect-ratio: 16 / 9; margin-bottom: 1.25rem;
-  border: 1px solid var(--line);
-  background-color: var(--card);
-  background-image:
-    linear-gradient(45deg, var(--line) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--line) 25%, transparent 25%);
-  background-size: 16px 16px;
-  background-position: 0 0, 0 8px;
-  opacity: 0.5;
-}
-.case h2 { margin: 0 0 0.25rem; }
-.case .meta {
-  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--graphite); margin: 0 0 1rem;
-}
+/* Studio case accordion styles live in src/pages/studio.astro. */
 
 .tool-list { margin-top: 2rem; }
 .tool { margin: 0 0 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
