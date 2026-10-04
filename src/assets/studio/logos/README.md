@@ -7,7 +7,7 @@ Logos render as flat ink: black on light, white on dark. Any colour is fine, but
 background **must** be transparent, or the logo becomes a solid block.
 
 Keys in use: `agl` `netflix` `afterpay` `youi` `7-eleven` `welly` `inke` `grove-distillery`
-`coca-cola` `amazon-alexa` `tekspace` `bowen-st-press` `google-assistant` `smiling-mind`
-`victoria-police` `woolworths` `g8-education`
+`coca-cola` `amazon-alexa` `tekspace` `google-assistant` `smiling-mind` `victoria-police`
+`woolworths` `g8-education`
 
 If a key has no file, the brand name stands in as type.

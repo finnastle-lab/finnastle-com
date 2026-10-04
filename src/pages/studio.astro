@@ -21,10 +21,13 @@ import welly from '../assets/studio/welly.webp';
 // write-up yet still lists (logo, line, tag) but doesn't expand. Gaps are
 // tracked in 2026-10-04-studio-case-assets-brief.md.
 //
-// UNVERIFIED (4 Oct 2026): copy for Inke, Tekspace, Bowen St Press, Google
-// Assistant × Smiling Mind, Blue Space, Olive, the Join the Change execution,
-// and the added AGL Netflix / 7-Eleven quotes came from Gemini's Drive
-// extraction, which returned no file paths. Finn to confirm before go-live.
+// Second source pass (4 Oct 2026): Gemini's Drive extraction, with file paths
+// per claim, kept in its _notes doc. Main sources: 04_WORK/Folio/"Finn Astle -
+// Fearless Answerer - Experience & Case Study.pdf", 04_WORK/Career/
+// 2026-08-19_LIFE_career_case-study-brief-agl-netflix-7eleven_v2,
+// 2026-08-19_BIZ_astlecreative_tekspace-case-study-copy_v2, Welly Copy,
+// Promotional Flyer - Bluespace, Creative Professional Timeline. Copy is quoted
+// or lightly trimmed from those; years and roles follow them.
 type Case = {
   slug: string;        // anchor: /studio#slug opens the case
   brand: string;       // client, as named in the row
@@ -45,9 +48,11 @@ const cases: Case[] = [
     meta:
       'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
     brief:
-      'Differentiate AGL in a commoditised energy market with a universal truth. We landed on the relatable “dad-at-home” moments (thermostat-controlling, F1-watching, household management) and built the “Join the Change” rebrand platform around a shift in what energy is for: its value defined by what it powers. In the modern home, Netflix is as essential as heating.',
+      'The challenge was to differentiate AGL’s energy offer in a competitive, commoditised market. We needed a ‘universal truth’ that felt both ubiquitous and unique, and a strategic position for AGL’s ongoing campaign: an energetic, commercial platform that was hopeful, memorable, and clear across TV, OOH, and digital.',
     execution:
-      'Moved AGL past price-matching and greenwashing and into cultural relevance: the company that lit cobbled streets in the 1900s, now powering electric vehicles, home energy and streaming subscriptions.',
+      'From gaslighting the cobbled streets of the 1900s to 2025. Given the financial climate, the ‘change’ narrative needed grounding beyond the environmental benefit, so ‘Join the Change’ became a way to frame improvement: changing how you save with the AGL app, changing how you stream Netflix with the AGL plan, or joining the drive toward electric vehicles.',
+    wrote:
+      'Lead copywriter for AGL across BAU, social, letter and OOH rollout: campaigns, creative strategies, templates, tone of voice. Every touchpoint changes with a rebrand, and so does the copy, from minute details to customer-facing key messages.',
   },
   {
     slug: 'agl-netflix',
@@ -56,11 +61,13 @@ const cases: Case[] = [
     logos: ['agl', 'netflix'],
     hero: aglNetflix,
     meta:
-      'AGL · Big Red Communications · Lead Creative Copywriter · 2023',
+      'AGL × Netflix · Big Red Communications · Lead Copywriter (Broadcast & Retail) · 2023',
+    brief:
+      'The modern home, where Netflix is more important than heating. Streaming is as common as electricity, and every home has shows it can’t live without. A satirical campaign about life’s necessities: if you can’t live without Bridgerton, it’s included in your electricity plan.',
     execution:
       'Developed the “TV Dad” persona as the centrepiece of the platform launch, using archetypal household friction to introduce the AGL Netflix plan: energy framed as the power source for the home’s actual priorities, like streaming. Rolled out across broadcast and tactical, price-based retail assets.',
     wrote:
-      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots (including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook) and managed the brand-voice rollout across retail, down to the tactical lines: “AGL do do that!” and “Stack it up. Stack it in.”',
+      'Refined the TV Dad scripts to keep the tone in observational humour; wrote the 15s and 30s broadcast spots (including the “if you can’t live without Bridgerton, it’s included in your electricity plan” hook) and managed the brand-voice rollout across retail. Total dad energy.',
   },
   {
     slug: 'afterpay',
@@ -69,28 +76,28 @@ const cases: Case[] = [
     logos: ['afterpay'],
     hero: afterpay,
     meta:
-      'Afterpay',
+      'Afterpay · Big Red Communications · Christmas 2023',
     brief:
       'The insight: “Everyone Christmases differently.” People don’t just do Christmas, they execute a specific style (the Grinch, the Giver, the long luncher, the summer holidayer), and Afterpay’s partnership network is the precise transactional means for every one of them.',
     execution:
       'Built the campaign line to hold every Christmas archetype under one platform, letting the retail network do the work of proving it rather than picking a single “type” of shopper to speak to.',
     wrote:
-      'Wrote the platform line “However You Christmas Afterpay It” and the archetype copy: the Grinch, the Giver, the long luncher, the summer holidayer.',
+      'Wrote the platform line “However You Christmas Afterpay It” and the archetype copy: the Grinch, the Giver, the long luncher, the summer holidayer. Plus the innovation activations: “Merry Re-giftmas” and “Drop a hint & win”.',
   },
   {
     slug: 'youi',
     brand: 'Youi',
-    line: 'You-Shaped Insurance',
+    line: 'A bit more you-shaped',
     logos: ['youi'],
     hero: youi,
     meta:
-      'Youi · Big Red Communications · Copywriter & Creative Ideator',
+      'Youi · Big Red Communications · Copywriter & Creative Ideator · 2023',
     brief:
       'Extend the You-Shaped Insurance platform beyond the policy and across the brand ecosystem: the promise that cover should fit the person, not the other way round.',
     execution:
       'Took the idea from the tangible (You-shaped car air fresheners) to the massive scale: a sponsored You-shaped goal post at the NRL. An integrated campaign anchored on one throughline.',
     wrote:
-      'Wrote the ecosystem extensions and the anchoring promise: capturing the moments when your insurance “truly fits ‘you.’”',
+      'Wrote the ecosystem extensions and the anchoring promise: capturing the moments when your insurance “truly fits ‘you.’” “Car insurance that’s you-shaped? That’s a breath of fresh air.”',
   },
   {
     slug: 'seven-eleven',
@@ -101,11 +108,11 @@ const cases: Case[] = [
     meta:
       '7-Eleven · CHEP Network · Copywriter · 2021–22',
     brief:
-      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience: a looping day-into-night hook that mirrored summer energy, day into night and back again.',
+      'For 7-Eleven’s 25th anniversary in Australia, bring the “Wonderfully Easier” platform into social and prove the brand’s 24/7 convenience: a looping day-into-night hook that mirrored summer energy, day into night and back again. The answer: 7-Eleven’s open 24/7, so you can summer 24/7.',
     execution:
       'Produced high-volume social iterations and iPhone-style shorts. To stretch the budget, we architected a day/night shooting technique: talent filmed in both time-of-day settings so the edit could switch seamlessly, giving a genuine 24/7 feel without the cost of multiple shoots.',
     wrote:
-      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits. One of them: “A morning coffee turns into a late-night hot chocolate after the first sip.”',
+      'Led the social-first copy for short vertical formats; wrote the day-into-night transition scripts and optimised the looping hook for IG Stories and in-feed, punchy and tuned to morning-coffee-to-late-night-snack habits.',
   },
   {
     slug: 'welly',
@@ -114,24 +121,27 @@ const cases: Case[] = [
     logos: ['welly'],
     hero: welly,
     meta:
-      'Welly · Freelance · Brand Voice & Web Copy',
+      'Welly · Freelance · Creative Director & Lead Copywriter · 2022',
     brief:
       'A sustainability-led smoothie brand needed copy that made “5 a day” feel achievable rather than virtuous, for both a kids’ range and an adult range, built on freeze-dried, upcycled produce that would otherwise go to landfill.',
     execution:
       'Anchored the brand voice in the actual insight (96% of children and 90% of adults miss their recommended fruit and veg intake) and turned the sustainability angle into brand substance rather than a footnote: transparent sourcing, upcycled produce, a 2025 zero-waste target.',
     wrote:
-      'Wrote the core platform lines (“Easy way to get 5 a day,” “100% transparent goodness,” “From the earth, for you”) across web copy, product range messaging, and the kids/adults range split.',
+      'Wrote the core platform lines (“5 a day the easy way! Just Rip, Tip, Shake, Sip!” “100% transparent goodness,” “From the earth, for you”) across web copy, product range messaging, and the kids/adults range split.',
   },
   {
     slug: 'inke',
     brand: 'Inke',
     line: 'Send Joy',
     logos: ['inke'],
-    meta: 'Inke · Freelance Copywriter',
+    meta:
+      'Inke · Freelance · Creative Director & Brand Strategist',
     brief:
-      'A brand platform for Inke’s custom, sustainably designed packaging for e-commerce businesses.',
+      'A brand platform paired with inke’s sustainably designed custom packaging for brands. Like the cultural saying: if something doesn’t spark joy, it’s probably not worth spending time on.',
+    execution:
+      'Working with the business owner to tell the brand story across social media, their website, and product packaging. It was a joy working with inke!',
     wrote:
-      'Wrote the platform, “Send Joy”, on the back of a saying everyone already knows: if something doesn’t spark joy, it’s probably not worth spending time on.',
+      'The brand line, across brochure, sleeve and shopfront: “We are inke. A custom packaging partner. We deliver scaleable, sustainable packages. We help you Send Joy.”',
   },
   {
     slug: 'grove-distillery',
@@ -147,7 +157,7 @@ const cases: Case[] = [
     execution:
       'Built the platform on the brand’s own history (a still bought in 2010, the first sent to Western Australia) and translated it into a tone that could flex across the distillery, the accommodation, and the product range without losing the thread.',
     wrote:
-      'Wrote the platform line “Distilled with a story. Delivered to you.” and the supporting territory: “Made on this land. Distilled in history.” Developed the positioning statement, “Pioneers of the craft,” used across web and social.',
+      'Wrote the platform line “Distilled with a story. Delivered to you.” and the supporting territory: “Made on this land. Distilled in history.” Developed the positioning statement, “Pioneers of the craft,” used across web and social. And the Spiced Rum campaign headline: “Unlike Any Other.”',
   },
   {
     slug: 'coca-cola-alexa',
@@ -157,13 +167,13 @@ const cases: Case[] = [
     tag: 'Copywriting',
     hero: cocaColaAlexa,
     meta:
-      'Coca-Cola Australia · VERSA, CHEP, BRX · Copywriter & Chat Flow Designer',
+      'Coca-Cola South Pacific × Amazon · VERSA · Copywriter & Voice Flow Designer · 2019',
     brief:
       'A limited voice-commerce promotion built between Ogilvy, Coca-Cola Australia, and Amazon: ask Alexa to “Share a Coke” and get a free personalised can. Conversational design for one of the first voice-led FMCG promotions in the region.',
     execution:
       'Designed the Alexa conversation flow to sit on top of Ogilvy’s creative platform, keeping the exchange elegant enough to feel like a gift, not a form. Layered in sonic branding to give the interaction its own “fizz.”',
     wrote:
-      'Wrote the chat-flow dialogue (prompts, confirmations, the personalisation moment) and the sonic-branding brief that shaped how the promotion sounded, not just read.',
+      'Wrote the chat-flow dialogue (prompts, confirmations, the personalisation moment) and the sonic-branding brief that shaped how the promotion sounded, not just read. The call to action: say “Alexa, let’s share a Coke” to get a free personalised bottle.',
   },
   {
     slug: 'tekspace',
@@ -171,25 +181,14 @@ const cases: Case[] = [
     line: 'Research',
     logos: ['tekspace'],
     tag: 'Content Strategy',
-    meta: 'Tekspace · B2B Marketing Specialist & Content Strategist',
+    meta:
+      'Tekspace · In-house · Marketing Specialist · 2025–now',
     brief:
-      'Position the Tekspace Shield security bundle, and give a B2B cybersecurity brand something to say that the rest of the category wasn’t already saying.',
+      'Tekspace sells trust in a market built on scepticism. Cyber security buyers are burned out on vendor marketing: every product claims to be the best, and IT leaders have no independent way to check. Tekspace’s team had the operator-level expertise to say something real, but it had never been made public.',
     execution:
-      'Produced three benchmark research reports evaluating 51 cybersecurity vendors.',
+      'Designed and ran the Tekspace Cyber Lab, an in-house research program that benchmarks every major vendor in a category against a proprietary scoring framework (the Tekspace Cyber Continuum™), grading real capabilities rather than marketing claims. Three reports across two sprints: Email Security (18 vendors), Browser Security (13 vendors, 400+ raw features normalised into 40 comparable capabilities) and Security Awareness Training (20 vendors).',
     wrote:
-      'Authored the Tekspace Writing & Voice Catalogue: human-first rules for B2B writing. No “in today’s threat landscape”. No em dashes. Lead with a position, not a raw statistic.',
-  },
-  {
-    slug: 'bowen-st-press',
-    brand: 'Bowen St Press',
-    line: 'Bowen St Press',
-    logos: ['bowen-st-press'],
-    tag: 'Branding',
-    meta: 'Bowen St Press · RMIT · Identity',
-    brief:
-      'A logo mark and visual identity for Bowen St Press, the RMIT student-run publishing imprint behind the Pulse anthology series. Built as an identity exercise.',
-    execution:
-      'A clean typographic hierarchy, set up to frame literary anthologies, student work and press releases.',
+      'Built an agentic AI production pipeline that doubled research output sprint-over-sprint, with no added budget or headcount. Cited in Google’s AI Overview as a primary source for browser-security vendor queries, and picked up by TechDay Australia, SecurityBrief Australia, ChannelLife AU and IT Brief.',
   },
   {
     slug: 'google-assistant-smiling-mind',
@@ -197,38 +196,51 @@ const cases: Case[] = [
     line: 'Google Assistant × Smiling Mind',
     logos: ['google-assistant', 'smiling-mind'],
     tag: 'UX Writing',
-    meta: 'Smiling Mind · VERSA / Deepend',
+    meta:
+      'Smiling Mind × Google Assistant · VERSA / Deepend · Conversational UX Writer · 2018–20',
     brief:
       'Translate the Smiling Mind app’s UX into conversational voice flows for Google Assistant.',
+    execution:
+      'Scripted and built the voice experience, modelling the dialogue and user flows in Dialogflow for Google Assistant.',
+    wrote:
+      'Written to one principle: greetings matter. They’re our first point of contact with a world that hasn’t met us yet. When someone you don’t know says Hello, the way you say Hey back reveals a lot about you.',
   },
   {
     slug: 'victoria-police-blue-space',
     brand: 'Victoria Police',
     line: 'Blue Space',
     logos: ['victoria-police'],
-    meta: 'Victoria Police · VERSA / Deepend',
+    meta:
+      'Victoria Police · VERSA · UX Writer & Content Strategist · 2019',
     brief:
-      'A mental health and wellbeing platform for Victoria Police officers. Made for police, by police.',
+      'A wellbeing platform for current and former Victoria Police employees and their immediate families. People who protect the public need to protect themselves too.',
+    execution:
+      'Made for police by police: built in collaboration with over 4,000 people across the Victoria Police community. Crisis support, help for you (alcohol, exercise, nutrition, sleep, mindfulness), help for loved ones, and lived-experience stories. Completely confidential.',
     wrote:
-      'Wrote the core platform copy: “As a police officer, your duty is to protect the public. But your first duty is your own mental health and wellbeing.”',
+      'The welcome for new recruits: “As a police officer, your duty is to protect the public. But, as important as public safety is, your first duty is your own mental health and wellbeing.”',
   },
   {
     slug: 'woolworths-olive',
     brand: 'Woolworths',
     line: 'Olive, the Woolworths chatbot',
     logos: ['woolworths'],
-    meta: 'Woolworths · VERSA · Conversational Writer & UX Designer',
+    meta:
+      'Woolworths (WooliesX) · VERSA · Conversational Copywriter · 2018',
     brief:
-      'Personality development and dialogue design for Olive, the customer-facing digital assistant for Woolworths.',
+      'Olive, the customer-facing chatbot for WooliesX. My first chatbot project.',
+    execution:
+      'Edited longform FAQs into chatbot content, taking the project from design through to content with the lead conversation designer.',
+    wrote:
+      '“Early on in my writing career, I got to assist with the conversational design and writing for Olive.”',
   },
   {
     slug: 'g8-education',
     brand: 'G8 Education',
-    line: 'The Film Diary',
+    line: 'Love them with us',
     logos: ['g8-education'],
     hero: g8Education,
     meta:
-      'G8 Education',
+      'G8 Education · CHEP Network · Copywriter · 2021–22',
     brief:
       '“If drop-off guilt is real, how do you help parents feel okay?” A platform and campaign for re-engaging post-COVID early-education enrolment, built on the emotional arc of growing up: from the difficulty of the drop-off to the quiet pride of graduation.',
     execution:
