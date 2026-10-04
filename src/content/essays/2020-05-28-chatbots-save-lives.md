@@ -76,7 +76,7 @@ Clever conversational automation does more than just answer questions. Nowadays 
 
 AI can be taught to register keywords, sentiment, intents while a customer is speaking to a customer service staff member. This information can then be used to feed into services, transcripts or data.
 
-![A McDonald's drive-through sign against a flat blue sky.](../../assets/writing/chatbots-save-lives/04.gif)
+<video class="essay-clip" src="/writing/chatbots-save-lives/04.mp4" poster="/writing/chatbots-save-lives/04.webp" width="600" height="238" muted loop playsinline preload="none" aria-label="A McDonald’s drive-through sign against a flat blue sky, then a speech-recognition prototype transcribing a spoken drive-through order and sorting it into structured items: happy meals, mains, sides, drinks."></video>
 
 This example is a prototype from McDonald's America. It’s live transcribing an order through a drive-through and formatting the customers' voice transcription into McDonald’s’ Ordering Structure.
 
@@ -122,4 +122,4 @@ It’s our responsibility as digital writers, providing info to the world throug
 #### **Save time save lives ✌️**
 If you’ve got questions about how to implement this, or want to chat about chat, say g’day at [Finn Astle](https://au.linkedin.com/in/finn-astle-794003123), or see some of our work at [Versa Agency](https://versa.agency/)
 
-![An iMessage typing indicator: three dots pulsing inside a grey bubble.](../../assets/writing/chatbots-save-lives/01.gif)
+<video class="essay-clip" src="/writing/chatbots-save-lives/01.mp4" poster="/writing/chatbots-save-lives/01.webp" width="498" height="248" muted loop playsinline preload="none" aria-label="An iMessage typing indicator: three dots pulsing inside a grey bubble."></video>
