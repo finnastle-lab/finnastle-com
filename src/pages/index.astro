@@ -1,12 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import wordmark from '../assets/brand/wordmark.png';
 import wordmarkDark from '../assets/brand/wordmark-dark.png';
 import sunFlourish from '../assets/brand/sun-flourish.png';
 import sunset from '../assets/brand/stamps/sunset.png';
 import sunStamp from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.png';
 import portrait from '../assets/brand/finn-portrait.png';
+
+// Decorative stamps render at 64–112px; ship 2x webps rather than the
+// full-size source PNGs (the sunset alone was ~800KB).
+const [sunsetImg, flourishImg, sunStampImg] = await Promise.all([
+  getImage({ src: sunset, width: 224, format: 'webp' }),
+  getImage({ src: sunFlourish, width: 152, format: 'webp' }),
+  getImage({ src: sunStamp, width: 128, format: 'webp' }),
+]);
 
 const explore = [
   { href: '/work', label: 'Work', body: 'Collage, painting and mixed media, by chapter.' },
@@ -16,7 +24,7 @@ const explore = [
 ---
 <BaseLayout title="Finn Astle" register="art">
   <section class="hero">
-    <img class="stamp" src={sunset.src} alt="" aria-hidden="true"
+    <img class="stamp" src={sunsetImg.src} alt="" aria-hidden="true"
       style="top:-0.5rem; right:-0.5rem; width:112px; transform:rotate(7deg);" />
 
     <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">Finn Astle · Astle Creative</p>
@@ -25,13 +33,15 @@ const explore = [
       what happens to making when machines can make.</p>
   </section>
 
-  <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
+  <img class="flourish" src={flourishImg.src} alt="" aria-hidden="true" />
 
   <div class="wordmark-card">
-    <img class="stamp stamp--ink" src={sunStamp.src} alt="" aria-hidden="true"
+    <img class="stamp stamp--ink" src={sunStampImg.src} alt="" aria-hidden="true"
       style="top:-1.6rem; right:1rem; width:64px; transform:rotate(6deg);" />
-    <img class="wordmark-light" src={wordmark.src} alt="Finn Astle, hand-brushed collage wordmark" />
-    <img class="wordmark-dark" src={wordmarkDark.src} alt="" aria-hidden="true" />
+    <Image class="wordmark-light" src={wordmark} alt="Finn Astle, hand-brushed collage wordmark"
+      widths={[700, 1400]} sizes="(max-width: 62rem) 100vw, 62rem" loading="eager" />
+    <Image class="wordmark-dark" src={wordmarkDark} alt="" aria-hidden="true"
+      widths={[700, 1400]} sizes="(max-width: 62rem) 100vw, 62rem" />
   </div>
 
   <p><em>is currently searching fearlessly for answers.</em></p>

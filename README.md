@@ -40,6 +40,7 @@ src/
       index.astro    /writing     essay list
       [...slug].astro /writing/:slug
     rss.xml.js       /rss.xml
+    sitemap.xml.ts   /sitemap.xml (hand-rolled; see astro.config.mjs)
 ```
 
 ## Two registers

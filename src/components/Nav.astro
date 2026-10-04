@@ -1,6 +1,8 @@
 ---
+import { getImage } from 'astro:assets';
 import { NAV } from '../consts';
 import sun from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.png';
+const sunMark = await getImage({ src: sun, width: 52, format: 'webp' });
 const path = Astro.url.pathname;
 const isCurrent = (href: string) =>
   path === href || (href !== '/' && path === href) || (href !== '/' && path.startsWith(href + '/'));
@@ -27,7 +29,7 @@ const icon = (href: string) => icons[href] ?? '<circle cx="12" cy="12" r="8"/>';
 <header class="masthead">
   <div class="masthead-in">
     <a class="brand" href="/">
-      <img class="mark" src={sun.src} alt="" width="26" aria-hidden="true" />
+      <img class="mark" src={sunMark.src} alt="" width="26" aria-hidden="true" />
       <span class="name">Finn Astle</span>
     </a>
 
