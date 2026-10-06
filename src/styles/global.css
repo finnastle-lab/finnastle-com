@@ -612,3 +612,114 @@ code { font-family: var(--mono); font-size: 0.9em; }
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* --- Poems ------------------------------------------------------------------ */
+/* The art register's own reading measure: narrower than the essays, because a
+   poem's line should break where it was written to break, not where the column
+   runs out. */
+.poem { max-width: 40rem; }
+
+.poem-meta {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--graphite);
+  margin: 0 0 2.5rem;
+}
+
+/* pre-wrap preserves the newlines and indents authored in the markdown, and
+   still soft-wraps an over-long line instead of overflowing the frame. Stanza
+   gaps come through as paragraph margins. */
+.poem-body {
+  line-height: 1.9;
+  font-size: 1.02rem;
+}
+
+/* One block per authored line (see src/lib/remark-poem-lines.mjs). pre-wrap
+   keeps any leading spaces the poem indents with; the hanging indent means a
+   wrapped line reads as continuation, never as a break the poem wrote. */
+.poem-line {
+  display: block;
+  white-space: pre-wrap;
+  padding-left: 1.6rem;
+  text-indent: -1.6rem;
+}
+.poem-body p { margin: 0 0 2rem; max-width: none; }
+.poem-body p:last-child { margin-bottom: 0; }
+
+.poem-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+.poem-nav a { color: var(--graphite); text-decoration: none; }
+.poem-nav a:hover { color: var(--ink); text-decoration: underline; }
+
+.poem-back {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  margin-top: 1.25rem;
+}
+
+/* --- Poems index ------------------------------------------------------------ */
+.poem-cycle { margin-top: 2.5rem; }
+.poem-cycle:first-of-type { margin-top: 2rem; }
+.poem-cycle .flourish { margin: 2.5rem auto 3rem; }
+.poem-cycle-label {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--graphite);
+  margin: 0 0 0.6rem;
+}
+.poem-cycle-note {
+  font-style: italic;
+  color: var(--graphite);
+  border-left: 1px solid var(--line-strong);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+.poem-list { list-style: none; padding: 0; margin: 0; }
+.poem-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+.poem-item:first-child { border-top: none; padding-top: 0; }
+.poem-link {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  text-decoration: none;
+}
+.poem-link:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.poem-prov {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--graphite);
+}
+
+/* Quiet link to the poems, sitting below the Instagram block at the very foot
+   of an article. Deliberately not in the nav: the poems are the art register,
+   and they're for someone who already read to the end of something else. No
+   rule above it — the follow block's own edge is enough separation. */
+.essay-poems-link {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--graphite);
+  margin: 1.5rem 0 0;
+}

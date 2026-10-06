@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { remarkPoemLines } from './src/lib/remark-poem-lines.mjs';
 
 // Canonical host is the apex domain. www -> apex 301 is handled at Cloudflare
 // (DNS redirect rule), not here. Path-level legacy 301s live in public/_redirects.
@@ -14,4 +15,7 @@ export default defineConfig({
   // slash on Cloudflare. `file` format emits route.html, served at /route.
   trailingSlash: 'never',
   build: { format: 'file' },
+  // Poems only: give every authored line its own block so a soft wrap can be
+  // told apart from a break the poem wrote. See src/lib/remark-poem-lines.mjs.
+  markdown: { remarkPlugins: [remarkPoemLines] },
 });

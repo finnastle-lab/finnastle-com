@@ -21,4 +21,26 @@ const essays = defineCollection({
     }),
 });
 
-export const collections = { essays };
+// Poems — the art register. A sequence, not a feed: these are ordered by hand
+// (`order`), never by date, because the running order is part of the work.
+// `draft` defaults to true so nothing goes live until it has had a pass.
+const poems = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    // Lower sits higher on the index. Leave gaps so a poem can be slotted in.
+    order: z.number(),
+    // Cycle this belongs to, e.g. 'True Fiction'. Shown as a quiet label.
+    cycle: z.string().optional(),
+    // Free text, not a date — "2019, Victory St" carries more than a timestamp.
+    // Reader-facing: only facts about the work itself, never where the file came
+    // from. Shown on the poem page.
+    provenance: z.string().optional(),
+    // Where the text was transcribed from. A private record for Finn — never
+    // rendered, so filing paths and note titles stay off the live site.
+    source: z.string().optional(),
+    draft: z.boolean().default(true),
+  }),
+});
+
+export const collections = { essays, poems };
