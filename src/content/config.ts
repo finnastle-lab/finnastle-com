@@ -43,4 +43,28 @@ const poems = defineCollection({
   }),
 });
 
-export const collections = { essays, poems };
+// Studio case studies — the business register. One entry per client case,
+// ordered by hand so the strongest work leads. Body is three fixed sections:
+// The brief / The execution / What I wrote. A section is omitted rather than
+// invented when the source material doesn't support it.
+const studio = defineCollection({
+  type: 'content',
+  schema: z.object({
+    // Brand as it should read on the row. No logo files — the marks sourced in
+    // Oct 2026 turned out to be approximations, so the register sets names in type.
+    brand: z.string(),
+    // The campaign's platform line. Omitted where the work had no public line.
+    line: z.string().optional(),
+    // Discipline tag, only where the work isn't plainly a campaign.
+    tag: z.string().optional(),
+    // Agency · role · year, each part verified against a source document.
+    meta: z.string().optional(),
+    // Lower sits higher on the page.
+    order: z.number(),
+    // Filename in src/assets/studio. Cases without a usable image omit it.
+    hero: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { essays, poems, studio };

@@ -440,24 +440,53 @@ footer .mark { width: 18px; height: auto; }
 .chapter-thumbs .thumb:hover { border-color: var(--ink); }
 .chapter-thumbs .thumb[aria-current="true"] { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
 
-.case { margin: 3rem 0; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
-.case img { width: 100%; height: auto; display: block; border: 1px solid var(--line); margin-bottom: 1.25rem; }
-.case-img-placeholder {
-  width: 100%; aspect-ratio: 16 / 9; margin-bottom: 1.25rem;
-  border: 1px solid var(--line);
-  background-color: var(--card);
-  background-image:
-    linear-gradient(45deg, var(--line) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--line) 25%, transparent 25%);
-  background-size: 16px 16px;
-  background-position: 0 0, 0 8px;
-  opacity: 0.5;
+/* Studio cases — one row each, opening to the write-up. No logo files: the
+   marks sourced for these brands were approximations, so the row sets the name
+   in type, which suits the monochrome register anyway. */
+.case-list { list-style: none; padding: 0; margin: 2.5rem 0 0; }
+.case-list > li { border-top: 1px solid var(--line); }
+.case-list > li:last-child { border-bottom: 1px solid var(--line); }
+
+.case-row {
+  display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;
+  padding: 1.1rem 0.25rem; cursor: pointer; list-style: none;
 }
-.case h2 { margin: 0 0 0.25rem; }
-.case .meta {
+.case-row::-webkit-details-marker { display: none; }
+.case-row:hover .case-brand { text-decoration: underline; text-decoration-color: var(--accent); }
+.case-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.case-brand { font-family: var(--serif); font-size: 1.3rem; line-height: 1.1; }
+.case-line { color: var(--graphite); font-style: italic; }
+.case-tag {
+  margin-left: auto;
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--graphite); border: 1px solid var(--line);
+  padding: 0.1rem 0.5rem; border-radius: 999px; white-space: nowrap;
+}
+
+/* The caret sits last so it stays put whether or not a row carries a tag. */
+.case-row::after {
+  content: '+'; font-family: var(--mono); color: var(--graphite);
+  font-size: 1.1rem; line-height: 1;
+}
+.case[open] .case-row::after { content: '\2013'; }
+
+.case-detail { padding: 0 0.25rem 2rem; max-width: 42rem; }
+.case-hero {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--line); margin-bottom: 1.25rem;
+}
+.case-meta {
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--graphite); margin: 0 0 1rem;
+  color: var(--graphite); margin: 0 0 1.5rem;
 }
+.case-detail h2 {
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 400;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--graphite); margin: 1.75rem 0 0.5rem;
+}
+.case-detail h2:first-of-type { margin-top: 0; }
+.case-detail p { margin: 0 0 1rem; }
 
 .tool-list { margin-top: 2rem; }
 .tool { margin: 0 0 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
