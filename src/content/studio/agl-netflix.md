@@ -5,7 +5,7 @@ line: Can't live without Netflix
 tag: Copywriting
 meta: Big Red Communications · Lead Copywriter, broadcast & retail · 2023
 order: 20
-hero: agl-netflix.jpg
+hero: agl-netflix.webp
 ---
 
 ## The brief
