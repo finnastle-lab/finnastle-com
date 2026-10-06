@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Drafts are visible when running `astro dev` so work in progress can be read
+// and sequenced, and hidden in the production build. Flip `draft: false` in a
+// poem's frontmatter to actually publish it.
+// Hand-ordered, not reverse-chron. The running order is the point, so the list
+// is never regrouped — a cycle shows as a label on its own entries instead.
+const poems = (await getCollection('poems', ({ data }) => !data.draft || import.meta.env.DEV)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+// Finn's own front note on the True Fiction project. Published as part of the
+// work, not as a legal disclaimer — it says what the reader is holding. Only
+// shown when something in the list actually belongs to that cycle.
+const hasTrueFiction = poems.some((p) => p.data.cycle === 'True Fiction');
+const trueFiction =
+  'A retelling passed between multiple people — in reality, dreams and sometimes speculation. Faces, names, plates, times and locations are redacted, de-identified and recontextualised. The outskirts of life get sensationalised, silenced, or judged by quiet people behind a screen. Remember there is always some fiction in your truth too.';
+---
+<BaseLayout
+  title="Poems"
+  description="Poems and the True Fiction cycle. The art register."
+  register="art"
+>
+  <h1>Poems</h1>
+
+  <p>Written over years and mostly never shown. Set as they were written —
+    the line breaks are mine, not the window's.</p>
+
+  {hasTrueFiction && (
+    <>
+      <h2 class="poem-cycle-label">True Fiction</h2>
+      <p class="poem-cycle-note">{trueFiction}</p>
+    </>
+  )}
+
+  {poems.length === 0 ? (
+    <p class="stub">Nothing published here yet. The poems are in the collection
+      as drafts and stay hidden until they've had a pass.</p>
+  ) : (
+    <ul class="poem-list">
+      {poems.map((p) => (
+        <li class="poem-item">
+          <a href={`/poems/${p.slug}`} class="poem-link">{p.data.title}</a>
+          {p.data.cycle && <span class="poem-prov">{p.data.cycle}</span>}
+        </li>
+      ))}
+    </ul>
+  )}
+</BaseLayout>

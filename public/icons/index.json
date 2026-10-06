@@ -1,6 +1,6 @@
 {
   "name": "FA icon pack",
-  "count": 106,
+  "count": 97,
   "format": "webp",
   "canvas": "512x512 transparent, artwork centred in an 880/1024 content box",
   "source": "Google Drive 01_ART/00_icon-pack (1024px PNG masters)",
@@ -23,12 +23,6 @@
       "file": "angel-statue-church.webp",
       "url": "https://finnastle.com/icons/angel-statue-church.webp",
       "bytes": 40336
-    },
-    {
-      "name": "angel-wings-spread-blue",
-      "file": "angel-wings-spread-blue.webp",
-      "url": "https://finnastle.com/icons/angel-wings-spread-blue.webp",
-      "bytes": 5246
     },
     {
       "name": "angelic-baby",
@@ -85,12 +79,6 @@
       "bytes": 24140
     },
     {
-      "name": "boeing-jet-airliner-blue",
-      "file": "boeing-jet-airliner-blue.webp",
-      "url": "https://finnastle.com/icons/boeing-jet-airliner-blue.webp",
-      "bytes": 6270
-    },
-    {
       "name": "born-to-kill-helmet",
       "file": "born-to-kill-helmet.webp",
       "url": "https://finnastle.com/icons/born-to-kill-helmet.webp",
@@ -113,12 +101,6 @@
       "file": "boxing-frame.webp",
       "url": "https://finnastle.com/icons/boxing-frame.webp",
       "bytes": 7784
-    },
-    {
-      "name": "boy-praying-kneeling",
-      "file": "boy-praying-kneeling.webp",
-      "url": "https://finnastle.com/icons/boy-praying-kneeling.webp",
-      "bytes": 8732
     },
     {
       "name": "bull-skull-stars",
@@ -169,22 +151,10 @@
       "bytes": 29242
     },
     {
-      "name": "crucifix-ornate",
-      "file": "crucifix-ornate.webp",
-      "url": "https://finnastle.com/icons/crucifix-ornate.webp",
-      "bytes": 5392
-    },
-    {
       "name": "dog-and-traffic-light",
       "file": "dog-and-traffic-light.webp",
       "url": "https://finnastle.com/icons/dog-and-traffic-light.webp",
       "bytes": 15016
-    },
-    {
-      "name": "dog-running-hound",
-      "file": "dog-running-hound.webp",
-      "url": "https://finnastle.com/icons/dog-running-hound.webp",
-      "bytes": 8208
     },
     {
       "name": "dolphins-silhouette",
@@ -287,12 +257,6 @@
       "file": "greco-wrestlers.webp",
       "url": "https://finnastle.com/icons/greco-wrestlers.webp",
       "bytes": 33064
-    },
-    {
-      "name": "hand-pointing-index",
-      "file": "hand-pointing-index.webp",
-      "url": "https://finnastle.com/icons/hand-pointing-index.webp",
-      "bytes": 10124
     },
     {
       "name": "handcuffs-cutout",
@@ -463,18 +427,6 @@
       "bytes": 67086
     },
     {
-      "name": "repco-1920s-logo",
-      "file": "repco-1920s-logo.webp",
-      "url": "https://finnastle.com/icons/repco-1920s-logo.webp",
-      "bytes": 18010
-    },
-    {
-      "name": "rose-bloom-red",
-      "file": "rose-bloom-red.webp",
-      "url": "https://finnastle.com/icons/rose-bloom-red.webp",
-      "bytes": 4084
-    },
-    {
       "name": "runnin-dog",
       "file": "runnin-dog.webp",
       "url": "https://finnastle.com/icons/runnin-dog.webp",
@@ -571,12 +523,6 @@
       "bytes": 8002
     },
     {
-      "name": "statue-classical-torso",
-      "file": "statue-classical-torso.webp",
-      "url": "https://finnastle.com/icons/statue-classical-torso.webp",
-      "bytes": 13950
-    },
-    {
       "name": "sun-newspaper",
       "file": "sun-newspaper.webp",
       "url": "https://finnastle.com/icons/sun-newspaper.webp",
@@ -593,6 +539,12 @@
       "file": "super-starliner.webp",
       "url": "https://finnastle.com/icons/super-starliner.webp",
       "bytes": 5024
+    },
+    {
+      "name": "target-dummy-crosshairs",
+      "file": "target-dummy-crosshairs.webp",
+      "url": "https://finnastle.com/icons/target-dummy-crosshairs.webp",
+      "bytes": 26140
     },
     {
       "name": "the-free-country",
@@ -629,12 +581,6 @@
       "file": "unlimited-steamship-woodcut.webp",
       "url": "https://finnastle.com/icons/unlimited-steamship-woodcut.webp",
       "bytes": 40064
-    },
-    {
-      "name": "vintage-sedan-red",
-      "file": "vintage-sedan-red.webp",
-      "url": "https://finnastle.com/icons/vintage-sedan-red.webp",
-      "bytes": 8554
     },
     {
       "name": "yin-yang-brush",
