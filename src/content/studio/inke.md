@@ -5,7 +5,7 @@ line: Send Joy
 tag: Branding
 meta: Freelance · Creative Director & Brand Strategist · 2021–22
 order: 70
-hero: inke.jpeg
+hero: inke.webp
 ---
 
 ## The brief
