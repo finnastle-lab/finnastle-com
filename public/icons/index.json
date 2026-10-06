@@ -1,6 +1,6 @@
 {
   "name": "FA icon pack",
-  "count": 96,
+  "count": 97,
   "format": "webp",
   "canvas": "512x512 transparent, artwork centred in an 880/1024 content box",
   "source": "Google Drive 01_ART/00_icon-pack (1024px PNG masters)",
@@ -539,6 +539,12 @@
       "file": "super-starliner.webp",
       "url": "https://finnastle.com/icons/super-starliner.webp",
       "bytes": 5024
+    },
+    {
+      "name": "target-dummy-crosshairs",
+      "file": "target-dummy-crosshairs.webp",
+      "url": "https://finnastle.com/icons/target-dummy-crosshairs.webp",
+      "bytes": 26140
     },
     {
       "name": "the-free-country",
