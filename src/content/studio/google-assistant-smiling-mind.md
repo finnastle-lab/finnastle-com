@@ -1,5 +1,6 @@
 ---
 brand: Google Assistant × Smiling Mind
+logos: [google-assistant, smiling-mind]
 tag: UX Writing
 meta: VERSA · Conversational UX Writer & Voice Designer · 2018–20
 order: 120

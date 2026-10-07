@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import sunFlourish from '../../assets/brand/sun-flourish.png';
+const sunFlourishImg = await getImage({ src: sunFlourish, width: 152, format: 'webp' });
 
 const essays = (await getCollection('essays', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -36,7 +37,7 @@ const signposts: Record<number, string> = {
     eras.map(([year, items], i) => (
       <section class="essay-era">
         {i > 0 && (
-          <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
+          <img class="flourish" src={sunFlourishImg.src} alt="" aria-hidden="true" />
         )}
         <h2 class="essay-era-label">{year}</h2>
         {signposts[year] && <p class="essay-signpost">{signposts[year]}</p>}

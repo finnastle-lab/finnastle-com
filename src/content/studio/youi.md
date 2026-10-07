@@ -1,9 +1,11 @@
 ---
 brand: Youi
-line: Insurance that's a bit more you-shaped
+logos: [youi]
+line: A bit more you-shaped
+tag: Copywriting
 meta: Big Red Communications · Support Copywriter · 2023
 order: 40
-hero: youi.png
+hero: youi.webp
 ---
 
 ## The brief

@@ -1,9 +1,11 @@
 ---
 brand: AGL
+logos: [agl]
 line: Join the Change
+tag: Copywriting
 meta: Big Red Communications · Lead Creative Copywriter · 2023
 order: 10
-hero: agl-join-the-change.png
+hero: agl-join-the-change.webp
 ---
 
 ## The brief

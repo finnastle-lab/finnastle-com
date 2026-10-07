@@ -50,12 +50,15 @@ const poems = defineCollection({
 const studio = defineCollection({
   type: 'content',
   schema: z.object({
-    // Brand as it should read on the row. No logo files — the marks sourced in
-    // Oct 2026 turned out to be approximations, so the register sets names in type.
+    // Brand as it should read on the row, and the type that stands in for a logo.
     brand: z.string(),
+    // Logo keys -> src/assets/studio/logos/<key>.(svg|png|webp). A key with no
+    // file falls back to the brand in type. Only genuine marks go in that folder:
+    // the ones sourced in Oct 2026 were approximations and were not used.
+    logos: z.array(z.string()).default([]),
     // The campaign's platform line. Omitted where the work had no public line.
     line: z.string().optional(),
-    // Discipline tag, only where the work isn't plainly a campaign.
+    // Discipline tag (Copywriting, Branding, UX Writing…). Every case carries one.
     tag: z.string().optional(),
     // Agency · role · year, each part verified against a source document.
     meta: z.string().optional(),

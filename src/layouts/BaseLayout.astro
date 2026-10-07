@@ -1,7 +1,9 @@
 ---
 import Nav from '../components/Nav.astro';
+import { getImage } from 'astro:assets';
 import { SITE } from '../consts';
 import sun from '../assets/elements/made-by-a-human-fa-sun-signature-stamp.png';
+import defaultShare from '../assets/brand/wordmark.png';
 import '../styles/global.css';
 
 interface Props {
@@ -10,9 +12,18 @@ interface Props {
   register?: 'art' | 'studio';
   // Keep a page out of the index (error pages, anything not meant to be found).
   noindex?: boolean;
+  // Social share image (Open Graph / Twitter). Falls back to the wordmark.
+  image?: ImageMetadata;
+  imageAlt?: string;
+  // 'article' for essays; everything else is a plain website page.
+  ogType?: 'website' | 'article';
+  publishedTime?: Date;
 }
 
-const { title, description = SITE.description, register = 'art', noindex = false } = Astro.props;
+const {
+  title, description = SITE.description, register = 'art', noindex = false,
+  image, imageAlt, ogType = 'website', publishedTime,
+} = Astro.props;
 const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
 // build.format 'file' makes Astro.url.pathname '/exhibitions.html' at build
 // time, but that URL 308s to the clean '/exhibitions' people actually visit —
@@ -21,6 +32,15 @@ const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
 const canonicalPath = Astro.url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
 const canonical = new URL(canonicalPath, Astro.site);
 const year = new Date().getFullYear();
+
+// The sun mark renders at 18–26px but the source PNG is ~90KB; ship a small
+// webp at 2x instead. Nav.astro does the same for the masthead copy.
+const sunMark = await getImage({ src: sun, width: 52, format: 'webp' });
+
+// Share cards need an absolute URL. 1200px wide is the size the platforms ask for.
+const share = await getImage({ src: image ?? defaultShare, width: 1200, format: 'jpg' });
+const shareUrl = new URL(share.src, Astro.site);
+const shareAlt = image ? (imageAlt ?? '') : 'Finn Astle, hand-brushed collage wordmark';
 ---
 <!doctype html>
 <html lang={SITE.locale} data-register={register}>
@@ -35,6 +55,19 @@ const year = new Date().getFullYear();
     {noindex
       ? <meta name="robots" content="noindex, follow" />
       : <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={SITE.locale.replace('-', '_')} />
+    <meta property="og:image" content={shareUrl} />
+    <meta property="og:image:width" content={String(share.attributes.width)} />
+    <meta property="og:image:height" content={String(share.attributes.height)} />
+    {shareAlt && <meta property="og:image:alt" content={shareAlt} />}
+    {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -67,7 +100,7 @@ const year = new Date().getFullYear();
         <slot />
       </main>
       <footer>
-        <img class="mark" src={sun.src} alt="" width="18" aria-hidden="true" />
+        <img class="mark" src={sunMark.src} alt="" width="18" aria-hidden="true" />
         <span>F.A. · {year} · finnastle.com</span>
       </footer>
     </div>

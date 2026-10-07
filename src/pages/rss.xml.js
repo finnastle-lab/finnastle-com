@@ -10,13 +10,15 @@ export async function GET(context) {
       title: e.data.title,
       description: e.data.description ?? '',
       pubDate: e.data.pubDate,
-      link: `/writing/${e.slug}/`,
+      // No trailing slash: the site serves /writing/slug (trailingSlash: 'never').
+      link: `/writing/${e.slug}`,
     }));
 
   return rss({
     title: `${SITE.title} · Writing`,
     description: SITE.description,
     site: context.site,
+    trailingSlash: false,
     items,
   });
 }

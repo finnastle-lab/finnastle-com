@@ -1,5 +1,6 @@
 ---
 brand: The Grove Distillery
+logos: [grove-distillery]
 line: The Spirit Of
 tag: Copywriting
 meta: Freelance · Lead Copywriter · 2022

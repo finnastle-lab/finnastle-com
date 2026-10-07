@@ -1,9 +1,11 @@
 ---
 brand: Afterpay
+logos: [afterpay]
 line: However you Christmas, Afterpay it.
-meta: Big Red Communications (BRX) · Support Copywriter, social & innovation · 2023
+tag: Copywriting
+meta: Big Red Communications (BRX) · Lead Copywriter · 2023
 order: 30
-hero: afterpay.jpg
+hero: afterpay.webp
 ---
 
 ## The brief
@@ -22,6 +24,6 @@ network prove it.
 
 ## What I wrote
 
-Support copywriter across social and the creative brainstorms. Ideated the
-innovation activations — Merry Re-giftmas and its re-gifting pool mechanic, the
+One of a team of three that created the concept and the platform line,
+“However you Christmas, Afterpay it.” Ideated the innovation activations — Merry Re-giftmas and its re-gifting pool mechanic, the
 drop-a-hint-and-win catalogue, the AI Christmas memory generator.
