@@ -5,7 +5,7 @@ line: Love Them With Us
 tag: Copywriting
 meta: CHEP Network · Copywriter · 2021–22
 order: 150
-hero: g8-education.png
+hero: g8-education.webp
 ---
 
 ## The brief

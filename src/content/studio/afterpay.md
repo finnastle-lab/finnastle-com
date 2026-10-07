@@ -5,7 +5,7 @@ line: However you Christmas, Afterpay it.
 tag: Copywriting
 meta: Big Red Communications (BRX) · Lead Copywriter · 2023
 order: 30
-hero: afterpay.jpg
+hero: afterpay.webp
 ---
 
 ## The brief

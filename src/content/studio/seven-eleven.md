@@ -5,7 +5,7 @@ line: Summer 24/7
 tag: Copywriting
 meta: CHEP Network · Creative & Copywriter · 2021–22
 order: 50
-hero: seven-eleven.jpeg
+hero: seven-eleven.webp
 ---
 
 ## The brief
