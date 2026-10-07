@@ -27,7 +27,7 @@ const els = Object.entries(files)
     aria-label="Filter icons by keyword"
     autocomplete="off"
   />
-  <p class="icon-filter-count" data-total={els.length}>{els.length} of {els.length}</p>
+  <p class="icon-filter-count" role="status" aria-live="polite">{els.length} of {els.length}</p>
 
   <div class="icon-grid">
     {els.map((e) => (

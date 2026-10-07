@@ -18,6 +18,7 @@ const [sunsetImg, flourishImg, sunStampImg] = await Promise.all([
 
 const explore = [
   { href: '/work', label: 'Work', body: 'Collage, painting and mixed media, by chapter.' },
+  { href: '/writing', label: 'Writing', body: 'Essays, oldest mistakes included.' },
   { href: '/exhibitions', label: 'Exhibitions', body: 'The gallery track, 2015–2024.' },
   { href: '/tools', label: 'Tools', body: 'Small machines that make.' },
 ];
@@ -132,6 +133,9 @@ const explore = [
   @media (hover: hover) {
     .explore-card:hover { transform: translateY(-2px); }
     .explore-card:hover::after { opacity: 1; transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .explore-card:hover { transform: none; }
   }
 
   .sign-off {

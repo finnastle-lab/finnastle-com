@@ -46,8 +46,13 @@ src/
 ## Two registers
 
 `BaseLayout` takes `register="art" | "studio"`. It sets `data-register` on
-`<html>`; `global.css` swaps tokens (studio = monochrome). Art pages keep the
-chapter-variable accent. See plan §Identity.
+`<html>`; `global.css` has a `:root[data-register="studio"]` block that points
+`--accent` at `--ink`, so studio pages render monochrome. Art pages keep the
+vermilion accent. See plan §Identity.
+
+Open decision: `--frame` (sage, "web chrome only" in the brand reference) is
+declared in both theme blocks and used nowhere — `.frame` paints `--paper`.
+Either wire it onto the outer shell or drop the token.
 
 ## Deploy (Cloudflare Pages)
 

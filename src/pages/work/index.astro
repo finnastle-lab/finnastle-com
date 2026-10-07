@@ -1,18 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import { getChapterCards } from '../../lib/work-chapters';
 
-const chapters = await getChapterCards();
+const chapters = getChapterCards();
 ---
 <BaseLayout title="Work" description="Collage, painting, and mixed media, by chapter." register="art">
   <h1>Work</h1>
   <p>Collage, painting, and mixed media: a range of projects, by chapter.</p>
 
   <div class="work-grid">
-    {chapters.map((c) => (
+    {chapters.map((c, i) => (
       <a class="work-card" href={`/work/${c.slug}`}>
         <span class="work-card-media">
-          <img src={c.key.src} alt={c.title} />
+          {/* 3 columns at 59rem of content, so ~296px a card. The first row is
+              above the fold on most screens; the rest load lazily. */}
+          <Image src={c.key} alt={c.title} widths={[300, 600, 900]}
+            sizes="(max-width: 36rem) 100vw, (max-width: 62rem) 50vw, 300px"
+            loading={i < 3 ? 'eager' : 'lazy'} />
           <span class="work-card-cue">View chapter →</span>
         </span>
         <h2>{c.title}</h2>

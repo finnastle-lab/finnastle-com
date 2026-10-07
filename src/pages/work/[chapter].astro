@@ -9,6 +9,14 @@ export async function getStaticPaths() {
 const { chapter } = Astro.params;
 const c = await getChapterDetail(chapter!);
 if (!c) throw new Error(`Unknown chapter: ${chapter}`);
+
+// Intrinsic dimensions for the key image, and for every image the thumbs can
+// swap in. Without them the page reflows on load, and again on each swap
+// whenever the next image is a different shape.
+const dims = c.large.map((lg) => ({
+  w: Number(lg.attributes.width),
+  h: Number(lg.attributes.height),
+}));
 ---
 <BaseLayout title={c.title} description={`${c.title}: collage, painting, mixed media.`} register="art">
   <p><a href="/work">← Work</a></p>
@@ -16,12 +24,21 @@ if (!c) throw new Error(`Unknown chapter: ${chapter}`);
   {c.blurb && <p>{c.blurb}</p>}
 
   <article class="chapter" data-chapter>
-    <img class="chapter-key" data-main src={c.large[0].src} alt={c.title} />
+    {/* aspect-ratio, not just width/height: once an image has loaded, its
+        natural size overrides the attributes, so an attribute-only swap
+        reflows late. A CSS ratio keeps the box authoritative throughout. */}
+    <img class="chapter-key" data-main src={c.large[0].src} alt={c.title}
+      width={dims[0].w} height={dims[0].h}
+      style={`aspect-ratio: ${dims[0].w} / ${dims[0].h}`} />
     {c.count > 1 && (
       <div class="chapter-thumbs" role="group" aria-label={`${c.title} images`}>
         {c.large.map((lg, i) => (
-          <button type="button" class="thumb" data-full={lg.src} aria-current={i === 0 ? 'true' : undefined}>
-            <img src={c.thumb[i].src} alt={`${c.title} ${i + 1}`} loading="lazy" />
+          <button type="button" class="thumb" data-full={lg.src}
+            data-w={dims[i].w} data-h={dims[i].h}
+            data-alt={`${c.title} ${i + 1}`}
+            aria-current={i === 0 ? 'true' : undefined}>
+            <img src={c.thumb[i].src} alt={`${c.title} ${i + 1}`} loading="lazy"
+              width={320} height={320} />
           </button>
         ))}
       </div>
@@ -37,7 +54,16 @@ if (!c) throw new Error(`Unknown chapter: ${chapter}`);
     const thumbs = ch.querySelectorAll<HTMLButtonElement>('.thumb');
     thumbs.forEach((btn) => {
       btn.addEventListener('click', () => {
-        if (main && btn.dataset.full) main.src = btn.dataset.full;
+        if (main && btn.dataset.full) {
+          // Resize the box in the same tick as the click. The user caused it,
+          // so it reads as a response; left to the image's load event it would
+          // land hundreds of ms later as an unexplained jump.
+          if (btn.dataset.w && btn.dataset.h) {
+            main.style.aspectRatio = `${btn.dataset.w} / ${btn.dataset.h}`;
+          }
+          main.src = btn.dataset.full;
+          if (btn.dataset.alt) main.alt = btn.dataset.alt;
+        }
         thumbs.forEach((b) => b.removeAttribute('aria-current'));
         btn.setAttribute('aria-current', 'true');
       });

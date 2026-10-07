@@ -37,16 +37,15 @@ export function chapterSlugs(): string[] {
   return CHAPTER_ORDER.filter((k) => groups[k]);
 }
 
-/** Lightweight index data: key thumb only (for the /work grid). */
-export async function getChapterCards() {
+/** Lightweight index data: key image only (for the /work grid). Returns the raw
+ *  ImageMetadata so the page can render it through <Image>, which emits the
+ *  intrinsic width/height the grid needs to reserve space before load. */
+export function getChapterCards() {
   const groups = rawGroups();
-  return Promise.all(
-    chapterSlugs().map(async (k) => {
-      const imgs = groups[k];
-      const keyImg = await getImage({ src: imgs[0], width: 640, format: 'webp' });
-      return { slug: k, title: CHAPTER_META[k].title, blurb: CHAPTER_META[k].blurb, count: imgs.length, key: keyImg };
-    }),
-  );
+  return chapterSlugs().map((k) => {
+    const imgs = groups[k];
+    return { slug: k, title: CHAPTER_META[k].title, blurb: CHAPTER_META[k].blurb, count: imgs.length, key: imgs[0] };
+  });
 }
 
 /** Full chapter data: large + thumb variants for every image (for /work/[chapter]). */

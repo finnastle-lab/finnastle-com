@@ -6,6 +6,7 @@
 */
 
 :root {
+  color-scheme: light;
   --ink: #0f0f0e;
   --graphite: #6f6b63;
   --paper: #faf9f6;
@@ -15,7 +16,6 @@
   --frame: #c9d0c0;        /* sage — web chrome only */
   --accent: #d9360f;       /* vermilion — the one guest */
   --accent-press: #a82908;
-  --mark-adj: 0;           /* brightness(0) keeps ink marks black in light */
   --mark-inv: 0;           /* invert off in light */
 
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
@@ -27,6 +27,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --ink: #eeece6;
     --graphite: #a29d94;
     --paper: #121211;
@@ -40,6 +41,7 @@
   }
 }
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --ink: #eeece6;
   --graphite: #a29d94;
   --paper: #121211;
@@ -50,6 +52,17 @@
   --accent: #e5451a;
   --accent-press: #f0673d;
   --mark-inv: 1;
+}
+
+/* --- Registers --------------------------------------------------------------
+   BaseLayout sets data-register on <html>. Studio (Astle Creative) is
+   monochrome: the vermilion guest is an art-register device and does not
+   appear on business pages. Declared after the theme blocks because it matches
+   at the same specificity, so source order is what settles it. --ink is
+   theme-dependent and resolves at use, so one line covers light and dark. */
+:root[data-register="studio"] {
+  --accent: var(--ink);
+  --accent-press: var(--graphite);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -292,7 +305,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 .stamp--ink { filter: brightness(0) invert(var(--mark-inv)); }
 
 /* Section-break device: the hand-drawn sun-ray flourish pair. */
-.flourish { display: block; width: 76px; height: auto; margin: 3.5rem auto; opacity: 0.95; }
+/* Square source, so the ratio reserves the box before the webp arrives. */
+.flourish { display: block; width: 76px; aspect-ratio: 1; height: auto; margin: 3.5rem auto; opacity: 0.95; }
 
 /* --- Footer ----------------------------------------------------------------- */
 footer {
@@ -328,6 +342,17 @@ footer .mark { width: 18px; height: auto; }
   border-left: 2px solid var(--accent);
 }
 .essay-era .flourish { margin: 2.5rem auto 3rem; }
+
+/* Quiet sidedoor to /poems. Deliberately low-contrast and set below the list:
+   the poems stay out of the nav and off the homepage by choice. */
+.writing-aside {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--graphite);
+  margin: 3.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
 
 .essay-list { list-style: none; padding: 0; margin: 0; }
 .essay-item {
@@ -546,7 +571,8 @@ code { font-family: var(--mono); font-size: 0.9em; }
   border: 1px solid var(--line);
   border-radius: 6px;
 }
-.icon-filter:focus { outline: none; border-color: var(--line-strong); }
+.icon-filter:focus { border-color: var(--line-strong); }
+.icon-filter:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .icon-filter-count {
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -594,4 +620,18 @@ code { font-family: var(--mono); font-size: 0.9em; }
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* --- Reduced motion ---------------------------------------------------------
+   The card lifts, image scales, sliding arrows and rotating toggles are all
+   decoration. Honour the OS setting and let them land instantly. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .work-card:hover img { transform: none; }
+  .work-card:hover { transform: none; }
 }
