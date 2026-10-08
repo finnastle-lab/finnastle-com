@@ -9,15 +9,28 @@ const files = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 export const CHAPTER_META: Record<string, { title: string; blurb?: string }> = {
+  'irrespective': { title: 'Irrespective' },
+  'vest-chain-cans': { title: 'Knock Off' },
   'bougainvillea': { title: 'Bougainvillea: Sydney Views' },
+  'reebok-running': { title: 'Apocalypse' },
+  'engine-oil-afternoon': {
+    title: 'Engine Oil',
+    blurb: 'A series inspired by the garish design of engine oil bottles.',
+  },
+  'extreme-golf': { title: 'Extreme Golf' },
   'blues-angels-crossing': { title: 'Blues Angels Crossing' },
   'paper-universe': { title: 'Paper Universe' },
   'highway-blues': { title: 'Highway Blues' },
   'vintage-car-gas-station': { title: 'Vintage Car, Gas Station' },
   'mays-end': { title: "May's End" },
+  // Staged in src/assets/work/ but deliberately unlisted below: it will NOT
+  // render until its slug is added to CHAPTER_ORDER.
+  //   'harbour-bridge-scene'  (2 images)  - needs a title
 };
 export const CHAPTER_ORDER = [
-  'bougainvillea', 'blues-angels-crossing', 'paper-universe',
+  'irrespective', 'vest-chain-cans', 'bougainvillea',
+  'reebok-running', 'engine-oil-afternoon', 'extreme-golf',
+  'blues-angels-crossing', 'paper-universe',
   'highway-blues', 'vintage-car-gas-station', 'mays-end',
 ];
 
