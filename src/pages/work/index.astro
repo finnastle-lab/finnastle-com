@@ -17,6 +17,7 @@ const chapters = getChapterCards();
               above the fold on most screens; the rest load lazily. */}
           <Image src={c.key} alt={c.title} widths={[300, 600, 900]}
             sizes="(max-width: 36rem) 100vw, (max-width: 62rem) 50vw, 300px"
+            style={`object-position: ${c.focus}`}
             loading={i < 3 ? 'eager' : 'lazy'} />
           <span class="work-card-cue">View chapter →</span>
         </span>

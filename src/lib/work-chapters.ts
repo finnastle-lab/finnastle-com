@@ -8,21 +8,40 @@ const files = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 
-export const CHAPTER_META: Record<string, { title: string; blurb?: string }> = {
+// `focus` is the card crop's object-position. The /work cards are a 4:3 box and
+// the art is not, so something gets cut; this says what to keep. Omit it when
+// the centre already holds the best of the piece. The chapter page is never
+// cropped, so nothing here hides anything - it only decides the thumbnail.
+//
+// Only one axis ever does anything. `cover` scales to the short side, so a
+// source wider than 4:3 (all the 16:9 and 5:3 work) is cropped left-to-right
+// and keeps its full height - its Y value is inert. A source taller than 4:3
+// (the portrait studio shots) is cropped top-to-bottom and its X is inert.
+export const CHAPTER_META: Record<string, { title: string; blurb?: string; focus?: string }> = {
   'irrespective': { title: 'Irrespective' },
   'vest-chain-cans': { title: 'Knock Off' },
-  'bougainvillea': { title: 'Bougainvillea: Sydney Views' },
-  'reebok-running': { title: 'Apocalypse' },
+  // Its own namesake: the flowering plants and police car along the bottom.
+  // Centre would land on the bridge, which is also May's End's card - the two
+  // chapters photograph the same canvas, so they must not crop to the same view.
+  'bougainvillea': { title: 'Bougainvillea: Sydney Views', focus: '50% 72%' },
+  // The two horses, left of centre; the right third is sky and flame.
+  'reebok-running': { title: 'Apocalypse', focus: '42% 50%' },
   'engine-oil-afternoon': {
     title: 'Engine Oil',
     blurb: 'A series inspired by the garish design of engine oil bottles.',
+    // The bottle and the brown grid sit right of centre; the left half is bare sky.
+    focus: '68% 50%',
   },
   'extreme-golf': { title: 'Extreme Golf' },
-  'blues-angels-crossing': { title: 'Blues Angels Crossing' },
-  'paper-universe': { title: 'Paper Universe' },
-  'highway-blues': { title: 'Highway Blues' },
+  // The winged figure at the crossing, over the collage panels on the left.
+  'blues-angels-crossing': { title: 'Blues Angels Crossing', focus: '70% 50%' },
+  // A studio shot: hold the shelves of canvases rather than the floor.
+  'paper-universe': { title: 'Paper Universe', focus: '50% 33%' },
+  // The blue flower form, just left of centre.
+  'highway-blues': { title: 'Highway Blues', focus: '45% 50%' },
   'vintage-car-gas-station': { title: 'Vintage Car, Gas Station' },
-  'mays-end': { title: "May's End" },
+  // A studio shot where the canvas sits high and the lower third is bare wall.
+  'mays-end': { title: "May's End", focus: '50% 32%' },
   // Staged in src/assets/work/ but deliberately unlisted below: it will NOT
   // render until its slug is added to CHAPTER_ORDER.
   //   'harbour-bridge-scene'  (2 images)  - needs a title
@@ -57,7 +76,7 @@ export function getChapterCards() {
   const groups = rawGroups();
   return chapterSlugs().map((k) => {
     const imgs = groups[k];
-    return { slug: k, title: CHAPTER_META[k].title, blurb: CHAPTER_META[k].blurb, count: imgs.length, key: imgs[0] };
+    return { slug: k, title: CHAPTER_META[k].title, blurb: CHAPTER_META[k].blurb, focus: CHAPTER_META[k].focus ?? '50% 50%', count: imgs.length, key: imgs[0] };
   });
 }
 

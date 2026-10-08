@@ -420,11 +420,17 @@ footer .mark { width: 18px; height: auto; }
   margin-top: 2.5rem;
 }
 .work-card { text-decoration: none; color: inherit; display: block; }
+/* A uniform card box. Natural heights made every row as tall as its tallest
+   card, so a single portrait key left ~200px of dead space beside it and threw
+   the captions out of line. The listing crops; the chapter page behind it still
+   shows each piece whole. Where the centre is not the best part, the chapter
+   sets its own focal point - see CHAPTER_META in lib/work-chapters.ts. */
 .work-card-media {
   display: block; position: relative; overflow: hidden;
   border: 1px solid var(--line); background: var(--card);
+  aspect-ratio: 4 / 3;
 }
-.work-card img { width: 100%; height: auto; display: block; }
+.work-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .work-card-cue {
   position: absolute; left: 0; right: 0; bottom: 0;
   font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
