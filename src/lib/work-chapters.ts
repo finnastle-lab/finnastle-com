@@ -61,12 +61,32 @@ export function getChapterCards() {
   });
 }
 
+// The key image tops out at 944 CSS px, so a 2x display wants ~1888 real ones.
+// A single 1100px render was serving those screens at about 58%. Ask for a
+// ladder up to that instead, but never past the source: upscaling costs bytes
+// and buys nothing, and several chapters are only 1250-1600px wide to begin
+// with. Those still land short of 2x — that is a source ceiling, not a
+// rendering one, and no srcset will fix it.
+const KEY_MAX = 1888;
+const KEY_STEPS = [480, 720, 960, 1280, 1600];
+const KEY_SIZES = '(max-width: 62rem) 100vw, 944px';
+
+function keyWidths(im: ImageMetadata): number[] {
+  const cap = Math.min(im.width, KEY_MAX);
+  return [...new Set([...KEY_STEPS.filter((w) => w < cap), cap])];
+}
+
 /** Full chapter data: large + thumb variants for every image (for /work/[chapter]). */
 export async function getChapterDetail(slug: string) {
   const groups = rawGroups();
   const imgs = groups[slug];
   if (!imgs) return null;
-  const large = await Promise.all(imgs.map((im) => getImage({ src: im, width: 1100, format: 'webp' })));
+  const large = await Promise.all(
+    imgs.map((im) => getImage({ src: im, widths: keyWidths(im), sizes: KEY_SIZES, format: 'webp' })),
+  );
   const thumb = await Promise.all(imgs.map((im) => getImage({ src: im, width: 320, format: 'webp' })));
-  return { slug, title: CHAPTER_META[slug].title, blurb: CHAPTER_META[slug].blurb, count: imgs.length, large, thumb };
+  // Intrinsic dimensions come from the source, not the resized output: they
+  // describe the artwork's shape, which is what the aspect-ratio box needs.
+  const dims = imgs.map((im) => ({ w: im.width, h: im.height }));
+  return { slug, title: CHAPTER_META[slug].title, blurb: CHAPTER_META[slug].blurb, count: imgs.length, large, thumb, dims };
 }
