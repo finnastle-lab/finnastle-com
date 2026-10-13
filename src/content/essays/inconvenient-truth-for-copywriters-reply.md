@@ -72,7 +72,7 @@ I've got three. Two of them you haven't heard of.
 
 *You-shaped property*, for Shape Property Group. Their name and their promise to the customer, in one hyphen.
 
-And *24/7/7/11*.
+And *24/7/7/11*, for 7-Eleven.
 
 None of them came out of a method. Each one turned up, and then it was all I could think about.
 
@@ -114,7 +114,7 @@ I was going to repaint the famous ones and thought better of it, so these are th
 
 *Pope technique: the pun. It has to kick both ways.*
 
-A machine made all four, for an essay about the part of the job a machine can't do. *Strong Jawman* is mine. The other three lines it pitched, in a list of twelve, and I picked.
+A machine made all four pictures, for an essay about the part of the job a machine can't do. The lines are mine.
 
 That's either the joke or the whole argument.
 
