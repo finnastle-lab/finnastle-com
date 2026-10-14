@@ -14,7 +14,9 @@ see below.
 | Certificate list | **Resolved and applied.** Verified against the real certificate. |
 | Five H2s | **Applied** to the live article. |
 | Closing paragraph | **Applied.** Generative AI Leader confirmed underway, so the "already started" variant is live. |
-| Hero | Direction changed — see `hero-reprompt-shredded.md`. The nine-mark hero is parked in Drive. |
+| Credential grid | **Built and live.** Nine cells in CSS, eight earned plus the open one. |
+| Tail mark | **Built and live.** The shredder drawing, theme-aware via masks. |
+| Hero | Still the old Google-blue badge ring. Waiting on the photo — see below. |
 | Four screenshots | Not captured. Two are behind Google sign-in. |
 | Caption pairings | Three of four still unchosen. |
 
@@ -30,7 +32,48 @@ see below.
   pictures go.
 - `hero-production-spec.md` — the parked nine-mark hero: how it was composed, and its limits.
 
-## The two hero options
+## How the page is built now
+
+Three pictures doing three jobs, rather than one hero carrying everything.
+
+1. **Top — the photograph.** Not in yet. A real shredder, a real certificate. See the note
+   below before this one lands.
+2. **Body — the credential grid.** Nine cells: the eight earned, plus Generative AI Leader
+   marked open. Built in CSS, not as an image, for three reasons — Google's badge assets are
+   in Google's four colours; a picture of a list is exactly how the copy and the hero came to
+   disagree in the first place; and type stays sharp, themes itself and weighs nothing.
+   Markup lives in the article, styles under *Credential grid* in `src/styles/global.css`.
+3. **Tail — the shredder drawing.** The generated illustration, cut into two alpha masks
+   (`shredder-ink.png`, `shredder-accent.png`) in `public/writing/four-things-i-built/`.
+   CSS paints them with `var(--ink)` and `var(--accent)`, so one asset pair covers light and
+   dark, including the manual theme toggle, and the vermilion ribbon stays vermilion in both.
+   The seal in each grid cell is lifted from that same drawing, so the marks match.
+
+The existing `.mark` helper could not be reused for the shredder: it recolours with
+`brightness(0) invert()`, which flattens everything to one colour and would take the vermilion
+ribbon with it.
+
+### The accent appears twice on this page
+
+The open credential cell near the top, and the vermilion ribbon at the very bottom. They are
+far enough apart never to share a viewport, and each is load-bearing — one marks the thing not
+finished, the other is the article's whole argument. It is still two, against a system that
+says one per view. Easy to drop either: the cell reverts to a dashed `--line` border, or the
+accent mask comes off the tail.
+
+## The photograph at the top
+
+Hold until its source is known. A stock photo of a stranger's hand shredding a generic
+"Certificate of Completion" is a licensing question on a public repo, and it is also the one
+picture on the page that isn't Finn's.
+
+The better version costs an afternoon: print the real certificate — the record is in Drive —
+shred it, photograph it. Then the picture is true, which is what the rest of this piece is
+built on, and the licence question disappears.
+
+## The two illustration options
+
+
 
 **Live direction: the shredded certificate** (`hero-reprompt-shredded.md`). Needs no new scans,
 and it argues with the title rather than illustrating it.

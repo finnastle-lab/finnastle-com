@@ -12,7 +12,21 @@ A certificate only proves you sat still. That's the sentence I kept coming back 
 
 But I built four things.
 
-Eight certificates, for the record: AI Fundamentals, AI for Research and Insights, AI for Writing and Communicating, AI for Content Creation, AI for Brainstorming and Planning, AI for Data Analysis, AI for App Building, AI for App Deployment.
+Eight certificates, for the record. And the one I'm in the middle of.
+
+<ol class="certs">
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">01</span><span class="cert-name">AI Fundamentals</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">02</span><span class="cert-name">AI for Brainstorming and Planning</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">03</span><span class="cert-name">AI for Research and Insights</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">04</span><span class="cert-name">AI for Writing and Communicating</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">05</span><span class="cert-name">AI for Content Creation</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">06</span><span class="cert-name">AI for Data Analysis</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">07</span><span class="cert-name">AI for App Building</span></li>
+  <li class="cert"><span class="cert-seal"></span><span class="cert-n">08</span><span class="cert-name">AI for App Deployment</span></li>
+  <li class="cert cert--open"><span class="cert-seal"></span><span class="cert-n">Next</span><span class="cert-name">Generative AI Leader</span><span class="cert-note">Google Cloud · in progress</span></li>
+</ol>
+
+<p class="certs-verify">The eight are one Google AI Professional Certificate, issued 6 September 2026. <a href="https://coursera.org/verify/professional-cert/G820ON21BRMV" rel="external nofollow">Verify it</a>, if you like. That is the part that proves least.</p>
 
 I put a version of this on LinkedIn too. About half of it read like an ad for Gemini's product suite, which — in fairness — it kind of was.
 
@@ -35,5 +49,10 @@ Building a watchlist is a genuinely hard design problem, and [DreadSwipe](/tools
 ## There's another one
 
 Four very different things, out of eight courses that cost me seventy bucks on Coursera. What I actually learned is narrower than any of that: what Gemini's good at (not consistent code — thanks, Claude), and what it isn't. "All" was doing a lot of work. Eight courses finished. Plenty left to learn. I've already started Google Cloud's Generative AI Leader learning path. After that, I want to work towards its Professional Cloud Architect certification. Different credentials. The second asks a different question: what does this thing cost to run, and who does it fall over on?
+
+<div class="shred" role="img" aria-label="A line drawing of a certificate fed into a paper shredder, coming out below as long curling ribbons. One ribbon among them is vermilion. The drawing is machine-made.">
+  <span class="shred-ink"></span>
+  <span class="shred-accent"></span>
+</div>
 
 If any of this is useful for your own idea, I'd love to chat about building it — Almanac especially, which just needs your own Meta Graph API key pointed at a different account. finnastle@gmail.com. Say g'day if any of these are useful to you. 🙏
