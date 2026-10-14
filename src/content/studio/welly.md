@@ -15,7 +15,9 @@ sure fruit and veg gets eaten, not argued over or wasted.
 
 ## The execution
 
-If you're confident, less is more. 100% plants. Nothing else. Freeze-dried for maximum
+If you're confident, less is more. 100% plants. Nothing else. A single-minded
+proposition that didn't hide the minimalism also helped differentiate the child
+and adult packaging. Freeze-dried for maximum
 freshness, sealing in flavour and nutrition. Rip, tip, shake, sip.
 
 ## What I wrote
