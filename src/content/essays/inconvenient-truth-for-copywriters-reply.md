@@ -80,9 +80,9 @@ Some things that might have happened.
 
 *Parallelism.*
 
-![A photograph that looks like a 1950s street scene: a hand-painted wall advertisement showing a smiling woman with an upright vacuum cleaner whose cord is wound around the ankle of a man walking away, under the single word JEALOUS. and the invented brand name Velmora. The image is machine-generated; the wall sign never existed.](../../assets/writing/word-that-had-no-business/jealous.png)
+![A photograph of an open magazine on a wooden table: a full-page furniture advertisement showing a young man sitting alone on a red sofa in a tidy living room with price labels on the lamp, shelving, sofa and coffee table, under the headline SELF ASSEMBLY. and the invented brand name Velmora. The image is machine-generated; the magazine and the advertisement never existed.](../../assets/writing/word-that-had-no-business/self-assembly.png)
 
-*Personification.*
+*Pun. And a jump forward to the grungy nineties.*
 
 The lines are mine. A machine made the pictures.
 
