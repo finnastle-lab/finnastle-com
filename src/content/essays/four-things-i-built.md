@@ -12,7 +12,7 @@ A certificate only proves you sat still. That's the sentence I kept coming back 
 
 But I built four things.
 
-Eight certificates, for the record: AI Fundamentals, Generative AI for Everyone, AI for Writing and Communicating, AI for Content Creation, AI for Brainstorming and Planning, AI for Data Analysis, AI for App Building, AI for Product Management.
+Eight certificates, for the record: AI Fundamentals, AI for Research and Insights, AI for Writing and Communicating, AI for Content Creation, AI for Brainstorming and Planning, AI for Data Analysis, AI for App Building, AI for App Deployment.
 
 I put a version of this on LinkedIn too. About half of it read like an ad for Gemini's product suite, which — in fairness — it kind of was.
 

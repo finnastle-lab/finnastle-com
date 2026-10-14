@@ -33,7 +33,7 @@ It is a ring of eight Google course-completion badges on a pale ground, with a b
 Four faults, in order of severity:
 
 1. **It is in Google's colours, not Finn's.** Blue, red, yellow, green. The Astle Creative system is monochrome with a single guest accent. The one picture at the top of the article is the only thing on the page that is not in the brand.
-2. **The badge names contradict the copy.** The hero shows *AI for Research and Insights* and *AI for App Deployment*. The article lists *Generative AI for Everyone* and *AI for Product Management*. Two of eight do not match. Fix the fact before fixing the picture: confirm which eight are actually held, and make the copy and the image agree.
+2. **The badge names contradict the copy.** The hero shows *AI for Research and Insights* and *AI for App Deployment*. The article lists *Generative AI for Everyone* and *AI for Product Management*. Two of eight do not match. ~~Confirm which eight are actually held.~~ **Resolved:** the certificate record settles it — the hero was right, the copy was wrong. Both corrections are applied to the live article. See `_certificates-redesign/certificate-record.md`.
 3. **It does not survive the column.** The text column is capped at 40rem (roughly 700px). Half the hero canvas is empty on the left, so the badges land small and the badge text is unreadable at the size it actually renders.
 4. **The squiggles are decoration.** The red dot, the green line and the yellow squiggle do not mean anything. In this system, marks are load-bearing or they are out.
 
@@ -98,7 +98,7 @@ Long and literal, as on the Pope essay, and it names what the picture actually i
 
 Three, and only three. The piece is not being rewritten.
 
-**1. Fix the eight.** Make the list in paragraph three match the badges actually held. Two currently do not match the hero.
+**1. Fix the eight.** ~~Make the list in paragraph three match the badges actually held.~~ **Done.** *Generative AI for Everyone* → *AI for Research and Insights*, *AI for Product Management* → *AI for App Deployment*, verified against the Google AI Professional Certificate dated 6 September 2026 (`coursera.org/verify/professional-cert/G820ON21BRMV`).
 
 **2. Name what is next.** The article closes on "On to the next course", which is a shrug. It should name it: the **Google Cloud Generative AI Leader** learning path, heading toward the **Professional Cloud Architect** certification. That reframes the ending from a sign-off into a direction, and it gives the vermilion ninth position in the hero something to point at.
 
@@ -106,7 +106,7 @@ Starting point for that line, not a final draft:
 
 > Next one's already started. Google Cloud Generative AI Leader, then the Professional Cloud Architect certification, which is a different animal: less about what the model can do, more about what it costs to run and who it falls over on.
 
-**Confirm before publishing:** Google calls these certifications, not licences, and Generative AI Leader and Professional Cloud Architect are two separate credentials rather than one path. Get the names and the order right, and say which one is actually in progress today.
+**Confirm before publishing:** Google calls these certifications, not licences, and Generative AI Leader and Professional Cloud Architect are two separate credentials rather than one path — Generative AI Leader is not a prerequisite for Professional Cloud Architect. Names and order are now verified against Google's own pages. **Still open:** which one is actually in progress today. Two copy variants are drafted in `_certificates-redesign/copy-edits.md`; they make different claims, so this one needs answering before it publishes.
 
 **3. Handle the title.** "I got **all** the Google AI certificates" stops being true the moment the last paragraph names a ninth. Either the title acknowledges that, or the closing paragraph does. The second is better and nearly free: "all" was true for about a day.
 
@@ -131,6 +131,28 @@ Starting point for that line, not a final draft:
 
 ## Open questions
 
-- Which eight certificates are actually held? The hero and the copy disagree on two.
-- Which Google Cloud credential is in progress right now, and what is it properly called?
-- Do screenshots of all four tools exist, or does one of them need to be built out enough to photograph?
+Status as of 14 October 2026, after this brief was run through GPT and the certificate record
+was retrieved. The returned pack and the verified record are in `_certificates-redesign/`.
+
+**Closed:**
+
+- ~~Which eight certificates are actually held?~~ Verified against the Google AI Professional
+  Certificate dated 6 September 2026. The hero was right; the copy was wrong on two. Fixed.
+- ~~What are the Google Cloud credentials properly called?~~ Generative AI Leader and
+  Professional Cloud Architect, two separate credentials, neither a prerequisite for the other.
+
+**Still open:**
+
+- **Which Google Cloud credential is in progress today?** The original request called the study
+  *ongoing*, which points at "already started" — but that is the one claim in the new closing
+  paragraph that no record supports. Two variants are drafted; pick one knowingly.
+- **Do screenshots of all four tools exist?** Almanac and DreadSwipe sit behind Google sign-in
+  and have to be captured by hand. Source Material and the Icon Pack are on the public site.
+- **Three of the four caption pairings.** Only Almanac → *AI for Data Analysis* is settled.
+- **Two more distinct marks, and a higher-resolution flourish scan.** The hero as built repeats
+  the ohm and the flower to fill eight positions, and upscales a 138 × 57px crop to a 380px
+  central element.
+
+**Withdrawn:** an earlier note in this project claimed a ninth Coursera badge, *AI for Workflow
+Automation*. Nothing in the certificate or in Drive supports it. The ninth hero position refers
+to the Google Cloud credential, not a ninth Coursera course.
