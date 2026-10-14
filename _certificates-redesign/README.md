@@ -11,41 +11,43 @@ see below.
 
 | | |
 |---|---|
-| Certificate list | **Resolved.** Verified against the real certificate. Applied to the live article. |
-| Hero | Built, with caveats. PNG is in Drive, not yet in this repo. |
-| Five H2s | Written, in `revised-article-draft.md`. Not applied. |
-| Closing paragraph | Two variants. Blocked on one fact: what is actually in progress today. |
+| Certificate list | **Resolved and applied.** Verified against the real certificate. |
+| Five H2s | **Applied** to the live article. |
+| Closing paragraph | **Applied.** Generative AI Leader confirmed underway, so the "already started" variant is live. |
+| Hero | Direction changed — see `hero-reprompt-shredded.md`. The nine-mark hero is parked in Drive. |
 | Four screenshots | Not captured. Two are behind Google sign-in. |
+| Caption pairings | Three of four still unchosen. |
 
 ## Files
 
 - `certificate-record.md` — the eight verified course titles and the verification URL.
-- `revised-article-draft.md` — GPT's restructured article, with the two certificate
-  slots resolved from the record. Still carries four commented screenshot blocks and
-  three `[VERIFIED COURSE TITLE]` caption slots.
-- `copy-edits.md` — the three copy changes as exact replacement text.
-- `hero-production-spec.md` — how the hero was composed, and its limits.
+- `hero-reprompt-shredded.md` — **the live hero direction.** Prompt, variant, alt text.
 - `screenshot-capture-spec.md` — capture, crop, caption and alt specs for the four tools.
+- `copy-edits.md` — the three copy changes as exact replacement text. All three are now applied.
+- `revised-article-draft.md` — GPT's restructured article. The text changes in it are applied;
+  what it still carries that the live article does not is the four commented screenshot blocks
+  and the three `[VERIFIED COURSE TITLE]` caption slots. Keep it as the map for where the
+  pictures go.
+- `hero-production-spec.md` — the parked nine-mark hero: how it was composed, and its limits.
 
-## Where the hero lives
+## The two hero options
 
-`eight-done-one-open.png` (1402 × 1402) is in Drive, in
-`certificates-redesign-handoff.zip` and extracted alongside it, with 700px and 350px
-previews. It is not in this repo yet because the direction needs a decision first — see
-the caveats in `hero-production-spec.md`. Target path when it lands:
-`src/assets/writing/four-things-i-built/eight-done-one-open.png`.
+**Live direction: the shredded certificate** (`hero-reprompt-shredded.md`). Needs no new scans,
+and it argues with the title rather than illustrating it.
 
-## What is blocked, and on what
+**Parked: eight done, one open.** `eight-done-one-open.png` (1402 × 1402) is in Drive, inside
+`certificates-redesign-handoff.zip` and extracted alongside it, with 700px and 350px previews.
+Still viable if two more distinct marks and a higher-resolution flourish scan turn up — see
+`hero-production-spec.md`. The existing Google-blue badge hero stays in place until one of the
+two is ready.
 
-1. **The closing paragraph.** The draft says Generative AI Leader is next and Professional
-   Cloud Architect after it — future-facing, so it claims nothing unverified. If study has
-   already started, `copy-edits.md` has the replacement sentence. Needs confirming either way.
-2. **The four screenshots.** Almanac and DreadSwipe are behind Google sign-in; they have to
-   be captured by hand. Source Material and the Icon Pack are on the public site.
-3. **Three caption pairings.** Only Almanac's is settled (AI for Data Analysis). The other
-   three need the course-to-tool pairing chosen.
-4. **Two more distinct marks, and a better flourish scan.** The hero repeats the ohm and the
-   flower to fill eight positions, and the central outline is upscaled from a 138 × 57px crop.
+## What is left
+
+1. **Generate the hero** from `hero-reprompt-shredded.md`, both variants, then swap the
+   frontmatter `heroImage` and `heroImageAlt`. The alt must keep its machine-made disclosure.
+2. **The four screenshots.** Almanac and DreadSwipe are behind Google sign-in and have to be
+   captured by hand. Source Material and the Icon Pack are on the public site.
+3. **Three caption pairings.** Only Almanac → *AI for Data Analysis* is settled.
 
 ## Correction to an earlier note
 
