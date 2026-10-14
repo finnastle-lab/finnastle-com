@@ -35,8 +35,7 @@ const cta = entry.data.instagramCta;
       <time datetime={entry.data.pubDate.toISOString()}>{fmt(entry.data.pubDate)}</time>
       {platform && entry.data.canonicalUrl && (
         <>
-          {' · '}First published on <a href={entry.data.canonicalUrl} rel="external">{platform}</a>,
-          kept here as written
+          {' · '}First published on <a href={entry.data.canonicalUrl} rel="external">{platform}</a>
         </>
       )}
     </p>

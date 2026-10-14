@@ -11,15 +11,12 @@ hero: coca-cola-alexa.jpg
 
 A voice-commerce promotion between Coca-Cola South Pacific and Amazon: ask Alexa
 to share a Coke, get a free personalised bottle. One of the first voice-led FMCG
-promotions in the region, which meant there was no established shape for how the
-exchange should feel.
+promotions in the region.
 
 ## The execution
 
-The flow had to stay short enough to be a gift rather than a form. Conversation
-design sat on top of the campaign platform, handling the prompts, the
-confirmations and the personalisation moment without ever making the person
-repeat themselves.
+Conversation design on top of the campaign platform. The prompts, the
+confirmations, the personalisation moment.
 
 ## What I wrote
 

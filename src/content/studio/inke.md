@@ -8,15 +8,12 @@ hero: inke.jpeg
 
 ## The brief
 
-Inke make custom packaging for other brands, sustainably. A packaging partner
-sits one step behind the thing a customer actually opens, so the platform had to
-give that invisible position something to stand on.
+Inke make custom packaging for other brands, sustainably.
 
 ## The execution
 
-Send Joy. Like the cultural saying — if something doesn't spark joy it's
-probably not worth spending time on. The line worked on the packaging itself,
-and it worked as the reason a brand would choose Inke to carry what they send.
+Send Joy. Like the cultural saying, if something doesn't spark joy it's
+probably not worth spending time on.
 
 ## What I wrote
 

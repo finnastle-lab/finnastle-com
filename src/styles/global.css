@@ -318,15 +318,6 @@ footer .mark { width: 18px; height: auto; }
   color: var(--graphite);
   margin: 0 0 0.5rem;
 }
-.essay-signpost {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--graphite);
-  max-width: 34rem;
-  margin: 0 0 1.5rem;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--accent);
-}
 .essay-era .flourish { margin: 2.5rem auto 3rem; }
 
 .essay-list { list-style: none; padding: 0; margin: 0; }

@@ -8,14 +8,14 @@ import yinYang from '../assets/brand/stamps/yin-yang.png';
 // URL returned the homepage at HTTP 200 — a soft 404.
 const waysBack = [
   { href: '/', label: 'Home', body: 'The front door, such as it is.' },
-  { href: '/work', label: 'Work', body: 'Collage, painting and mixed media, by chapter.' },
+  { href: '/work', label: 'Work', body: 'Collage, painting and mixed media.' },
   { href: '/writing', label: 'Writing', body: 'Essays, oldest mistakes included.' },
   { href: '/tools', label: 'Tools', body: 'Small machines that make.' },
 ];
 ---
 <BaseLayout
   title="Not found"
-  description="Nothing at this address. The nav still works; whatever you came for might not."
+  description="Nothing at this address."
   register="art"
   noindex
 >
@@ -30,14 +30,6 @@ const waysBack = [
   </section>
 
   <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
-
-  <p>This site was built to publish with impermanence in mind first, so a dead
-    link here isn't strictly a bug. (It isn't strictly a feature either. It's a
-    dead link.)</p>
-
-  <p>If you typed the address, check it for a stray character. If you followed
-    something to get here, the thing that sent you is out of date and I'd rather
-    know — though I make no promises about the speed of the fix.</p>
 
   <nav class="ways-back" aria-label="Ways back into the site">
     {waysBack.map((w) => (

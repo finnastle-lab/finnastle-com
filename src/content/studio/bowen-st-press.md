@@ -10,7 +10,7 @@ hero: bowen-st-press.png
 
 Bowen Street Press is RMIT's publishing imprint. The work was the identity and
 the publication design around *Rabbit 39: Mutiny*, a journal of nonfiction
-poetry — a category that resists the shelf it's supposed to sit on.
+poetry.
 
 ## The execution
 

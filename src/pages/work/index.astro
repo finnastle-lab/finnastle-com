@@ -4,9 +4,9 @@ import { getChapterCards } from '../../lib/work-chapters';
 
 const chapters = await getChapterCards();
 ---
-<BaseLayout title="Work" description="Collage, painting, and mixed media, by chapter." register="art">
+<BaseLayout title="Work" description="Collage, painting, and mixed media." register="art">
   <h1>Work</h1>
-  <p>Collage, painting, and mixed media: a range of projects, by chapter.</p>
+  <p>Collage, painting, and mixed media.</p>
 
   <div class="work-grid">
     {chapters.map((c) => (

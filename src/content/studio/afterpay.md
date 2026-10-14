@@ -16,9 +16,8 @@ trap.
 ## The execution
 
 There's no one way to Christmas. Real tree die-hard or proud member of the
-#faketreefam, deck-the-halls or stick-a-bauble-on-a-houseplant-and-call-it-a-tree
-— the platform held every version of the day under one line, and let the retail
-network prove it.
+#faketreefam, deck-the-halls or stick-a-bauble-on-a-houseplant-and-call-it-a-tree.
+Afterpay makes every kind of Christmas possible.
 
 ## What I wrote
 
