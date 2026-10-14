@@ -1,5 +1,11 @@
 # Hero reprompt — the certificate getting shredded
 
+> Superseded as a method. This was written one-off; the repeatable version is the
+> `article-images` skill in `.claude/skills/`, which generalises what worked here — the
+> object-not-scene rule, the single load-bearing accent, no legible type, and the mask
+> pipeline that made the result theme-aware. Kept for the record of this particular picture.
+
+
 The in-between option. It drops the nine-position grid, needs no new scans, and says the
 article's first line — *a certificate only proves you sat still* — in one picture. It is also
 the only hero concept here that argues with the title instead of illustrating it.
