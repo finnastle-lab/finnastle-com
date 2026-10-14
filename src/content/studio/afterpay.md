@@ -9,7 +9,7 @@ hero: afterpay.jpg
 ## The brief
 
 When you think of Christmas, you don't think of Afterpay. The campaign's job was
-to change that — to make Afterpay the way people find and buy gifts, and to
+to change that: make Afterpay the way people find and buy gifts, and to
 frame it as financial flexibility over a cost-heavy period rather than another
 trap.
 
@@ -22,5 +22,5 @@ Afterpay makes every kind of Christmas possible.
 ## What I wrote
 
 Support copywriter across social and the creative brainstorms. Ideated the
-innovation activations — Merry Re-giftmas and its re-gifting pool mechanic, the
+innovation activations. Merry Re-giftmas and its re-gifting pool mechanic, the
 drop-a-hint-and-win catalogue, the AI Christmas memory generator.

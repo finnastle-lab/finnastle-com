@@ -15,8 +15,7 @@ promotions in the region.
 
 ## The execution
 
-Conversation design on top of the campaign platform. The prompts, the
-confirmations, the personalisation moment.
+Conversation design on top of the campaign platform.
 
 ## What I wrote
 

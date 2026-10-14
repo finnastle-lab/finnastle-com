@@ -1,6 +1,6 @@
 ---
 title: 'Chatbots save lives'
-description: 'Written in the first months of 2020, when a chatbot was the thing standing between overwhelmed services and the people waiting on them.'
+description: 'So chatbots save time, chatbots save lives.'
 pubDate: 2020-05-28
 canonicalUrl: https://medium.com/versa-agency/chatbots-save-lives-a35fd635c17
 draft: false

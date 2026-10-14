@@ -9,9 +9,9 @@ order: 130
 ## The brief
 
 Blue Space is a wellbeing platform for current and former Victoria Police
-employees and their families — mental health information, resilience tools,
-recovery stories and crisis support in one place. People whose job is protecting
-the public have to protect themselves too.
+employees and their families: mental health information, resilience tools,
+recovery stories and crisis support in one place. People who protect the
+public need to protect themselves too.
 
 ## The execution
 

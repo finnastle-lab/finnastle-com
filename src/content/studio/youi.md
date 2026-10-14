@@ -8,7 +8,7 @@ hero: youi.png
 
 ## The brief
 
-Youi don't believe one size fits all — they celebrate customer quirks and write
+Youi don't believe one size fits all. They celebrate customer quirks and write
 policies to match. The question was how to carry you-shaped beyond the policy,
 into the sport they sponsor and the everyday Australian driving personas.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Art meets AI; automated image generation with a fine-artist touch.'
-description: 'Running my own drawings through EbSynth — an early experiment in letting a machine animate a hand-made thing without letting it take the wheel.'
+description: 'Playing around with new technology and learning new things always excites me.'
 pubDate: 2020-11-23
 canonicalUrl: https://medium.com/@finn.astle/art-meets-ai-automated-image-generation-with-a-fine-artist-touch-9430635cb48f
 draft: false
