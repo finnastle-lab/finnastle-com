@@ -6,6 +6,7 @@
 */
 
 :root {
+  color-scheme: light;
   --ink: #0f0f0e;
   --graphite: #6f6b63;
   --paper: #faf9f6;
@@ -15,7 +16,6 @@
   --frame: #c9d0c0;        /* sage — web chrome only */
   --accent: #d9360f;       /* vermilion — the one guest */
   --accent-press: #a82908;
-  --mark-adj: 0;           /* brightness(0) keeps ink marks black in light */
   --mark-inv: 0;           /* invert off in light */
 
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
@@ -27,6 +27,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --ink: #eeece6;
     --graphite: #a29d94;
     --paper: #121211;
@@ -40,6 +41,7 @@
   }
 }
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --ink: #eeece6;
   --graphite: #a29d94;
   --paper: #121211;
@@ -50,6 +52,17 @@
   --accent: #e5451a;
   --accent-press: #f0673d;
   --mark-inv: 1;
+}
+
+/* --- Registers --------------------------------------------------------------
+   BaseLayout sets data-register on <html>. Studio (Astle Creative) is
+   monochrome: the vermilion guest is an art-register device and does not
+   appear on business pages. Declared after the theme blocks because it matches
+   at the same specificity, so source order is what settles it. --ink is
+   theme-dependent and resolves at use, so one line covers light and dark. */
+:root[data-register="studio"] {
+  --accent: var(--ink);
+  --accent-press: var(--graphite);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -292,7 +305,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 .stamp--ink { filter: brightness(0) invert(var(--mark-inv)); }
 
 /* Section-break device: the hand-drawn sun-ray flourish pair. */
-.flourish { display: block; width: 76px; height: auto; margin: 3.5rem auto; opacity: 0.95; }
+/* Square source, so the ratio reserves the box before the webp arrives. */
+.flourish { display: block; width: 76px; aspect-ratio: 1; height: auto; margin: 3.5rem auto; opacity: 0.95; }
 
 /* --- Footer ----------------------------------------------------------------- */
 footer {
@@ -328,6 +342,17 @@ footer .mark { width: 18px; height: auto; }
   border-left: 2px solid var(--accent);
 }
 .essay-era .flourish { margin: 2.5rem auto 3rem; }
+
+/* Quiet sidedoor to /poems. Deliberately low-contrast and set below the list:
+   the poems stay out of the nav and off the homepage by choice. */
+.writing-aside {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--graphite);
+  margin: 3.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
 
 .essay-list { list-style: none; padding: 0; margin: 0; }
 .essay-item {
@@ -395,11 +420,17 @@ footer .mark { width: 18px; height: auto; }
   margin-top: 2.5rem;
 }
 .work-card { text-decoration: none; color: inherit; display: block; }
+/* A uniform card box. Natural heights made every row as tall as its tallest
+   card, so a single portrait key left ~200px of dead space beside it and threw
+   the captions out of line. The listing crops; the chapter page behind it still
+   shows each piece whole. Where the centre is not the best part, the chapter
+   sets its own focal point - see CHAPTER_META in lib/work-chapters.ts. */
 .work-card-media {
   display: block; position: relative; overflow: hidden;
   border: 1px solid var(--line); background: var(--card);
+  aspect-ratio: 4 / 3;
 }
-.work-card img { width: 100%; height: auto; display: block; }
+.work-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .work-card-cue {
   position: absolute; left: 0; right: 0; bottom: 0;
   font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
@@ -440,53 +471,7 @@ footer .mark { width: 18px; height: auto; }
 .chapter-thumbs .thumb:hover { border-color: var(--ink); }
 .chapter-thumbs .thumb[aria-current="true"] { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
 
-/* Studio cases — one row each, opening to the write-up. No logo files: the
-   marks sourced for these brands were approximations, so the row sets the name
-   in type, which suits the monochrome register anyway. */
-.case-list { list-style: none; padding: 0; margin: 2.5rem 0 0; }
-.case-list > li { border-top: 1px solid var(--line); }
-.case-list > li:last-child { border-bottom: 1px solid var(--line); }
-
-.case-row {
-  display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;
-  padding: 1.1rem 0.25rem; cursor: pointer; list-style: none;
-}
-.case-row::-webkit-details-marker { display: none; }
-.case-row:hover .case-brand { text-decoration: underline; text-decoration-color: var(--accent); }
-.case-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.case-brand { font-family: var(--serif); font-size: 1.3rem; line-height: 1.1; }
-.case-line { color: var(--graphite); font-style: italic; }
-.case-tag {
-  margin-left: auto;
-  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--graphite); border: 1px solid var(--line);
-  padding: 0.1rem 0.5rem; border-radius: 999px; white-space: nowrap;
-}
-
-/* The caret sits last so it stays put whether or not a row carries a tag. */
-.case-row::after {
-  content: '+'; font-family: var(--mono); color: var(--graphite);
-  font-size: 1.1rem; line-height: 1;
-}
-.case[open] .case-row::after { content: '\2013'; }
-
-.case-detail { padding: 0 0.25rem 2rem; max-width: 42rem; }
-.case-hero {
-  width: 100%; height: auto; display: block;
-  border: 1px solid var(--line); margin-bottom: 1.25rem;
-}
-.case-meta {
-  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
-  color: var(--graphite); margin: 0 0 1.5rem;
-}
-.case-detail h2 {
-  font-family: var(--mono); font-size: 0.72rem; font-weight: 400;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--graphite); margin: 1.75rem 0 0.5rem;
-}
-.case-detail h2:first-of-type { margin-top: 0; }
-.case-detail p { margin: 0 0 1rem; }
+/* Studio case accordion styles live in src/pages/studio.astro. */
 
 .tool-list { margin-top: 2rem; }
 .tool { margin: 0 0 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
@@ -592,7 +577,8 @@ code { font-family: var(--mono); font-size: 0.9em; }
   border: 1px solid var(--line);
   border-radius: 6px;
 }
-.icon-filter:focus { outline: none; border-color: var(--line-strong); }
+.icon-filter:focus { border-color: var(--line-strong); }
+.icon-filter:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .icon-filter-count {
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -642,113 +628,16 @@ code { font-family: var(--mono); font-size: 0.9em; }
   white-space: nowrap;
 }
 
-/* --- Poems ------------------------------------------------------------------ */
-/* The art register's own reading measure: narrower than the essays, because a
-   poem's line should break where it was written to break, not where the column
-   runs out. */
-.poem { max-width: 40rem; }
-
-.poem-meta {
-  font-family: var(--sans);
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--graphite);
-  margin: 0 0 2.5rem;
-}
-
-/* pre-wrap preserves the newlines and indents authored in the markdown, and
-   still soft-wraps an over-long line instead of overflowing the frame. Stanza
-   gaps come through as paragraph margins. */
-.poem-body {
-  line-height: 1.9;
-  font-size: 1.02rem;
-}
-
-/* One block per authored line (see src/lib/remark-poem-lines.mjs). pre-wrap
-   keeps any leading spaces the poem indents with; the hanging indent means a
-   wrapped line reads as continuation, never as a break the poem wrote. */
-.poem-line {
-  display: block;
-  white-space: pre-wrap;
-  padding-left: 1.6rem;
-  text-indent: -1.6rem;
-}
-.poem-body p { margin: 0 0 2rem; max-width: none; }
-.poem-body p:last-child { margin-bottom: 0; }
-
-.poem-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-top: 4rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-  font-family: var(--sans);
-  font-size: 0.8rem;
-}
-.poem-nav a { color: var(--graphite); text-decoration: none; }
-.poem-nav a:hover { color: var(--ink); text-decoration: underline; }
-
-.poem-back {
-  font-family: var(--sans);
-  font-size: 0.8rem;
-  margin-top: 1.25rem;
-}
-
-/* --- Poems index ------------------------------------------------------------ */
-.poem-cycle { margin-top: 2.5rem; }
-.poem-cycle:first-of-type { margin-top: 2rem; }
-.poem-cycle .flourish { margin: 2.5rem auto 3rem; }
-.poem-cycle-label {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  font-weight: 600;
-  font-style: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--graphite);
-  margin: 0 0 0.6rem;
-}
-.poem-cycle-note {
-  font-style: italic;
-  color: var(--graphite);
-  border-left: 1px solid var(--line-strong);
-  padding-left: 1rem;
-  margin-bottom: 2rem;
-}
-.poem-list { list-style: none; padding: 0; margin: 0; }
-.poem-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 1rem 0;
-  border-top: 1px solid var(--line);
-}
-.poem-item:first-child { border-top: none; padding-top: 0; }
-.poem-link {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.6rem;
-  line-height: 1.1;
-  text-decoration: none;
-}
-.poem-link:hover { text-decoration: underline; text-decoration-color: var(--accent); }
-.poem-prov {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--graphite);
-}
-
-/* Quiet link to the poems, sitting below the Instagram block at the very foot
-   of an article. Deliberately not in the nav: the poems are the art register,
-   and they're for someone who already read to the end of something else. No
-   rule above it — the follow block's own edge is enough separation. */
-.essay-poems-link {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--graphite);
-  margin: 1.5rem 0 0;
+/* --- Reduced motion ---------------------------------------------------------
+   The card lifts, image scales, sliding arrows and rotating toggles are all
+   decoration. Honour the OS setting and let them land instantly. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .work-card:hover img { transform: none; }
+  .work-card:hover { transform: none; }
 }

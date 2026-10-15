@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO (deploy phase): re-enable once the sitemap is generated.
-# Sitemap: https://finnastle.com/sitemap-index.xml
+Sitemap: https://finnastle.com/sitemap.xml

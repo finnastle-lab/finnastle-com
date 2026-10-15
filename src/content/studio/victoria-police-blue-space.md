@@ -1,5 +1,6 @@
 ---
 brand: Victoria Police
+logos: [victoria-police]
 line: Blue Space
 tag: UX Writing
 meta: VERSA · UX Writer & Content Strategist · 2019

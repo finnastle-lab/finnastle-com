@@ -1,5 +1,6 @@
 ---
 brand: Woolworths
+logos: [woolworths]
 line: Olive
 tag: UX Writing
 meta: VERSA for WooliesX · Conversational Copywriter · 2018

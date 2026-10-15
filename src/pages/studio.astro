@@ -4,23 +4,40 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 // Heroes live in src/assets so they get optimised; the collection stores only a
-// filename, so resolve it here. Cases with no usable image simply have none —
-// four of the fifteen, rather than a placeholder pretending otherwise.
+// filename, so resolve it here. Cases with no usable image simply have none,
+// rather than a placeholder pretending otherwise.
 const heroes = import.meta.glob<{ default: ImageMetadata }>(
   '../assets/studio/*.{png,jpg,jpeg,webp}',
   { eager: true },
 );
+
+// Logos drop in by filename, no code change: save a genuine mark as
+// src/assets/studio/logos/<key>.svg and every case listing that key picks it up.
+// They render as flat ink (black on light, white on dark) via the .mark filter,
+// so they need a transparent background. Until a file exists, the brand is set
+// in type.
+const logoFiles = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/studio/logos/*.{svg,png,webp}',
+  { eager: true },
+);
+const logoFor = (key: string) =>
+  Object.entries(logoFiles).find(([path]) => path.split('/').pop()!.replace(/\.\w+$/, '') === key)?.[1].default;
 
 // Hand-ordered, strongest first. Each entry renders its own three-part body.
 const entries = (await getCollection('studio', ({ data }) => !data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
 const cases = await Promise.all(
-  entries.map(async (entry) => ({
-    data: entry.data,
-    hero: entry.data.hero ? heroes[`../assets/studio/${entry.data.hero}`]?.default : undefined,
-    Content: (await entry.render()).Content,
-  })),
+  entries.map(async (entry) => {
+    const logos = entry.data.logos.map(logoFor).filter((l): l is ImageMetadata => !!l);
+    return {
+      slug: entry.slug,
+      data: entry.data,
+      logos,
+      hero: entry.data.hero ? heroes[`../assets/studio/${entry.data.hero}`]?.default : undefined,
+      Content: (await entry.render()).Content,
+    };
+  }),
 );
 ---
 <BaseLayout title="Studio" description="Astle Creative: copywriting and campaign work for marketing teams." register="studio">
@@ -32,52 +49,207 @@ const cases = await Promise.all(
     work is the third option: an AI-assisted pipeline built to hold quality at a
     pace it couldn't manage by hand.</p>
 
-  <ul class="case-list">
-    {cases.map(({ data, hero, Content }) => (
-      <li>
-        <details class="case">
+  <ul class="cases">
+    {cases.map(({ slug, data, logos, hero, Content }) => (
+      <li class="case">
+        <details id={slug} name="studio-case">
           <summary class="case-row">
-            <span class="case-brand">{data.brand}</span>
-            {data.line && <span class="case-line">{data.line}</span>}
-            {data.tag && <span class="case-tag">{data.tag}</span>}
+            <span class="case-logos">
+              {logos.length > 0
+                ? logos.map((logo) => <Image class="case-logo mark" src={logo} alt="" height={64} />)
+                : <span class="case-logo-type" aria-hidden="true">{data.brand}</span>}
+            </span>
+            <span class="case-head">
+              <span class="case-line">{data.line ?? data.brand}</span>
+              <span class="case-sub">
+                {/* With no logo yet the brand is already set as type on the left. */}
+                {logos.length > 0 && <span class="case-brand">{data.brand}</span>}
+                {data.tag && <span class="case-tag" data-sep={logos.length > 0 ? '' : undefined}>{data.tag}</span>}
+              </span>
+            </span>
+            <span class="case-toggle" aria-hidden="true"></span>
           </summary>
-          <div class="case-detail">
+          <div class="case-body">
             {hero && (
-              <Image
-                class="case-hero"
-                src={hero}
-                alt={data.line ? `${data.brand} — ${data.line}` : data.brand}
-                widths={[600, 1000]}
-                sizes="(max-width: 700px) 100vw, 640px"
-              />
+              <Image class="case-hero" src={hero}
+                alt={data.line ? `${data.brand}: ${data.line}` : data.brand}
+                widths={[600, 1000, 1400]} sizes="(max-width: 62rem) 100vw, 59rem" />
             )}
-            {data.meta && <p class="case-meta">{data.meta}</p>}
+            {data.meta && <p class="meta">{data.meta}</p>}
             <Content />
+            <a class="case-link" href={`#${slug}`}>Link to this case</a>
           </div>
         </details>
       </li>
     ))}
   </ul>
 
+  <hr />
+  <p>The thinking behind the work lives at <a href="/studio/fearless-answers">Fearless
+    Answers</a>. Briefs and enquiries go to
+    <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a>.</p>
+
   <!-- GO-LIVE SCOPE (2026-10-06):
        - Facts, platform lines and the verbatim copy behind every write-up come
          from the Drive research pack "Studio case assets — 2026-10" (_manifest,
          _notes), sourced against Finn's own documents. Nothing invented.
-       - NO LOGOS. The 17 SVGs in that pack's _logos/ are approximations — brand
-         names set in Brush Script/Arial, credited to official media kits that
-         were never used. Rows set the brand in type instead. Replace only with
-         genuine marks.
+       - NO LOGOS yet. The 17 SVGs in that pack's _logos/ are approximations and
+         were not used. Rows set the brand in type until genuine marks arrive.
        - Heroes missing for tekspace, google-assistant-smiling-mind,
-         victoria-police-blue-space, woolworths-olive. The first three have no
-         portfolio image in Drive; Blue Space's only asset is an internal VERSA
-         flyer and is deliberately not used.
+         victoria-police-blue-space, woolworths-olive. Blue Space's only asset is
+         an internal VERSA flyer and is deliberately not used.
        - Blue Space is written from the public Police Care Australia listing, not
          the internal flyer. Employee mental-health statistics deliberately omitted.
-       - Afterpay and Youi corrected to Support Copywriter per the sourcing; the
-         earlier page claimed the Afterpay platform line, which the documents
-         credit to the BRX campaign concept.
-       - The swimmer image was filed as the Netflix hero; it's the Join the Change
-         key visual and has moved to that case.
+       - Afterpay: Finn confirmed Lead Copywriter, one of the team of three that
+         created the concept and platform line. Youi stays Support Copywriter.
        - UNRESOLVED: whether the older "CJ Education" folio case is the same work
          as G8 Education. -->
 </BaseLayout>
+
+<script>
+  // Anchored accordion. /studio#youi opens that case on arrival; opening a case
+  // puts its anchor in the address bar so the URL can be copied and shared;
+  // closing it takes the anchor back off. `name` on the <details> makes them
+  // exclusive (one open at a time) where supported; elsewhere they stack.
+  const items = [...document.querySelectorAll<HTMLDetailsElement>('details[name="studio-case"]')];
+
+  const openFromHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = items.find((d) => d.id === id);
+    if (!target) return;
+    target.open = true;
+    target.scrollIntoView({ block: 'start' });
+  };
+
+  items.forEach((d) => {
+    d.addEventListener('toggle', () => {
+      const url = location.pathname + location.search;
+      if (d.open) {
+        history.replaceState(null, '', `${url}#${d.id}`);
+        // When another case closes above this one the page jumps; pull the
+        // opened row back into view if its header has been pushed off-screen.
+        const top = d.getBoundingClientRect().top;
+        if (top < 0) d.scrollIntoView({ block: 'start' });
+      } else if (location.hash === `#${d.id}`) {
+        history.replaceState(null, '', url);
+      }
+    });
+  });
+
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+</script>
+
+<style>
+  .cases { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .case { border-bottom: 1px solid var(--line); }
+
+  details { scroll-margin-top: 5rem; }      /* clear the sticky masthead */
+  .case-row--soon { scroll-margin-top: 5rem; }
+
+  .case-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.1rem 0;
+    list-style: none;
+    cursor: pointer;
+  }
+  .case-row::-webkit-details-marker { display: none; }
+  .case-row--soon { cursor: default; }
+
+  /* Logo slot: fixed width so the lines align down the list. */
+  .case-logos {
+    display: flex; align-items: center; gap: 0.6rem;
+    min-height: 2.25rem;
+  }
+  .case-logo {
+    display: block;
+    height: auto; width: auto;
+    max-height: 1.9rem;
+    max-width: 100%;
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+  .case-logos:has(.case-logo + .case-logo) .case-logo { max-height: 1.5rem; max-width: 46%; }
+  .case-logo-type {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .case-head { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+  .case-line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    line-height: 1.1;
+  }
+  .case-sub {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+  .case-tag { white-space: nowrap; }
+  .case-tag[data-sep]::before { content: "·"; margin: 0 0.45rem; }
+
+  /* Plus that turns into a minus. Monochrome, ink only. */
+  .case-toggle { position: relative; width: 14px; height: 14px; flex: none; }
+  .case-toggle::before, .case-toggle::after {
+    content: ""; position: absolute; left: 0; top: 50%;
+    width: 100%; height: 1.5px; background: var(--ink);
+    transition: transform 0.2s ease;
+  }
+  .case-toggle::after { transform: rotate(90deg); }
+  details[open] .case-toggle::after { transform: rotate(0deg); }
+
+  .case-soon {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--graphite); white-space: nowrap;
+  }
+  .case-row--soon .case-line { color: var(--graphite); }
+
+  @media (hover: hover) {
+    summary.case-row:hover .case-line { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--accent); }
+  }
+  summary.case-row:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  .case-body { padding: 0.25rem 0 2.25rem calc(7.5rem + 1.25rem); }
+  .case-body .case-hero {
+    width: 100%; height: auto; display: block;
+    max-height: 34rem; object-fit: cover;
+    border: 1px solid var(--line);
+    margin: 0 0 1.25rem;
+  }
+  .case-body .meta {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--graphite); margin: 0 0 0.5rem;
+  }
+  .case-body :global(h2) {
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 600; font-style: normal;
+    text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.4;
+    color: var(--graphite); margin: 1.75rem 0 0.4rem;
+  }
+  .case-body :global(h2:first-of-type) { margin-top: 0.5rem; }
+  .case-link {
+    display: inline-block; margin-top: 0.5rem;
+    font-family: var(--sans); font-size: 0.75rem; color: var(--graphite);
+  }
+
+  @media (max-width: 40rem) {
+    .case-row { grid-template-columns: 4.5rem 1fr auto; gap: 0.9rem; }
+    .case-logo { max-height: 1.5rem; }
+    .case-logos:has(.case-logo + .case-logo) { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .case-logos:has(.case-logo + .case-logo) .case-logo { max-width: 100%; max-height: 1.1rem; }
+    .case-logo-type { font-size: 0.62rem; }
+    .case-body { padding-left: 0; }
+    .case-soon { display: none; }
+  }
+</style>

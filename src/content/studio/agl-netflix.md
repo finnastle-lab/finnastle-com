@@ -1,9 +1,11 @@
 ---
 brand: AGL × Netflix
+logos: [agl, netflix]
 line: Can't live without Netflix
+tag: Copywriting
 meta: Big Red Communications · Lead Copywriter, broadcast & retail · 2023
 order: 20
-hero: agl-netflix.jpeg
+hero: agl-netflix.webp
 ---
 
 ## The brief

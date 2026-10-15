@@ -1,7 +1,10 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import sunFlourish from '../assets/brand/sun-flourish.png';
 import yinYang from '../assets/brand/stamps/yin-yang.png';
+const sunFlourishImg = await getImage({ src: sunFlourish, width: 152, format: 'webp' });
+const yinYangImg = await getImage({ src: yinYang, width: 208, format: 'webp' });
 
 // Astro emits this as dist/404.html; Cloudflare Pages serves it for any
 // unmatched path with a real 404 status. Before this existed every missing
@@ -20,7 +23,7 @@ const waysBack = [
   noindex
 >
   <section class="hero">
-    <img class="stamp" src={yinYang.src} alt="" aria-hidden="true"
+    <img class="stamp" src={yinYangImg.src} alt="" aria-hidden="true"
       style="top:-0.75rem; right:-0.5rem; width:104px; transform:rotate(-8deg);" />
 
     <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">404 · Nothing here</p>
@@ -29,7 +32,7 @@ const waysBack = [
       existed for a while and then I thought better of it.</p>
   </section>
 
-  <img class="flourish" src={sunFlourish.src} alt="" aria-hidden="true" />
+  <img class="flourish" src={sunFlourishImg.src} alt="" aria-hidden="true" />
 
   <p>This site was built to publish with impermanence in mind first, so a dead
     link here isn't strictly a bug. (It isn't strictly a feature either. It's a

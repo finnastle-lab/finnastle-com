@@ -1,18 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import { getChapterCards } from '../../lib/work-chapters';
 
-const chapters = await getChapterCards();
+const chapters = getChapterCards();
 ---
 <BaseLayout title="Work" description="Collage, painting, and mixed media, by chapter." register="art">
   <h1>Work</h1>
   <p>Collage, painting, and mixed media: a range of projects, by chapter.</p>
 
   <div class="work-grid">
-    {chapters.map((c) => (
+    {chapters.map((c, i) => (
       <a class="work-card" href={`/work/${c.slug}`}>
         <span class="work-card-media">
-          <img src={c.key.src} alt={c.title} />
+          {/* 3 columns at 59rem of content, so ~296px a card. The first row is
+              above the fold on most screens; the rest load lazily. */}
+          <Image src={c.key} alt={c.title} widths={[300, 600, 900]}
+            sizes="(max-width: 36rem) 100vw, (max-width: 62rem) 50vw, 300px"
+            style={`object-position: ${c.focus}`}
+            loading={i < 3 ? 'eager' : 'lazy'} />
           <span class="work-card-cue">View chapter →</span>
         </span>
         <h2>{c.title}</h2>
@@ -21,6 +27,11 @@ const chapters = await getChapterCards();
     ))}
   </div>
 
-  <!-- TODO(content): confirm chapter key image + order; add year/medium; more
-       chapters (data-centre-hivis, violent-life, found-collage, all-cut-up). -->
+  <!-- TODO(content): add year/medium per chapter (CHAPTER_META has no field for
+       either yet). Chapters still to build: data-centre-hivis and violent-life
+       (both currently 4x5/9x16 social crops only, no landscape still), and
+       all-cut-up (large Paper Poster scans and four canvases, 2022-23).
+       harbour-bridge-scene is staged but untitled, so it is held out of
+       CHAPTER_ORDER. "found-collage" was never a chapter - it is source
+       material at 01_ART/04_source-material/found-collage. -->
 </BaseLayout>

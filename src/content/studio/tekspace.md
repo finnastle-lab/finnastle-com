@@ -1,5 +1,6 @@
 ---
 brand: Tekspace
+logos: [tekspace]
 line: Cyber Lab
 tag: Content Strategy
 meta: In-house · Marketing Specialist · 2025–present

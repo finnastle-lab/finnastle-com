@@ -27,7 +27,15 @@ const cta =
   entry.data.instagramCta ??
   'If this was your kind of thinking, there’s more of it on Instagram. Plus the drawings, which are the actual job.';
 ---
-<BaseLayout title={entry.data.title} description={entry.data.description} register="art">
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  register="art"
+  image={entry.data.heroImage}
+  imageAlt={entry.data.heroImageAlt}
+  ogType="article"
+  publishedTime={entry.data.pubDate}
+>
   <article class="essay">
     <h1>{entry.data.title}</h1>
 

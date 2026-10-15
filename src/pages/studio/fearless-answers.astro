@@ -1,6 +1,8 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import cloud from '../../assets/elements/the-cloud-they-warned-you-about-fluffy-cloud.png';
+const cloudImg = await getImage({ src: cloud, width: 192, format: 'webp' });
 
 // Content salvaged from astlecreative.com before retirement — the
 // philosophy/bio page (/fearlessanswer) combined with the homepage's
@@ -37,7 +39,7 @@ const clients = [
       <h1 class="fa-word">Answers</h1>
       <ul>{answers.map((w) => <li>{w}</li>)}</ul>
     </div>
-    <img class="stamp" src={cloud.src} alt="" aria-hidden="true"
+    <img class="stamp" src={cloudImg.src} alt="" aria-hidden="true"
       style="top:-1rem; right:-1rem; width:96px; opacity:.6;" />
   </section>
 
