@@ -59,6 +59,10 @@ const cases = await Promise.all(
       data: entry.data,
       logos,
       hero: entry.data.hero ? heroes[`../assets/studio/${entry.data.hero}`]?.default : undefined,
+      gallery: entry.data.gallery.flatMap(({ src, caption }) => {
+        const img = heroes[`../assets/studio/${src}`]?.default;
+        return img ? [{ img, caption }] : [];
+      }),
       Content: (await entry.render()).Content,
     };
   }),
@@ -74,7 +78,7 @@ const cases = await Promise.all(
     pace it couldn't manage by hand.</p>
 
   <ul class="cases">
-    {cases.map(({ slug, data, logos, hero, Content }) => (
+    {cases.map(({ slug, data, logos, hero, gallery, Content }) => (
       <li class="case">
         <details id={slug} name="studio-case">
           <summary class="case-row">
@@ -103,6 +107,17 @@ const cases = await Promise.all(
             )}
             {data.meta && <p class="meta">{data.meta}</p>}
             <Content />
+            {gallery.length > 0 && (
+              <div class="case-gallery">
+                {gallery.map(({ img, caption }) => (
+                  <figure>
+                    <Image src={img} alt={caption ? `${data.brand}: ${caption}` : data.brand}
+                      widths={[480, 800, 1200]} sizes="(max-width: 40rem) 100vw, 29rem" />
+                    {caption && <figcaption>{caption}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            )}
             <a class="case-link" href={`#${slug}`}>Link to this case</a>
           </div>
         </details>
@@ -272,6 +287,20 @@ const cases = await Promise.all(
     color: var(--graphite); margin: 1.75rem 0 0.4rem;
   }
   .case-body :global(h2:first-of-type) { margin-top: 0.5rem; }
+  /* Supporting shots: as many across as fit, stacking on a narrow screen. */
+  .case-gallery {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem; margin: 1.75rem 0 0.25rem;
+  }
+  .case-gallery figure { margin: 0; }
+  .case-gallery img {
+    width: 100%; height: auto; display: block;
+    border: 1px solid var(--line);
+  }
+  .case-gallery figcaption {
+    font-family: var(--sans); font-size: 0.72rem; color: var(--graphite);
+    margin-top: 0.4rem;
+  }
   .case-link {
     display: inline-block; margin-top: 0.5rem;
     font-family: var(--sans); font-size: 0.75rem; color: var(--graphite);

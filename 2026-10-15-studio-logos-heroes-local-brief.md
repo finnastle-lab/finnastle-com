@@ -159,30 +159,20 @@ No source supplied. Cyber Lab content — a report page, a chart from one of the
 benchmark reports, or a social post Finn wrote. Tekspace is his current in-house
 role, so ask him for the asset rather than scraping one.
 
-## Task 3: hero upgrades from Finn's downloads
+## Task 3: Welly heroes — done, nothing to do
 
-Three cases already have a hero, and Finn has downloaded something that may beat it.
-These are optional — **only swap one if Finn picks the new image over the old one.**
-Show him the current hero and the candidate side by side.
+Settled on 15 Oct and already committed. Recorded here so nobody redoes it:
 
-Only `welly.md` is still open. Inke and Coca-Cola × Alexa already hold the best
-version of the image Finn sent, so leave both alone.
-
-| candidate | what it carries |
-|---|---|
-| **A** `welly.webp`, in the repo now — the adult desktop site | The platform line. No sign of the packaging idea |
-| **B** the orange sachet, 1000×1000 | **& NOTHING ELSE** at its clearest, but square: the hero slot crops it to 1.74:1 and takes the top and bottom off the pack |
-| **C** Welly Kids mobile screens | The kids tone of voice on its own |
-| **D** Welly adult mobile screens | The adult tone of voice, the platform line, and **& NOTHING ELSE** legible on three packs |
-
-A contact sheet of all four cropped to the real hero slot was sent to Finn on 15 Oct.
-Once he picks, replace the file at the same path and extension where you can, so the
-frontmatter doesn't need touching. If the extension changes, update `hero:` and
-`git rm` the old file.
-
-The Welly case copy was rewritten in this branch to carry the two-tones-of-voice
-identity work and the **& nothing else** packaging insight, so a hero that shows the
-pack now earns its place more than it did.
+- `welly.webp` is now the orange sachet, the shot where the ingredients-as-hero pack
+  design and **& nothing else** read clearly. It is 1000×1000 and the slot crops it to
+  1.74:1, which works, but it is the smallest hero on the page — **if Finn turns up a
+  larger version of that shot, swap it in.**
+- `welly-kids.jpg` and `welly-adults.jpg` sit under the write-up through the new
+  `gallery:` frontmatter field, one per tone of voice. The field takes
+  `- src: <filename>` with an optional `caption:`, resolves out of
+  `src/assets/studio/`, and is available to any case that needs more than one image.
+- Inke and Coca-Cola × Alexa already hold the best version of what Finn sent. Leave
+  both alone.
 
 ## Check before committing
 

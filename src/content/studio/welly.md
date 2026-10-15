@@ -6,6 +6,11 @@ tag: Branding
 meta: Freelance · Creative Director & Lead Copywriter · 2022
 order: 60
 hero: welly.webp
+gallery:
+  - src: welly-kids.jpg
+    caption: Welly Kids — the kids tone of voice
+  - src: welly-adults.jpg
+    caption: Welly — the adult tone of voice
 ---
 
 ## The brief
