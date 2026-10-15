@@ -1,7 +1,7 @@
 ---
 brand: Welly
 line: 5 a day the easy way
-meta: Freelance · Creative Director & Lead Copywriter · 2022
+meta: Astle Creative · Creative Director & Lead Copywriter · 2022
 order: 60
 hero: welly.webp
 ---
