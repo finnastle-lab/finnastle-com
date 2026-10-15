@@ -103,7 +103,7 @@ const cases = await Promise.all(
             {hero && (
               <Image class="case-hero" src={hero}
                 alt={data.line ? `${data.brand}: ${data.line}` : data.brand}
-                widths={[600, 1000, 1400]} sizes="(max-width: 62rem) 100vw, 59rem" />
+                widths={[600, 1000, 1400, 1900]} sizes="(max-width: 62rem) 100vw, 59rem" />
             )}
             {data.meta && <p class="meta">{data.meta}</p>}
             <Content />

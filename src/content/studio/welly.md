@@ -5,7 +5,7 @@ line: 5 a day the easy way
 tag: Branding
 meta: Freelance · Creative Director & Lead Copywriter · 2022
 order: 60
-hero: welly.webp
+hero: welly.jpg
 gallery:
   - src: welly-kids.jpg
     caption: Welly Kids — the kids tone of voice

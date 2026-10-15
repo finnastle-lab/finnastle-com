@@ -171,16 +171,16 @@ Settled on 15 Oct and already committed. Recorded here so nobody redoes it:
   `caption:`, resolves out of `src/assets/studio/`, and is available to any case that
   needs more than one image.
 
-**Still wanted: a larger copy of the sachet shot.** The file is 1000x1000, which the
-hero slot crops to 1000x576 - the smallest hero on the page, where the others are
-2560 wide. A retina screen wants about **1900x1100 after the crop**, so roughly a
-1900px-wide original, or a 2000x2000 square.
+Resolution is sorted too. The first copy of the sachet was 1000x1000, too small for
+the slot; Finn supplied the 2000x2000 original the same day and it is now
+`welly.jpg`. It is a genuine original, not an upscale - 68.9 per-pixel edge energy
+against 17.5 for a 2x Lanczos of the small one. Kept as JPEG rather than re-encoded
+to WebP, since Astro converts at build and a second lossy pass would only lose
+detail.
 
-Don't try to upscale the one we have. It was tested on 15 Oct: the source is already
-sharp for its size (higher per-pixel edge energy than the 2560px Inke photo), so
-Lanczos plus unsharp at 1.9x added no detail and put a visible white halo around the
-pack type. It looked worse. The only real fix is the original file - the
-photographer's, or whatever the 1000px version was resized from.
+If a hero ever looks soft, check the source size before reaching for a filter.
+Upscaling was tried on the small copy and made it worse: no added detail, plus a
+white halo around the pack type.
 - Inke and Coca-Cola × Alexa already hold the best version of what Finn sent. Leave
   both alone.
 
