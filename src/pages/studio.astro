@@ -13,15 +13,36 @@ const heroes = import.meta.glob<{ default: ImageMetadata }>(
 
 // Logos drop in by filename, no code change: save a genuine mark as
 // src/assets/studio/logos/<key>.svg and every case listing that key picks it up.
-// They render as flat ink (black on light, white on dark) via the .mark filter,
-// so they need a transparent background. Until a file exists, the brand is set
-// in type.
-const logoFiles = import.meta.glob<{ default: ImageMetadata }>(
-  '../assets/studio/logos/*.{svg,png,webp}',
+// SVGs are inlined with every fill forced to currentColor, so they take the
+// page's ink: black in light mode, white in dark, following the theme toggle.
+// A transparent PNG/WebP also works, recoloured by the .mark filter. Until a
+// file exists, the brand is set in type.
+type Logo = { svg: string } | { img: ImageMetadata };
+const svgFiles = import.meta.glob<string>('../assets/studio/logos/*.svg', {
+  eager: true, query: '?raw', import: 'default',
+});
+const rasterFiles = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/studio/logos/*.{png,webp}',
   { eager: true },
 );
-const logoFor = (key: string) =>
-  Object.entries(logoFiles).find(([path]) => path.split('/').pop()!.replace(/\.\w+$/, '') === key)?.[1].default;
+const keyOf = (path: string) => path.split('/').pop()!.replace(/\.\w+$/, '');
+const monoSvg = (raw: string) =>
+  raw
+    .replace(/<\?xml[^>]*>|<!--[\s\S]*?-->|<title>[\s\S]*?<\/title>/g, '')
+    // Any colour becomes ink; "none" stays none.
+    .replace(/\s(fill|stroke)="(?!none)[^"]*"/g, ' $1="currentColor"')
+    // Root tag: drop fixed sizing (CSS sizes it), set the default fill, hide it
+    // from assistive tech (the row already names the brand).
+    .replace(/<svg\b[^>]*>/, (tag) =>
+      tag.replace(/\s(width|height|class|style|fill|role)="[^"]*"/g, '')
+        .replace('<svg', '<svg fill="currentColor" aria-hidden="true" focusable="false"'))
+    .trim();
+const logoFor = (key: string): Logo | undefined => {
+  const svg = Object.entries(svgFiles).find(([p]) => keyOf(p) === key)?.[1];
+  if (svg) return { svg: monoSvg(svg) };
+  const img = Object.entries(rasterFiles).find(([p]) => keyOf(p) === key)?.[1].default;
+  return img && { img };
+};
 
 // Hand-ordered, strongest first. Each entry renders its own three-part body.
 const entries = (await getCollection('studio', ({ data }) => !data.draft)).sort(
@@ -29,7 +50,10 @@ const entries = (await getCollection('studio', ({ data }) => !data.draft)).sort(
 );
 const cases = await Promise.all(
   entries.map(async (entry) => {
-    const logos = entry.data.logos.map(logoFor).filter((l): l is ImageMetadata => !!l);
+    // All or nothing: a pairing (AGL × Netflix) with one mark missing would
+    // read as the other brand's case, so it stays in type until both exist.
+    const found = entry.data.logos.map(logoFor);
+    const logos = found.length > 0 && found.every(Boolean) ? (found as Logo[]) : [];
     return {
       slug: entry.slug,
       data: entry.data,
@@ -56,7 +80,9 @@ const cases = await Promise.all(
           <summary class="case-row">
             <span class="case-logos">
               {logos.length > 0
-                ? logos.map((logo) => <Image class="case-logo mark" src={logo} alt="" height={64} />)
+                ? logos.map((logo) => 'svg' in logo
+                    ? <span class="case-logo" set:html={logo.svg} />
+                    : <Image class="case-logo mark" src={logo.img} alt="" height={64} />)
                 : <span class="case-logo-type" aria-hidden="true">{data.brand}</span>}
             </span>
             <span class="case-head">
@@ -93,8 +119,10 @@ const cases = await Promise.all(
        - Facts, platform lines and the verbatim copy behind every write-up come
          from the Drive research pack "Studio case assets — 2026-10" (_manifest,
          _notes), sourced against Finn's own documents. Nothing invented.
-       - NO LOGOS yet. The 17 SVGs in that pack's _logos/ are approximations and
-         were not used. Rows set the brand in type until genuine marks arrive.
+       - Logos: the SVGs in that pack's _logos/ are approximations and were not
+         used. Netflix, Coca-Cola, Afterpay, Alexa and Google Assistant come from
+         the Simple Icons / SVG Logos sets on npm; the rest are set in type until
+         genuine marks arrive.
        - Heroes missing for tekspace, google-assistant-smiling-mind,
          victoria-police-blue-space, woolworths-olive. Blue Space's only asset is
          an internal VERSA flyer and is deliberately not used.
@@ -173,6 +201,10 @@ const cases = await Promise.all(
     flex: 0 1 auto;
   }
   .case-logos:has(.case-logo + .case-logo) .case-logo { max-height: 1.5rem; max-width: 46%; }
+  /* Inline SVG marks: sized by height, width from the viewBox, coloured by ink. */
+  span.case-logo { height: 1.9rem; color: var(--ink); }
+  span.case-logo :global(svg) { display: block; height: 100%; width: auto; max-width: 100%; }
+  .case-logos:has(.case-logo + .case-logo) span.case-logo { height: 1.5rem; }
   .case-logo-type {
     font-family: var(--sans);
     font-weight: 600;
@@ -248,6 +280,8 @@ const cases = await Promise.all(
     .case-logo { max-height: 1.5rem; }
     .case-logos:has(.case-logo + .case-logo) { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
     .case-logos:has(.case-logo + .case-logo) .case-logo { max-width: 100%; max-height: 1.1rem; }
+    span.case-logo { height: 1.4rem; }
+    .case-logos:has(.case-logo + .case-logo) span.case-logo { height: 1.1rem; }
     .case-logo-type { font-size: 0.62rem; }
     .case-body { padding-left: 0; }
     .case-soon { display: none; }

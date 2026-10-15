@@ -3,8 +3,17 @@
 Drop a brand's logo here as `<key>.svg` (preferred) or a transparent `<key>.png` / `.webp`.
 `/studio` picks it up by filename, with no code change, for every case that lists that key.
 
-Logos render as flat ink: black on light, white on dark. Any colour is fine, but the
-background **must** be transparent, or the logo becomes a solid block.
+SVGs are inlined with every fill set to `currentColor`, so they render as flat ink:
+black on light, white on dark, following the theme toggle. Any colour is fine, but
+there must be no background shape, and no detail that only shows as a second colour
+(white knockouts vanish). Rasters are recoloured by the `.mark` filter and need a
+transparent background.
+
+A case shows logos only when every key it lists has a file; otherwise the brand is
+set in type.
+
+From npm (Simple Icons, SVG Logos): `netflix` `coca-cola` `amazon-alexa` `afterpay`
+`google-assistant`.
 
 Keys in use: `agl` `netflix` `afterpay` `youi` `7-eleven` `welly` `inke` `grove-distillery`
 `coca-cola` `amazon-alexa` `tekspace` `google-assistant` `smiling-mind` `victoria-police`
