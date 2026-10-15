@@ -17,7 +17,10 @@ only when *every* key it lists has a file; otherwise the whole row falls back to
 brand name in type.
 
 Already in the repo, sourced from Simple Icons / SVG Logos on npm: `netflix`,
-`coca-cola`, `amazon-alexa`, `afterpay`, `google-assistant`.
+`coca-cola`, `amazon-alexa`, `afterpay`, `google-assistant`. Plus `inke`, knocked out
+of the window-signage photograph that is already the Inke hero (`inke.png`, 1259×584
+transparent). That one is genuine vinyl lettering, not a redraw, but it is
+photo-derived — if Finn turns up the master file, swap it.
 
 ## Start here: the files already on Finn's Mac
 
@@ -26,28 +29,33 @@ anything** — they are genuine artwork from the jobs themselves, which beats an
 third-party copy. Ask him where he put them (likely `~/Downloads` or `~/Desktop`) and
 confirm each file with him before using it.
 
-| What he has | Use it for |
-|---|---|
-| A series of **Welly** options | The `welly` logo key. Also check whether any shot is a better hero than the current `welly.webp` — see Task 3 |
-| The **Inke** packaging hero image, showing the wordmark with "Send Joy" | Both the `inke` logo key (crop the wordmark out) and a possible hero — see Task 3 |
-| The **Coca-Cola × Alexa** key image | A possible hero upgrade — see Task 3 |
+Finn sent five files to the cloud session on 15 Oct and they were checked there:
 
-Note for the Welly options: the pack design puts the ingredients list on the front
-with nothing else on it, under the line **& nothing else**. The orange Welly shot is
-the one where that reads clearly. If you are picking between Welly options for the
-hero, that is the one that shows the actual idea.
+| What he sent | Outcome |
+|---|---|
+| **Coca-Cola × Alexa** key frame, 2000×1125 | Already in the repo as `coca-cola-alexa.webp` at 2560×1440 — the identical image, larger. Nothing to do |
+| **Inke** window signage, 2000×1125 | Already in the repo as `inke.webp` at 2560×1440. The `inke` logo key was knocked out of the repo copy. Nothing to do |
+| **Welly** orange sachet, 1000×1000 | New. Square, so it crops hard in the hero slot. Candidate only |
+| **Welly Kids** mobile screens, 2000×1125 | New. The kids tone of voice |
+| **Welly** adult mobile screens, 2000×1125 | New. The adult tone of voice, with **& NOTHING ELSE** legible on the packs |
+
+So the only open Welly question is which hero he picks — see Task 3. The three new
+Welly files are not in the repo; ask Finn to re-send whichever one he chooses.
+
+Note on the pack design: it puts the ingredients list on the front with nothing else
+on it, under the line **& nothing else**. The orange sachet shot is where that reads
+most clearly, but it is square and the hero slot is 59rem × 34rem.
 
 ## Task 1: logos
 
-Needed (key → brand):
+Needed (key → brand). Ten left:
 
 | key | brand | note |
 |---|---|---|
 | `agl` | AGL Energy | Unlocks the AGL × Netflix row too |
 | `youi` | Youi (Australian insurer) | |
 | `7-eleven` | 7-Eleven | The stripes and the "7-ELEVEn" type, all in one colour |
-| `welly` | Welly (Finn's brand work) | **He has downloaded options** — see Start here. Don't search the web for this one |
-| `inke` | Inke (Finn's brand work) | **He has the packaging hero with the wordmark on it** — see Start here. Crop the wordmark; don't search the web first |
+| `welly` | Welly (Finn's brand work) | **Still open.** The Welly mark appears in his files only at ~110px wide, in site navs and on angled foil — too small and too distorted to knock out. Ask him for the master file from the branding job |
 | `grove-distillery` | The Grove Distillery (WA) | |
 | `tekspace` | Tekspace | |
 | `smiling-mind` | Smiling Mind | Unlocks the Google Assistant row |
@@ -157,15 +165,20 @@ Three cases already have a hero, and Finn has downloaded something that may beat
 These are optional — **only swap one if Finn picks the new image over the old one.**
 Show him the current hero and the candidate side by side.
 
-| case file | current hero | candidate |
-|---|---|---|
-| `welly.md` | `welly.webp` | The Welly options, especially the orange shot where **& nothing else** and the ingredients-as-hero pack design read clearly |
-| `inke.md` | `inke.webp` | The Inke packaging hero showing the wordmark with "Send Joy" — the platform line on the actual product |
-| `coca-cola-alexa.md` | `coca-cola-alexa.webp` | The Coca-Cola × Alexa key image he saved |
+Only `welly.md` is still open. Inke and Coca-Cola × Alexa already hold the best
+version of the image Finn sent, so leave both alone.
 
-If he picks a candidate, replace the file at the same path and extension where you
-can, so the frontmatter doesn't need touching. If the extension changes, update
-`hero:` and `git rm` the old file.
+| candidate | what it carries |
+|---|---|
+| **A** `welly.webp`, in the repo now — the adult desktop site | The platform line. No sign of the packaging idea |
+| **B** the orange sachet, 1000×1000 | **& NOTHING ELSE** at its clearest, but square: the hero slot crops it to 1.74:1 and takes the top and bottom off the pack |
+| **C** Welly Kids mobile screens | The kids tone of voice on its own |
+| **D** Welly adult mobile screens | The adult tone of voice, the platform line, and **& NOTHING ELSE** legible on three packs |
+
+A contact sheet of all four cropped to the real hero slot was sent to Finn on 15 Oct.
+Once he picks, replace the file at the same path and extension where you can, so the
+frontmatter doesn't need touching. If the extension changes, update `hero:` and
+`git rm` the old file.
 
 The Welly case copy was rewritten in this branch to carry the two-tones-of-voice
 identity work and the **& nothing else** packaging insight, so a hero that shows the
