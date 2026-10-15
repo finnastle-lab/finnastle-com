@@ -19,6 +19,24 @@ brand name in type.
 Already in the repo, sourced from Simple Icons / SVG Logos on npm: `netflix`,
 `coca-cola`, `amazon-alexa`, `afterpay`, `google-assistant`.
 
+## Start here: the files already on Finn's Mac
+
+Finn has downloaded assets for this job. **Check these before searching the web for
+anything** — they are genuine artwork from the jobs themselves, which beats any
+third-party copy. Ask him where he put them (likely `~/Downloads` or `~/Desktop`) and
+confirm each file with him before using it.
+
+| What he has | Use it for |
+|---|---|
+| A series of **Welly** options | The `welly` logo key. Also check whether any shot is a better hero than the current `welly.webp` — see Task 3 |
+| The **Inke** packaging hero image, showing the wordmark with "Send Joy" | Both the `inke` logo key (crop the wordmark out) and a possible hero — see Task 3 |
+| The **Coca-Cola × Alexa** key image | A possible hero upgrade — see Task 3 |
+
+Note for the Welly options: the pack design puts the ingredients list on the front
+with nothing else on it, under the line **& nothing else**. The orange Welly shot is
+the one where that reads clearly. If you are picking between Welly options for the
+hero, that is the one that shows the actual idea.
+
 ## Task 1: logos
 
 Needed (key → brand):
@@ -28,8 +46,8 @@ Needed (key → brand):
 | `agl` | AGL Energy | Unlocks the AGL × Netflix row too |
 | `youi` | Youi (Australian insurer) | |
 | `7-eleven` | 7-Eleven | The stripes and the "7-ELEVEn" type, all in one colour |
-| `welly` | Welly (Finn's brand work) | **Ask Finn first** — he may have the master file from the branding job. Least likely to be online |
-| `inke` | Inke (Finn's brand work) | **Ask Finn first** — as above |
+| `welly` | Welly (Finn's brand work) | **He has downloaded options** — see Start here. Don't search the web for this one |
+| `inke` | Inke (Finn's brand work) | **He has the packaging hero with the wordmark on it** — see Start here. Crop the wordmark; don't search the web first |
 | `grove-distillery` | The Grove Distillery (WA) | |
 | `tekspace` | Tekspace | |
 | `smiling-mind` | Smiling Mind | Unlocks the Google Assistant row |
@@ -38,8 +56,9 @@ Needed (key → brand):
 | `g8-education` | G8 Education | |
 
 Where to look, in this order:
-1. Finn's own files: agency folders and brand guidelines. Start here for Welly and
-   Inke — ask him before searching the web for those two.
+1. Finn's own files: the downloads above first, then agency folders and brand
+   guidelines. Welly and Inke are settled by his downloads — don't go to the web
+   for those two.
 2. The brand's own site: the header logo is usually an inline `<svg>` or a `.svg` file.
 3. Wikimedia Commons (`File:<Brand> logo.svg`), then Brandfetch or worldvectorlogo.
 
@@ -57,6 +76,14 @@ Rules:
     or drop them.
   - Crop the viewBox tight to the artwork.
 - Save as `src/assets/studio/logos/<key>.svg`. The key must match exactly.
+- **Pulling a mark off a packaging photo:** a logo key needs the mark on transparency,
+  so a crop out of a photograph usually won't do — it carries the pack colour behind
+  it, and the brief's no-white-box rule applies to any background. Check what Finn's
+  Welly and Inke files actually are first. If they're vector or layered artwork, use
+  them. If they're only flat photographs, ask him for the master file from the job
+  before anything else; he art-directed both, so he has one. A clean knockout off a
+  flat-colour pack is acceptable as a fallback. Tracing or redrawing the wordmark is
+  not, no matter how close it looks.
 
 ## Task 2: heroes
 
@@ -123,6 +150,26 @@ might; his own would beat anything found online.
 No source supplied. Cyber Lab content — a report page, a chart from one of the three
 benchmark reports, or a social post Finn wrote. Tekspace is his current in-house
 role, so ask him for the asset rather than scraping one.
+
+## Task 3: hero upgrades from Finn's downloads
+
+Three cases already have a hero, and Finn has downloaded something that may beat it.
+These are optional — **only swap one if Finn picks the new image over the old one.**
+Show him the current hero and the candidate side by side.
+
+| case file | current hero | candidate |
+|---|---|---|
+| `welly.md` | `welly.webp` | The Welly options, especially the orange shot where **& nothing else** and the ingredients-as-hero pack design read clearly |
+| `inke.md` | `inke.webp` | The Inke packaging hero showing the wordmark with "Send Joy" — the platform line on the actual product |
+| `coca-cola-alexa.md` | `coca-cola-alexa.webp` | The Coca-Cola × Alexa key image he saved |
+
+If he picks a candidate, replace the file at the same path and extension where you
+can, so the frontmatter doesn't need touching. If the extension changes, update
+`hero:` and `git rm` the old file.
+
+The Welly case copy was rewritten in this branch to carry the two-tones-of-voice
+identity work and the **& nothing else** packaging insight, so a hero that shows the
+pack now earns its place more than it did.
 
 ## Check before committing
 
