@@ -112,7 +112,7 @@ const cases = await Promise.all(
                 {gallery.map(({ img, caption }) => (
                   <figure>
                     <Image src={img} alt={caption ? `${data.brand}: ${caption}` : data.brand}
-                      widths={[480, 800, 1200]} sizes="(max-width: 40rem) 100vw, 29rem" />
+                      widths={[600, 1000, 1400, 2000]} sizes="(max-width: 62rem) 100vw, 59rem" />
                     {caption && <figcaption>{caption}</figcaption>}
                   </figure>
                 ))}
@@ -287,10 +287,12 @@ const cases = await Promise.all(
     color: var(--graphite); margin: 1.75rem 0 0.4rem;
   }
   .case-body :global(h2:first-of-type) { margin-top: 0.5rem; }
-  /* Supporting shots: as many across as fit, stacking on a narrow screen. */
+  /* Supporting shots: one per row at the hero's width. These carry detail —
+     screens, packs, copy — so they get the full column rather than a thumbnail,
+     and keep their own aspect ratio instead of being cropped to a band. */
   .case-gallery {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 1rem; margin: 1.75rem 0 0.25rem;
+    display: grid; grid-template-columns: 1fr;
+    gap: 1.25rem; margin: 1.75rem 0 0.25rem;
   }
   .case-gallery figure { margin: 0; }
   .case-gallery img {

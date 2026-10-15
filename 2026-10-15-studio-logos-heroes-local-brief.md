@@ -164,13 +164,23 @@ role, so ask him for the asset rather than scraping one.
 Settled on 15 Oct and already committed. Recorded here so nobody redoes it:
 
 - `welly.webp` is now the orange sachet, the shot where the ingredients-as-hero pack
-  design and **& nothing else** read clearly. It is 1000×1000 and the slot crops it to
-  1.74:1, which works, but it is the smallest hero on the page — **if Finn turns up a
-  larger version of that shot, swap it in.**
+  design and **& nothing else** read clearly.
 - `welly-kids.jpg` and `welly-adults.jpg` sit under the write-up through the new
-  `gallery:` frontmatter field, one per tone of voice. The field takes
-  `- src: <filename>` with an optional `caption:`, resolves out of
-  `src/assets/studio/`, and is available to any case that needs more than one image.
+  `gallery:` frontmatter field, one per tone of voice, full width and stacked so the
+  screens stay legible. The field takes `- src: <filename>` with an optional
+  `caption:`, resolves out of `src/assets/studio/`, and is available to any case that
+  needs more than one image.
+
+**Still wanted: a larger copy of the sachet shot.** The file is 1000x1000, which the
+hero slot crops to 1000x576 - the smallest hero on the page, where the others are
+2560 wide. A retina screen wants about **1900x1100 after the crop**, so roughly a
+1900px-wide original, or a 2000x2000 square.
+
+Don't try to upscale the one we have. It was tested on 15 Oct: the source is already
+sharp for its size (higher per-pixel edge energy than the 2560px Inke photo), so
+Lanczos plus unsharp at 1.9x added no detail and put a visible white halo around the
+pack type. It looked worse. The only real fix is the original file - the
+photographer's, or whatever the 1000px version was resized from.
 - Inke and Coca-Cola × Alexa already hold the best version of what Finn sent. Leave
   both alone.
 
