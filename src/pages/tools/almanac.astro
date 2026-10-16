@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import dashboard from '../../assets/tools/almanac-dashboard.png';
+import postReview from '../../assets/tools/almanac-post-review.png';
+import login from '../../assets/tools/almanac-login.png';
+
+// Content page for Almanac. The tool itself lives at almanac.finnastle.com,
+// behind a password. Copy is lifted from Finn's own essay,
+// src/content/essays/four-things-i-built.md — keep his wording if this is
+// edited.
+const APP = 'https://almanac.finnastle.com';
+
+const reads = [
+  ['Reach', 'How many accounts saw it. The only number that moves much.'],
+  ['Likes & comments', 'Straight off the Graph API, per post.'],
+  ['Saves & shares', 'Grouped as high-intent. Currently zero across the board, and left visible rather than hidden.'],
+  ['Efficiency', 'High-intent over reach, as a percentage. Ranks the grid.'],
+  ['Motifs', 'Hashtags pulled off each caption, grouped, scored by efficiency.'],
+  ['Format', 'Carousel against Reel, so the comparison is on the screen rather than in my head.'],
+];
+---
+<BaseLayout
+  title="FA Almanac"
+  description="Under the Instagram hood: reach, engagement and the image itself, landed in one place every Sunday."
+  register="art"
+  image={dashboard}
+  imageAlt="The Almanac dashboard: a grid of Finn Astle paintings, each tagged with its efficiency score, beside a What's Working panel"
+>
+  <p class="alm-back"><a href="/tools">← Tools</a></p>
+
+  <h1>FA Almanac</h1>
+
+  <p class="alm-lede">Under the Instagram hood: reach, engagement and the image
+    itself, landed in one place every Sunday.</p>
+
+  <p class="alm-actions">
+    <a class="alm-cta" href={APP} target="_blank" rel="noopener">Open Almanac</a>
+    <span class="alm-note">Password-gated. Ask me for the guest login:
+      <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a></span>
+  </p>
+
+  <figure class="alm-shot alm-shot--wide">
+    <Image src={dashboard} alt="The Almanac dashboard: a grid of paintings, each tagged with its efficiency score, beside a What's Working panel reading Top Format Carousel, Best Motif #emergingartistplatform, Average Efficiency 3.3%" widths={[720, 1120, 1440]} sizes="(min-width: 60rem) 62rem, 100vw" />
+    <figcaption>Fifteen posts, all months. The tiles are the paintings, not
+      thumbnails of a chart.</figcaption>
+  </figure>
+
+  <h2>I hate the Instagram dashboard</h2>
+
+  <p>Checking how a post did means opening the app, which means the Reels feed,
+    the suggested-for-you carousel, every trigger built to keep me there past
+    the one thing I actually came to check. So I cut it out of my life
+    entirely.</p>
+
+  <p>Almanac pulls the numbers instead and lands them in one place every
+    Sunday. No unlocking required.</p>
+
+  <h3>What it reads</h3>
+  <dl class="alm-reads">
+    {reads.map(([term, body]) => (
+      <div class="alm-read">
+        <dt>{term}</dt>
+        <dd>{body}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <figure class="alm-shot">
+    <Image src={postReview} alt="The Post Review panel: a photograph with drawn horses over it, its caption, and six metric tiles reading Reach 165, Saves 0, Shares 0, Likes 14, Comments 0, High-Intent 0" widths={[720, 1120, 1440]} sizes="(min-width: 60rem) 62rem, 100vw" />
+    <figcaption>One post, opened. The caption sits next to the numbers, and the
+      row copies out as TSV or JSON.</figcaption>
+  </figure>
+
+  <h2>How it gets there</h2>
+
+  <p>A Cloudflare Worker wakes on a Sunday cron, asks the Instagram Graph API
+    for every post, and writes the result two ways: into a Google Sheet through
+    an Apps Script webhook, and straight back to this dashboard. Every month is
+    kept, so it reads as history and comparison instead of a single stale
+    export.</p>
+
+  <figure class="alm-shot alm-shot--inset">
+    <Image src={login} alt="The Almanac login screen: the hand-brushed FA sun signature, ALMANAC in serif, Making & Metrics, and a single password field" widths={[560, 900]} sizes="(min-width: 44rem) 42rem, 100vw" />
+    <figcaption>The door. One password, no account, no email.</figcaption>
+  </figure>
+
+  <h2>It works, annoyingly</h2>
+
+  <p>It's honestly a little annoying how well it works: I built a tool to stop
+    myself opening an app, and now I open the tool instead. Same behaviour,
+    different app, nobody trying to sell me something in between.</p>
+
+  <hr />
+
+  <section class="alm-close">
+    <p class="alm-close-copy">Almanac just needs your own Meta Graph API key,
+      pointed at a different account.</p>
+    <a class="alm-close-btn" href="mailto:finnastle@gmail.com?subject=Almanac">Say g'day</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .alm-back { font-family: var(--sans); font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+  .alm-lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    line-height: 1.25;
+    max-width: 32rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Accent chip — vermilion's single appearance on this page. */
+  .alm-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem 1.25rem;
+    flex-wrap: wrap;
+    max-width: none;
+    margin-bottom: 2.5rem;
+  }
+  .alm-cta {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #faf9f6;
+    background: var(--accent);
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--accent);
+  }
+  .alm-cta:hover { background: var(--accent-press); border-color: var(--accent-press); }
+  .alm-note { font-size: 0.82rem; color: var(--graphite); }
+
+  .alm-shot { margin: 2.5rem 0; }
+  .alm-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line-strong);
+  }
+  .alm-shot--wide { margin-top: 1rem; }
+  .alm-shot--inset { max-width: 42rem; }
+  .alm-shot figcaption {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--graphite);
+    margin-top: 0.6rem;
+    max-width: 34rem;
+  }
+
+  /* Technical voice: the spec list stays mono, labels underlined not coloured. */
+  .alm-reads { margin: 0.5rem 0 1rem; max-width: 40rem; }
+  .alm-read {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0 1.25rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .alm-read:last-child { border-bottom: 1px solid var(--line); }
+  .alm-read dt { font-family: var(--mono); }
+  .alm-read dd { margin: 0; color: var(--graphite); }
+
+  @media (max-width: 34rem) {
+    .alm-read { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+
+  /* Invert close — the black bar that ends the sequence. */
+  .alm-close {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .alm-close-copy {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.25;
+    margin: 0;
+    max-width: 26rem;
+  }
+  .alm-close-btn {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    padding: 0.7rem 1.2rem;
+    white-space: nowrap;
+  }
+  .alm-close-btn:hover { background: var(--paper); color: var(--ink); }
+</style>
