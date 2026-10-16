@@ -9,8 +9,11 @@ there must be no background shape, and no detail that only shows as a second col
 (white knockouts vanish). Rasters are recoloured by the `.mark` filter and need a
 transparent background.
 
-A case shows logos only when every key it lists has a file; otherwise the brand is
-set in type.
+A case shows logos only when every key it lists has a file; otherwise it shows none.
+They render inside the opened case, under the hero. The closed list on /studio is
+wordmarks only — brand set in type, every row the same weight — so adding a file here
+changes the opened case, not the list. The same resolver is what a client wall would
+draw on.
 
 From npm (Simple Icons, SVG Logos): `netflix` `coca-cola` `amazon-alexa` `afterpay`
 `google-assistant`.

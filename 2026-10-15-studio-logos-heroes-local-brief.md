@@ -13,8 +13,12 @@ Each case names its logos by key in `logos: [...]`. The page loads
 `src/assets/studio/logos/<key>.svg` and inlines it with every fill forced to
 `currentColor`, so a mark renders black in light mode and white in dark. That means a
 logo only needs the right **shapes**; its colours don't matter. A case shows marks
-only when *every* key it lists has a file; otherwise the whole row falls back to the
-brand name in type.
+only when *every* key it lists has a file; otherwise it shows none.
+
+Marks appear **inside the opened case**, under the hero and above the credit line.
+The closed list is wordmarks only — every brand set in type at the same weight, so a
+case with a mark can't outrank one without. A client wall would draw on the same
+folder, which is why the keys below are still worth chasing.
 
 Already in the repo, sourced from Simple Icons / SVG Logos on npm: `netflix`,
 `coca-cola`, `amazon-alexa`, `afterpay`, `google-assistant`. Plus `inke`, knocked out
@@ -48,7 +52,7 @@ most clearly, but it is square and the hero slot is 59rem × 34rem.
 
 ## Task 1: logos
 
-Needed (key → brand). Ten left:
+Needed (key → brand). Twelve left:
 
 | key | brand | note |
 |---|---|---|
@@ -62,6 +66,8 @@ Needed (key → brand). Ten left:
 | `victoria-police` | Victoria Police | **Decided: the wordmark, not the star badge.** |
 | `woolworths` | Woolworths | The apple "W" mark |
 | `g8-education` | G8 Education | |
+| `city-of-melbourne` | City of Melbourne | New case added 16 Oct. Council marks are public-domain-ish but check usage terms |
+| `det` | Department of Education and Training | New case added 16 Oct. State-level DET, home of the ARC learning portal. Finn has not named the state, so the write-up says "the state Department" — confirm before chasing a mark |
 
 Where to look, in this order:
 1. Finn's own files: the downloads above first, then agency folders and brand
@@ -194,8 +200,10 @@ npm run preview   # http://localhost:4321/studio
 Check that:
 - every logo shows in both light and dark mode (the toggle is top right);
 - no logo shows as a solid blob or has missing parts;
-- the AGL × Netflix and Google Assistant × Smiling Mind rows show both marks
-  (each row needs *both* of its keys present before either appears).
+- the AGL × Netflix and Google Assistant × Smiling Mind cases show both marks when
+  opened (each needs *both* of its keys present before either appears);
+- the closed list is unchanged — it is wordmarks only by design, so a new file
+  should make no difference to it.
 
 ## Commit and push
 
