@@ -101,13 +101,6 @@ const cases = await Promise.all(
                 alt={data.line ? `${data.brand}: ${data.line}` : data.brand}
                 widths={[600, 1000, 1400, 1900]} sizes="(max-width: 62rem) 100vw, 59rem" />
             )}
-            {logos.length > 0 && (
-              <p class="case-marks">
-                {logos.map((logo) => 'svg' in logo
-                  ? <span class="case-logo" set:html={logo.svg} />
-                  : <Image class="case-logo mark" src={logo.img} alt="" height={64} />)}
-              </p>
-            )}
             {data.meta && <p class="meta">{data.meta}</p>}
             <Content />
             {gallery.length > 0 && (
@@ -120,6 +113,13 @@ const cases = await Promise.all(
                   </figure>
                 ))}
               </div>
+            )}
+            {logos.length > 0 && (
+              <p class="case-stamp">
+                {logos.map((logo) => 'svg' in logo
+                  ? <span class="case-logo" set:html={logo.svg} />
+                  : <Image class="case-logo mark" src={logo.img} alt="" height={128} />)}
+              </p>
             )}
             <a class="case-link" href={`#${slug}`}>Link to this case</a>
           </div>
@@ -227,20 +227,32 @@ const cases = await Promise.all(
   }
   /* Marks in the opened case. Room here that the row doesn't have, so they run
      a little larger; a pairing sits side by side. */
-  .case-marks {
-    display: flex; align-items: center; gap: 1.25rem;
-    margin: 1.4rem 0 0;
+  /* The stamp closes the case: the client's own mark, in white on black,
+     the same way a job gets signed off. Black in both themes, so it reads as
+     an applied mark rather than a themed UI element. */
+  .case-stamp {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 3rem 0 0;
+    padding: 3rem 2.5rem;
+    background: #0f0f0e;
+    color: #ffffff;
   }
   .case-logo {
     display: block;
     height: auto; width: auto;
-    max-height: 2.4rem;
-    max-width: 42%;
+    max-height: 3rem;
+    max-width: min(26rem, 100%);
     min-width: 0;
     flex: 0 1 auto;
+    /* Rasters carry their own ink, so force them white rather than theming. */
+    filter: brightness(0) invert(1);
   }
-  /* Inline SVG marks: sized by height, width from the viewBox, coloured by ink. */
-  span.case-logo { height: 2.4rem; color: var(--ink); }
+  /* Inline SVG marks take currentColor, which the stamp sets to white. */
+  span.case-logo { height: 3rem; color: inherit; filter: none; }
   span.case-logo :global(svg) { display: block; height: 100%; width: auto; max-width: 100%; }
   .case-logo-type {
     font-family: var(--sans);
@@ -328,11 +340,11 @@ const cases = await Promise.all(
 
   @media (max-width: 40rem) {
     .case-row { grid-template-columns: 4.5rem 1fr auto; gap: 0.9rem; }
-    .case-logo { max-height: 1.5rem; }
-    .case-logos:has(.case-logo + .case-logo) { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-    .case-logos:has(.case-logo + .case-logo) .case-logo { max-width: 100%; max-height: 1.1rem; }
-    span.case-logo { height: 1.4rem; }
-    .case-logos:has(.case-logo + .case-logo) span.case-logo { height: 1.1rem; }
+    .case-stamp { gap: 1.75rem; padding: 2.25rem 1.5rem; margin-top: 2.25rem; }
+    .case-logo { max-height: 2.2rem; max-width: 100%; }
+    span.case-logo { height: 2.2rem; }
+    .case-stamp:has(.case-logo + .case-logo) .case-logo { max-height: 1.8rem; max-width: 100%; }
+    .case-stamp:has(.case-logo + .case-logo) span.case-logo { height: 1.8rem; }
     .case-logo-type { font-size: 0.62rem; }
     .case-body { padding-left: 0; }
     .case-soon { display: none; }
