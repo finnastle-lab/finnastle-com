@@ -7,9 +7,12 @@
 > below, so nothing shipped. Lesson for next time — ship the fix that removes a
 > broken link, then ask the question.
 >
-> Still open, both needing Finn rather than an agent: the custom domain
-> (`almanac.finnastle.com`), the blurb's Gemini claim, and whether the dashboard
-> should sit behind Cloudflare Access. See the two sections near the end.
+> **16 Oct, later: the custom domain is live and `/tools` now points at it.**
+> `https://almanac.finnastle.com` resolves and serves; the workers.dev URL stays
+> enabled as a fallback. The blurb's Gemini claim has also been corrected.
+>
+> Still open, needing Finn rather than an agent: whether the dashboard should sit
+> behind Cloudflare Access. See the second item near the end.
 
 
 For an agent working in `finnastle-com`. One required fix, plus two judgement
