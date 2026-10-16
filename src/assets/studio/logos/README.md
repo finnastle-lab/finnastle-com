@@ -31,7 +31,8 @@ From Finn's own client artwork in `~/Desktop/Client Assets` (16 Oct):
 | `grove-distillery` | `The-Grove-Distillery-600x600.jpg` | white ground knocked out by luminance |
 | `smiling-mind` | `~/Downloads/smiling mind logo.png` | purple ground knocked out by colour distance; the smile stays a real hole |
 | `det` | `det logo.png` | white-on-navy, so alpha is whiteness; "VICTORIA" stays a real hole in the triangle |
-| `city-of-melbourne` | `city of melb.jpeg` | white ground knocked out; the M's facets flatten to one silhouette |
+| `city-of-melbourne` | `city melb logo` (Inkscape SVG) | Inkscape puts fills in `style=`, which the page's recolour regex misses, so they were moved to `fill=` attributes. Horizontal lockup |
+| `victoria-police` | `vicpol_logo.png` | the wordmark band cropped out of the official lockup. The badge above it flattens to a blob, so it is not used |
 
 Nothing here is traced or redrawn.
 
@@ -40,14 +41,11 @@ globe and wordmark, not the supermarket apple W. The apple W is not on Wikimedia
 Commons and woolworths.com.au returns 403 on its asset paths. Finn chose the Group
 mark over leaving the key as type.
 
-## Still missing
+All eighteen keys now have a file.
 
-`victoria-police` — the only wordmark on hand (`vic pol logo png.png`) sits 18px tall
-under the badge, too small to use. The star badge flattens to a solid blob, and the
-brief already ruled it out.
-
-`city-of-melbourne` is a stacked lockup, so Astro ships it 66px wide and the type under
-the M is about 8px tall. An M-only or horizontal version would sit better.
+Inkscape exports are the one trap left: they carry fills in `style="fill:…"`, which
+`monoSvg` in `studio.astro` does not match, so such a mark would keep its brand colour
+and ignore the theme. Move those into `fill=` attributes before saving.
 
 Keys in use: `agl` `netflix` `afterpay` `youi` `7-eleven` `welly` `inke` `grove-distillery`
 `coca-cola` `amazon-alexa` `tekspace` `google-assistant` `smiling-mind` `victoria-police`
