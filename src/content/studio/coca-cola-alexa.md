@@ -3,7 +3,7 @@ brand: Coca-Cola × Amazon Alexa
 logos: [coca-cola, amazon-alexa]
 line: Share a Coke with Alexa
 tag: Copywriting
-meta: VERSA, with CHEP and BRX · Copywriter & Conversational Flow Designer · 2019–20
+meta: VERSA, with Ogilvy · Copywriter & Conversational Flow Designer · 2019–20
 order: 90
 hero: coca-cola-alexa.webp
 ---
