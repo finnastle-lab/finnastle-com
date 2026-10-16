@@ -63,7 +63,7 @@ Needed (key → brand). Twelve left:
 | `woolworths` | Woolworths | The apple "W" mark |
 | `g8-education` | G8 Education | |
 | `city-of-melbourne` | City of Melbourne | New case added 16 Oct. Council marks are public-domain-ish but check usage terms |
-| `department-of-education` | Department of Education | New case added 16 Oct. **Ask Finn which department** — the case is written state-agnostic until he confirms |
+| `det` | Department of Education and Training | New case added 16 Oct. State-level DET, home of the ARC learning portal. Finn has not named the state, so the write-up says "the state Department" — confirm before chasing a mark |
 
 Where to look, in this order:
 1. Finn's own files: the downloads above first, then agency folders and brand
