@@ -3,7 +3,7 @@ brand: Department of Education and Training (Vic)
 logos: [det]
 line: ARC
 tag: Content Strategy
-meta: Deepend & VERSA · Content Strategist
+meta: Deepend & VERSA · Content Strategist · 2018
 order: 145
 ---
 
