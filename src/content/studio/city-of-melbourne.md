@@ -4,6 +4,7 @@ logos: [city-of-melbourne]
 tag: Content Strategy
 meta: VERSA · Content Strategist & Conversational Flow Expert · 2019
 order: 135
+hero: city-of-melbourne.jpg
 ---
 
 ## The brief
