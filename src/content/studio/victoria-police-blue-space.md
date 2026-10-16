@@ -5,6 +5,7 @@ line: Blue Space
 tag: Content Strategy
 meta: VERSA · Content Strategist · 2019
 order: 130
+hero: victoria-police-blue-space.jpg
 ---
 
 ## The brief

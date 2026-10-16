@@ -5,6 +5,10 @@ line: Olive
 tag: UX Writing
 meta: VERSA for WooliesX · Conversational Copywriter · 2018
 order: 140
+hero: woolworths-olive.jpg
+gallery:
+  - src: woolworths-olive-waving.jpg
+    caption: Olive in the Woolworths app
 ---
 
 ## The brief
