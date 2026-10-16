@@ -66,6 +66,10 @@ const studio = defineCollection({
     order: z.number(),
     // Filename in src/assets/studio. Cases without a usable image omit it.
     hero: z.string().optional(),
+    // Supporting shots below the write-up, same folder as the hero. Use it when
+    // one image can't carry the work — Welly ran two tones of voice, so the kids
+    // and adult ranges need showing side by side. Caption names what's shown.
+    gallery: z.array(z.object({ src: z.string(), caption: z.string().optional() })).default([]),
     draft: z.boolean().default(false),
   }),
 });
