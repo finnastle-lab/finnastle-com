@@ -2,7 +2,7 @@
 brand: City of Melbourne
 logos: [city-of-melbourne]
 tag: Content Strategy
-meta: VERSA · Content Strategist & Conversational Flow Expert
+meta: VERSA · Content Strategist & Conversational Flow Expert · 2019
 order: 135
 ---
 
