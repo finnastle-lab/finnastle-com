@@ -1,5 +1,17 @@
 # Brief: reconnect Almanac at its new address (2026-10-15)
 
+> **STATUS, 16 Oct 2026 — the link fix is DONE.** `/tools` now points at
+> `https://almanac.finnastle.workers.dev`. Finn found the dead link himself on
+> the live site, a day after this brief was written: the brief landed on an
+> unmerged branch and held the one-line change behind the custom-domain question
+> below, so nothing shipped. Lesson for next time — ship the fix that removes a
+> broken link, then ask the question.
+>
+> Still open, both needing Finn rather than an agent: the custom domain
+> (`almanac.finnastle.com`), the blurb's Gemini claim, and whether the dashboard
+> should sit behind Cloudflare Access. See the two sections near the end.
+
+
 For an agent working in `finnastle-com`. One required fix, plus two judgement
 calls that need Finn before you touch them.
 
