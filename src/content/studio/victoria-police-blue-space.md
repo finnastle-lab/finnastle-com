@@ -5,6 +5,7 @@ line: Blue Space
 tag: UX Writing
 meta: VERSA · UX Writer & Content Strategist · 2019
 order: 130
+hero: victoria-police-blue-space.webp
 ---
 
 ## The brief

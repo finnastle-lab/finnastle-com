@@ -22,15 +22,15 @@ Needed (key → brand):
 
 | key | brand | note |
 |---|---|---|
-| `agl` | AGL Energy | Unlocks the AGL × Netflix row too |
+| ~~`agl`~~ | Done | |
 | `youi` | Youi (Australian insurer) | |
 | `7-eleven` | 7-Eleven | The stripes and the "7-ELEVEn" type, all in one colour |
 | ~~`welly`~~ | Done | |
 | `inke` | Inke | Ask Finn: as above |
 | `grove-distillery` | The Grove Distillery (WA) | |
-| `tekspace` | Tekspace | |
+| ~~`tekspace`~~ | Done | |
 | `smiling-mind` | Smiling Mind | Unlocks the Google Assistant row |
-| `victoria-police` | Victoria Police | The star badge or the wordmark; ask Finn which |
+| ~~`victoria-police`~~ | Done: one-colour badge | |
 | ~~`woolworths`~~ | Done | |
 | `g8-education` | G8 Education | |
 
@@ -62,7 +62,7 @@ These four cases have no hero image:
 |---|---|
 | `tekspace.md` | Cyber Lab content: a page or social post Finn wrote |
 | `google-assistant-smiling-mind.md` | The Action on a phone or Nest Hub, or a Smiling Mind × Google key visual |
-| `victoria-police-blue-space.md` | **Not** the internal VERSA flyer. Only a public Police Care Australia / Blue Space image |
+| ~~`victoria-police-blue-space.md`~~ | Done: Flinders St lit blue |
 | ~~`woolworths-olive.md`~~ | Done: Olive in the app |
 
 Rules:
