@@ -11,8 +11,9 @@ hero: youi.webp
 ## The brief
 
 Youi don't believe one size fits all — they celebrate customer quirks and write
-policies to match. The question was how to carry you-shaped beyond the policy,
-into the sport they sponsor and the everyday Australian driving personas.
+policies to match. You-shaped is the platform, and the question was how to carry
+it beyond the policy, into the sport they sponsor and the everyday Australian
+driving personas.
 
 ## The execution
 
@@ -26,5 +27,6 @@ accessory.
 
 Support copywriter across client-facing presentations and creative brainstorms.
 Ideation on the NRL and NRLW referee sponsorship integrations, and the quirky
-customer-connection platforms around them. Theft cover for things you can't live
+customer-connection platforms around them. Youi insurance — that's a bit more
+you-shaped, the end line out of the TVC. Theft cover for things you can't live
 without. For your 24-hour teenage taxi service.

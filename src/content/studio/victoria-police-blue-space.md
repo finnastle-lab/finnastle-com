@@ -2,8 +2,8 @@
 brand: Victoria Police
 logos: [victoria-police]
 line: Blue Space
-tag: UX Writing
-meta: VERSA · UX Writer & Content Strategist · 2019
+tag: Content Strategy
+meta: VERSA · Content Strategist · 2019
 order: 130
 ---
 
@@ -26,5 +26,7 @@ record.
 
 ## What I wrote
 
-UX writing and content strategy across the platform. Blue Space is still running
-today, hosted through Police Care Australia.
+Content strategy across the platform: the structure that has to carry crisis
+support and everyday wellbeing at once, and the words that get someone from a
+hard moment to the right resource. Blue Space is still running today, hosted
+through Police Care Australia.

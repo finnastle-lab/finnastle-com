@@ -48,7 +48,7 @@ most clearly, but it is square and the hero slot is 59rem × 34rem.
 
 ## Task 1: logos
 
-Needed (key → brand). Ten left:
+Needed (key → brand). Twelve left:
 
 | key | brand | note |
 |---|---|---|
@@ -62,6 +62,8 @@ Needed (key → brand). Ten left:
 | `victoria-police` | Victoria Police | **Decided: the wordmark, not the star badge.** |
 | `woolworths` | Woolworths | The apple "W" mark |
 | `g8-education` | G8 Education | |
+| `city-of-melbourne` | City of Melbourne | New case added 16 Oct. Council marks are public-domain-ish but check usage terms |
+| `department-of-education` | Department of Education | New case added 16 Oct. **Ask Finn which department** — the case is written state-agnostic until he confirms |
 
 Where to look, in this order:
 1. Finn's own files: the downloads above first, then agency folders and brand
