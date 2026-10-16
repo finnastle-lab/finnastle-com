@@ -67,7 +67,7 @@ Needed (key → brand). Twelve left:
 | `woolworths` | Woolworths | The apple "W" mark |
 | `g8-education` | G8 Education | |
 | `city-of-melbourne` | City of Melbourne | New case added 16 Oct. Council marks are public-domain-ish but check usage terms |
-| `det` | Department of Education and Training | New case added 16 Oct. State-level DET, home of the ARC learning portal. Finn has not named the state, so the write-up says "the state Department" — confirm before chasing a mark |
+| `det` | Department of Education and Training (Vic) | New case added 16 Oct. The Victorian DET, home of the ARC learning portal. Confirmed by Finn 16 Oct (vic.gov.au/education-and-training). Note the department was renamed Department of Education in 2023; the case credits DET because that was its name at the time of the work |
 
 Where to look, in this order:
 1. Finn's own files: the downloads above first, then agency folders and brand
