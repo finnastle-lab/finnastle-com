@@ -15,6 +15,9 @@ set in type.
 From npm (Simple Icons, SVG Logos): `netflix` `coca-cola` `amazon-alexa` `afterpay`
 `google-assistant`.
 
+From Finn: `welly` (his master file), `woolworths` (traced from the official lockup;
+the apple silhouette only, as the one-colour version loses the ribbon shading).
+
 Keys in use: `agl` `netflix` `afterpay` `youi` `7-eleven` `welly` `inke` `grove-distillery`
 `coca-cola` `amazon-alexa` `tekspace` `google-assistant` `smiling-mind` `victoria-police`
 `woolworths` `g8-education`

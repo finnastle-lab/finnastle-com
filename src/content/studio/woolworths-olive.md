@@ -5,6 +5,7 @@ line: Olive
 tag: UX Writing
 meta: VERSA for WooliesX · Conversational Copywriter · 2018
 order: 140
+hero: woolworths-olive.webp
 ---
 
 ## The brief
