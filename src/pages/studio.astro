@@ -15,8 +15,10 @@ const heroes = import.meta.glob<{ default: ImageMetadata }>(
 // src/assets/studio/logos/<key>.svg and every case listing that key picks it up.
 // SVGs are inlined with every fill forced to currentColor, so they take the
 // page's ink: black in light mode, white in dark, following the theme toggle.
-// A transparent PNG/WebP also works, recoloured by the .mark filter. Until a
-// file exists, the brand is set in type.
+// A transparent PNG/WebP also works, recoloured by the .mark filter.
+// The closed list is wordmarks only — brand set in type, every row the same
+// weight, so a case with a mark can't outrank one without. Marks appear inside
+// the opened case, and the same resolver is what a client wall would use.
 type Logo = { svg: string } | { img: ImageMetadata };
 const svgFiles = import.meta.glob<string>('../assets/studio/logos/*.svg', {
   eager: true, query: '?raw', import: 'default',
@@ -83,19 +85,13 @@ const cases = await Promise.all(
         <details id={slug} name="studio-case">
           <summary class="case-row">
             <span class="case-logos">
-              {logos.length > 0
-                ? logos.map((logo) => 'svg' in logo
-                    ? <span class="case-logo" set:html={logo.svg} />
-                    : <Image class="case-logo mark" src={logo.img} alt="" height={64} />)
-                : <span class="case-logo-type" aria-hidden="true">{data.brand}</span>}
+              {/* Wordmark only. The brand is already named here, so the sub
+                  below carries the discipline tag and nothing else. */}
+              <span class="case-logo-type" aria-hidden="true">{data.brand}</span>
             </span>
             <span class="case-head">
               <span class="case-line">{data.line ?? data.brand}</span>
-              <span class="case-sub">
-                {/* With no logo yet the brand is already set as type on the left. */}
-                {logos.length > 0 && <span class="case-brand">{data.brand}</span>}
-                {data.tag && <span class="case-tag" data-sep={logos.length > 0 ? '' : undefined}>{data.tag}</span>}
-              </span>
+              {data.tag && <span class="case-sub">{data.tag}</span>}
             </span>
             <span class="case-toggle" aria-hidden="true"></span>
           </summary>
@@ -104,6 +100,13 @@ const cases = await Promise.all(
               <Image class="case-hero" src={hero}
                 alt={data.line ? `${data.brand}: ${data.line}` : data.brand}
                 widths={[600, 1000, 1400, 1900]} sizes="(max-width: 62rem) 100vw, 59rem" />
+            )}
+            {logos.length > 0 && (
+              <p class="case-marks">
+                {logos.map((logo) => 'svg' in logo
+                  ? <span class="case-logo" set:html={logo.svg} />
+                  : <Image class="case-logo mark" src={logo.img} alt="" height={64} />)}
+              </p>
             )}
             {data.meta && <p class="meta">{data.meta}</p>}
             <Content />
@@ -136,8 +139,10 @@ const cases = await Promise.all(
          _notes), sourced against Finn's own documents. Nothing invented.
        - Logos: the SVGs in that pack's _logos/ are approximations and were not
          used. Netflix, Coca-Cola, Afterpay, Alexa and Google Assistant come from
-         the Simple Icons / SVG Logos sets on npm; the rest are set in type until
-         genuine marks arrive.
+         the Simple Icons / SVG Logos sets on npm. Finn's call, 16 Oct: the closed
+         list is wordmarks only, and the marks show inside the opened case. Keeps
+         every row the same weight whether or not a mark exists, and keeps the
+         folder ready for a client wall.
        - Heroes missing for tekspace, google-assistant-smiling-mind,
          victoria-police-blue-space, woolworths-olive, city-of-melbourne,
          det-arc. The internal VERSA Blue
@@ -213,24 +218,29 @@ const cases = await Promise.all(
   .case-row::-webkit-details-marker { display: none; }
   .case-row--soon { cursor: default; }
 
-  /* Logo slot: fixed width so the lines align down the list. */
+  /* Brand slot: fixed width so the lines align down the list. Type only —
+     the marks live inside the opened case. */
   .case-logos {
     display: flex; align-items: center; gap: 0.6rem;
     min-height: 2.25rem;
   }
+  /* Marks in the opened case. Room here that the row doesn't have, so they run
+     a little larger; a pairing sits side by side. */
+  .case-marks {
+    display: flex; align-items: center; gap: 1.25rem;
+    margin: 1.4rem 0 0;
+  }
   .case-logo {
     display: block;
     height: auto; width: auto;
-    max-height: 1.9rem;
-    max-width: 100%;
+    max-height: 2.4rem;
+    max-width: 42%;
     min-width: 0;
     flex: 0 1 auto;
   }
-  .case-logos:has(.case-logo + .case-logo) .case-logo { max-height: 1.5rem; max-width: 46%; }
   /* Inline SVG marks: sized by height, width from the viewBox, coloured by ink. */
-  span.case-logo { height: 1.9rem; color: var(--ink); }
+  span.case-logo { height: 2.4rem; color: var(--ink); }
   span.case-logo :global(svg) { display: block; height: 100%; width: auto; max-width: 100%; }
-  .case-logos:has(.case-logo + .case-logo) span.case-logo { height: 1.5rem; }
   .case-logo-type {
     font-family: var(--sans);
     font-weight: 600;
@@ -255,8 +265,6 @@ const cases = await Promise.all(
     text-transform: uppercase;
     color: var(--graphite);
   }
-  .case-tag { white-space: nowrap; }
-  .case-tag[data-sep]::before { content: "·"; margin: 0 0.45rem; }
 
   /* Plus that turns into a minus. Monochrome, ink only. */
   .case-toggle { position: relative; width: 14px; height: 14px; flex: none; }
