@@ -4,7 +4,7 @@ description: 'A blue hydrangea meant frigidity in 1884 and gratitude now. The la
 pubDate: 2026-09-30
 draft: false
 instagramCta: 'I have drawn flowers for years without knowing there was a word for it. The drawings go on Instagram. Still no dictionary.'
-heroImage: ../../assets/elements/botanical-nostalgia-vintage-flower-engraving.png
+heroImage: ../../assets/elements/photo-bottlebrush-red-floral.png
 heroImageAlt: A vintage botanical print of red bottlebrush flowers against a blue sky.
 ---
 There is a hydrangea on the way to my studio that I have been avoiding for six years.
