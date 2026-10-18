@@ -6,7 +6,7 @@ canonicalUrl: https://medium.com/@finn.astle/art-meets-ai-automated-image-genera
 draft: false
 instagramCta: 'This was 2020, one tool and one panther. The machines got much better at it. I kept drawing anyway — that’s on Instagram.'
 syndicatedFrom: medium
-heroImage: ../../assets/elements/made-by-a-human-fa-sun-signature-stamp.png
+heroImage: ../../assets/elements/print-monogram-square-framed.png
 heroImageAlt: The "made by a human" FA sun-signature stamp.
 ---
 Playing around with new technology and learning new things always excites me. I’ve recently been using a tool called [E](https://ebsynth.com/)B SYNTH, it uses artificial intelligence and automation to turn your art into dynamic animation based on a video input.

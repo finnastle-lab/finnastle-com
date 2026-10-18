@@ -6,7 +6,7 @@ canonicalUrl: https://medium.com/versa-agency/chatbots-save-lives-a35fd635c17
 draft: false
 instagramCta: 'I still think the words are the job. Six years on I’m mostly making pictures about it instead — that part lives on Instagram.'
 syndicatedFrom: medium
-heroImage: ../../assets/elements/how-things-used-to-connect.png
+heroImage: ../../assets/elements/engraving-bandsaw-industrial-spoked.png
 heroImageAlt: A hand-drawn diagram of how things used to connect.
 ---
 Typing….
