@@ -1,7 +1,7 @@
 ---
 title: 'Let the world tell your story'
 description: 'Finn Astle is a creative storyteller, writing and walking every day, this story covers four continents, roughly 2,000 days and many many people.'
-pubDate: 2020-09-13
+pubDate: 2019-09-13
 canonicalUrl: https://medium.com/@finn.astle/let-the-world-tell-your-story-6f2b23201ac2
 draft: false
 syndicatedFrom: medium
