@@ -4,6 +4,8 @@ description: 'Finn Astle is a creative storyteller, writing and walking every da
 pubDate: 2019-09-13
 canonicalUrl: https://medium.com/@finn.astle/let-the-world-tell-your-story-6f2b23201ac2
 register: art
+heroImage: ../../assets/writing/let-the-world-tell-your-story/hero.webp
+heroImageAlt: "Bare feet walking across rippled red sand, the hem of a pale blue robe swinging above them."
 draft: false
 syndicatedFrom: medium
 ---
