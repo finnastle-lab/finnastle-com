@@ -1,7 +1,7 @@
 ---
 title: 'The glow of TV as fire'
 description: 'A television carried into the abandoned cities of Inner Mongolia and into Beijing, still playing, with nobody there to watch it.'
-pubDate: 2019-01-12
+pubDate: 2018-01-12
 draft: true
 ---
 Phosphene. The hallucination which occurs behind the eyelids, caused by pressure or absence of light. The light still behind your eyes when you close them after looking at a bright screen.
@@ -17,5 +17,9 @@ We took a TV unit, made in China, and edited it so it would show a looping seque
 What happens when humans leave a place. All of the electronics and the lights still turn on, but there are no humans around. The digital version of if a tree falls in the forest and no one hears it, does it really fall.
 
 Mixed in with social isolation, modernity, and the glow of TV as fire, as connection to humanity in this modern age.
+
+Shown at Aotu Studio in Beijing in 2018, and in the Black_Box space at
+[KINGS Artist-Run](http://www.kingsartistrun.org.au/program/black_box-phosphene/) in West
+Melbourne, 29 June to 20 July 2019.
 
 A film by Trent Crawford and Finn Astle.
