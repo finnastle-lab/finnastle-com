@@ -19,7 +19,7 @@ const heroes = import.meta.glob<{ default: ImageMetadata }>(
 // The closed list is wordmarks only — brand set in type, every row the same
 // weight, so a case with a mark can't outrank one without. Marks appear inside
 // the opened case, and the same resolver is what a client wall would use.
-type Logo = { svg: string } | { img: ImageMetadata };
+type Logo = ({ svg: string } | { img: ImageMetadata }) & { height: string };
 const svgFiles = import.meta.glob<string>('../assets/studio/logos/*.svg', {
   eager: true, query: '?raw', import: 'default',
 });
@@ -39,11 +39,28 @@ const monoSvg = (raw: string) =>
       tag.replace(/\s(width|height|class|style|fill|role)="[^"]*"/g, '')
         .replace('<svg', '<svg fill="currentColor" aria-hidden="true" focusable="false"'))
     .trim();
+// A shared max-height makes a wide wordmark shout and a square mark whisper:
+// Victoria Police is 17:1 and 7-Eleven is 3:4, so at one height the first ran
+// twenty-three times the width of the second. Height comes off each mark's own
+// aspect ratio instead, so the wider it is the shorter it sits, and every mark
+// lands on roughly the same optical area. The exponent is below 0.5 because
+// pure area-matching shrinks a long wordmark past reading size.
+const aspectOf = (raw: string): number => {
+  const box = raw.match(/viewBox="[\d.\-\s]*?([\d.]+)[\s,]+([\d.]+)"/);
+  if (box) return Number(box[1]) / Number(box[2]);
+  const w = raw.match(/\swidth="([\d.]+)/), h = raw.match(/\sheight="([\d.]+)/);
+  return w && h ? Number(w[1]) / Number(h[1]) : 1;
+};
+const heightFor = (aspect: number): string => {
+  const rem = 3.82 / Math.pow(Math.max(aspect, 0.05), 0.35);
+  return `${Math.min(3.25, Math.max(1.4, rem)).toFixed(2)}rem`;
+};
+
 const logoFor = (key: string): Logo | undefined => {
   const svg = Object.entries(svgFiles).find(([p]) => keyOf(p) === key)?.[1];
-  if (svg) return { svg: monoSvg(svg) };
+  if (svg) return { svg: monoSvg(svg), height: heightFor(aspectOf(svg)) };
   const img = Object.entries(rasterFiles).find(([p]) => keyOf(p) === key)?.[1].default;
-  return img && { img };
+  return img && { img, height: heightFor(img.width / img.height) };
 };
 
 // Hand-ordered, strongest first. Each entry renders its own three-part body.
@@ -117,8 +134,9 @@ const cases = await Promise.all(
             {logos.length > 0 && (
               <p class="case-stamp">
                 {logos.map((logo) => 'svg' in logo
-                  ? <span class="case-logo" set:html={logo.svg} />
-                  : <Image class="case-logo mark" src={logo.img} alt="" height={128} />)}
+                  ? <span class="case-logo" style={`height:${logo.height}`} set:html={logo.svg} />
+                  : <Image class="case-logo mark" src={logo.img} alt="" height={128}
+                      style={`height:${logo.height}`} />)}
               </p>
             )}
             <a class="case-link" href={`#${slug}`}>Link to this case</a>
@@ -227,32 +245,49 @@ const cases = await Promise.all(
   }
   /* Marks in the opened case. Room here that the row doesn't have, so they run
      a little larger; a pairing sits side by side. */
-  /* The stamp closes the case: the client's own mark, in white on black,
-     the same way a job gets signed off. Black in both themes, so it reads as
-     an applied mark rather than a themed UI element. */
+  /* The stamp closes the case: the client's own mark on a ground of solid ink,
+     the same way a job gets signed off. The ground is the ink colour and the
+     marks are the paper colour, so the panel inverts with the theme and keeps
+     the same contrast either way. Black on #121211 was invisible in dark. */
   .case-stamp {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 3rem;
     margin: 3rem 0 0;
-    padding: 3rem 2.5rem;
-    background: #0f0f0e;
-    color: #ffffff;
+    padding: 3.25rem 2.5rem;
+    background: var(--stamp-ground, #0f0f0e);
+    color: var(--stamp-mark, #ffffff);
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .case-stamp {
+      --stamp-ground: #eeece6;
+      --stamp-mark: #0f0f0e;
+      --stamp-invert: 0;
+    }
+  }
+  :global(:root[data-theme='dark']) .case-stamp {
+    --stamp-ground: #eeece6;
+    --stamp-mark: #0f0f0e;
+    --stamp-invert: 0;
   }
   .case-logo {
     display: block;
-    height: auto; width: auto;
-    max-height: 3rem;
+    /* Height is set inline, off the mark's own aspect ratio. Never `auto`:
+       with width and height both auto the box measures zero before load, so a
+       lazy image never enters the viewport and never loads at all. */
+    width: auto;
     max-width: min(26rem, 100%);
     min-width: 0;
     flex: 0 1 auto;
-    /* Rasters carry their own ink, so force them white rather than theming. */
-    filter: brightness(0) invert(1);
+    /* contain, so hitting max-width shortens the mark instead of squashing it. */
+    object-fit: contain; object-position: center;
+    /* Rasters carry their own ink, so flatten them to the mark colour. */
+    filter: brightness(0) invert(var(--stamp-invert, 1));
   }
-  /* Inline SVG marks take currentColor, which the stamp sets to white. */
-  span.case-logo { height: 3rem; color: inherit; filter: none; }
+  /* Inline SVG marks take currentColor, which the stamp sets to the mark colour. */
+  span.case-logo { color: inherit; filter: none; }
   span.case-logo :global(svg) { display: block; height: 100%; width: auto; max-width: 100%; }
   .case-logo-type {
     font-family: var(--sans);
@@ -340,11 +375,12 @@ const cases = await Promise.all(
 
   @media (max-width: 40rem) {
     .case-row { grid-template-columns: 4.5rem 1fr auto; gap: 0.9rem; }
-    .case-stamp { gap: 1.75rem; padding: 2.25rem 1.5rem; margin-top: 2.25rem; }
-    .case-logo { max-height: 2.2rem; max-width: 100%; }
-    span.case-logo { height: 2.2rem; }
-    .case-stamp:has(.case-logo + .case-logo) .case-logo { max-height: 1.8rem; max-width: 100%; }
-    .case-stamp:has(.case-logo + .case-logo) span.case-logo { height: 1.8rem; }
+    .case-stamp { gap: 2rem; padding: 2.5rem 1.5rem; margin-top: 2.25rem; }
+    /* Height is inline now, so clamp with max-height; the aspect ratio pulls
+       the width in with it. A plain `height` here would lose to the inline. */
+    .case-logo, span.case-logo { max-height: 2.2rem; max-width: 100%; }
+    .case-stamp:has(.case-logo + .case-logo) .case-logo,
+    .case-stamp:has(.case-logo + .case-logo) span.case-logo { max-height: 1.8rem; }
     .case-logo-type { font-size: 0.62rem; }
     .case-body { padding-left: 0; }
     .case-soon { display: none; }
