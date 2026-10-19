@@ -1,10 +1,12 @@
 ---
 title: 'In order to propose'
-description: 'Two animations for Cordrazine. The first was so the lead singer could propose. The second went to air on Rage.'
+description: 'Two animations for Cordrazine, back after their 1998 debut. The first was so the lead singer could propose. The second went to air on Rage.'
 pubDate: 2015-10-05
 draft: true
 ---
-Two pieces for Cordrazine, an indie music group, ARIA nominated I think in the early 2000s. This was their comeback song.
+Two pieces for Cordrazine, an indie rock band from Melbourne. Their debut album From Here to
+Wherever went to number nine on the ARIA albums chart and was nominated for Breakthrough Artist
+at the 1998 ARIA Awards. This was their comeback song.
 
 I was picked because the lead singer had seen my animation and requested something in the same style, in order to propose to his fiancée, now his wife.
 
