@@ -1,0 +1,25 @@
+---
+title: 'In order to propose'
+description: 'Two animations for Cordrazine. The first was so the lead singer could propose. The second went to air on Rage.'
+pubDate: 2015-10-05
+draft: true
+---
+Two pieces for Cordrazine, an indie music group, ARIA nominated I think in the early 2000s. This was their comeback song.
+
+I was picked because the lead singer had seen my animation and requested something in the same style, in order to propose to his fiancée, now his wife.
+
+<div class="essay-film">
+  <iframe src="https://www.youtube-nocookie.com/embed/5sls_DxnkcE" title="You See In Me - Cordrazine"
+    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+As part of that project he also commissioned an animation for the music video for the song he had written for her. The second part of the single I got to animate too.
+
+<div class="essay-film">
+  <iframe src="https://www.youtube-nocookie.com/embed/JY_TVq5yYsk" title="Hey Man - Cordrazine"
+    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+Two songs, You See In Me and Hey Man. Two video pieces, developed with the lead singer and used in their production, their live tours, media buys and guest spots on Rage.
