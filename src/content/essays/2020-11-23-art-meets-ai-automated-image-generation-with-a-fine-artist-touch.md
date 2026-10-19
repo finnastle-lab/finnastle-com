@@ -14,6 +14,10 @@ Playing around with new technology and learning new things always excites me. I�
 
 To understand what’s possible here’s an example of the images I input and the result:
 
+<video class="essay-clip" src="/writing/art-meets-ai/board.mp4" poster="/writing/art-meets-ai/board.webp" width="600" height="338" muted loop playsinline preload="none" aria-label="A workflow board. Two painted panther keyframes on the left, one at rest and one snarling, feed into a cycling spinner marked EbSynth, and out to an output panel on the right where the animation plays."></video>
+
+*A visualisation of the EbSynth process, add life to static imagery.*
+
 ![Keyframe one: a hand-painted black panther in profile, head lowered, mouth closed.](../../assets/writing/art-meets-ai/02.png)
 
 ![Keyframe two: the same panther snarling, mouth open on its teeth.](../../assets/writing/art-meets-ai/03.png)
