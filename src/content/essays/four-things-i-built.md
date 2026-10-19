@@ -1,5 +1,5 @@
 ---
-title: 'I got all the Google AI certificates'
+title: 'Futureproofing creativity as AI looms'
 description: "Eight Google AI certificates, four things actually built with them, and the very ordinary problem each one was solving."
 pubDate: 2026-09-06
 draft: false
