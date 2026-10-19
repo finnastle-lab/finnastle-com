@@ -18,4 +18,7 @@ It displays the different elements where that can happen. Sport games, crowded t
 
 Commissioned by the Melbourne anatomy museum and shown at an open evening, inside the room displaying the body parts.
 
+The lead singer of Cordrazine saw this one and commissioned
+[the animation he proposed with](/writing/2015-10-05-cordrazine).
+
 Animation and sketches by Finn Astle. Music: Dead Flag Blues, Godspeed You! Black Emperor.
