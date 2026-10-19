@@ -1,3 +1,6 @@
 # Cloudflare Pages redirects. 301 = permanent.
 # Legacy Squarespace duplicate-home path -> canonical root.
 /finnastle    /    301
+
+# Essay redated 2020 -> 2019; slug follows the date prefix convention.
+/writing/2020-09-13-let-the-world-tell-your-story    /writing/2019-09-13-let-the-world-tell-your-story    301
