@@ -17,6 +17,8 @@ In response to the death of a friend, and the grieving nature of that. Dedicated
 
 Public transport, and the layers of society you sometimes don't see, because you're not aware of what other people are going through on a crowded train. Some of those people may have experienced the same kind of trauma as you, but you have no way of communicating that or getting it across.
 
+![Hand-lettered chalk on a dark ground: WHAT DID YOU FIND? NEVERMIND. HE HAS ALREADY FOUND YOU.](../../assets/writing/2014-09-09-its-our-problem/nevermind.webp)
+
 It displays the different elements where that can happen. Sport games, crowded trains, highways. Mass events where humans are all moving in unison but not connecting, not looking each other in the eye.
 
 Commissioned by the Melbourne anatomy museum and shown at an open evening, inside the room displaying the body parts.
