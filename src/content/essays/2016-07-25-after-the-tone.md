@@ -3,6 +3,8 @@ title: 'Just a number asking people to call'
 description: 'Ten metres of LED strip suspended as a giant mobile number. The people who called from underneath it became the soundtrack.'
 pubDate: 2016-07-25
 register: art
+heroImage: ../../assets/writing/2016-07-25-after-the-tone/hero.webp
+heroImageAlt: "A dark suburban road at night, streetlights receding into the distance, with a mobile phone number glowing in blue LED strip suspended above it."
 draft: false
 ---
 Another stunt built around a film. We created a mobile phone number, took about ten metres of LED strip lighting, and suspended a giant mobile phone number like an advertisement from the future. Just a number asking people to call.

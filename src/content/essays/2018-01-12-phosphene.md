@@ -3,6 +3,8 @@ title: 'The glow of TV as fire'
 description: 'A television carried into the abandoned cities of Inner Mongolia and into Beijing, still playing, with nobody there to watch it.'
 pubDate: 2018-01-12
 register: art
+heroImage: ../../assets/writing/2018-01-12-phosphene/hero.webp
+heroImageAlt: "A lit screen mounted on a tripod, standing alone on a sand dune under a pale hazed sky, with no one in sight."
 draft: false
 ---
 Phosphene. The hallucination which occurs behind the eyelids, caused by pressure or absence of light. The light still behind your eyes when you close them after looking at a bright screen.

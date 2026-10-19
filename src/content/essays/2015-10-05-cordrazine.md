@@ -3,6 +3,8 @@ title: 'In order to propose'
 description: 'Two animations for Cordrazine, back after their 1998 debut. One in soft grey-lead so the lead singer could propose. One inverted, which went to air on Rage.'
 pubDate: 2015-10-05
 register: art
+heroImage: ../../assets/writing/2015-10-05-cordrazine/hero.webp
+heroImageAlt: "A grey-lead drawing of two faces sharing one profile, eyes closed, enclosed in a dense ball of looping circular pencil lines."
 draft: false
 ---
 Two pieces for Cordrazine, an indie rock band from Melbourne. Their debut album From Here to
@@ -24,6 +26,8 @@ As part of that project he also commissioned an animation for the music video fo
 written for her. The second part of the single I got to animate too.
 
 Hey Man inverts the drawing. A totally different aesthetic.
+
+![The same drawing style inverted: a white line figure lying across a black ground, with long white drips running down from it.](../../assets/writing/2015-10-05-cordrazine/hey-man.webp)
 
 <div class="essay-film">
   <iframe src="https://www.youtube-nocookie.com/embed/JY_TVq5yYsk" title="Hey Man - Cordrazine"
