@@ -3,7 +3,7 @@ brand: Inke
 logos: [inke]
 line: Send Joy
 tag: Branding
-meta: Freelance · Creative Director & Brand Strategist · 2021–22
+meta: Astle Creative · Creative Director & Brand Strategist · 2021–22
 order: 70
 hero: inke.webp
 ---
