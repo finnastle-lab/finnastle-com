@@ -1,7 +1,7 @@
 # build output
 dist/
-# dependencies
-node_modules/
+# dependencies (bare name too: a node_modules symlink is not a directory)
+node_modules
 # generated types
 .astro/
 # environment
@@ -16,3 +16,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 _migration/devserver.log
+
+# claude code local settings
+.claude/settings.local.json
