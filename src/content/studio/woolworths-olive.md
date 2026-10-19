@@ -14,7 +14,7 @@ gallery:
 ## The brief
 
 Olive was the Woolworths customer chatbot. The source material was the existing
-longform FAQ — accurate, exhaustive, and written for a page rather than for
+longform FAQ: accurate, exhaustive, and written for a page rather than for
 somebody mid-question in a chat window.
 
 ## The execution

@@ -12,7 +12,7 @@ hero: seven-eleven.webp
 
 Twenty-five years of an American brand in Australia. The creative answer was to
 celebrate the anniversary when Australia gets the most out of it. 7-Eleven is
-open 24/7, so you can summer 24/7 — midnight ice creams to mid-morning coffees,
+open 24/7, so you can summer 24/7: midnight ice creams to mid-morning coffees,
 10am sunscreen or 10pm Slurpee.
 
 ## The execution

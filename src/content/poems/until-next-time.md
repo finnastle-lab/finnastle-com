@@ -2,7 +2,7 @@
 title: Until next time
 order: 60
 source: Apple Notes — “Poetry 2018”, untitled; named for its refrain
-provenance: 2018 — untitled, named for its refrain
+provenance: 2018, untitled, named for its refrain
 draft: false
 ---
 

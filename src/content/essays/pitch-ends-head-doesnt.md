@@ -3,6 +3,7 @@ title: The pitch ends. Your head doesn't.
 description: A pitch becomes your whole life while technically remaining a job you're
   doing for a few weeks. It's a lot of emotional weight for a PDF.
 pubDate: 2026-10-16
+register: craft
 draft: true
 heroImage: ../../assets/writing/pitch-ends-head-doesnt/2026-10-15-archive-02-contact-sheet-v1-framed.webp
 heroImageAlt: A worn contact sheet of twenty near-identical photographs of the same

@@ -10,7 +10,7 @@ hero: google-assistant-smiling-mind.jpg
 ## The brief
 
 Smiling Mind is a mindfulness and mental health platform. Putting it on Google
-Assistant meant the whole experience arrived as speech — no screen to retreat
+Assistant meant the whole experience arrived as speech. No screen to retreat
 to, and no second chance at a first line.
 
 ## The execution

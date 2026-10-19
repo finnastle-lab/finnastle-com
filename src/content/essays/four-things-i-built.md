@@ -2,6 +2,7 @@
 title: 'Futureproofing creativity as AI looms'
 description: "Eight Google AI certificates, four things actually built with them, and the very ordinary problem each one was solving."
 pubDate: 2026-09-06
+register: craft
 draft: false
 instagramCta: 'Eight certificates got me four tools. The half-built ones, the ones that never worked, and whatever I’m making instead of writing — those go on Instagram.'
 heroImage: ../../assets/writing/four-things-i-built-hero.png
@@ -48,7 +49,7 @@ Building a watchlist is a genuinely hard design problem, and [DreadSwipe](/tools
 
 ## There's another one
 
-Four very different things, out of eight courses that cost me seventy bucks on Coursera. What I actually learned is narrower than any of that: what Gemini's good at (not consistent code — thanks, Claude), and what it isn't. "All" was doing a lot of work. Eight courses finished. Plenty left to learn. I've already started Google Cloud's Generative AI Leader learning path. After that, I want to work towards its Professional Cloud Architect certification. Different credentials. The second asks a different question: what does this thing cost to run, and who does it fall over on?
+Four very different things, out of eight courses that cost me seventy bucks on Coursera. What I actually learned is narrower than any of that: what Gemini's good at (not consistent code — thanks, Claude), and what it isn't. Eight courses finished. Plenty left to learn. I've already started Google Cloud's Generative AI Leader learning path. After that, I want to work towards its Professional Cloud Architect certification. Different credentials. The second asks a different question: what does this thing cost to run, and who does it fall over on?
 
 <div class="shred" role="img" aria-label="A line drawing of a certificate fed into a paper shredder, coming out below as long curling ribbons. One ribbon among them is vermilion. The drawing is machine-made.">
   <span class="shred-ink"></span>

@@ -16,7 +16,7 @@ give that invisible position something to stand on.
 
 ## The execution
 
-Send Joy. Like the cultural saying — if something doesn't spark joy it's
+Send Joy. Like the cultural saying: if something doesn't spark joy it's
 probably not worth spending time on. The line worked on the packaging itself,
 and it worked as the reason a brand would choose Inke to carry what they send.
 

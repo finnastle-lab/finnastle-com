@@ -83,10 +83,12 @@ const cta = entry.data.instagramCta;
       </a>
     </aside>
 
-    {/* Poems aren't in the nav. They sit here, under everything else, for
-        someone who already read to the end. */}
-    <p class="essay-poems-link">
-      There are also <a href="/poems">poems</a>.
-    </p>
+    {/* Only under the art register. The poems have no business signing off a
+        post about Gemini certificates. */}
+    {entry.data.register === 'art' && (
+      <p class="essay-poems-link">
+        There are also <a href="/poems">poems</a>.
+      </p>
+    )}
   </article>
 </BaseLayout>
