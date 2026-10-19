@@ -6,7 +6,7 @@ register: craft
 draft: false
 instagramCta: 'Eight certificates got me four tools. The half-built ones, the ones that never worked, and whatever I’m making instead of writing. Those go on Instagram.'
 heroImage: ../../assets/writing/four-things-i-built-hero.webp
-heroImageAlt: "A line drawing of a certificate fed into a paper shredder, coming out below as long curling ribbons. One ribbon among them is vermilion. The drawing is machine-made."
+heroImageAlt: "A certificate of completion held by one hand and fed into the slot of a scuffed black office shredder, its window half full of cut paper. Behind it a late-nineties cubicle: a CRT monitor, a mug, a pot of biros, beige filing cabinets. The photograph is machine-made."
 ---
 
 A certificate only proves you sat still. That's the sentence I kept coming back to over the eight Google AI Professional Certificates I've spent the year working through, the last of which I added to my profile today. Sitting still isn't nothing. But it isn't the thing either, and I didn't want to be the guy who finishes a course and calls it a skill.
@@ -51,5 +51,10 @@ Building a watchlist is a genuinely hard design problem, and [DreadSwipe](/tools
 
 Four very different things, out of eight courses that cost me seventy bucks on Coursera. What I actually learned is narrower than any of that: what Gemini's good at (not consistent code. Thanks, Claude), and what it isn't. Eight courses finished. Plenty left to learn. I've already started Google Cloud's Generative AI Leader learning path. After that, I want to work towards its Professional Cloud Architect certification. Different credentials. The second asks a different question: what does this thing cost to run, and who does it fall over on?
 
+
+<div class="shred" role="img" aria-label="A line drawing of a certificate fed into a paper shredder, coming out below as long curling ribbons. One ribbon among them is vermilion. The drawing is machine-made.">
+  <span class="shred-ink"></span>
+  <span class="shred-accent"></span>
+</div>
 
 If any of this is useful for your own idea, I'd love to chat about building it. Almanac especially, which just needs your own Meta Graph API key pointed at a different account. finnastle@gmail.com. Say g'day if any of these are useful to you. 🙏
