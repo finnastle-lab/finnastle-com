@@ -22,10 +22,8 @@ const fmt = (d: Date) =>
 const PLATFORM: Record<string, string> = { medium: 'Medium', linkedin: 'LinkedIn' };
 const platform = entry.data.syndicatedFrom ? PLATFORM[entry.data.syndicatedFrom] : null;
 
-// Per-essay closing line, with a house fallback for anything that hasn't got one.
-const cta =
-  entry.data.instagramCta ??
-  'If this was your kind of thinking, there’s more of it on Instagram. Plus the drawings, which are the actual job.';
+// Per-essay closing line. No house fallback: an essay without one just gets the button.
+const cta = entry.data.instagramCta;
 ---
 <BaseLayout
   title={entry.data.title}
@@ -49,11 +47,6 @@ const cta =
           kept here as written
         </>
       )}
-    </p>
-
-    <p class="essay-follow-top">
-      When I’m not writing I’m making things. Those go to
-      {' '}<a href={SOCIAL.instagram} rel="me">Instagram</a>. Same territory, fewer words.
     </p>
 
     {entry.data.heroImage && (
@@ -84,7 +77,7 @@ const cta =
     </script>
 
     <aside class="essay-follow">
-      <p class="essay-follow-copy">{cta}</p>
+      {cta && <p class="essay-follow-copy">{cta}</p>}
       <a class="essay-follow-btn" href={SOCIAL.instagram} rel="me">
         Follow {SOCIAL.instagramHandle} <span aria-hidden="true">→</span>
       </a>
@@ -93,7 +86,7 @@ const cta =
     {/* Poems aren't in the nav. They sit here, under everything else, for
         someone who already read to the end. */}
     <p class="essay-poems-link">
-      There are also <a href="/poems">poems</a>. Different register, same hands.
+      There are also <a href="/poems">poems</a>.
     </p>
   </article>
 </BaseLayout>

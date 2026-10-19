@@ -503,6 +503,99 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .essay img { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 .essay-clip { width: 100%; height: auto; display: block; margin: 1.5rem 0; }
 
+/* --- Credential grid + shredder mark (the certificates essay) ---------------- */
+/* Nine credentials, eight earned and one still open, set in type rather than as
+   a picture of Google's badge assets. Two reasons: the badges are in Google's
+   four colours, and a picture of a list is how the copy and the hero came to
+   disagree in the first place. Type can't drift from itself. */
+.certs {
+  list-style: none;
+  margin: 1.25rem 0 0.6rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 34rem) { .certs { grid-template-columns: repeat(3, 1fr); } }
+
+.cert {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.55rem;
+  align-items: start;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+.cert-n {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.cert-name {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.cert-note {
+  grid-column: 2;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  color: var(--graphite);
+}
+
+/* The seal is lifted from the shredder drawing rather than drawn fresh, and
+   carried as a mask so one file takes the ink token in both themes. The .mark
+   filter can't be used here or on the shredder below: it flattens everything to
+   a single colour, which would take the vermilion ribbon with it. */
+.cert-seal {
+  grid-row: span 2;
+  width: 1.1rem; height: 1.1rem;
+  background: var(--graphite);
+  -webkit-mask: url('/writing/four-things-i-built/seal.png') center / contain no-repeat;
+  mask: url('/writing/four-things-i-built/seal.png') center / contain no-repeat;
+}
+
+/* The open one. The accent marks the thing not done — the article's own move. */
+.cert--open { border-style: dashed; border-color: var(--accent); }
+.cert--open .cert-seal { grid-row: span 3; background: var(--accent); }
+
+.certs-verify {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--graphite);
+  margin: 0 0 1.75rem;
+}
+
+/* Tail mark: two stacked masks off one drawing, so the ink follows the theme
+   and the one vermilion ribbon stays vermilion in both. */
+.shred {
+  position: relative;
+  width: min(100%, 20rem);
+  aspect-ratio: 558 / 822;
+  margin: 3rem auto 0.5rem;
+}
+.shred span {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-size: contain;    mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+.shred-ink {
+  background: var(--ink);
+  -webkit-mask-image: url('/writing/four-things-i-built/shredder-ink.png');
+  mask-image: url('/writing/four-things-i-built/shredder-ink.png');
+}
+.shred-accent {
+  background: var(--accent);
+  -webkit-mask-image: url('/writing/four-things-i-built/shredder-accent.png');
+  mask-image: url('/writing/four-things-i-built/shredder-accent.png');
+}
+
 /* Hero never upscales into mush — small hand-drawn marks render at native
    size, flush with the text column. Cap is set inline from the asset's width. */
 
