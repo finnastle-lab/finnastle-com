@@ -2,7 +2,7 @@
 title: 'Moving in unison but not connecting'
 description: 'Made after a friend died, commissioned by the Melbourne anatomy museum and shown in the room displaying the body parts.'
 pubDate: 2014-09-09
-draft: true
+draft: false
 ---
 In response to the death of a friend, and the grieving nature of that. Dedicated to Mitch Callaghan.
 

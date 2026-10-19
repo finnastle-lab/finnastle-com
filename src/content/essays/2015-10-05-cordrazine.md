@@ -2,7 +2,7 @@
 title: 'In order to propose'
 description: 'Two animations for Cordrazine, back after their 1998 debut. One in soft grey-lead so the lead singer could propose. One inverted, which went to air on Rage.'
 pubDate: 2015-10-05
-draft: true
+draft: false
 ---
 Two pieces for Cordrazine, an indie rock band from Melbourne. Their debut album From Here to
 Wherever went to number nine on the ARIA albums chart and was nominated for Breakthrough Artist
