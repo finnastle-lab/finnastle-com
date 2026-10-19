@@ -19,6 +19,8 @@ We received calls to the number for a period of time. A few people who drove und
 
 It's another one about a dystopian future. The purposelessness of the modern male, the working full-time life, how you can feel alien in your own city, finishing work at all sorts of hours and searching for a job. The random phone number that gives you a call becomes your lifeline, just for that day you were looking for a job and you got the first reply.
 
+![A man in a grey suit, seen from behind, facing a tagged concrete wall in a stairwell, holding a blank sheet of paper at his side.](../../assets/writing/2016-07-25-after-the-tone/alien-in-your-own-city.webp)
+
 It won the 3D artwork prize at the National Campus Art Prize, Watt Space Gallery in Newcastle,
 2016. It showed at George Paton Gallery in Melbourne the same year.
 

@@ -9,6 +9,8 @@ draft: false
 ---
 Phosphene. The hallucination which occurs behind the eyelids, caused by pressure or absence of light. The light still behind your eyes when you close them after looking at a bright screen.
 
+![A screen filling the frame, showing concentric rings of orange and black pulsing out from a centre.](../../assets/writing/2018-01-12-phosphene/rings.webp)
+
 We took a TV unit, made in China, and edited it so it would show a looping sequence, which gave our film its narrative. Then we took that looping scene to the abandoned cities of Inner Mongolia, Kangbashi in Ordos, and to Beijing's highly populated areas, and showed the screen still playing.
 
 <div class="essay-film">
@@ -18,6 +20,8 @@ We took a TV unit, made in China, and edited it so it would show a looping seque
 </div>
 
 What happens when humans leave a place. All of the electronics and the lights still turn on, but there are no humans around. The digital version of if a tree falls in the forest and no one hears it, does it really fall.
+
+![A row of identical high-rise towers across flat water under a hazed sky, no one in sight.](../../assets/writing/2018-01-12-phosphene/ordos.webp)
 
 Mixed in with social isolation, modernity, and the glow of TV as fire, as connection to humanity in this modern age.
 
