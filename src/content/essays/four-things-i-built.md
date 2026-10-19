@@ -30,9 +30,9 @@ Eight certificates, for the record. And the one I'm in the middle of.
 
 I put a version of this on LinkedIn too. About half of it read like an ad for Gemini's product suite, which — in fairness — it kind of was.
 
-## Same behaviour, different app
+## A couple of weeks, not hours
 
-I hate the Instagram dashboard. Checking how a post did means opening the app, which means the Reels feed, the suggested-for-you carousel, every trigger built to keep me there past the one thing I actually came to check. So I cut it out of my life entirely. [Almanac](/tools) pulls the numbers instead — reach, engagement, the image itself — and lands them in one place every Sunday, no unlocking required. It works. It's honestly a little annoying how well it works: I built a tool to stop myself opening an app, and now I open the tool instead. Same behaviour, different app, nobody trying to sell me something in between.
+I hate the Instagram dashboard. Checking how a post did means opening the app, which means the Reels feed, the suggested-for-you carousel, every trigger built to keep me there past the one thing I actually came to check. So I cut it out of my life entirely. [Almanac](/tools) pulls the numbers instead (reach, engagement, the image itself) and lands them in one place every Sunday, no unlocking required. It works. What annoyed me was how easy it was. I expected a couple of weeks. It took hours.
 
 ## My head is a bad place to keep a brand
 
