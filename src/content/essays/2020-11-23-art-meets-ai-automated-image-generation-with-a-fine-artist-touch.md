@@ -1,13 +1,13 @@
 ---
-title: 'Art meets AI; automated image generation with a fine-artist touch.'
+title: 'One tool and one panther'
 description: 'Running my own drawings through EbSynth — an early experiment in letting a machine animate a hand-made thing without letting it take the wheel.'
 pubDate: 2020-11-23
 canonicalUrl: https://medium.com/@finn.astle/art-meets-ai-automated-image-generation-with-a-fine-artist-touch-9430635cb48f
 draft: false
 instagramCta: 'This was 2020, one tool and one panther. The machines got much better at it. I kept drawing anyway — that’s on Instagram.'
 syndicatedFrom: medium
-heroImage: ../../assets/elements/print-monogram-square-framed.png
-heroImageAlt: The "made by a human" FA sun-signature stamp.
+heroImage: ../../assets/writing/art-meets-ai/03.png
+heroImageAlt: A hand-painted black panther in profile, snarling, mouth open on its teeth. The brushwork is loose and visible against a white ground.
 ---
 Playing around with new technology and learning new things always excites me. I’ve recently been using a tool called [E](https://ebsynth.com/)B SYNTH, it uses artificial intelligence and automation to turn your art into dynamic animation based on a video input.
 

@@ -6,8 +6,8 @@ canonicalUrl: https://medium.com/versa-agency/chatbots-save-lives-a35fd635c17
 draft: false
 instagramCta: 'I still think the words are the job. Six years on I’m mostly making pictures about it instead — that part lives on Instagram.'
 syndicatedFrom: medium
-heroImage: ../../assets/elements/engraving-bandsaw-industrial-spoked.png
-heroImageAlt: A hand-drawn diagram of how things used to connect.
+heroImage: ../../assets/writing/chatbots-save-lives/sky-bubble-hero.webp
+heroImageAlt: A pale grey chat bubble with three dots, floating alone in a blue sky between banks of cumulus cloud.
 ---
 Typing….
 

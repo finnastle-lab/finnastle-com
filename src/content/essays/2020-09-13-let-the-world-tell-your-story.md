@@ -3,7 +3,7 @@ title: 'Let the world tell your story'
 description: 'Finn Astle is a creative storyteller, writing and walking every day, this story covers four continents, roughly 2,000 days and many many people.'
 pubDate: 2020-09-13
 canonicalUrl: https://medium.com/@finn.astle/let-the-world-tell-your-story-6f2b23201ac2
-draft: true
+draft: false
 syndicatedFrom: medium
 ---
 Finn Astle is a creative storyteller, writing and walking every day, this story covers four continents, roughly 2,000 days and many many people.
@@ -55,6 +55,21 @@ Get perspective and look at the clouds, they don’t judge you, they are objecti
 I am trying to take the time to pause, and really listen to what the clouds, mountains, sun and sky are saying more. Trying to find where the simplicity, the purposeless beauty, the calm existence of nature, exists in my narrative.
 
 ![The view from above the clouds: a flat white cloud-top under open blue sky.](../../assets/writing/let-the-world-tell-your-story/08.gif)
+
+**Go, Be, Feel with Us** was made in Odisha, a study of the Saora tribe, an indigenous
+group whose art and culture has lived through hundreds of years of a modernising India. The
+chief elder Srinivas Gomango shares his thoughts and feelings about the future for the tribe
+and India in a global setting. Much of this story comes from that.
+
+<div class="essay-film">
+  <iframe src="https://www.youtube-nocookie.com/embed/zKhBKblVSBg" title="Go, Be, Feel with Us (2016)"
+    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+In collaboration with the students of Centurion University of Technology and Management and
+with the Royal Melbourne Institute of Technology. Zoe Thomaidou, Sue Silk, Jarrod Mcdonald,
+Vanishree Laxman, Dr Yaso Nadarajah, Dr Glenda Meija.
 
 [I think more about futures here](http://finnastle.com/).
 
