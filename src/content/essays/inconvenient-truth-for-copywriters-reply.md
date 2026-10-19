@@ -2,6 +2,7 @@
 title: 'There is only advertising'
 description: 'A reply to Suzanne Pope, fifteen years on.'
 pubDate: 2025-10-14
+register: craft
 draft: false
 heroImage: ../../assets/writing/word-that-had-no-business/pope-cover.png
 heroImageAlt: "A simple cover for Suzanne Pope's An Inconvenient Truth for Copywriters: How to write headlines and why your career depends on it. Suzanne Pope, john st., Toronto. Beside it, her example of hyperbole, an ad for The Economist by Mad Dogs & Englishmen, New York."

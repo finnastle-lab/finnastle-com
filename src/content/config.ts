@@ -16,6 +16,10 @@ const essays = defineCollection({
       draft: z.boolean().default(false),
       // Closing Instagram line, written per essay. Falls back to a default.
       instagramCta: z.string().optional(),
+      // art = the making register (films, animations, flowers). craft = the
+      // working one (advertising, AI, the studio). Only the art pieces carry
+      // the poems sign-off; the poems have no business under a Gemini post.
+      register: z.enum(['art', 'craft']).default('craft'),
       heroImage: image().optional(),
       heroImageAlt: z.string().optional(),
     }),

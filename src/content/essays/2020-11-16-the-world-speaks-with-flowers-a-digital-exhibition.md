@@ -3,6 +3,7 @@ title: 'The world speaks with flowers, a digital exhibition'
 description: 'Flowers inspire us all, the gardener, the artist, the bird, the bee. A digital exhibition, remembering a year of looking at flowers.'
 pubDate: 2020-11-16
 canonicalUrl: https://medium.com/@finn.astle/the-world-speaks-with-flowers-a-digital-exhibition-c92fe9160f7a
+register: art
 draft: true
 syndicatedFrom: medium
 ---

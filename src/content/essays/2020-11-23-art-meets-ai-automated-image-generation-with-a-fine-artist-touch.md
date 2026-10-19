@@ -3,6 +3,7 @@ title: 'One tool and one panther'
 description: 'Running my own drawings through EbSynth — an early experiment in letting a machine animate a hand-made thing without letting it take the wheel.'
 pubDate: 2020-11-23
 canonicalUrl: https://medium.com/@finn.astle/art-meets-ai-automated-image-generation-with-a-fine-artist-touch-9430635cb48f
+register: art
 draft: false
 instagramCta: 'This was 2020, one tool and one panther. The machines got much better at it. I kept drawing anyway — that’s on Instagram.'
 syndicatedFrom: medium

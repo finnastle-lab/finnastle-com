@@ -2,6 +2,7 @@
 title: 'Floriography'
 description: 'A blue hydrangea meant frigidity in 1884 and gratitude now. The language of flowers turns out to be a mistranslated pun, and ninety-eight dictionaries have been arguing about it ever since.'
 pubDate: 2026-09-30
+register: art
 draft: false
 instagramCta: 'I have drawn flowers for years without knowing there was a word for it. The drawings go on Instagram. Still no dictionary.'
 heroImage: ../../assets/elements/photo-bottlebrush-red-floral.png

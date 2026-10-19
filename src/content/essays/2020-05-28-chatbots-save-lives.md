@@ -3,6 +3,7 @@ title: 'Chatbots save lives'
 description: 'Written in the first months of 2020, when a chatbot was the thing standing between overwhelmed services and the people waiting on them.'
 pubDate: 2020-05-28
 canonicalUrl: https://medium.com/versa-agency/chatbots-save-lives-a35fd635c17
+register: craft
 draft: false
 instagramCta: 'I still think the words are the job. Six years on I’m mostly making pictures about it instead — that part lives on Instagram.'
 syndicatedFrom: medium

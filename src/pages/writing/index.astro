@@ -22,17 +22,13 @@ const eras = [...byYear.entries()].sort((a, b) => b[0] - a[0]);
 
 // Optional signpost line under an era heading. Keyed by year; easy to extend.
 const signposts: Record<number, string> = {
-  2020: 'The first pass at the same question, syndicated from Medium. Kept as written. The territory was here before the tools were.',
+  2020: 'Syndicated from Medium. Kept as written.',
 };
 ---
-<BaseLayout title="Writing" description="Essays: the canonical home. Medium and LinkedIn are syndication only." register="art">
+<BaseLayout title="Writing" description="Essays by Finn Astle." register="art">
   <h1>Writing</h1>
-  <p>Canonical home for the essays. Medium and LinkedIn carry syndicated
-    copies that point back here.</p>
-
   {essays.length === 0 ? (
-    <p class="stub">No published essays yet. The placeholder is a draft and is
-      hidden. First real essay ships from the cascade.</p>
+    <p class="stub">No published essays yet.</p>
   ) : (
     eras.map(([year, items], i) => (
       <section class="essay-era">
@@ -61,6 +57,5 @@ const signposts: Record<number, string> = {
     ))
   )}
 
-  <p class="writing-aside">The <a href="/poems">poems</a> are elsewhere, and
-    kept quieter.</p>
+  <p class="writing-aside"><a href="/poems">Poems</a>.</p>
 </BaseLayout>

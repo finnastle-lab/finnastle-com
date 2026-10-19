@@ -12,7 +12,7 @@ hero: city-of-melbourne.jpg
 Nobody reads council guidance for pleasure. They arrive at it because they have
 a fine, a ruling or a deadline, and they want one answer fast. City of
 Melbourne's public-facing guidance on fines, rulings and the detail attached to
-them had to work for people already on the back foot — which makes the
+them had to work for people already on the back foot, which makes the
 architecture the message.
 
 ## The execution

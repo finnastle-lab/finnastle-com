@@ -16,17 +16,16 @@ const poems = (await getCollection('poems', ({ data }) => !data.draft || import.
 // shown when something in the list actually belongs to that cycle.
 const hasTrueFiction = poems.some((p) => p.data.cycle === 'True Fiction');
 const trueFiction =
-  'A retelling passed between multiple people — in reality, dreams and sometimes speculation. Faces, names, plates, times and locations are redacted, de-identified and recontextualised. The outskirts of life get sensationalised, silenced, or judged by quiet people behind a screen. Remember there is always some fiction in your truth too.';
+  'A retelling passed between multiple people, in reality, dreams and sometimes speculation. Faces, names, plates, times and locations are redacted, de-identified and recontextualised. The outskirts of life get sensationalised, silenced, or judged by quiet people behind a screen. Remember there is always some fiction in your truth too.';
 ---
 <BaseLayout
   title="Poems"
-  description="Poems and the True Fiction cycle. The art register."
+  description="Poems and the True Fiction cycle."
   register="art"
 >
   <h1>Poems</h1>
 
-  <p>Written over years and mostly never shown. Set as they were written —
-    the line breaks are mine, not the window's.</p>
+  <p>Written over years and mostly never shown.</p>
 
   {hasTrueFiction && (
     <>
@@ -36,8 +35,7 @@ const trueFiction =
   )}
 
   {poems.length === 0 ? (
-    <p class="stub">Nothing published here yet. The poems are in the collection
-      as drafts and stay hidden until they've had a pass.</p>
+    <p class="stub">Nothing published here yet.</p>
   ) : (
     <ul class="poem-list">
       {poems.map((p) => (

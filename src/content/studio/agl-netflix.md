@@ -12,7 +12,7 @@ hero: agl-netflix.webp
 
 The modern home, where Netflix matters more than heating. Streaming is as common
 as electricity now, and every house has shows it can't live without. The job was
-a retail bundle that didn't feel like a bundle — a satirical campaign about
+a retail bundle that didn't feel like a bundle, a satirical campaign about
 life's necessities.
 
 ## The execution

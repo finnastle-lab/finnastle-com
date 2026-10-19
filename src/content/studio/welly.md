@@ -8,9 +8,9 @@ order: 60
 hero: welly.jpg
 gallery:
   - src: welly-kids.jpg
-    caption: Welly Kids — the kids tone of voice
+    caption: Welly Kids, the kids tone of voice
   - src: welly-adults.jpg
-    caption: Welly — the adult tone of voice
+    caption: Welly, the adult tone of voice
 ---
 
 ## The brief
@@ -36,7 +36,7 @@ Rip, tip, shake, sip.
 ## What I wrote
 
 Brand naming, both tones of voice, the packaging line and web copy across the
-two ranges. & nothing else — the device that let the ingredients list carry the
+two ranges. & nothing else, the device that let the ingredients list carry the
 front of pack on its own. Welly isn't just your 5 a day the easy way; the
 mission is doing good for you while doing good for the planet. We think it's BS
 that nutritionally great fruit and veg goes to landfill. Happy Apple, Mango

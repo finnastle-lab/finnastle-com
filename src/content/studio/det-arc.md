@@ -18,7 +18,7 @@ institutional voice while the register moved with the reader.
 ## The execution
 
 A whole series of websites for the Victorian Department of Education and
-Training under Deepend and VERSA. ARC — access, resource, collaborate — is the learning
+Training under Deepend and VERSA. ARC (access, resource, collaborate) is the learning
 portal, and the name is the architecture: get to the thing, use the thing, work
 on it with someone else. Alongside it sat the business-as-usual organisational
 sites and the public school updates. Teachers and students alike, which in
