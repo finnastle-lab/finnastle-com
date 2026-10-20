@@ -9,16 +9,28 @@ const cloudImg = await getImage({ src: cloud, width: 192, format: 'webp' });
 // positioning, skills, and client list. See _migration/astlecreative-content.md
 // for the verified source. This is the redirect-map.md target for
 // astlecreative.com/fearlessanswer.
-const fearless = ['Freedom', 'Rawness', 'Courage', 'Soul'];
-const answers = ['Structure', 'Strategy', 'Certainty', 'Truth'];
+// Pairs, not two parallel lists: the tension is the point, so each word
+// sits opposite the one it argues with.
+const pairs = [
+  ['Not knowing', 'Certainty'],
+  ['Possibilities', 'End-states'],
+  ['Freedom', 'Structure'],
+  ['Rawness', 'Strategy'],
+];
+
+const prongs = [
+  { name: 'Creativity', body: 'The idea that wasn’t there before.' },
+  { name: 'Content', body: 'What it becomes. Any format, any channel.' },
+  { name: 'Strategy', body: 'The planning and technical rigour that takes it to market at volume.' },
+];
 
 const skills = [
-  { name: 'Copywriting', body: 'Grew up with a writer dad, a publisher mum: the craft is the constant across every register, from a broadcast script to a product line.' },
-  { name: 'Branding', body: 'Helping brands find their voice through design and writing: tone of voice, messaging architecture, brand platforms.' },
-  { name: 'Strategy', body: 'Schooled by Creative & Strategy Directors alongside agency owners. Balancing creative thinking in strategic reasoning to express ideas that feel just as fun or fearless as they are effective.' },
-  { name: 'Content Design', body: 'Government websites, chatbots, apps: content that has to work, not just read well.' },
-  { name: 'Platforms & Campaigns', body: 'Global campaigns for major brands, built from a single idea that can flex across every channel.' },
-  { name: 'Social', body: 'A meta native, trained in Snapchat, TikTok, and a follower of pop culture and cultural trends. Finds the right words for ads and creates ideas that feel native to their home.' },
+  { name: 'Copywriting', prong: 'Creativity', body: 'Grew up with a writer dad, a publisher mum: the craft is the constant across every register, from a broadcast script to a product line.' },
+  { name: 'Platforms & Campaigns', prong: 'Creativity', body: 'Global campaigns for major brands, built from a single idea that can flex across every channel.' },
+  { name: 'Content Design', prong: 'Content', body: 'Government websites, chatbots, apps: content that has to work, not just read well.' },
+  { name: 'Social', prong: 'Content', body: 'A meta native, trained in Snapchat, TikTok, and a follower of pop culture and cultural trends. Finds the right words for ads and creates ideas that feel native to their home.' },
+  { name: 'Strategy', prong: 'Strategy', body: 'Schooled by Creative & Strategy Directors alongside agency owners. Balancing creative thinking in strategic reasoning to express ideas that feel just as fun or fearless as they are effective.' },
+  { name: 'Branding', prong: 'Strategy', body: 'Helping brands find their voice through design and writing: tone of voice, messaging architecture, brand platforms.' },
 ];
 
 const clients = [
@@ -27,30 +39,41 @@ const clients = [
   'Dialogflow', 'Coca-Cola', 'Deepend', 'Fuel Agency',
 ];
 ---
-<BaseLayout title="Fearless Answers" description="Freedom needs a frame. Expression needs strategy. The philosophy behind the practice." register="studio">
+<BaseLayout title="Fearless Answers" description="Not knowing, and pushing ahead with purpose anyway. Proving the value of a creative thinker." register="studio">
   <p><a href="/studio">← Studio</a></p>
 
   <section class="fa-duality">
-    <div class="fa-col">
-      <h1 class="fa-word">Fearless</h1>
-      <ul>{fearless.map((w) => <li>{w}</li>)}</ul>
-    </div>
-    <div class="fa-col fa-col--right">
-      <h1 class="fa-word">Answers</h1>
-      <ul>{answers.map((w) => <li>{w}</li>)}</ul>
-    </div>
+    <h1 class="fa-head">Fearless <span class="amp">&amp;</span> Answers</h1>
+    <p class="fa-def">Not knowing, and pushing ahead with purpose anyway.</p>
     <img class="stamp" src={cloudImg.src} alt="" aria-hidden="true"
       style="top:-1rem; right:-1rem; width:96px; opacity:.6;" />
   </section>
 
+  <p>Marketing changes fast enough that uncertainty is the only certainty. So I
+    leaned into it.</p>
+
+  <ul class="fa-pairs">
+    {pairs.map(([a, b]) => (
+      <li><span>{a}</span><i class="fa-vs">&amp;</i><span>{b}</span></li>
+    ))}
+  </ul>
+
   <p class="fa-lede">The modern creative is difficult to capture in a sentence
     because they are <strong>not one single thing</strong>.</p>
 
-  <p>Fearless Answering combines freedom and rawness with structure and
-    strategy: a modern creative who thinks strategically, knows psychology,
-    and sees beauty. Freedom needs a frame. Expression needs strategy. Leave
-    ego and assumption at the door. Focus on what you can change. Meet
-    infinite possibilities with true direction.</p>
+  <p>Freedom needs a frame. Expression needs strategy. Leave ego and assumption
+    at the door. Focus on what you can change. Meet infinite possibilities with
+    true direction.</p>
+
+  <h2>How the work gets delivered</h2>
+  <div class="fa-prongs">
+    {prongs.map((p) => (
+      <div class="fa-prong">
+        <h3>{p.name}</h3>
+        <p>{p.body}</p>
+      </div>
+    ))}
+  </div>
 
   <h3>Background</h3>
   <p>Published projects, written for national campaigns, and led teams
@@ -66,14 +89,19 @@ const clients = [
   </ul>
 
   <h2>Skills and counting</h2>
-  <div class="fa-skills">
-    {skills.map((s) => (
-      <details>
-        <summary>{s.name}</summary>
-        <p>{s.body}</p>
-      </details>
-    ))}
-  </div>
+  {prongs.map((p) => (
+    <div class="fa-group">
+      <p class="fa-group-label">{p.name}</p>
+      <div class="fa-skills">
+        {skills.filter((s) => s.prong === p.name).map((s) => (
+          <details>
+            <summary>{s.name}</summary>
+            <p>{s.body}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  ))}
 
   <h2>Working for clients with purpose</h2>
   <p>Communications for all kinds of business: copywriting and creative
@@ -96,20 +124,65 @@ const clients = [
 <style>
   .fa-duality {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 1.5rem 0 3rem;
+    margin: 1.5rem 0 2rem;
   }
-  .fa-col--right { text-align: right; }
-  .fa-word {
+  .fa-head {
     font-family: var(--serif);
     font-style: italic;
     font-size: clamp(2.2rem, 8vw, 4rem);
-    margin: 0 0 1.5rem;
+    margin: 0 0 0.75rem;
   }
-  .fa-col ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); }
-  .fa-col li { padding: 0.3rem 0; color: var(--graphite); }
+  .fa-head .amp { color: var(--accent); font-style: normal; }
+  .fa-def {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    color: var(--graphite);
+    margin: 0;
+    max-width: 28rem;
+  }
+  .fa-pairs {
+    list-style: none;
+    margin: 2rem 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+  }
+  .fa-pairs li {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .fa-pairs li > span:last-child { text-align: right; }
+  .fa-vs { color: var(--accent); font-style: normal; font-size: 0.9em; }
+  .fa-prongs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+  .fa-prong h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    margin: 0 0 0.4rem;
+  }
+  .fa-prong p { margin: 0; color: var(--graphite); }
+  .fa-group { margin-top: 1.75rem; }
+  .fa-group-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin: 0;
+  }
   .fa-lede { font-family: var(--serif); font-style: italic; font-size: 1.3rem; max-width: 30rem; }
   .fa-lede strong { text-decoration: underline; text-decoration-color: var(--accent); }
   .fa-skills { border-top: 1px solid var(--line); margin-top: 1.5rem; }
