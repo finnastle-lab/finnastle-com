@@ -89,8 +89,10 @@ const cases = await Promise.all(
 ---
 <BaseLayout title="Studio" description="Astle Creative: copywriting and campaign work for marketing teams." register="studio">
   <h1>Studio</h1>
-  <p class="studio-lede">Every brief here runs on one bet: a creative thinker is
-    worth more than the tools they're handed.</p>
+  <p class="studio-lede">Eight years of campaigns, copy and content design for
+    brands including AGL, Telstra, Coca-Cola and 7-Eleven. One bet underneath all
+    of it: a creative thinker is worth more than the tools they're handed.
+    <span class="aside">(No awards… yet.)</span></p>
 
   <p>Astle Creative. Copywriting and creative that ships at volume without losing
     the idea: full-service strategy, campaigns, tone of voice, and retail rollout.</p>
@@ -226,7 +228,14 @@ const cases = await Promise.all(
     font-family: var(--serif);
     font-style: italic;
     font-size: 1.25rem;
-    max-width: 32rem;
+    max-width: 34rem;
+  }
+  .studio-lede .aside {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--graphite);
+    white-space: nowrap;
   }
   .cases { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 1px solid var(--line); }
   .case { border-bottom: 1px solid var(--line); }
