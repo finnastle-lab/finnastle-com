@@ -5,7 +5,7 @@ pubDate: 2019-09-13
 canonicalUrl: https://medium.com/@finn.astle/let-the-world-tell-your-story-6f2b23201ac2
 register: art
 heroImage: ../../assets/writing/let-the-world-tell-your-story/hero.webp
-heroImageAlt: "Bare feet walking across rippled red sand, the hem of a pale blue robe swinging above them."
+heroImageAlt: "A Saora wall painting: white figures walking hand in hand across deep red ochre, one carrying a frond, with zigzag and floral borders running above and below them."
 draft: false
 syndicatedFrom: medium
 ---
