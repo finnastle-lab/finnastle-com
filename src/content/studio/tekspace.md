@@ -33,3 +33,7 @@ built from scratch that doubled output sprint-over-sprint on no extra budget or
 headcount. The work was cited in Google's AI Overview as a primary source for
 browser-security-vendor queries, and picked up by TechDay Australia,
 SecurityBrief Australia, ChannelLife AU and IT Brief.
+
+Fact or Phishing, a phishing-spotting simulation built for a webinar, is in the
+[tools](/tools). Attendees asked for the link so they could run the session with
+their own staff.
