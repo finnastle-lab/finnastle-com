@@ -31,6 +31,16 @@ const tools = [
       'Horror and thriller discovery, Tinder-style. Swipe against a custom taste taxonomy, Google Sheets holding persistent memory, Letterboxd export for the keepers.',
   },
   {
+    name: 'Fact or Phishing',
+    tag: 'Client tool',
+    href: 'https://tekspace.com.au/tools/fact-or-phishing/',
+    repo: 'https://github.com/finnastle-lab/Fact-Phish',
+    external: true,
+    case: '/studio#tekspace',
+    blurb:
+      'A Windows 95 inbox where each scenario puts a real email beside a fake one and asks which is which. Built for a Tekspace webinar; the audience asked for the link so they could run it with their own staff.',
+  },
+  {
     name: 'Source Material',
     tag: 'Design system',
     href: '/tools/design-system/',
@@ -64,6 +74,7 @@ const tools = [
           <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined}>{t.app ? 'What it does →' : t.internal ? 'Open →' : 'Open the tool →'}</a>
           {t.app && <> · <a href={t.app} target="_blank" rel="noopener">Open the live tool ↗</a></>}
           {t.repo && <> · <a href={t.repo} target="_blank" rel="noopener">Source</a></>}
+          {t.case && <> · <a href={t.case}>The case study →</a></>}
         </p>
       </article>
     ))}
