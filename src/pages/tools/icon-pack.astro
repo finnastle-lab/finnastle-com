@@ -7,7 +7,16 @@ const files = import.meta.glob<{ default: ImageMetadata }>(
   '../../assets/elements/*.png',
   { eager: true },
 );
+// Finn's own marks. They live in the library because the site uses them, but
+// the pack is a giveaway and his signature is not part of it.
+const BRAND_MARKS = new Set([
+  'print-monogram-square-framed',
+  'mark-monogram-sun-ink',
+  'mark-scribble-ink-sunburst',
+]);
+
 const els = Object.entries(files)
+  .filter(([path]) => !BRAND_MARKS.has(path.split('/').pop()!.replace(/\.png$/, '')))
   .map(([path, mod]) => {
     const base = path.split('/').pop()!.replace(/\.png$/, '');
     const label = base.replace(/^[0-9a-f]{6,}-/, '').replace(/-/g, ' ');
