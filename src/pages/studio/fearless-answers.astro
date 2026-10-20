@@ -9,15 +9,6 @@ const cloudImg = await getImage({ src: cloud, width: 192, format: 'webp' });
 // positioning, skills, and client list. See _migration/astlecreative-content.md
 // for the verified source. This is the redirect-map.md target for
 // astlecreative.com/fearlessanswer.
-// Pairs, not two parallel lists: the tension is the point, so each word
-// sits opposite the one it argues with.
-const pairs = [
-  ['Not knowing', 'Certainty'],
-  ['Possibilities', 'End-states'],
-  ['Freedom', 'Structure'],
-  ['Rawness', 'Strategy'],
-];
-
 const prongs = [
   { name: 'Creativity', body: 'The idea that wasn’t there before.' },
   { name: 'Content', body: 'What it becomes. Any format, any channel.' },
@@ -28,7 +19,7 @@ const skills = [
   { name: 'Copywriting', prong: 'Creativity', body: 'Grew up with a writer dad, a publisher mum: the craft is the constant across every register, from a broadcast script to a product line.' },
   { name: 'Platforms & Campaigns', prong: 'Creativity', body: 'Global campaigns for major brands, built from a single idea that can flex across every channel.' },
   { name: 'Content Design', prong: 'Content', body: 'Government websites, chatbots, apps: content that has to work, not just read well.' },
-  { name: 'Social', prong: 'Content', body: 'A meta native, trained in Snapchat, TikTok, and a follower of pop culture and cultural trends. Finds the right words for ads and creates ideas that feel native to their home.' },
+  { name: 'Social', prong: 'Content', body: 'For 7-Eleven, we shot each social edit twice, day and night, then used time variables to earmark edits for day and night placements.' },
   { name: 'Strategy', prong: 'Strategy', body: 'Schooled by Creative & Strategy Directors alongside agency owners. Balancing creative thinking in strategic reasoning to express ideas that feel just as fun or fearless as they are effective.' },
   { name: 'Branding', prong: 'Strategy', body: 'Helping brands find their voice through design and writing: tone of voice, messaging architecture, brand platforms.' },
 ];
@@ -39,31 +30,24 @@ const clients = [
   'Dialogflow', 'Coca-Cola', 'Deepend', 'Fuel Agency',
 ];
 ---
-<BaseLayout title="Fearless Answers" description="Not knowing, and pushing ahead with purpose anyway. Proving the value of a creative thinker." register="studio">
+<BaseLayout title="Fearless Answers" description="Creative thinking. Technical proficiency. Campaigns, content design and production." register="studio">
   <p><a href="/studio">← Studio</a></p>
 
   <section class="fa-duality">
     <h1 class="fa-head">Fearless <span class="amp">&amp;</span> Answers</h1>
-    <p class="fa-def">Not knowing, and pushing ahead with purpose anyway.</p>
     <img class="stamp" src={cloudImg.src} alt="" aria-hidden="true"
       style="top:-1rem; right:-1rem; width:96px; opacity:.6;" />
   </section>
 
-  <p>Marketing changes fast enough that uncertainty is the only certainty. So I
-    leaned into it.</p>
+  <h2>Searching fearlessly for answers.</h2>
+  <p>You don't know the answer yet. You still have to make a start.</p>
+  <p>I've worked across campaigns, content design and production. Often that means learning something the brief didn't say I'd need, making a version, finding where it falls short and changing how I work.</p>
+  <p>Fearless Answers is a name for that process. Enough direction to start. Enough freedom to reconsider.</p>
 
-  <ul class="fa-pairs">
-    {pairs.map(([a, b]) => (
-      <li><span>{a}</span><i class="fa-vs">&amp;</i><span>{b}</span></li>
-    ))}
-  </ul>
-
-  <p class="fa-lede">The modern creative is difficult to capture in a sentence
-    because they are <strong>not one single thing</strong>.</p>
-
-  <p>Freedom needs a frame. Expression needs strategy. Leave ego and assumption
-    at the door. Focus on what you can change. Meet infinite possibilities with
-    true direction.</p>
+  <h2>Freedom needs a frame.</h2>
+  <p>An idea can arrive as a strange phrase, a joke or something you've noticed that nobody else seems bothered by. Research helps establish whether anyone else cares. Strategy gives it a job.</p>
+  <p>Then it needs making. I break the larger task into smaller ones: what needs writing, what needs building, what can be automated and where I need to make the call.</p>
+  <p>Sometimes the work is a headline. Sometimes it's the system that lets a team produce hundreds of pieces without losing the idea.</p>
 
   <h2>How the work gets delivered</h2>
   <div class="fa-prongs">
@@ -76,9 +60,7 @@ const clients = [
   </div>
 
   <h3>Background</h3>
-  <p>Published projects, written for national campaigns, and led teams
-    implementing content strategies at Melbourne’s top creative shops:
-    CHEP Network, Big Red, Deepend & VERSA, Fuel Agency.</p>
+  <p>I've written for national campaigns and led teams implementing content strategies at CHEP Network, Big Red, Deepend &amp; VERSA and Fuel Agency.</p>
 
   <h3>Credentials</h3>
   <ul>
@@ -111,14 +93,9 @@ const clients = [
   </ul>
 
   <hr />
-  <p class="stub">For a freelance writer/designer/wizard. Enquiries via
-    <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a>.</p>
+  <p><a href="/studio">See the work and case studies</a></p>
+  <p>Briefs and enquiries: <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a>.</p>
 
-  <!-- TODO(content): "Not commencing any freelance work until Q2 2026" was on
-       the old site — confirm current availability before this goes live.
-       TODO(design): source real client wordmarks/logos for a proper monochrome
-       wall (currently a plain text list); gif-led project heroes per the
-       reference deep-dive are a further design pass. -->
 </BaseLayout>
 
 <style>
@@ -133,32 +110,6 @@ const clients = [
     margin: 0 0 0.75rem;
   }
   .fa-head .amp { color: var(--accent); font-style: normal; }
-  .fa-def {
-    font-family: var(--sans);
-    font-size: 1.05rem;
-    color: var(--graphite);
-    margin: 0;
-    max-width: 28rem;
-  }
-  .fa-pairs {
-    list-style: none;
-    margin: 2rem 0;
-    padding: 0;
-    border-top: 1px solid var(--line);
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.15rem;
-  }
-  .fa-pairs li {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: baseline;
-    gap: 0.9rem;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .fa-pairs li > span:last-child { text-align: right; }
-  .fa-vs { color: var(--accent); font-style: normal; font-size: 0.9em; }
   .fa-prongs {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -183,8 +134,6 @@ const clients = [
     color: var(--graphite);
     margin: 0;
   }
-  .fa-lede { font-family: var(--serif); font-style: italic; font-size: 1.3rem; max-width: 30rem; }
-  .fa-lede strong { text-decoration: underline; text-decoration-color: var(--accent); }
   .fa-skills { border-top: 1px solid var(--line); margin-top: 1.5rem; }
   .fa-skills details { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
   .fa-skills summary {

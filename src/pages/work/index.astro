@@ -5,9 +5,10 @@ import { getChapterCards } from '../../lib/work-chapters';
 
 const chapters = getChapterCards();
 ---
-<BaseLayout title="Work" description="Collage, painting, and mixed media, by chapter." register="art">
-  <h1>Work</h1>
-  <p>Collage, painting, and mixed media: a range of projects, by chapter.</p>
+<BaseLayout title="Art" description="Collage, painting and mixed media, by chapter." register="art">
+  <h1>Art</h1>
+  <p>Collage, painting and mixed media, by chapter.</p>
+  <p><a href="/exhibitions">Exhibitions</a></p>
 
   <div class="work-grid">
     {chapters.map((c, i) => (

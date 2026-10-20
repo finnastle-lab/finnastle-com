@@ -19,11 +19,9 @@ const [sunsetImg, flourishImg, sunStampImg] = await Promise.all([
 // Studio leads: it was missing entirely, and "Work" sent anyone looking for
 // client work to the paintings. Art keeps the /work URL, loses the ambiguity.
 const explore = [
-  { href: '/studio', label: 'Studio', body: 'Client work. Campaigns, copy, content design, brand.' },
+  { href: '/studio', label: 'Studio', body: 'Campaigns, copy and content design. The briefs, the work and what I did.' },
   { href: '/work', label: 'Art', body: 'Collage, painting and mixed media, by chapter.' },
   { href: '/writing', label: 'Writing', body: 'Essays, oldest mistakes included.' },
-  { href: '/exhibitions', label: 'Exhibitions', body: 'Where the work has been shown, 2015–2024.' },
-  { href: '/tools', label: 'Tools', body: 'Small machines that make.' },
 ];
 ---
 <BaseLayout title="Finn Astle" register="art">
@@ -33,8 +31,10 @@ const explore = [
 
     <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">Finn Astle · Astle Creative</p>
     <h1 class="duality">Fearless <span class="amp">&amp;</span> Answers</h1>
-    <p class="hero-sub">Not one thing, on purpose. Proving the value of a
-      creative thinker.</p>
+    <p class="hero-sub">Creative thinking. Technical proficiency.</p>
+    <p>I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
+    <p>Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
+    <p><a href="/studio">See the client work</a></p>
   </section>
 
   <img class="flourish" src={flourishImg.src} alt="" aria-hidden="true" />
@@ -48,13 +48,8 @@ const explore = [
       widths={[700, 1400]} sizes="(max-width: 62rem) 100vw, 62rem" />
   </div>
 
-  <p><em>is currently searching fearlessly for answers.</em></p>
-
-  <p>Marketing changes fast enough that uncertainty is the only certainty. So I
-    leaned into it.</p>
-
-  <p class="purpose">Fearless Answers. Not knowing, and pushing ahead with purpose
-    anyway.</p>
+  <p>You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning what the brief needs, making a version and changing how I work.</p>
+  <p><a href="/studio/fearless-answers">Searching fearlessly for answers.</a></p>
 
   <nav class="explore" aria-label="Explore the site">
     {explore.map((e) => (
@@ -65,34 +60,7 @@ const explore = [
     ))}
   </nav>
 
-  <p>F.A. turns up everywhere on this site before you're told what it stands for.
-    Finn Astle on the invoices, Fearless Answers on the studio work, and no tidy
-    way to pick just one thing for it to mean. Most days it's both at once.</p>
-
-  <p>The modern creative is hard to catch in a sentence because they refuse to be
-    one thing. Copywriter, painter, occasional collagist of whatever's left in the
-    gutter. Freedom needs a frame, expression needs strategy, so he picked both
-    and called it a practice (mostly to justify the paint).</p>
-
-  <hr />
-
-  <section class="note">
-    <h2>Personal note</h2>
-
-    <p>What's left after that is half shared and half expressed, the letters that
-      never got sent, and a website that's mostly an experiment in polite
-      disappearance.</p>
-
-    <p>Let this be a statement of my intention: a place to publish with impermanence
-      in mind first, because the weight of free expression costs too much.</p>
-
-    <p>Some day this will be a place to see.</p>
-
-    <p>If you stayed this long you are either very lost or precisely where you meant
-      to be. Email and commissions live elsewhere, but if the internet is a
-      born-lonely city, consider this an alley you can shout into. I will answer
-      sometimes and ignore you other times, and both are part of the plan.</p>
-  </section>
+  <p>Copywriter, painter, occasional collagist of whatever's left in the gutter. Freedom needs a frame, expression needs strategy, so he picked both and called it a practice (<a href="/personal">mostly to justify the paint</a>).</p>
 
   <div class="sign-off">
     <Image class="portrait" src={portrait} alt="Finn Astle" width={96} height={96} />
@@ -101,26 +69,6 @@ const explore = [
 </BaseLayout>
 
 <style>
-  .note {
-    border-left: 1px solid var(--line);
-    padding-left: 1.4rem;
-    margin: 2rem 0;
-  }
-  .note h2 {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--graphite);
-    margin: 0 0 1rem;
-  }
-  .purpose {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.25rem;
-    max-width: 30rem;
-  }
   .explore {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
