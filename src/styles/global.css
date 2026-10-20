@@ -444,6 +444,15 @@ footer .mark { width: 18px; height: auto; }
   color: var(--graphite);
 }
 
+/* Quiet link to the poems at the foot of an art-register essay, below the
+   Instagram block. No rule above it: the follow block's own edge is enough. */
+.essay-poems-link {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--graphite);
+  margin: 1.5rem 0 0;
+}
+
 /* Quiet sidedoor to /poems. Deliberately low-contrast and set below the list:
    the poems stay out of the nav and off the homepage by choice. */
 .writing-aside {
