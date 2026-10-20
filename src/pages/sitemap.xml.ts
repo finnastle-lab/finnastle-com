@@ -8,7 +8,7 @@ import { chapterSlugs } from '../lib/work-chapters';
 // /poems: the poems are deliberately not promoted, reachable only by the one
 // line at the foot of /writing, so they are not submitted for indexing either.
 const STATIC = [
-  '/', '/work', '/exhibitions', '/studio', '/studio/fearless-answers',
+  '/', '/personal', '/work', '/exhibitions', '/studio', '/studio/fearless-answers',
   '/writing', '/tools', '/tools/icon-pack', '/tools/design-system/',
 ];
 

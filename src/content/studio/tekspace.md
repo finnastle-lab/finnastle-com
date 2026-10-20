@@ -26,7 +26,7 @@ shipped across two sprints: email security across 18 vendors, then browser
 security across 13 and security awareness training across 20, 400+ raw features
 normalised into 40 comparable capabilities in one report alone.
 
-## What I wrote
+## What I built
 
 The research program and the reports, plus an agentic AI production pipeline
 built from scratch that doubled output sprint-over-sprint on no extra budget or

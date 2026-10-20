@@ -18,9 +18,9 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 // Three groups. `/fast-as` stays out until it has paying customers (per plan).
 export const NAV: NavItem[] = [
   {
-    label: 'Work',
+    label: 'Art',
     items: [
-      { href: '/work', label: 'Work' },
+      { href: '/work', label: 'Art' },
       { href: '/exhibitions', label: 'Exhibitions' },
     ],
   },

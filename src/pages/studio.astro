@@ -91,15 +91,7 @@ const cases = await Promise.all(
   <h1>Studio</h1>
   <p class="studio-lede">Eight years of campaigns, copy and content design for
     brands including AGL, Telstra, Coca-Cola and 7-Eleven. One bet underneath all
-    of it: a creative thinker is worth more than the tools they're handed.
-    <span class="aside">(No awards… yet.)</span></p>
-
-  <p>Astle Creative. Copywriting and creative that ships at volume without losing
-    the idea: full-service strategy, campaigns, tone of voice, and retail rollout.</p>
-
-  <p>Volume without soul, or soul without volume. Most shops pick one. The current
-    work is the third option: an AI-assisted pipeline built to hold quality at a
-    pace it couldn't manage by hand.</p>
+    of it: a creative thinker is worth more than the tools they're handed.</p>
 
   <ul class="cases">
     {cases.map(({ slug, data, logos, hero, gallery, Content }) => (
@@ -152,9 +144,8 @@ const cases = await Promise.all(
   </ul>
 
   <hr />
-  <p>The thinking behind the work lives at <a href="/studio/fearless-answers">Fearless
-    Answers</a>. Briefs and enquiries go to
-    <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a>.</p>
+  <p><a href="/studio/fearless-answers">Fearless Answers</a> · <a href="/tools">Tools</a></p>
+  <p>Briefs and enquiries: <a href="mailto:finnastle@gmail.com">finnastle@gmail.com</a>.</p>
 
   <!-- GO-LIVE SCOPE (2026-10-06):
        - Facts, platform lines and the verbatim copy behind every write-up come
@@ -229,13 +220,6 @@ const cases = await Promise.all(
     font-style: italic;
     font-size: 1.25rem;
     max-width: 34rem;
-  }
-  .studio-lede .aside {
-    font-family: var(--sans);
-    font-style: normal;
-    font-size: 0.8rem;
-    color: var(--graphite);
-    white-space: nowrap;
   }
   .cases { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 1px solid var(--line); }
   .case { border-bottom: 1px solid var(--line); }
