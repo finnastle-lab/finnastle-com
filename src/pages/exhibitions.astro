@@ -1,42 +1,101 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import paperUniverse from '../assets/work/paper-universe/00-key.jpg';
+import paperUniverse from '../assets/exhibitions/2022-that-paper-joint.jpg';
+import e55 from '../assets/exhibitions/2024-e55-exhibition-street.jpg';
+import workshopBar from '../assets/exhibitions/2024-workshop-bar.jpg';
+import collingwood from '../assets/exhibitions/2018-collingwood-yards.jpg';
+import studentSpace from '../assets/exhibitions/2017-student-space.jpg';
+import anatomyMuseum from '../assets/exhibitions/2016-harry-brookes-allen.jpg';
+import vca from '../assets/exhibitions/2015-myer-gallery-vca.jpg';
+import testingGrounds from '../assets/exhibitions/2019-testing-grounds.jpg';
+import kings from '../assets/exhibitions/2019-kings-artist-run.jpg';
+import newcastle from '../assets/exhibitions/2017-newcastle-courthouse.jpg';
 
-// Verified from the live Squarespace site (27 Aug 2026). The gallery track =
-// the credential (five-year plan §The buyer). `image` and `note` are optional —
-// add a photo or a short featured line as records surface; both render only
-// when present, so the list degrades gracefully without them.
+// Venue track verified from the live Squarespace site (27 Aug 2026). Dates and
+// `note` lines are Finn's own wording, lifted from "Finn A Exhibitions Art CV
+// Landscape" (01_ART/06_technical/00_documentation) on 23 Oct 2026 — don't
+// rewrite them into site voice. `image`, `alt`, `note` and `watch` are all
+// optional and render only when present, so a row degrades gracefully.
 type Show = {
   year: string; venue: string; show: string; href?: string;
-  image?: ImageMetadata; note?: string;
+  image?: ImageMetadata; alt?: string; note?: string; watch?: string;
 };
 const exhibitions: Show[] = [
-  { year: '2024', venue: 'E55 Exhibition Street', show: 'Local Space', href: 'https://www.fifty-five.com.au/' },
-  { year: '2024', venue: 'Workshop Bar, Melbourne', show: 'Local Space', href: 'https://www.workshopbar.com.au/' },
+  {
+    year: '2024', venue: 'E55, Elizabeth Street', show: 'Jesus Never Vaped',
+    href: 'https://www.fifty-five.com.au/', image: e55,
+    alt: 'Painted singlet hung on a brick wall beside a framed shrine piece, E55.',
+    note: 'Solo show at E55 space on Melbourne’s Elizabeth Street.',
+  },
+  {
+    year: '2024', venue: 'Workshop Bar, Melbourne', show: 'Local Space',
+    href: 'https://www.workshopbar.com.au/', image: workshopBar,
+    alt: 'Red and blue ballpoint drawing of a figure riding a bull.',
+    note: 'Prints and drawings, solo, at Melbourne’s Workshop Bar next to RMIT.',
+  },
   {
     year: '2022', venue: 'That Paper Joint, Brunswick', show: 'Paper Universe',
     href: 'https://www.thatpaperjoint.com/', image: paperUniverse,
+    alt: 'Collage works shelved along a white wall at That Paper Joint, Brunswick.',
+    note: 'Ten collage pieces made from collaged paintings and archival found imagery, at a Melbourne collage studio.',
   },
-  { year: '2018', venue: 'Collingwood Yards', show: '', href: 'https://collingwoodyards.org/' },
-  { year: '2017', venue: 'The Lockup / Courthouse Gallery, Newcastle', show: 'via Univ. Newcastle Tertiary Arts Grant', href: 'https://thelockup.org.au/' },
-  { year: '2017', venue: 'Student Space, Melbourne University', show: '' },
-  { year: '2016', venue: 'Harry Brookes Allen Museum', show: 'Open Night', href: 'https://harrybrookesallenmuseum.mdhs.unimelb.edu.au/' },
-  { year: '2015', venue: 'Fiona & Sidney Myer Gallery, VCA', show: 'Student Exhibition / Grad Show', href: 'https://finearts-music.unimelb.edu.au/about-us/fiona-and-sidney-myer-gallery' },
+  {
+    year: '2019', venue: 'Testing Grounds', show: 'Phosphene',
+    href: 'https://www.testing-grounds.com.au/', image: testingGrounds,
+    alt: 'Plasma screen suspended in a polycarbonate hall at Testing Grounds, playing a desert shot.',
+    note: 'Phosphene, single-channel HD video, plasma screen, Trent Crawford & Finn Astle.',
+    watch: 'https://www.youtube.com/watch?v=r6sTBTJXmzw',
+  },
+  {
+    year: '2019', venue: 'King’s Artist Run Gallery', show: 'Black Box: Phosphene',
+    href: 'https://www.kingsartistrun.org.au/program/black_box-phosphene/', image: kings,
+    alt: 'Kiosk screen showing a wide landscape still from Phosphene.',
+    note: 'Filmed on location in Beijing and an abandoned mining city in Inner Mongolia. A meditation on technology and rapid urbanisation.',
+  },
+  {
+    year: '2018', venue: 'Collingwood Yards', show: 'Grand Opening',
+    href: 'https://collingwoodyards.org/', image: collingwood,
+    alt: 'INTER-MISSION launch poster for the Collingwood Arts Precinct, January 2018.',
+    note: 'Opening of the Collingwood Arts Precinct: INTER-MISSION, 30+ artists, live music and VR films.',
+  },
+  {
+    year: '2017', venue: 'The Lockup / Courthouse Gallery, Newcastle',
+    show: 'After the Tone',
+    href: 'https://thelockup.org.au/', image: newcastle,
+    alt: 'A mobile number in blue neon, strung above a dark freeway at night.',
+    note: '0457 088 071: a five-metre neon-lit mobile number hung over a freeway, with Trent Crawford. Shown via the University of Newcastle Tertiary Arts Grant.',
+    watch: 'https://www.youtube.com/watch?v=frZ1hjWl49U',
+  },
+  {
+    year: '2017', venue: 'Student Space, Melbourne University', show: 'Downpour',
+    image: studentSpace,
+    alt: 'Figure in white kneeling at a roadside fence at dusk, still from Downpour.',
+    note: 'A short film tracing the steps of Burke & Wills, made with the Victorian College of the Arts.',
+    watch: 'https://www.youtube.com/watch?v=ywT9gDH1TC8',
+  },
+  {
+    year: '2016', venue: 'Harry Brookes Allen Museum', show: 'Open Night',
+    href: 'https://harrybrookesallenmuseum.mdhs.unimelb.edu.au/', image: anatomyMuseum,
+    alt: 'High-contrast charcoal frame of a figure and a wrecked car, from It’s our problem.',
+    note: 'It’s our problem (2016): a year of drawings evolving with a musical composition and found text.',
+  },
+  {
+    year: '2015', venue: 'Fiona & Sidney Myer Gallery, VCA', show: 'Grad Show',
+    href: 'https://finearts-music.unimelb.edu.au/about-us/fiona-and-sidney-myer-gallery',
+    image: vca,
+    alt: 'Gallery wall hung with a grid of black and white works, VCA grad show.',
+    note: 'Outside Looking In, shown as a wall series.',
+  },
 ];
-const ongoing: Show[] = [
-  { year: 'Ongoing', venue: 'Testing Grounds', show: 'Phosphene + other projects', href: 'https://www.testing-grounds.com.au/' },
-  { year: 'Ongoing', venue: "King's Artist Run Gallery", show: 'incl. film premiere: Black Box / Phosphene', href: 'https://www.kingsartistrun.org.au/program/black_box-phosphene/' },
-];
-const all = [...exhibitions, ...ongoing];
 ---
 <BaseLayout title="Exhibitions" description="Exhibition history, 2015–2024." register="art">
   <h1>Exhibitions</h1>
   <ul class="exhibitions">
-    {all.map((e) => (
+    {exhibitions.map((e) => (
       <li class="exhibition">
         {e.image ? (
-          <Image class="exhibition-img" src={e.image} alt={`${e.venue}: ${e.show}`} widths={[400, 700]} sizes="220px" />
+          <Image class="exhibition-img" src={e.image} alt={e.alt ?? `${e.venue}: ${e.show}`} widths={[160, 320]} sizes="(max-width: 40rem) 104px, 160px" />
         ) : (
           <span class="exhibition-img exhibition-img--placeholder" aria-hidden="true"></span>
         )}
@@ -45,11 +104,25 @@ const all = [...exhibitions, ...ongoing];
             <strong>{e.year}</strong> · {e.href ? <a href={e.href}>{e.venue}</a> : e.venue}{e.show && <> · {e.show}</>}
           </p>
           {e.note && <p class="exhibition-note">{e.note}</p>}
+          {e.watch && <p class="exhibition-note"><a href={e.watch}>Watch the film</a></p>}
         </div>
       </li>
     ))}
   </ul>
-  <!-- TODO(content): confirm exact show titles/dates against Finn's records;
-       some venue/show labels had extraction noise. Add photos/featured notes
-       as they surface — the `image`/`note` fields render automatically. -->
+  <!-- TODO(content): open questions, flagged 23 Oct 2026.
+       1. Black Cat, Fitzroy isn't a row — no assets anywhere in Drive. Finn has
+          source images on Instagram; see the Figma upscaling task.
+       2. The CV lists Student Exhibition, Margaret Lawrence Gallery, 2015 as a
+          separate show from the VCA Grad Show — not yet a row.
+       3. The CV lists E55 twice (2019 and 2024) and a "Local Space, Hell,
+          Melbourne" show — neither is a row, and no assets found for either.
+       4. The Student Space row may be mislabelled. The After the Tone press kit
+          (99_archive/.../After The Tone (2016...)) puts that show at the George
+          Paton / Entrance Gallery, Union House, Melbourne University, 4-13 May
+          2016 — same campus, a year earlier. The CV's "Student Space, Melbourne
+          University 2017" may be that show rather than Downpour.
+       5. fifty-five.com.au and workshopbar.com.au couldn't be reached to check;
+          every other outbound link on this page resolves.
+       Also: the VCA install shot is filed in Drive under "VCA (2014)" while the
+       show is dated 2015. -->
 </BaseLayout>
