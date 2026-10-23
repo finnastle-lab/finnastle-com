@@ -11,12 +11,17 @@ import vca from '../assets/exhibitions/2015-myer-gallery-vca.jpg';
 import testingGrounds from '../assets/exhibitions/2019-testing-grounds.jpg';
 import kings from '../assets/exhibitions/2019-kings-artist-run.jpg';
 import newcastle from '../assets/exhibitions/2017-newcastle-courthouse.jpg';
+import blackCat from '../assets/exhibitions/2023-black-cat-fitzroy.jpg';
 
 // Venue track verified from the live Squarespace site (27 Aug 2026). Dates and
 // `note` lines are Finn's own wording, lifted from "Finn A Exhibitions Art CV
 // Landscape" (01_ART/06_technical/00_documentation) on 23 Oct 2026 — don't
-// rewrite them into site voice. `image`, `alt`, `note` and `watch` are all
-// optional and render only when present, so a row degrades gracefully.
+// rewrite them into site voice. The Black Cat row is not in that CV; its
+// year, dates, title and image come from Finn's own Instagram post of
+// 3 May 2023 (@finnastle, /p/Crwd8abyHo_/), and its note is his caption on
+// the companion post of 12 May 2023 about the same 300x300 paper series.
+// `image`, `alt`, `note` and `watch` are all optional and render only when
+// present, so a row degrades gracefully.
 type Show = {
   year: string; venue: string; show: string; href?: string;
   image?: ImageMetadata; alt?: string; note?: string; watch?: string;
@@ -33,6 +38,12 @@ const exhibitions: Show[] = [
     href: 'https://www.workshopbar.com.au/', image: workshopBar,
     alt: 'Red and blue ballpoint drawing of a figure riding a bull.',
     note: 'Prints and drawings, solo, at Melbourne’s Workshop Bar next to RMIT.',
+  },
+  {
+    year: '2023', venue: 'Black Cat, Fitzroy', show: 'Art 3',
+    href: 'https://www.blackcatfitzroy.com/', image: blackCat,
+    alt: 'Dense found-paper collage: postage stamps, a classical bust, BACKWOODS lettering and crayon drawing.',
+    note: '3333 pieces of paper, 365 days of layers, eternity in millimetres, 300x300. Shown 7–20 March 2023.',
   },
   {
     year: '2022', venue: 'That Paper Joint, Brunswick', show: 'Paper Universe',
@@ -95,7 +106,7 @@ const exhibitions: Show[] = [
     {exhibitions.map((e) => (
       <li class="exhibition">
         {e.image ? (
-          <Image class="exhibition-img" src={e.image} alt={e.alt ?? `${e.venue}: ${e.show}`} widths={[160, 320]} sizes="(max-width: 40rem) 104px, 160px" />
+          <Image class="exhibition-img" src={e.image} alt={e.alt ?? `${e.venue}: ${e.show}`} width={320} height={320} widths={[160, 320]} sizes="(max-width: 40rem) 104px, 160px" />
         ) : (
           <span class="exhibition-img exhibition-img--placeholder" aria-hidden="true"></span>
         )}
@@ -110,19 +121,18 @@ const exhibitions: Show[] = [
     ))}
   </ul>
   <!-- TODO(content): open questions, flagged 23 Oct 2026.
-       1. Black Cat, Fitzroy isn't a row — no assets anywhere in Drive. Finn has
-          source images on Instagram; see the Figma upscaling task.
-       2. The CV lists Student Exhibition, Margaret Lawrence Gallery, 2015 as a
+       1. The CV lists Student Exhibition, Margaret Lawrence Gallery, 2015 as a
           separate show from the VCA Grad Show — not yet a row.
-       3. The CV lists E55 twice (2019 and 2024) and a "Local Space, Hell,
+       2. The CV lists E55 twice (2019 and 2024) and a "Local Space, Hell,
           Melbourne" show — neither is a row, and no assets found for either.
-       4. The Student Space row may be mislabelled. The After the Tone press kit
+       3. The Student Space row may be mislabelled. The After the Tone press kit
           (99_archive/.../After The Tone (2016...)) puts that show at the George
           Paton / Entrance Gallery, Union House, Melbourne University, 4-13 May
           2016 — same campus, a year earlier. The CV's "Student Space, Melbourne
           University 2017" may be that show rather than Downpour.
-       5. fifty-five.com.au and workshopbar.com.au couldn't be reached to check;
+       4. fifty-five.com.au and workshopbar.com.au couldn't be reached to check;
           every other outbound link on this page resolves.
        Also: the VCA install shot is filed in Drive under "VCA (2014)" while the
-       show is dated 2015. -->
+       show is dated 2015. And the CV's Instagram link (@finnastl3) is dead —
+       the live account is @finnastle. -->
 </BaseLayout>
