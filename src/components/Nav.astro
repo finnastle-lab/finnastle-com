@@ -25,7 +25,10 @@ const icons: Record<string, string> = {
   '/tools/almanac': '<path d="M4 4h16v16H4z"/><path d="M4 9h16"/><path d="M9 9v11"/><path d="M12 13v3M15 11v5M18 14v2"/>',
   '/tools/icon-pack': '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
 };
-const icon = (href: string) => icons[href] ?? '<circle cx="12" cy="12" r="8"/>';
+// Studio cases are anchors on /studio, so fall back to the page's own icon
+// rather than dropping six rows of the mobile menu onto the default circle.
+const icon = (href: string) =>
+  icons[href] ?? icons[href.split('#')[0]] ?? '<circle cx="12" cy="12" r="8"/>';
 ---
 <header class="masthead">
   <div class="masthead-in">

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import FeaturedWriting from '../components/FeaturedWriting.astro';
 
 // Heroes live in src/assets so they get optimised; the collection stores only a
 // filename, so resolve it here. Cases with no usable image simply have none,
@@ -91,7 +92,9 @@ const cases = await Promise.all(
   <h1>Studio</h1>
   <p class="studio-lede">Eight years of campaigns, copy and content design for
     brands including AGL, Telstra, Coca-Cola and 7-Eleven. One bet underneath all
-    of it: a creative thinker is worth more than the tools they're handed.</p>
+    of it: a creative thinker is worth more than the tools they're handed.
+    I'm usually the one who brings the new tools in, tests them on real work and
+    reports back on what they actually saved.</p>
 
   <ul class="cases">
     {cases.map(({ slug, data, logos, hero, gallery, Content }) => (
@@ -142,6 +145,15 @@ const cases = await Promise.all(
       </li>
     ))}
   </ul>
+
+  <FeaturedWriting
+    heading="Writing from the studio"
+    slugs={[
+      'inconvenient-truth-for-copywriters-reply',
+      'pitch-ends-head-doesnt',
+      '2020-05-28-chatbots-save-lives',
+    ]}
+  />
 
   <hr />
   <p><a href="/studio/fearless-answers">Fearless Answers</a> · <a href="/tools">Tools</a></p>

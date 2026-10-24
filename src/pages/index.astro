@@ -18,8 +18,11 @@ const [sunsetImg, flourishImg, sunStampImg] = await Promise.all([
 
 // Studio leads: it was missing entirely, and "Work" sent anyone looking for
 // client work to the paintings. Art keeps the /work URL, loses the ambiguity.
+// Lab sits second, between the register that pays and the one that doesn't:
+// it is what makes the other two legible to a commercial reader.
 const explore = [
   { href: '/studio', label: 'Studio', body: 'Campaigns, copy and content design. The briefs, the work and what I did.' },
+  { href: '/tools', label: 'Lab', body: 'Small machines I built. What the new tools did well, and where they fell over.' },
   { href: '/work', label: 'Art', body: 'Collage, painting and mixed media, by chapter.' },
   { href: '/writing', label: 'Writing', body: 'Essays, oldest mistakes included.' },
 ];
@@ -31,7 +34,7 @@ const explore = [
 
     <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">Finn Astle · Astle Creative</p>
     <h1 class="duality">Fearless <span class="amp">&amp;</span> Answers</h1>
-    <p class="hero-sub">Creative thinking. Technical proficiency.</p>
+    <p class="hero-sub">Proving the value of a creative thinker.</p>
     <p>I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
     <p>Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
     <p><a href="/studio">See the client work</a></p>

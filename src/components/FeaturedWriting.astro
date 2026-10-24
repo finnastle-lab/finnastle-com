@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+
+// A curated list, never a second feed. The canonical home for every essay is
+// /writing/<slug>; Studio and Lab surface a selection and send readers there.
+// A feed is a promise, a list is a selection, and a list of five is not
+// maintenance. Slugs are hand-picked on the page that uses this, in the order
+// they should read. No schema change: the essays `register` field is spoken
+// for (it decides which pieces carry the poems sign-off) and overloading it
+// would make a listing filter out of a sign-off switch.
+interface Props {
+  heading: string;
+  slugs: string[];
+}
+const { heading, slugs } = Astro.props;
+
+const all = await getCollection('essays', ({ data }) => !data.draft);
+const bySlug = new Map(all.map((e) => [e.slug, e]));
+// A slug that no longer resolves drops out rather than breaking the build.
+const picked = slugs.flatMap((s) => {
+  const e = bySlug.get(s);
+  return e ? [e] : [];
+});
+const year = (d: Date) => d.getFullYear();
+---
+{picked.length > 0 && (
+  <section class="featured">
+    <h2 class="featured-head">{heading}</h2>
+    <ul class="featured-list">
+      {picked.map((e) => (
+        <li>
+          <a href={`/writing/${e.slug}`}>{e.data.title}</a>
+          <span class="featured-year">{year(e.data.pubDate)}</span>
+          {e.data.description && <p class="featured-dek">{e.data.description}</p>}
+        </li>
+      ))}
+    </ul>
+    <p class="featured-all"><a href="/writing">All writing</a></p>
+  </section>
+)}
+
+<style>
+  /* No rule of its own: both call sites sit directly under a bordered list
+     (.tool on /tools, .case on /studio), and a second line 2rem below the
+     first reads as a mistake. The uppercase label does the separating. */
+  .featured { margin-top: 2.5rem; }
+  .featured-head {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin: 0 0 1.25rem;
+  }
+  .featured-list { list-style: none; margin: 0; padding: 0; }
+  .featured-list li { margin-bottom: 1.25rem; }
+  .featured-list a {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+  .featured-year {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--graphite);
+    margin-left: 0.5rem;
+  }
+  .featured-dek {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--graphite);
+    margin: 0.3rem 0 0;
+    max-width: 44rem;
+  }
+  .featured-all {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    margin: 1.75rem 0 0;
+  }
+</style>

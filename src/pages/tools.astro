@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedWriting from '../components/FeaturedWriting.astro';
 
 // On-territory hub. Each tool is a specimen of "machines that make."
 const tools = [
@@ -79,4 +80,12 @@ const tools = [
       </article>
     ))}
   </div>
+
+  <FeaturedWriting
+    heading="Writing from the lab"
+    slugs={[
+      'four-things-i-built',
+      '2020-11-23-art-meets-ai-automated-image-generation-with-a-fine-artist-touch',
+    ]}
+  />
 </BaseLayout>
