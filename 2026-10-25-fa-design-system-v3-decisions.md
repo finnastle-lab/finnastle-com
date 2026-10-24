@@ -80,6 +80,39 @@ The strike lands when the page is rebuilt as an Astro route (P1 item 4).
 Approved marks, unchanged: the FA sunmark (primary), the sun-ray flourish, the
 ink yin-yang.
 
+### 04 · PR #39 is split three ways
+
+**Decided:** split.
+
+PR #39's two commits do not divide by commit: `d420105` carries the sunmark
+work, the favicons and the first 18 lines of the CI workflow together. So the
+split is by file, and PR #39's branch was left untouched. `staging/canonical-sunmark`
+is branched *from* it and rebased onto `main`, so both original commits are
+preserved verbatim in its history and nothing was re-done or force-pushed.
+
+| Branch | Carries | Blocked on |
+| --- | --- | --- |
+| `staging/canonical-sunmark` | Both SVGs, the dark PNG, the merged README, the three import swaps | Nothing. Ready. |
+| `staging/favicon-canonical-rasterisation` | The four regenerated favicons | Decision 05 |
+| `staging/ci-build-workflow` | `.github/workflows/build.yml` | Its own review |
+
+This unblocked P1 items 1 and 2, both now done on `staging/canonical-sunmark`:
+
+- **The canonical folder is committed.** Both SVGs are tracked for the first
+  time. `fa-sunmark-light.svg` was never in PR #39; it is hash-verified against
+  `fa-design-system` and added here.
+- **The two READMEs are one file.** PR #39's 18-line rasterisation note and the
+  uncommitted 69-line canonical-vector note are folded into a single document.
+  Neither was wrong; they answered different questions at the same address.
+
+Verified: build passes at 51 pages, and all three sunmark uses keep their
+widths — 26px nav, 64px home stamp, 18px footer. The favicons on that branch
+are byte-identical to `main`, so the ground question travels with branch B
+rather than riding along.
+
+Not done: nothing is pushed and no PR is opened. PR #39's own disposition —
+close it in favour of `staging/canonical-sunmark`, or retarget it — is Finn's.
+
 ---
 
 ## Open
@@ -89,7 +122,6 @@ No action taken on any of these.
 | # | Question | Recommendation at checkpoint one |
 |---|---|---|
 | 03 | Does the rename wait for the `/tools` or `/lab` path decision? | Yes. Moving the path now costs the page two 301s and the CV two rebuilds. |
-| 04 | PR #39: merge as it stands, or split it first? | Split. The sunmark work is sound; the first CI workflow and the favicon ground are separate decisions riding the same diff. |
 | 05 | Favicon ground: opaque Paper, or transparent? | Transparent, with the light variant for dark chrome. |
 | 06 | Ship both sunmark variants, or filter one? | Filter the dark variant at chrome sizes, ship both for display size and over photography, and write the split down. |
 | 07 | The sage frame: build it, or retire it? | Retire. Declared and documented for two months, never used. |
@@ -98,9 +130,11 @@ No action taken on any of these.
 | 11 | Icon Pack rename: before or after V3 documents it? | Before. `index.json` already flags the filenames as placeholders. |
 | 12 | Does `SITE.description` move to the widened public line? | Yes. It ships in every meta description and share card. |
 
-Decision 04 now gates the most work. P1 items 1 and 2 (commit the canonical
-sunmark folder, resolve the two competing READMEs at one path) both touch paths
-PR #39 also writes, so neither can proceed without it.
+Decision 05 now gates `staging/favicon-canonical-rasterisation`, which is
+otherwise ready. Decision 06 is answered in part by the split: the site keeps
+filtering the dark variant, and the light variant now ships alongside it
+unused, so the remaining question is only whether display-size and
+over-photography uses should swap to it.
 
 ---
 
