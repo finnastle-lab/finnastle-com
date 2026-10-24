@@ -15,42 +15,33 @@ export const SOCIAL = {
 type NavLink = { href: string; label: string };
 type NavItem = { label: string; href?: string; items?: NavLink[] };
 
-// Four top-level items, one per room plus the writing that serves all three.
-// Art is making, Lab is building, Studio is the register that pays for both.
-// Writing keeps its own front door: it is the largest body of work on the site,
-// and a featured link from another page is not a route to a listing.
+// Three top-level items, one dropdown. Art is making, Studio is the register
+// that pays, Lab is building. Each hero item goes one place; only Lab opens.
+//
+// Writing sits inside Lab rather than taking a slot of its own: it is the
+// explaining register, it serves all three rooms, and it was already in this
+// group when the group was called "Words & Tools".
+//
+// Studio stays a single link. A dropdown there means listing cases, and the
+// cases are anchors on one page rather than routes, so the menu would fill
+// with rows pointing at the same URL.
+//
+// Art is a single link too. Exhibitions keeps its own link at the top of
+// /work, so collapsing the group costs it one click, not its route.
+//
 // `/fast-as` stays out until it has paying customers (per plan).
 export const NAV: NavItem[] = [
+  { label: 'Art', href: '/work' },
+  { label: 'Studio', href: '/studio' },
   {
-    label: 'Art',
-    items: [
-      { href: '/work', label: 'Art' },
-      { href: '/exhibitions', label: 'Exhibitions' },
-    ],
-  },
-  {
-    // Cases are anchors on the one page, never their own routes: the ids are
-    // printed as clickable links inside CV and addendum PDFs already out with
-    // applications, and the single page is the one-screen scan /studio is for.
-    // Five of sixteen, taken off the collection's own `order` (strongest first).
-    label: 'Studio',
-    items: [
-      { href: '/studio', label: 'Studio' },
-      { href: '/studio#agl-join-the-change', label: 'AGL' },
-      { href: '/studio#agl-netflix', label: 'AGL × Netflix' },
-      { href: '/studio#afterpay', label: 'Afterpay' },
-      { href: '/studio#youi', label: 'Youi' },
-      { href: '/studio#seven-eleven', label: '7-Eleven' },
-    ],
-  },
-  {
-    // Resolves to /tools. The path does not move until that is decided.
+    // Tools leads, so Lab still reads as resolving to /tools. The path does
+    // not move until that is decided.
     label: 'Lab',
     items: [
       { href: '/tools', label: 'Tools' },
       { href: '/tools/almanac', label: 'FA Almanac' },
       { href: '/tools/icon-pack', label: 'Icon Pack' },
+      { href: '/writing', label: 'Writing' },
     ],
   },
-  { label: 'Writing', href: '/writing' },
 ];
