@@ -1,14 +1,14 @@
-# Claude editorial review handoff — four-things-i-built v2
+# Claude editorial review handoff — four-things-i-built v3
 
 **Status:** Draft for editorial feedback only. Do not merge, publish, deploy, or replace the live essay yet.
 
-**Review file:** `editorial-review/four-things-i-built-v2.md` in this branch.
+**Review file:** `editorial-review/four-things-i-built-v3.md` in this branch. The previous `v2.md` remains here for comparison.
 **Live source, unchanged:** `src/content/essays/four-things-i-built.md` on `main`.
 **Public slug to preserve if approved:** `/writing/four-things-i-built`.
 
 ## What the author wants the article to do
 
-Keep the factual story: eight courses within **one** Google AI Professional Certificate, roughly $70 spent, and four things made. The story begins with wanting to remove friction and make more time for painting, writing and creative practice, then discovers the unexpected satisfaction of building digital things. The app-building assignment led to DreadSwipe, whose specific premise Finn chose. From there the essay looks outward at the scale of ordinary people being able to prototype software, and acknowledges token, compute and energy costs without becoming a grand manifesto or a defensive vibe-coding essay.
+Keep the factual story: eight courses within **one** Google AI Professional Certificate, roughly $70 spent, and four things made. The story begins with wanting to remove friction and make more time for painting, writing and creative practice. It also admits a quieter motive: the discomfort of possible replacement and wanting to prove that Finn can still make valuable things while embracing the new technology. It discovers the unexpected satisfaction of building digital things. The app-building assignment led to DreadSwipe, whose specific premise Finn chose. From there the essay looks outward at the scale of ordinary people being able to prototype software, and acknowledges token, compute and energy costs without becoming a grand manifesto or a defensive vibe-coding essay.
 
 The tone should be observant, wry and slightly uncertain. Let the discovery happen through the examples. Avoid grand claims about futureproofing, declarations that human taste is the sole remaining value, generic AI hype, em dashes, contrived slogans, and 'it's not X, it's Y' prose.
 
@@ -35,8 +35,21 @@ The tone should be observant, wry and slightly uncertain. Let the discovery happ
 4. Is the token/compute/energy reflection an integrated tension rather than an obligatory ethical disclaimer? Do the citations support the precise claims?
 5. Are there technical claims or current product capabilities needing verification before publishing? Do not invent a personal token bill or productivity savings.
 6. Is the voice Finn's? Preserve specific irritations, cultural references, contradiction, and dry Australian deflation. Flag anything too neatly aphoristic or explanatory.
-7. Is the title **The things a certificate can’t prove** right? It is provisional. Suggest 2–3 quieter alternatives with the same personal-to-cultural scope. Keep the slug.
+7. Is the title **The things a certificate won’t teach you** right? Finn prefers this over V2's 'can't prove'. It should keep the course as a doorway into creative purpose and AI, not make certificates the dominant subject. Test the standfirst too. Keep the slug.
 8. Is the closing one genuine ending? The old piece had a credential roadmap, second shredder, email CTA and Instagram aside all trying to end it.
+
+## V2 feedback incorporated into V3
+
+- Retitled to **The things a certificate won’t teach you**, with a more explicit creative-purpose standfirst, at Finn's direction.
+- Changed the headings to carry the change in purpose: getting out of the app, existing material, judgment that resists codification, an unnecessary app, then the ocean.
+- Planted unsettling ease back in Almanac: weeks expected, hours taken, the ease itself annoying.
+- Added honest professional self-defence as one motivation for doing the AI courses, without making the essay a manifesto about replacement.
+- Cut 'the scale of the possibility is astonishing' and reworked the pleasure-of-making passage into the working-button observation with a painting callback.
+- Connected the final question of whether something needs to exist to the limits of Source Material's design rules.
+- Changed the closing to stop at uncertain time saved, without a tidy moral.
+- Roughened the DreadSwipe line so the joke arises from the course assignment rather than a prepared slogan.
+
+Check whether any of those are too explicit, especially the opening self-defence, the Source Material callback, and the working-button line. The philosophical connection should feel discovered, not installed.
 
 ## Publication decisions still open
 
