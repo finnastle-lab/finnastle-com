@@ -1,0 +1,64 @@
+name: Build site
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Verify sunmarks in Chromium
+        run: |
+          npm install --prefix "$RUNNER_TEMP/fa-review" --no-save --no-package-lock playwright@1.56.1
+          "$RUNNER_TEMP/fa-review/node_modules/.bin/playwright" install --with-deps chromium
+          npm run preview -- --host 127.0.0.1 > "$RUNNER_TEMP/fa-preview.log" 2>&1 &
+          node --input-type=commonjs <<'JS'
+          const { chromium } = require(process.env.RUNNER_TEMP + '/fa-review/node_modules/playwright');
+          const assert = require('node:assert/strict');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+            const errors = [];
+            page.on('pageerror', error => errors.push(error.message));
+            for (let i = 0; i < 30; i++) {
+              try { await page.goto('http://127.0.0.1:4321/'); break; }
+              catch (error) { if (i === 29) throw error; await new Promise(r => setTimeout(r, 500)); }
+            }
+            for (const width of [390, 1440]) {
+              await page.setViewportSize({ width, height: 1000 });
+              for (const theme of ['light', 'dark']) {
+                await page.evaluate(theme => document.documentElement.setAttribute('data-theme', theme), theme);
+                for (const [selector, expectedWidth] of [['.brand .mark', 26], ['footer .mark', 18], ['.stamp--ink', 64]]) {
+                  const mark = page.locator(selector);
+                  await mark.evaluate(image => image.decode());
+                  const state = await mark.evaluate(image => ({
+                    width: parseFloat(getComputedStyle(image).width),
+                    filter: getComputedStyle(image).filter,
+                    loaded: image.complete && image.naturalWidth > 0,
+                    source: image.currentSrc,
+                  }));
+                  assert.equal(state.width, expectedWidth);
+                  assert.equal(state.loaded, true);
+                  assert.equal(state.filter, `brightness(0) invert(${theme === 'dark' ? 1 : 0})`);
+                  console.log(JSON.stringify({ width, theme, selector, ...state }));
+                }
+                await page.screenshot({ path: `sunmark-${width}-${theme}.png`, fullPage: true });
+              }
+            }
+            assert.deepEqual(errors, []);
+            await browser.close();
+          })().catch(error => { console.error(error); process.exit(1); });
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sunmark-theme-previews
+          path: sunmark-*.png
