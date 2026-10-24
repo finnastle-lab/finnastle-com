@@ -1,60 +1,88 @@
 ---
-title: 'Futureproofing creativity as AI looms'
-description: "Eight Google AI certificates, four things actually built with them, and the very ordinary problem each one was solving."
+title: 'The things a certificate won’t teach you'
+description: 'Eight Google AI courses, four things I built, and some thoughts about creative purpose when making gets easier than deciding why.'
 pubDate: 2026-09-06
 register: craft
 draft: false
-instagramCta: 'Eight certificates got me four tools. The half-built ones, the ones that never worked, and whatever I’m making instead of writing. Those go on Instagram.'
+instagramCta: 'The half-built experiments, the things that never worked, and whatever I’m making instead of writing about it go on Instagram.'
 heroImage: ../../assets/writing/four-things-i-built-hero.webp
-heroImageAlt: "A certificate of completion held by one hand and fed into the slot of a scuffed black office shredder, its window half full of cut paper. Behind it a late-nineties cubicle: a CRT monitor, a mug, a pot of biros, beige filing cabinets. The photograph is machine-made."
+heroImageAlt: 'A certificate of completion held by one hand and fed into the slot of a scuffed black office shredder, its window half full of cut paper. Behind it is a late-nineties cubicle with a CRT monitor, a mug, biros and beige filing cabinets. The photograph is machine-made.'
 ---
 
-A certificate only proves you sat still. That's the sentence I kept coming back to over the eight Google AI Professional Certificates I've spent the year working through, the last of which I added to my profile today. Sitting still isn't nothing. But it isn't the thing either, and I didn't want to be the guy who finishes a course and calls it a skill.
+A certificate only proves you sat still.
 
-But I built four things.
+I spent much of the year working through Google's AI courses. Partly because I wanted to understand the technology, partly because it's uncomfortable watching a machine get passably good at things you've spent years learning to do. I'd like to claim it was all curiosity. There was some professional self-defence in there too.
 
-Eight certificates, for the record. And the one I'm in the middle of.
+I also paint, write, make things, and spend an irritating amount of time maintaining the systems around making them. I wondered whether AI could give me some of that time back. Less checking apps, less rummaging through folders, less explaining the same decision for the fiftieth time. More time making the things I actually wanted to make.
 
-<ol class="certs">
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">01</span><span class="cert-name">AI Fundamentals</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">02</span><span class="cert-name">AI for Brainstorming and Planning</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">03</span><span class="cert-name">AI for Research and Insights</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">04</span><span class="cert-name">AI for Writing and Communicating</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">05</span><span class="cert-name">AI for Content Creation</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">06</span><span class="cert-name">AI for Data Analysis</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">07</span><span class="cert-name">AI for App Building</span></li>
-  <li class="cert"><span class="cert-seal"></span><span class="cert-n">08</span><span class="cert-name">AI for App Deployment</span></li>
-  <li class="cert cert--open"><span class="cert-seal"></span><span class="cert-n">Next</span><span class="cert-name">Generative AI Leader</span><span class="cert-note">Google Cloud · in progress</span></li>
-</ol>
+When I finished the eighth course, I added the certificate to LinkedIn like a good professional. I even wrote a post that read, in places, like an ad for Gemini. Which, in fairness, it kind of was.
 
-<p class="certs-verify">The eight are one Google AI Professional Certificate, issued 6 September 2026. <a href="https://coursera.org/verify/professional-cert/G820ON21BRMV" rel="external nofollow">Verify it</a>, if you like. That is the part that proves least.</p>
+The courses cost me about seventy dollars on Coursera. They make up **one** Google AI Professional Certificate. I came out with four things I'd actually built.
 
-I put a version of this on LinkedIn too. About half of it read like an ad for Gemini's product suite, which, in fairness, it kind of was.
+<p class="certs-receipt">One Google AI Professional Certificate, issued 6 September 2026. Fundamentals · Brainstorming and Planning · Research and Insights · Writing and Communicating · Content Creation · Data Analysis · App Building · App Deployment. <a href="https://coursera.org/verify/professional-cert/G820ON21BRMV" rel="external nofollow">Verify it</a>. Next: Generative AI Leader, Google Cloud, in progress.</p>
 
-## A couple of weeks, not hours
+## Getting out of the app
 
-I hate the Instagram dashboard. Checking how a post did means opening the app, which means the Reels feed, the suggested-for-you carousel, every trigger built to keep me there past the one thing I actually came to check. So I cut it out of my life entirely. [Almanac](/tools) pulls the numbers instead (reach, engagement, the image itself) and lands them in one place every Sunday, no unlocking required. It works. What annoyed me was how easy it was. I expected a couple of weeks. It took hours.
+I hate the Instagram dashboard. Checking how a post did means opening Instagram, which means the Reels feed, suggested posts, and whatever else is designed to keep me there beyond the one thing I wanted to check.
 
-## My head is a bad place to keep a brand
+So I built [Almanac](/tools/almanac). It pulls my posts and their reach, engagement and images through the Graph API, then puts the results somewhere I can look at them without opening Instagram. A scheduled job does the fetching every Sunday. I expected it to take a couple of weeks. The first working version took hours. What annoyed me was how easy it was.
 
-[Source Material](/tools/design-system/) is the same instinct pointed at something less obviously fixable: my own taste. The Astle Creative visual system (the palette, the three voices, which marks are load-bearing and which are decoration) never lived anywhere except my head, which is a bad place to keep a brand if you ever want a machine, or another person, to make something that looks like you. Writing it down wasn't documentation. It was building a computational version of a style I'd call unruly on a good day: turning "I'll know it when I see it" into something a machine can actually work from.
+![Screenshot of Almanac's Post Review for a carousel album: a photograph of a figure walking through tall forest with white and black line-drawn horses added over the grass, beside a reach of 165, 14 likes, zero saves, shares and comments, an efficiency figure of 8.5 per cent, the post's caption and the date 28/09/2026.](../../assets/tools/almanac-post-review.png)
 
-## Consistency, not taste
+*A post's numbers, without opening Instagram.*
 
-The [Icon Pack](/tools/icon-pack) is the same trick again, but the target this time is consistency, not taste. Years of scanned collage elements sat in folders named the way scanners name things (IMG_4471, scan_final_FINAL) until I had an LLM read through the raw material and rename everything into strict, tag-aware keywords. It already sorts by what an element actually is, closely enough that filtering and searching by tag is the obvious next step. That's what I'm building next.
+It works. Now I open Almanac instead of Instagram. Same behaviour, different app, nobody trying to sell me something in between.
 
-## An audience of exactly one
+## Things I'd already made
 
-Building a watchlist is a genuinely hard design problem, and [DreadSwipe](/tools) exists to dodge it. There's a specific, slightly embarrassing loss that comes with a happy relationship: nobody's swiping anymore. Not the dating-app rhythm of it: left, right, fast, decisive, no explaining yourself. So I rebuilt that rhythm for something lower stakes. Swipe left to dismiss, right to watchlist, up for the high-intent super-like, tuned against a taste taxonomy built for transgressive taste rather than the mainstream. A perfect film, on demand, for an audience of exactly one and a taste nobody else needs to swipe on.
+Years of scanned collage elements were sitting in folders with names like `IMG_4471` and `scan_final_FINAL`. I knew the material was there. Finding the right bit while working in Figma was another matter.
 
-## There's another one
+The [Icon Pack](/tools/icon-pack) gives the elements readable, searchable names. An LLM helped turn the scanner's filing system into descriptions of what was actually on the page. Now I can leave the library open beside Figma, find a mark, and copy it across when I need it.
 
-Four very different things, out of eight courses that cost me seventy bucks on Coursera. What I actually learned is narrower than any of that: what Gemini's good at (not consistent code. Thanks, Claude), and what it isn't. Eight courses finished. Plenty left to learn. I've already started Google Cloud's Generative AI Leader learning path. After that, I want to work towards its Professional Cloud Architect certification. Different credentials. The second asks a different question: what does this thing cost to run, and who does it fall over on?
+![Screenshot of the Icon Pack: a grid of scanned collage elements on transparent backgrounds, among them a magenta letter B, a blue wave, a yellow smiley face, a pink running horse and several engraved plants and animals, each under a descriptive filename such as "clipping text smile please" and "engraving otter crayfis…". The header reads 76 scanned collage elements, with a keyword filter above the grid.](../../assets/writing/four-things-i-built/icon-pack.png)
 
+*Seventy-six scanned elements, named by what's on them.*
 
-<div class="shred" role="img" aria-label="A line drawing of a certificate fed into a paper shredder, coming out below as long curling ribbons. One ribbon among them is vermilion. The drawing is machine-made.">
-  <span class="shred-ink"></span>
-  <span class="shred-accent"></span>
-</div>
+There's another benefit to having the material in one place. The agents I work with can refer to the same set of elements rather than each forming a slightly different idea of what my work looks like. I still make and choose the marks. The machine is better at remembering where I put them.
 
-If any of this is useful for your own idea, I'd love to chat about building it. Almanac especially, which just needs your own Meta Graph API key pointed at a different account. finnastle@gmail.com. Say g'day if any of these are useful to you. 🙏
+## What I couldn't quite explain
+
+[Source Material](/tools/design-system/) grew out of a similar problem, although it became much harder to explain. It's the design system behind this site: the palette, the three type voices, the marks I return to, and the difference between a useful imperfection and decoration for its own sake.
+
+Most of those decisions lived in my head. I'd look at something and know it was wrong without being particularly good at explaining why. That gets awkward when you're trying to work with another person, or asking a machine to help make something that still feels like yours.
+
+![Screenshot of Source Material: a Palette section with six labelled swatches, Ink, Graphite, Sage frame, Paper, Card and Vermilion, each with its hex value, above a section called Three voices in tension setting Instrument Serif, Cousine and Inter side by side, and a panel headed "The fourth voice: hand-drawn" showing four scanned marks.](../../assets/writing/four-things-i-built/source-material.png)
+
+*The palette and the three type voices, finally outside my head.*
+
+Writing the rules down exposed how many I actually had, and how often I broke them. A design system makes some of that instinct easier to share. It hasn't made every judgment easy to describe. I still have to decide when the rules are worth following, and when something is better for breaking them.
+
+## Something nobody asked for
+
+Building an app was a course requirement. The horror-film dating app was my contribution.
+
+There's a particular, slightly embarrassing loss that comes with a happy relationship: nobody's swiping anymore. I missed the rhythm of it. Left, right, fast, decisive, no explaining yourself. So I gave that rhythm to horror-film discovery instead.
+
+[DreadSwipe](https://dreadswipe.ai.studio) lets me dismiss a film, add it to a watchlist, or give it the high-intent swipe up. The recommendations are organised around the kind of transgressive horror and thrillers I actually want to watch, rather than whatever happens to be popular.
+
+<!-- DreadSwipe screenshot slot: drop the real capture at
+     ../../assets/writing/four-things-i-built/dreadswipe.png and insert it here with
+     literal alt text and an italic caption line. Do not fabricate one. -->
+
+Nobody had asked for a horror-film dating app. The assignment had only asked for an app. I apparently had my own requirements.
+
+## One drop in the ocean
+
+Once DreadSwipe worked, I kept thinking about how little now stands between having an idea and seeing an early version running on a screen. A few prompts, some Enters and Tabs, and there's a prototype of something that didn't exist before. Keeping it working is another job entirely. I've found Claude more consistent than Gemini when the code needs to survive revisions.
+
+[OpenAI said ChatGPT had 900 million weekly users by April 2026](https://openai.com/index/next-phase-of-enterprise-ai/). That doesn't mean 900 million people are making good software. But imagine even a fraction of them trying to make one odd little thing for themselves. An ocean of tiny, specific ideas, many with an audience of one. My horror-film picker is a drop.
+
+And every drop costs something. Prompts consume tokens, iterations use compute, and all of it runs somewhere physical. The [IEA's accounting of rising data-centre electricity demand](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary) is a useful reminder of the scale behind those friendly little text boxes.
+
+Watching an idea turn into a working button is a very good feeling. That's the problem. The next version is always one more prompt away, and it's easy to spend tokens simply because I want to see what happens next. I'm writing this instead of painting.
+
+I don't know what happens when making a piece of software becomes easier than deciding whether it needs to exist. Or what all those experiments add up to.
+
+Deciding was the part I couldn't quite write into Source Material, either. You can describe a palette or name a mark. You can't make a rule for why a particular thing is worth making in the first place.
+
+I started this hoping to make more time to paint, write and make things. I've got four things I didn't have before. I still haven't done the maths on whether I've saved any time.
