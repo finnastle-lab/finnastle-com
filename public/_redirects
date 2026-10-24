@@ -4,3 +4,6 @@
 
 # Essay redated 2020 -> 2019; slug follows the date prefix convention.
 /writing/2020-09-13-let-the-world-tell-your-story    /writing/2019-09-13-let-the-world-tell-your-story    301
+
+# Certificates essay retitled; slug follows the new title.
+/writing/four-things-i-built    /writing/things-a-certificate-wont-teach-you    301
