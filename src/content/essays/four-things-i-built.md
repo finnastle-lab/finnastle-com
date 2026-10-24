@@ -65,9 +65,9 @@ There's a particular, slightly embarrassing loss that comes with a happy relatio
 
 [DreadSwipe](https://dreadswipe.ai.studio) lets me dismiss a film, add it to a watchlist, or give it the high-intent swipe up. The recommendations are organised around the kind of transgressive horror and thrillers I actually want to watch, rather than whatever happens to be popular.
 
-<!-- DreadSwipe screenshot slot: drop the real capture at
-     ../../assets/writing/four-things-i-built/dreadswipe.png and insert it here with
-     literal alt text and an italic caption line. Do not fabricate one. -->
+![A DreadSwipe board headed "Elevated horror & thriller", showing two phone screens side by side. The left card is The Substance, 2024, directed by Coralie Fargeat, 141 minutes, rated 7.3, tagged Body Horror, Elevated and Sicko Mode, over a still of a tiled bathroom. The right card is Audition (Odishon), 1999, directed by Takashi Miike, 115 minutes, rated 7.2, tagged Body Horror, International Arthouse and Sicko Mode, showing a woman holding a syringe. Each card sits above four controls, dismiss, bookmark, a flame and a heart, under the line "Swipe right to save, swipe up for Sicko Mode".](../../assets/writing/four-things-i-built/dreadswipe.png)
+
+*Swipe right to save. Swipe up for Sicko Mode.*
 
 Nobody had asked for a horror-film dating app. The assignment had only asked for an app. I apparently had my own requirements.
 
