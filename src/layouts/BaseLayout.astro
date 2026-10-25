@@ -68,9 +68,19 @@ const shareAlt = image ? (imageAlt ?? '') : 'Finn Astle, hand-brushed collage wo
     {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="sitemap" href="/sitemap.xml" />
+    {/* Transparent marks, so the tab never shows a light card in dark chrome.
+        The black mark serves light chrome, the white one dark. Ordered with
+        the black mark last on purpose: media on rel="icon" is honoured
+        unevenly, and a browser that ignores it takes the final link, which
+        should be the variant that reads on a default light tab strip. The
+        .ico is the fallback for anything that skips the PNG links entirely.
+        The Apple icon is the one exception to transparency: iOS composites it
+        onto the home screen, where a transparent ground renders black. */}
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-light.png" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-light.png" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" media="(prefers-color-scheme: light)" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE.title} · Writing`} href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
