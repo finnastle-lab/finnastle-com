@@ -1,73 +1,134 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-
-// Finn Astle icon pack. Source of truth is Drive.
-const files = import.meta.glob<{ default: ImageMetadata }>(
-  '../../assets/elements/*.png',
-  { eager: true },
-);
-// Finn's own marks. They live in the library because the site uses them, but
-// the pack is a giveaway and his signature is not part of it.
-const BRAND_MARKS = new Set([
-  'print-monogram-square-framed',
-  'mark-monogram-sun-ink',
-  'mark-scribble-ink-sunburst',
-]);
-
-const els = Object.entries(files)
-  .filter(([path]) => !BRAND_MARKS.has(path.split('/').pop()!.replace(/\.png$/, '')))
-  .map(([path, mod]) => {
-    const base = path.split('/').pop()!.replace(/\.png$/, '');
-    const label = base.replace(/^[0-9a-f]{6,}-/, '').replace(/-/g, ' ');
-    return { src: mod.default, label };
-  })
-  .sort((a, b) => a.label.localeCompare(b.label));
+import catalogue from '../../../public/icons/index.json';
+const families = catalogue.families;
+const categories = [...new Set(families.map(f => f.category))].sort();
 ---
-<BaseLayout title="Icon Pack" description="Finn Astle icon pack: processed collage elements." register="art">
-  <h1>Icon Pack</h1>
-  <p><a href="/tools">← Tools</a> · {els.length} scanned collage elements.</p>
-
-  <input
-    type="text"
-    class="icon-filter"
-    placeholder="Filter by keyword: sun, mark, sketch…"
-    aria-label="Filter icons by keyword"
-    autocomplete="off"
-  />
-  <p class="icon-filter-count" role="status" aria-live="polite">{els.length} of {els.length}</p>
-
-  <div class="icon-grid">
-    {els.map((e) => (
-      <figure class="icon-tile" data-label={e.label}>
-        <div class="icon-frame">
-          <Image src={e.src} alt={e.label} widths={[160, 320]} sizes="150px" />
-        </div>
-        <figcaption>{e.label}</figcaption>
-      </figure>
-    ))}
+<BaseLayout title="Cutout Library" description="Drawn marks, found culture and painted fragments from Finn Astle’s practice." register="art">
+  <header class="library-intro">
+    <a href="/tools">← Tools</a>
+    <p class="eyebrow">Finn Astle / Collected material</p>
+    <h1>Cutout library</h1>
+    <p class="library-deck">Drawn marks. Found culture. Familiar things, seen differently.</p>
+    <p class="library-description">A selection of painted fragments, printed language and cultural references from my practice. Choose a piece, explore its versions, take a closer look.</p>
+  </header>
+  <div class="library-controls">
+    <label class="search-control">Find a piece
+      <input id="asset-search" type="search" placeholder="Horse, petrol, lettering…" autocomplete="off" />
+    </label>
+    <label>Collection
+      <select id="asset-category"><option value="">All collections</option>{categories.map(c => <option value={c}>{c}</option>)}</select>
+    </label>
+    <label>Preview ground
+      <select id="asset-ground"><option value="auto">Best contrast</option><option value="light">Light</option><option value="dark">Dark</option><option value="checker">Checkerboard</option></select>
+    </label>
   </div>
-  <p class="icon-filter-empty" hidden>Nothing matches that.</p>
+  <p class="library-count" role="status" aria-live="polite">{families.length} pieces · {catalogue.count} versions</p>
+  <div class="cutout-grid">
+    {families.map(f => {
+      const v = f.variants.find(v => v.id === f.defaultVariant) ?? f.variants[0];
+      const sourceUrl = 'url' in v.source ? v.source.url : null;
+      return <figure class="cutout-card" data-family={f.id} data-category={f.category} data-search={[f.title, f.id, f.category, ...f.keywords, ...f.variants.map(v => v.label)].join(' ').toLowerCase()}>
+        <div class="cutout-frame" data-ground={v.background}>
+          <img src={v.file} alt={v.alt} width={v.width} height={v.height} loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <p class="cutout-category">{f.category}</p>
+          <h2>{f.title}</h2>
+          {f.variants.length > 1 ? <label class="variant-control" for={`version-${f.id}`}>Version <span>{f.variants.length}</span>
+            <select id={`version-${f.id}`} class="variant-select" aria-label={`Version of ${f.title}`}>
+              {f.variants.map(item => <option value={item.id} selected={item.id === v.id}>{item.label}</option>)}
+            </select>
+          </label> : <p class="single-version">{v.label}</p>}
+          <div class="asset-actions">
+            <a class="asset-download" href={v.file} download={`${v.id}.webp`} aria-label={`Download ${f.title}, ${v.label}`}>Download</a>
+            <a class="asset-source" href={sourceUrl || undefined} hidden={!sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`View ${f.title} source in Figma`}>Source ↗</a>
+          </div>
+        </figcaption>
+      </figure>;
+    })}
+  </div>
+  <p class="library-empty" hidden>No pieces match. Try another word or collection.</p>
+  <p class="library-note">Includes original artwork and found cultural material. Third-party references retain their original rights.</p>
+  <noscript><p>Showing each piece’s default version. <a href="/icons/index.json">All versions are listed in the catalogue.</a></p></noscript>
 </BaseLayout>
-
 <script>
-  const input = document.querySelector<HTMLInputElement>('.icon-filter');
-  const tiles = document.querySelectorAll<HTMLElement>('.icon-tile');
-  const count = document.querySelector<HTMLElement>('.icon-filter-count');
-  const empty = document.querySelector<HTMLElement>('.icon-filter-empty');
-  const total = tiles.length;
-
-  const apply = () => {
-    const q = (input?.value ?? '').trim().toLowerCase();
-    let shown = 0;
-    tiles.forEach((tile) => {
-      const match = !q || (tile.dataset.label ?? '').toLowerCase().includes(q);
-      tile.hidden = !match;
-      if (match) shown++;
-    });
-    if (count) count.textContent = `${shown} of ${total}`;
-    if (empty) empty.hidden = shown !== 0;
+  import catalogue from '../../../public/icons/index.json';
+  const input = document.querySelector<HTMLInputElement>('#asset-search')!;
+  const category = document.querySelector<HTMLSelectElement>('#asset-category')!;
+  const ground = document.querySelector<HTMLSelectElement>('#asset-ground')!;
+  const cards = [...document.querySelectorAll<HTMLElement>('.cutout-card')];
+  const count = document.querySelector<HTMLElement>('.library-count')!;
+  const empty = document.querySelector<HTMLElement>('.library-empty')!;
+  const data = new Map(catalogue.families.map(f => [f.id, f]));
+  const selected = (card: HTMLElement) => {
+    const family = data.get(card.dataset.family!)!;
+    const id = card.querySelector<HTMLSelectElement>('.variant-select')?.value ?? family.defaultVariant;
+    return family.variants.find(v => v.id === id) ?? family.variants[0];
   };
-
-  input?.addEventListener('input', apply);
+  const setGround = (card: HTMLElement) => {
+    card.querySelector<HTMLElement>('.cutout-frame')!.dataset.ground = ground.value === 'auto' ? selected(card).background : ground.value;
+  };
+  const filter = () => {
+    const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let pieces = 0, versions = 0;
+    for (const card of cards) {
+      const match = (!category.value || card.dataset.category === category.value) && terms.every(t => card.dataset.search!.includes(t));
+      card.hidden = !match;
+      if (match) { pieces++; versions += data.get(card.dataset.family!)!.variants.length; }
+    }
+    count.textContent = `${pieces} of ${cards.length} pieces · ${versions} versions`;
+    empty.hidden = pieces !== 0;
+  };
+  for (const card of cards) {
+    card.querySelector('.variant-select')?.addEventListener('change', () => {
+      const v = selected(card);
+      const img = card.querySelector<HTMLImageElement>('img')!;
+      img.src = v.file; img.alt = v.alt; img.width = v.width; img.height = v.height;
+      const link = card.querySelector<HTMLAnchorElement>('.asset-download')!;
+      link.href = v.file; link.download = `${v.id}.webp`;
+      link.setAttribute('aria-label', `Download ${data.get(card.dataset.family!)!.title}, ${v.label}`);
+      const source = card.querySelector<HTMLAnchorElement>('.asset-source')!;
+      const url = 'url' in v.source ? v.source.url : null;
+      source.hidden = !url;
+      if (url) source.href = url; else source.removeAttribute('href');
+      setGround(card);
+    });
+  }
+  input.addEventListener('input', filter);
+  category.addEventListener('change', filter);
+  ground.addEventListener('change', () => cards.forEach(setGround));
 </script>
+<style>
+  .library-intro { max-width: 48rem; margin-bottom: 2.5rem; }
+  .eyebrow, .cutout-category, .library-count { font-family: var(--sans); font-size: .75rem; letter-spacing: .04em; }
+  .eyebrow { margin-top: 2rem; text-transform: uppercase; }
+  .library-intro h1 { margin-bottom: 1rem; }
+  .library-deck { font-size: clamp(1.15rem, 2vw, 1.6rem); line-height: 1.4; }
+  .library-description { max-width: 40rem; color: var(--graphite); }
+  .library-controls { display: flex; gap: 1rem; flex-wrap: wrap; padding-block: 1rem; border-block: 1px solid var(--line); }
+  .library-controls label { display: flex; flex-direction: column; gap: .45rem; font: .75rem var(--sans); flex: 1 1 10rem; }
+  .library-controls .search-control { flex: 2 1 16rem; }
+  input, select { font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 0; padding: .65rem; min-height: 44px; width: 100%; box-sizing: border-box; }
+  input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .library-count { margin-block: 1.25rem; }
+  .cutout-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 2rem 1.25rem; }
+  .cutout-card { margin: 0; min-width: 0; }
+  .cutout-card[hidden], .asset-source[hidden], .library-empty[hidden] { display: none; }
+  .cutout-frame { aspect-ratio: 1; display: grid; place-items: center; padding: 1rem; border: 1px solid var(--line); box-sizing: border-box; overflow: hidden; }
+  .cutout-frame[data-ground="light"] { background: #f2efe8; }
+  .cutout-frame[data-ground="dark"] { background: #232323; }
+  .cutout-frame[data-ground="checker"] { background-color: #ddd; background-image: conic-gradient(#c7c7c7 25%, transparent 0 50%, #c7c7c7 0 75%, transparent 0); background-size: 16px 16px; }
+  .cutout-frame img { display: block; width: 100%; height: 100%; min-height: 0; min-width: 0; object-fit: contain; }
+  figcaption { padding-top: .8rem; }
+  .cutout-category { margin: 0 0 .3rem; color: var(--graphite); font-size: .65rem; }
+  .cutout-card h2 { font: 500 1rem/1.35 var(--sans); margin: 0 0 .8rem; min-height: 2.7em; }
+  .variant-control { display: block; font: .7rem var(--sans); }
+  .variant-control span { color: var(--graphite); float: right; }
+  .variant-control select { display: block; margin-top: .35rem; }
+  .single-version { font: .75rem var(--sans); color: var(--graphite); min-height: 64px; margin: 0; display: flex; align-items: center; }
+  .asset-actions { display: flex; justify-content: space-between; gap: .5rem; padding-top: .65rem; font: .75rem var(--sans); }
+  .asset-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+  .library-note { border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 3rem; color: var(--graphite); font: .75rem/1.5 var(--sans); }
+  @media (max-width: 500px) { .cutout-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem .75rem; } .cutout-frame { padding: .5rem; } .cutout-card h2 { font-size: .85rem; } }
+</style>

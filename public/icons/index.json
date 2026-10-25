@@ -1,592 +1,4646 @@
 {
-  "name": "FA icon pack",
-  "count": 97,
-  "format": "webp",
-  "canvas": "512x512 transparent, artwork centred in an 880/1024 content box",
-  "source": "Google Drive 01_ART/00_icon-pack (1024px PNG masters)",
-  "note": "Filenames are descriptive placeholders; an editorial rename pass is planned. Expect URLs to change once; redirects will be added.",
+  "schemaVersion": 2,
+  "name": "Finn Astle cutout library",
+  "count": 131,
+  "familyCount": 110,
+  "source": "Studio File / Cutouts, with selected existing repository assets",
+  "note": "An editorial selection of artwork and found cultural material. No blanket licence is implied for third-party references.",
+  "families": [
+    {
+      "id": "pole-dancer",
+      "title": "Acrobat",
+      "category": "Bodies & play",
+      "keywords": [
+        "pole",
+        "dancer"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "pole-dancer",
+          "label": "Original",
+          "file": "/icons/pole-dancer.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 10662,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/pole-dancer.webp"
+          },
+          "alt": "Acrobat, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "pole-dancer"
+    },
+    {
+      "id": "comic-panel-captain",
+      "title": "Aircraft comic panel",
+      "category": "Found culture",
+      "keywords": [
+        "comic",
+        "panel",
+        "captain"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "comic-panel-captain",
+          "label": "Original",
+          "file": "/icons/comic-panel-captain.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 46432,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/comic-panel-captain.webp"
+          },
+          "alt": "Aircraft comic panel, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "comic-panel-captain"
+    },
+    {
+      "id": "american-spirit",
+      "title": "American spirit",
+      "category": "Found culture",
+      "keywords": [
+        "american",
+        "spirit"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "american-spirit",
+          "label": "Original",
+          "file": "/icons/american-spirit.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 41204,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/american-spirit.webp"
+          },
+          "alt": "American spirit, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "american-spirit"
+    },
+    {
+      "id": "angel-statue-church",
+      "title": "Angel in a niche",
+      "category": "Symbols & belief",
+      "keywords": [
+        "angel",
+        "statue",
+        "church"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "angel-statue-church",
+          "label": "Original",
+          "file": "/icons/angel-statue-church.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 40336,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/angel-statue-church.webp"
+          },
+          "alt": "Angel in a niche, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "angel-statue-church"
+    },
+    {
+      "id": "angelic-baby",
+      "title": "Angelic baby",
+      "category": "Symbols & belief",
+      "keywords": [
+        "angelic",
+        "baby"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "angelic-baby",
+          "label": "Original",
+          "file": "/icons/angelic-baby.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 22708,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/angelic-baby.webp"
+          },
+          "alt": "Angelic baby, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "angelic-baby"
+    },
+    {
+      "id": "apache-helicopter",
+      "title": "Apache military advertisement",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "apache",
+        "helicopter"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "apache-helicopter",
+          "label": "Original",
+          "file": "/icons/apache-helicopter.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 19750,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/apache-helicopter.webp"
+          },
+          "alt": "Apache military advertisement, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "apache-helicopter"
+    },
+    {
+      "id": "staple-gun-arrow",
+      "title": "Arrow staple-gun label",
+      "category": "Found culture",
+      "keywords": [
+        "staple",
+        "gun",
+        "arrow"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "staple-gun-arrow",
+          "label": "Original",
+          "file": "/icons/staple-gun-arrow.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 107946,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/print-label-arrow-shaped.png"
+          },
+          "alt": "Arrow staple-gun label, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "staple-gun-arrow"
+    },
+    {
+      "id": "audi-quattro",
+      "title": "Audi sketch",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "audi",
+        "quattro"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "audi-quattro",
+          "label": "Original",
+          "file": "/icons/audi-quattro.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 32954,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/audi-quattro.webp"
+          },
+          "alt": "Audi sketch, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "audi-quattro"
+    },
+    {
+      "id": "mark-athletes-jumping-watercolor",
+      "title": "Australian footballers",
+      "category": "Bodies & play",
+      "keywords": [
+        "mark",
+        "athletes",
+        "jumping",
+        "watercolor"
+      ],
+      "rationale": "Australian sport expressed through painted figures.",
+      "variants": [
+        {
+          "id": "mark-athletes-jumping-watercolor",
+          "label": "Original",
+          "file": "/icons/mark-athletes-jumping-watercolor.webp",
+          "format": "webp",
+          "width": 1011,
+          "height": 1011,
+          "bytes": 31294,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/mark-athletes-jumping-watercolor.png"
+          },
+          "alt": "Australian footballers, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "mark-athletes-jumping-watercolor"
+    },
+    {
+      "id": "batman",
+      "title": "Batman",
+      "category": "Found culture",
+      "keywords": [
+        "batman"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "batman",
+          "label": "Original",
+          "file": "/icons/batman.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 33312,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/batman.webp"
+          },
+          "alt": "Batman, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "batman"
+    },
+    {
+      "id": "black-panther",
+      "title": "Black panther head",
+      "category": "Animals & flora",
+      "keywords": [
+        "black",
+        "panther"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "black-panther",
+          "label": "Original",
+          "file": "/icons/black-panther.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 6326,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/black-panther.webp"
+          },
+          "alt": "Black panther head, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "black-panther"
+    },
+    {
+      "id": "photo-lighter-blue-plastic",
+      "title": "Blue Bic lighter",
+      "category": "Found culture",
+      "keywords": [
+        "photo",
+        "lighter",
+        "blue",
+        "plastic"
+      ],
+      "rationale": "A recognisable everyday object with a specific material identity.",
+      "variants": [
+        {
+          "id": "photo-lighter-blue-plastic",
+          "label": "Original",
+          "file": "/icons/photo-lighter-blue-plastic.webp",
+          "format": "webp",
+          "width": 348,
+          "height": 348,
+          "bytes": 5086,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-lighter-blue-plastic.png"
+          },
+          "alt": "Blue Bic lighter, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "photo-lighter-blue-plastic"
+    },
+    {
+      "id": "blue-sedan-car",
+      "title": "Blue sedan",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "blue",
+        "sedan",
+        "car"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "blue-sedan-car",
+          "label": "Original",
+          "file": "/icons/blue-sedan-car.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 50306,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-sedan-blue-ribboned.png"
+          },
+          "alt": "Blue sedan, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "blue-sedan-car"
+    },
+    {
+      "id": "muscle-man-larger",
+      "title": "Bodybuilder",
+      "category": "Bodies & play",
+      "keywords": [
+        "muscle",
+        "man",
+        "larger"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "muscle-man-larger",
+          "label": "Original",
+          "file": "/icons/muscle-man-larger.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 23850,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/muscle-man-larger.webp"
+          },
+          "alt": "Bodybuilder, original",
+          "background": "light"
+        },
+        {
+          "id": "muscle-man",
+          "label": "With collage marks",
+          "file": "/icons/muscle-man.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 21282,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/muscle-man.webp"
+          },
+          "alt": "Bodybuilder, with collage marks",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "muscle-man-larger"
+    },
+    {
+      "id": "boeing-advert-jet",
+      "title": "Boeing, painted sky",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "boeing",
+        "advert",
+        "jet"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "boeing-advert-jet",
+          "label": "Original",
+          "file": "/icons/boeing-advert-jet.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 24140,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/boeing-advert-jet.webp"
+          },
+          "alt": "Boeing, painted sky, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "boeing-advert-jet"
+    },
+    {
+      "id": "long-legs",
+      "title": "Boots and legs study",
+      "category": "Bodies & play",
+      "keywords": [
+        "long",
+        "legs"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "long-legs",
+          "label": "Original",
+          "file": "/icons/long-legs.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 17028,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/long-legs.webp"
+          },
+          "alt": "Boots and legs study, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "long-legs"
+    },
+    {
+      "id": "born-to-kill-helmet",
+      "title": "Born to Kill helmet",
+      "category": "Found culture",
+      "keywords": [
+        "born",
+        "to",
+        "kill",
+        "helmet"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "born-to-kill-helmet",
+          "label": "Original",
+          "file": "/icons/born-to-kill-helmet.webp",
+          "format": "webp",
+          "width": 238,
+          "height": 238,
+          "bytes": 10166,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-helmet-camouflage-military.png"
+          },
+          "alt": "Born to Kill helmet, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "born-to-kill-helmet"
+    },
+    {
+      "id": "clipping-collage-botanical-mixed",
+      "title": "Botanical collage fragment",
+      "category": "Animals & flora",
+      "keywords": [
+        "clipping",
+        "collage",
+        "botanical",
+        "mixed"
+      ],
+      "rationale": "Flowers, printed matter and painted surfaces assembled as a specific fragment.",
+      "variants": [
+        {
+          "id": "clipping-collage-botanical-mixed",
+          "label": "Original",
+          "file": "/icons/clipping-collage-botanical-mixed.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 124502,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/clipping-collage-botanical-mixed.png"
+          },
+          "alt": "Botanical collage fragment, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "clipping-collage-botanical-mixed"
+    },
+    {
+      "id": "bottlebrush-flower",
+      "title": "Bottlebrush flower",
+      "category": "Animals & flora",
+      "keywords": [
+        "bottlebrush",
+        "flower"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "bottlebrush-flower",
+          "label": "Original",
+          "file": "/icons/bottlebrush-flower.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 34140,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/bottlebrush-flower.webp"
+          },
+          "alt": "Bottlebrush flower, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "bottlebrush-flower"
+    },
+    {
+      "id": "boundlessness-text",
+      "title": "BOUND / LESS / NESS",
+      "category": "Words & print",
+      "keywords": [
+        "boundlessness",
+        "text"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "boundlessness-text",
+          "label": "Original",
+          "file": "/icons/boundlessness-text.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 23496,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/boundlessness-text.webp"
+          },
+          "alt": "BOUND / LESS / NESS, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "boundlessness-text"
+    },
+    {
+      "id": "boxing-frame",
+      "title": "Boxers",
+      "category": "Bodies & play",
+      "keywords": [
+        "boxing",
+        "frame"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "boxers-cutout",
+          "label": "Transparent cutout",
+          "file": "/icons/cutouts/boxers-cutout.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "bytes": 68856,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2233:2929",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2233-2929",
+            "master": "src/assets/cutouts/boxers-cutout.png",
+            "masterWidth": 1450,
+            "masterHeight": 816,
+            "masterSha256": "a2cc258430524866e0b575e7dd87db0217712e66e7c9843fe2d5288eeaafdf86",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Boxers, transparent cutout",
+          "background": "light"
+        },
+        {
+          "id": "boxing-frame",
+          "label": "Paper-backed",
+          "file": "/icons/boxing-frame.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 7784,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/boxing-frame.webp"
+          },
+          "alt": "Boxers, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "boxers-cutout"
+    },
+    {
+      "id": "bull-skull-stars",
+      "title": "Bull skull stars",
+      "category": "Found culture",
+      "keywords": [
+        "bull",
+        "skull",
+        "stars"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "bull-skull-stars",
+          "label": "Original",
+          "file": "/icons/bull-skull-stars.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 9664,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/bull-skull-stars.webp"
+          },
+          "alt": "Bull skull stars, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "bull-skull-stars"
+    },
+    {
+      "id": "ohm-symbol",
+      "title": "Calligraphic 3c mark",
+      "category": "Symbols & belief",
+      "keywords": [
+        "ohm",
+        "symbol"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "ohm-symbol",
+          "label": "Original",
+          "file": "/icons/ohm-symbol.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 4276,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/ohm-symbol.webp"
+          },
+          "alt": "Calligraphic 3c mark, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "ohm-symbol"
+    },
+    {
+      "id": "dog-and-traffic-light",
+      "title": "Car and traffic light",
+      "category": "Animals & flora",
+      "keywords": [
+        "dog",
+        "and",
+        "traffic",
+        "light"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "dog-and-traffic-light",
+          "label": "Original",
+          "file": "/icons/dog-and-traffic-light.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 15016,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/dog-and-traffic-light.webp"
+          },
+          "alt": "Car and traffic light, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "dog-and-traffic-light"
+    },
+    {
+      "id": "checkered-flag",
+      "title": "Chequered strip",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "checkered",
+        "flag"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "checkered-flag",
+          "label": "Original",
+          "file": "/icons/checkered-flag.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 3332,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/checkered-flag.webp"
+          },
+          "alt": "Chequered strip, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "checkered-flag"
+    },
+    {
+      "id": "clutch",
+      "title": "Clutch",
+      "category": "Words & print",
+      "keywords": [
+        "clutch"
+      ],
+      "rationale": "Distressed lettering with mechanical and colloquial associations.",
+      "variants": [
+        {
+          "id": "clutch-black",
+          "label": "Black ink",
+          "file": "/icons/cutouts/clutch-black.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 383,
+          "bytes": 23266,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:5790",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-5790",
+            "master": "src/assets/cutouts/clutch-black.png",
+            "masterWidth": 1296,
+            "masterHeight": 485,
+            "masterSha256": "1a3568187942ffaf056784aaeb25f2d1b920c6228b9d14bc7a57e82f5036b526",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Clutch, black ink",
+          "background": "light"
+        },
+        {
+          "id": "clutch-white",
+          "label": "White ink",
+          "file": "/icons/cutouts/clutch-white.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 383,
+          "bytes": 69252,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:5789",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-5789",
+            "master": "src/assets/cutouts/clutch-white.png",
+            "masterWidth": 1296,
+            "masterHeight": 485,
+            "masterSha256": "0cb01cf07f42753351c92f014fc7af445a1d3d24e1cd0434ddabc64beac50918",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Clutch, white ink",
+          "background": "dark"
+        }
+      ],
+      "defaultVariant": "clutch-black"
+    },
+    {
+      "id": "cowboy-boot",
+      "title": "Cowboy boot",
+      "category": "Found culture",
+      "keywords": [
+        "cowboy",
+        "boot"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "cowboy-boot",
+          "label": "Original",
+          "file": "/icons/cowboy-boot.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 29242,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/cowboy-boot.webp"
+          },
+          "alt": "Cowboy boot, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "cowboy-boot"
+    },
+    {
+      "id": "the-free-country",
+      "title": "Crossed-out portrait",
+      "category": "Symbols & belief",
+      "keywords": [
+        "the",
+        "free",
+        "country"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "the-free-country",
+          "label": "Original",
+          "file": "/icons/the-free-country.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 34110,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/the-free-country.webp"
+          },
+          "alt": "Crossed-out portrait, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "the-free-country"
+    },
+    {
+      "id": "print-crucifixion-flaming-halftone",
+      "title": "Crucifixion in flames",
+      "category": "Symbols & belief",
+      "keywords": [
+        "print",
+        "crucifixion",
+        "flaming",
+        "halftone"
+      ],
+      "rationale": "Religious imagery reworked through halftone print.",
+      "variants": [
+        {
+          "id": "print-crucifixion-flaming-halftone",
+          "label": "Original",
+          "file": "/icons/print-crucifixion-flaming-halftone.webp",
+          "format": "webp",
+          "width": 758,
+          "height": 758,
+          "bytes": 108898,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/print-crucifixion-flaming-halftone.png"
+          },
+          "alt": "Crucifixion in flames, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "print-crucifixion-flaming-halftone"
+    },
+    {
+      "id": "photo-can-crushed-red",
+      "title": "Crushed Coke can",
+      "category": "Found culture",
+      "keywords": [
+        "photo",
+        "can",
+        "crushed",
+        "red"
+      ],
+      "rationale": "Consumer packaging, damaged and discarded.",
+      "variants": [
+        {
+          "id": "photo-can-crushed-red",
+          "label": "Original",
+          "file": "/icons/photo-can-crushed-red.webp",
+          "format": "webp",
+          "width": 482,
+          "height": 482,
+          "bytes": 22744,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-can-crushed-red.png"
+          },
+          "alt": "Crushed Coke can, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "photo-can-crushed-red"
+    },
+    {
+      "id": "billboard-spokane",
+      "title": "Damaged Spokane billboard",
+      "category": "Found culture",
+      "keywords": [
+        "billboard",
+        "spokane"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "billboard-spokane",
+          "label": "Original",
+          "file": "/icons/billboard-spokane.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 22840,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/billboard-spokane.webp"
+          },
+          "alt": "Damaged Spokane billboard, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "billboard-spokane"
+    },
+    {
+      "id": "drag-race-dragway",
+      "title": "Dragway clipping",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "drag",
+        "race",
+        "dragway"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "drag-race-dragway",
+          "label": "Original",
+          "file": "/icons/drag-race-dragway.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 16506,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/drag-race-dragway.webp"
+          },
+          "alt": "Dragway clipping, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "drag-race-dragway"
+    },
+    {
+      "id": "mark-armchair-draped-cloth",
+      "title": "Draped armchair",
+      "category": "Found culture",
+      "keywords": [
+        "mark",
+        "armchair",
+        "draped",
+        "cloth"
+      ],
+      "rationale": "A specific domestic object rendered as a drawing.",
+      "variants": [
+        {
+          "id": "mark-armchair-draped-cloth",
+          "label": "Original",
+          "file": "/icons/mark-armchair-draped-cloth.webp",
+          "format": "webp",
+          "width": 238,
+          "height": 238,
+          "bytes": 9654,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/mark-armchair-draped-cloth.png"
+          },
+          "alt": "Draped armchair, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "mark-armchair-draped-cloth"
+    },
+    {
+      "id": "flame-animation-01",
+      "title": "Drawn flames",
+      "category": "Found culture",
+      "keywords": [
+        "flame",
+        "animation",
+        "01"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "flame-animation-01",
+          "label": "Original",
+          "file": "/icons/flame-animation-01.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 17254,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/flame-animation-01.webp"
+          },
+          "alt": "Drawn flames, original",
+          "background": "light"
+        },
+        {
+          "id": "flame-animation-02",
+          "label": "Soft edges",
+          "file": "/icons/flame-animation-02.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 22100,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/flame-animation-02.webp"
+          },
+          "alt": "Drawn flames, soft edges",
+          "background": "light"
+        },
+        {
+          "id": "flame-animation-03",
+          "label": "Pointed",
+          "file": "/icons/flame-animation-03.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 21686,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/flame-animation-03.webp"
+          },
+          "alt": "Drawn flames, pointed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "flame-animation-01"
+    },
+    {
+      "id": "photo-pill-embossed-rectangular",
+      "title": "Embossed pill",
+      "category": "Found culture",
+      "keywords": [
+        "photo",
+        "pill",
+        "embossed",
+        "rectangular"
+      ],
+      "rationale": "Recognisable pharmaceutical object, retained as reference material.",
+      "variants": [
+        {
+          "id": "photo-pill-embossed-rectangular",
+          "label": "Original",
+          "file": "/icons/photo-pill-embossed-rectangular.webp",
+          "format": "webp",
+          "width": 163,
+          "height": 163,
+          "bytes": 1878,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-pill-embossed-rectangular.png"
+          },
+          "alt": "Embossed pill, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "photo-pill-embossed-rectangular"
+    },
+    {
+      "id": "end-lettering",
+      "title": "END",
+      "category": "Words & print",
+      "keywords": [
+        "end",
+        "lettering"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "end-lettering",
+          "label": "Original",
+          "file": "/icons/end-lettering.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 15340,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/end-lettering.webp"
+          },
+          "alt": "END, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "end-lettering"
+    },
+    {
+      "id": "falcon-sketch-1",
+      "title": "Falcon",
+      "category": "Animals & flora",
+      "keywords": [
+        "falcon",
+        "sketch",
+        "1"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "falcon-sketch-1",
+          "label": "Original",
+          "file": "/icons/falcon-sketch-1.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 14730,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/falcon-sketch-1.webp"
+          },
+          "alt": "Falcon, original",
+          "background": "light"
+        },
+        {
+          "id": "falcon-sketch-2",
+          "label": "Alternate drawing",
+          "file": "/icons/falcon-sketch-2.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 13814,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/falcon-sketch-2.webp"
+          },
+          "alt": "Falcon, alternate drawing",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "falcon-sketch-1"
+    },
+    {
+      "id": "falcon-sun",
+      "title": "Falcon, sun and cloud",
+      "category": "Animals & flora",
+      "keywords": [
+        "falcon",
+        "sun"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "falcon-sun",
+          "label": "Original",
+          "file": "/icons/falcon-sun.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 21692,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/falcon-sun.webp"
+          },
+          "alt": "Falcon, sun and cloud, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "falcon-sun"
+    },
+    {
+      "id": "falling-angel",
+      "title": "Falling angel",
+      "category": "Symbols & belief",
+      "keywords": [
+        "falling",
+        "angel"
+      ],
+      "rationale": "Angelic figure and flames, continuing the religious imagery.",
+      "variants": [
+        {
+          "id": "falling-angel",
+          "label": "Original colour",
+          "file": "/icons/cutouts/falling-angel.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1014,
+          "bytes": 122914,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2007:115",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2007-115",
+            "master": "src/assets/cutouts/falling-angel.png",
+            "masterWidth": 4198,
+            "masterHeight": 4156,
+            "masterSha256": "0c42268ab44c35132949c6974a1957c1677ec1a7776e018b5642d90da145c35c",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Falling angel, original colour",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "falling-angel"
+    },
+    {
+      "id": "sacred-heart",
+      "title": "Flaming sacred heart",
+      "category": "Symbols & belief",
+      "keywords": [
+        "sacred",
+        "heart"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "sacred-heart-cutout",
+          "label": "Transparent cutout",
+          "file": "/icons/cutouts/sacred-heart-cutout.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1012,
+          "bytes": 212472,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2233:2931",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2233-2931",
+            "master": "src/assets/cutouts/sacred-heart-cutout.png",
+            "masterWidth": 1850,
+            "masterHeight": 1828,
+            "masterSha256": "36a3dc9013b8e67710e444fe14b9eed6bcd31123139b6134e02e22a955ccdf90",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Flaming sacred heart, transparent cutout",
+          "background": "light"
+        },
+        {
+          "id": "sacred-heart",
+          "label": "Paper-backed",
+          "file": "/icons/sacred-heart.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 31286,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/sacred-heart.webp"
+          },
+          "alt": "Flaming sacred heart, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "sacred-heart-cutout"
+    },
+    {
+      "id": "comic-coffin-floating-strip",
+      "title": "Floating coffin comic",
+      "category": "Found culture",
+      "keywords": [
+        "comic",
+        "coffin",
+        "floating",
+        "strip"
+      ],
+      "rationale": "Narrative comic imagery, with its printed context retained.",
+      "variants": [
+        {
+          "id": "comic-coffin-floating-strip",
+          "label": "Original",
+          "file": "/icons/comic-coffin-floating-strip.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 116778,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/comic-coffin-floating-strip.png"
+          },
+          "alt": "Floating coffin comic, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "comic-coffin-floating-strip"
+    },
+    {
+      "id": "flying-jets-in-formation",
+      "title": "Flying jets in formation",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "flying",
+        "jets",
+        "in",
+        "formation"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "flying-jets-in-formation",
+          "label": "Original",
+          "file": "/icons/flying-jets-in-formation.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 25762,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/flying-jets-in-formation.webp"
+          },
+          "alt": "Flying jets in formation, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "flying-jets-in-formation"
+    },
+    {
+      "id": "fuel-station",
+      "title": "Fuel station",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "fuel",
+        "station"
+      ],
+      "rationale": "Petrol-station architecture and road culture.",
+      "variants": [
+        {
+          "id": "fuel-colour",
+          "label": "Original colour",
+          "file": "/icons/cutouts/fuel-colour.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 363,
+          "bytes": 96236,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3265",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3265",
+            "master": "src/assets/cutouts/fuel-colour.png",
+            "masterWidth": 3622,
+            "masterHeight": 1285,
+            "masterSha256": "bfd38c5efe2c7254bb9aec3dea80af5ba27c847eb1a4ba6ac5ff7bfeebb573a1",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Fuel station, original colour",
+          "background": "light"
+        },
+        {
+          "id": "fuel-dark",
+          "label": "Dark",
+          "file": "/icons/cutouts/fuel-dark.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 746,
+          "bytes": 132712,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3267",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3267",
+            "master": "src/assets/cutouts/fuel-dark.png",
+            "masterWidth": 1763,
+            "masterHeight": 1285,
+            "masterSha256": "fcff4cdc8fc995e055562b7a5850f9fe415f4861eceb4d1b9e06dc9ce1e0d896",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Fuel station, dark",
+          "background": "light"
+        },
+        {
+          "id": "fuel-white",
+          "label": "White",
+          "file": "/icons/cutouts/fuel-white.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 833,
+          "bytes": 110740,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3477",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3477",
+            "master": "src/assets/cutouts/fuel-white.png",
+            "masterWidth": 1580,
+            "masterHeight": 1285,
+            "masterSha256": "50834141890c24bae8fbbe2041171089bc031ef93eaef98c07b706f3e49edc02",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Fuel station, white",
+          "background": "dark"
+        }
+      ],
+      "defaultVariant": "fuel-colour"
+    },
+    {
+      "id": "fuel-station-scene",
+      "title": "Fuel station under painted arc",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "fuel",
+        "station",
+        "scene"
+      ],
+      "rationale": "An alternate composition, kept separate from station-only colour variants.",
+      "variants": [
+        {
+          "id": "fuel-cyan-scene",
+          "label": "Cyan scene",
+          "file": "/icons/cutouts/fuel-cyan-scene.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 363,
+          "bytes": 69236,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3266",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3266",
+            "master": "src/assets/cutouts/fuel-cyan-scene.png",
+            "masterWidth": 3622,
+            "masterHeight": 1285,
+            "masterSha256": "67992599d85e814815067e3cd2a1844c94df5f201dc8e6cc51191ea82b79c91c",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Fuel station under painted arc, cyan scene",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "fuel-cyan-scene"
+    },
+    {
+      "id": "full-elevator",
+      "title": "Full elevator",
+      "category": "Found culture",
+      "keywords": [
+        "full",
+        "elevator"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "full-elevator",
+          "label": "Original",
+          "file": "/icons/full-elevator.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 22002,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/full-elevator.webp"
+          },
+          "alt": "Full elevator, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "full-elevator"
+    },
+    {
+      "id": "clipping-collage-green-mixed",
+      "title": "Garden text collage",
+      "category": "Words & print",
+      "keywords": [
+        "clipping",
+        "collage",
+        "green",
+        "mixed"
+      ],
+      "rationale": "A found sentence embedded in a painted fragment.",
+      "variants": [
+        {
+          "id": "clipping-collage-green-mixed",
+          "label": "Original",
+          "file": "/icons/clipping-collage-green-mixed.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 81134,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/clipping-collage-green-mixed.png"
+          },
+          "alt": "Garden text collage, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "clipping-collage-green-mixed"
+    },
+    {
+      "id": "good-game",
+      "title": "Good game scene",
+      "category": "Found culture",
+      "keywords": [
+        "good",
+        "game"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "good-game",
+          "label": "Original",
+          "file": "/icons/good-game.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 25454,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/good-game.webp"
+          },
+          "alt": "Good game scene, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "good-game"
+    },
+    {
+      "id": "greco-wrestlers",
+      "title": "Grappling wrestlers",
+      "category": "Bodies & play",
+      "keywords": [
+        "greco",
+        "wrestlers"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "greco-wrestlers",
+          "label": "Original",
+          "file": "/icons/greco-wrestlers.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 33064,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/greco-wrestlers.webp"
+          },
+          "alt": "Grappling wrestlers, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "greco-wrestlers"
+    },
+    {
+      "id": "hopelessness",
+      "title": "HOPE / LESS / NESS",
+      "category": "Words & print",
+      "keywords": [
+        "hopelessness"
+      ],
+      "rationale": "Companion phrase; a distinct word, not a colour variant.",
+      "variants": [
+        {
+          "id": "hopelessness-paper",
+          "label": "Paper-backed",
+          "file": "/icons/cutouts/hopelessness-paper.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 981,
+          "bytes": 27578,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "1737:3",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1737-3",
+            "master": "src/assets/cutouts/hopelessness-paper.png",
+            "masterWidth": 2450,
+            "masterHeight": 2346,
+            "masterSha256": "3a1126a9752043c05347ec2b9f8a3426d83ad47712acfc9b4afb3c983c233997",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "HOPE / LESS / NESS, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "hopelessness-paper"
+    },
+    {
+      "id": "running-horse",
+      "title": "Horse and stars",
+      "category": "Animals & flora",
+      "keywords": [
+        "running",
+        "horse"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "running-horse",
+          "label": "Original",
+          "file": "/icons/running-horse.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 13420,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/running-horse.webp"
+          },
+          "alt": "Horse and stars, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "running-horse"
+    },
+    {
+      "id": "jumping-horse",
+      "title": "Horse over a fence",
+      "category": "Animals & flora",
+      "keywords": [
+        "jumping",
+        "horse"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "jumping-horse",
+          "label": "Original",
+          "file": "/icons/jumping-horse.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 16146,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/jumping-horse.webp"
+          },
+          "alt": "Horse over a fence, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "jumping-horse"
+    },
+    {
+      "id": "horse-procession",
+      "title": "Horse procession",
+      "category": "Animals & flora",
+      "keywords": [
+        "horse",
+        "procession"
+      ],
+      "rationale": "Repeated horse gestures from the fuel-station composition.",
+      "variants": [
+        {
+          "id": "horses-procession",
+          "label": "Black ink",
+          "file": "/icons/cutouts/horses-procession.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 360,
+          "bytes": 44112,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3238",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3238",
+            "master": "src/assets/cutouts/horses-procession.png",
+            "masterWidth": 3377,
+            "masterHeight": 1187,
+            "masterSha256": "b1950a60aabc971355b53a42f2e610cf99aa0bc03c4b9b16f70c05384516c554",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Horse procession, black ink",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "horses-procession"
+    },
+    {
+      "id": "horse-silhouette",
+      "title": "Horse silhouette",
+      "category": "Animals & flora",
+      "keywords": [
+        "horse",
+        "silhouette"
+      ],
+      "rationale": "A restrained white horse treatment for dark grounds.",
+      "variants": [
+        {
+          "id": "horse-silhouette",
+          "label": "White",
+          "file": "/icons/cutouts/horse-silhouette.webp",
+          "format": "webp",
+          "width": 923,
+          "height": 1024,
+          "bytes": 62050,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2373:6044",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2373-6044",
+            "master": "src/assets/cutouts/horse-silhouette.png",
+            "masterWidth": 937,
+            "masterHeight": 1039,
+            "masterSha256": "84ff02106d814c13621f2ac664a70dc646f286ffcc8cc2a013569364748ffa6d",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Horse silhouette, white",
+          "background": "dark"
+        }
+      ],
+      "defaultVariant": "horse-silhouette"
+    },
+    {
+      "id": "intermission-text",
+      "title": "Intermission text",
+      "category": "Words & print",
+      "keywords": [
+        "intermission",
+        "text"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "intermission-text",
+          "label": "Original",
+          "file": "/icons/intermission-text.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 4884,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/intermission-text.webp"
+          },
+          "alt": "Intermission text, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "intermission-text"
+    },
+    {
+      "id": "mark-figures-intertwined-gestural",
+      "title": "Intertwined figures",
+      "category": "Bodies & play",
+      "keywords": [
+        "mark",
+        "figures",
+        "intertwined",
+        "gestural"
+      ],
+      "rationale": "Gestural figure study from the personal drawing language.",
+      "variants": [
+        {
+          "id": "mark-figures-intertwined-gestural",
+          "label": "Original",
+          "file": "/icons/mark-figures-intertwined-gestural.webp",
+          "format": "webp",
+          "width": 477,
+          "height": 477,
+          "bytes": 34276,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/mark-figures-intertwined-gestural.png"
+          },
+          "alt": "Intertwined figures, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "mark-figures-intertwined-gestural"
+    },
+    {
+      "id": "print-typography-iridescent-car",
+      "title": "Iridescent car typography",
+      "category": "Words & print",
+      "keywords": [
+        "print",
+        "typography",
+        "iridescent",
+        "car"
+      ],
+      "rationale": "Automotive print and typographic excess.",
+      "variants": [
+        {
+          "id": "print-typography-iridescent-car",
+          "label": "Original",
+          "file": "/icons/print-typography-iridescent-car.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 87426,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/print-typography-iridescent-car.png"
+          },
+          "alt": "Iridescent car typography, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "print-typography-iridescent-car"
+    },
+    {
+      "id": "clipping-embroidery-kangaroo-wheat",
+      "title": "Kangaroo embroidery",
+      "category": "Symbols & belief",
+      "keywords": [
+        "clipping",
+        "embroidery",
+        "kangaroo",
+        "wheat"
+      ],
+      "rationale": "Australian iconography expressed through domestic craft.",
+      "variants": [
+        {
+          "id": "clipping-embroidery-kangaroo-wheat",
+          "label": "Original",
+          "file": "/icons/clipping-embroidery-kangaroo-wheat.webp",
+          "format": "webp",
+          "width": 327,
+          "height": 327,
+          "bytes": 34130,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/clipping-embroidery-kangaroo-wheat.png"
+          },
+          "alt": "Kangaroo embroidery, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "clipping-embroidery-kangaroo-wheat"
+    },
+    {
+      "id": "print-text-gardening-layered",
+      "title": "Layered gardening text",
+      "category": "Words & print",
+      "keywords": [
+        "print",
+        "text",
+        "gardening",
+        "layered"
+      ],
+      "rationale": "Specific found language and overprinting.",
+      "variants": [
+        {
+          "id": "print-text-gardening-layered",
+          "label": "Original",
+          "file": "/icons/print-text-gardening-layered.webp",
+          "format": "webp",
+          "width": 717,
+          "height": 717,
+          "bytes": 87940,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/print-text-gardening-layered.png"
+          },
+          "alt": "Layered gardening text, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "print-text-gardening-layered"
+    },
+    {
+      "id": "dolphins-silhouette",
+      "title": "Leaping dolphins",
+      "category": "Animals & flora",
+      "keywords": [
+        "dolphins",
+        "silhouette"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "dolphins-silhouette",
+          "label": "Original",
+          "file": "/icons/dolphins-silhouette.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 2472,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/dolphins-silhouette.webp"
+          },
+          "alt": "Leaping dolphins, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "dolphins-silhouette"
+    },
+    {
+      "id": "life-in-layers-text",
+      "title": "Life in Layers",
+      "category": "Words & print",
+      "keywords": [
+        "life",
+        "in",
+        "layers",
+        "text"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "life-in-layers-text",
+          "label": "Original",
+          "file": "/icons/life-in-layers-text.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 8388,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/life-in-layers-text.webp"
+          },
+          "alt": "Life in Layers, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "life-in-layers-text"
+    },
+    {
+      "id": "matchsticks-element",
+      "title": "Matchsticks element",
+      "category": "Found culture",
+      "keywords": [
+        "matchsticks",
+        "element"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "matchsticks-element",
+          "label": "Original",
+          "file": "/icons/matchsticks-element.webp",
+          "format": "webp",
+          "width": 322,
+          "height": 572,
+          "bytes": 5302,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/mark-matchsticks-burnt-unlit.png"
+          },
+          "alt": "Matchsticks element, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "matchsticks-element"
+    },
+    {
+      "id": "ned-kelly",
+      "title": "Ned Kelly ink collage",
+      "category": "Symbols & belief",
+      "keywords": [
+        "ned",
+        "kelly"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "ned-kelly",
+          "label": "Original",
+          "file": "/icons/ned-kelly.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 23428,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/ned-kelly.webp"
+          },
+          "alt": "Ned Kelly ink collage, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "ned-kelly"
+    },
+    {
+      "id": "ned-kelly-2",
+      "title": "Ned Kelly mixed media",
+      "category": "Symbols & belief",
+      "keywords": [
+        "ned",
+        "kelly",
+        "2"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "ned-kelly-2",
+          "label": "Original",
+          "file": "/icons/ned-kelly-2.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 23844,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/ned-kelly-2.webp"
+          },
+          "alt": "Ned Kelly mixed media, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "ned-kelly-2"
+    },
+    {
+      "id": "basic-ned-kelly",
+      "title": "Ned Kelly, paper figure",
+      "category": "Symbols & belief",
+      "keywords": [
+        "basic",
+        "ned",
+        "kelly"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "basic-ned-kelly",
+          "label": "Original",
+          "file": "/icons/basic-ned-kelly.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 27328,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/basic-ned-kelly.webp"
+          },
+          "alt": "Ned Kelly, paper figure, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "basic-ned-kelly"
+    },
+    {
+      "id": "sun-newspaper",
+      "title": "Newspaper sun",
+      "category": "Found culture",
+      "keywords": [
+        "sun",
+        "newspaper"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "sun-newspaper",
+          "label": "Original",
+          "file": "/icons/sun-newspaper.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 37646,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/sun-newspaper.webp"
+          },
+          "alt": "Newspaper sun, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "sun-newspaper"
+    },
+    {
+      "id": "mark-figures-tangled-dripping",
+      "title": "Pain Management Plan",
+      "category": "Bodies & play",
+      "keywords": [
+        "mark",
+        "figures",
+        "tangled",
+        "dripping"
+      ],
+      "rationale": "Drawn bodies and written language in one personal motif.",
+      "variants": [
+        {
+          "id": "mark-figures-tangled-dripping",
+          "label": "Original",
+          "file": "/icons/mark-figures-tangled-dripping.webp",
+          "format": "webp",
+          "width": 902,
+          "height": 902,
+          "bytes": 99934,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/mark-figures-tangled-dripping.png"
+          },
+          "alt": "Pain Management Plan, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "mark-figures-tangled-dripping"
+    },
+    {
+      "id": "daisies",
+      "title": "Painted daisies",
+      "category": "Animals & flora",
+      "keywords": [
+        "daisies"
+      ],
+      "rationale": "Loose painted flowers; single and row compositions.",
+      "variants": [
+        {
+          "id": "daisy-single",
+          "label": "Single",
+          "file": "/icons/cutouts/daisy-single.webp",
+          "format": "webp",
+          "width": 563,
+          "height": 1024,
+          "bytes": 103078,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3489",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3489",
+            "master": "src/assets/cutouts/daisy-single.png",
+            "masterWidth": 608,
+            "masterHeight": 1105,
+            "masterSha256": "ba1a6e9918a8b10a85ea28452b51300932f43e01bb7009fc154e4b49f0cc063d",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted daisies, single",
+          "background": "light"
+        },
+        {
+          "id": "daisies-row",
+          "label": "Row",
+          "file": "/icons/cutouts/daisies-row.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 596,
+          "bytes": 158948,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2253:3488",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2253-3488",
+            "master": "src/assets/cutouts/daisies-row.png",
+            "masterWidth": 1900,
+            "masterHeight": 1105,
+            "masterSha256": "5ab401378ba26e84a992c5894ce129c4a88523747ae7d696cfe0815ee02fd39f",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted daisies, row",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "daisy-single"
+    },
+    {
+      "id": "clipping-portrait-jesus-painted",
+      "title": "Painted Jesus portrait",
+      "category": "Symbols & belief",
+      "keywords": [
+        "clipping",
+        "portrait",
+        "jesus",
+        "painted"
+      ],
+      "rationale": "Religious portrait fragment.",
+      "variants": [
+        {
+          "id": "clipping-portrait-jesus-painted",
+          "label": "Original",
+          "file": "/icons/clipping-portrait-jesus-painted.webp",
+          "format": "webp",
+          "width": 633,
+          "height": 359,
+          "bytes": 71700,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/clipping-portrait-jesus-painted.png"
+          },
+          "alt": "Painted Jesus portrait, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "clipping-portrait-jesus-painted"
+    },
+    {
+      "id": "plane-blue-painted",
+      "title": "Painted plane",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "plane",
+        "blue",
+        "painted"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "plane-blue-cutout",
+          "label": "Blue cutout",
+          "file": "/icons/cutouts/plane-blue-cutout.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1019,
+          "bytes": 60796,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:5872",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-5872",
+            "master": "src/assets/cutouts/plane-blue-cutout.png",
+            "masterWidth": 1457,
+            "masterHeight": 1450,
+            "masterSha256": "acf1df274a5efd9d968cf2b63d8da915e4134a0d0fa26587ffa6d2e09d9b60df",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted plane, blue cutout",
+          "background": "light"
+        },
+        {
+          "id": "plane-white",
+          "label": "White silhouette",
+          "file": "/icons/cutouts/plane-white.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1019,
+          "bytes": 28364,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:5870",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-5870",
+            "master": "src/assets/cutouts/plane-white.png",
+            "masterWidth": 1457,
+            "masterHeight": 1450,
+            "masterSha256": "3656a34aae50209e48e78cd17f699991a4b42d03832d18a5884d19f131fc5840",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted plane, white silhouette",
+          "background": "dark"
+        },
+        {
+          "id": "plane-blue-painted",
+          "label": "Paper-backed",
+          "file": "/icons/plane-blue-painted.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 11534,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/plane-blue-painted.webp"
+          },
+          "alt": "Painted plane, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "plane-blue-cutout"
+    },
+    {
+      "id": "painted-rose",
+      "title": "Painted rose",
+      "category": "Animals & flora",
+      "keywords": [
+        "painted",
+        "rose"
+      ],
+      "rationale": "Expressive red and green botanical form.",
+      "variants": [
+        {
+          "id": "rose-painted",
+          "label": "Original colour",
+          "file": "/icons/cutouts/rose-painted.webp",
+          "format": "webp",
+          "width": 655,
+          "height": 1024,
+          "bytes": 85956,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2371:3580",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2371-3580",
+            "master": "src/assets/cutouts/rose-painted.png",
+            "masterWidth": 676,
+            "masterHeight": 1057,
+            "masterSha256": "5b9a1afc04c9a4039d1b8ac0cfceffa8ba8188070a7de701b7396077bb92819f",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted rose, original colour",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "rose-painted"
+    },
+    {
+      "id": "running-horse-2",
+      "title": "Painted running horse",
+      "category": "Animals & flora",
+      "keywords": [
+        "running",
+        "horse",
+        "2"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "running-horse-2",
+          "label": "Original",
+          "file": "/icons/running-horse-2.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 8152,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/running-horse-2.webp"
+          },
+          "alt": "Painted running horse, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "running-horse-2"
+    },
+    {
+      "id": "smiley-face",
+      "title": "Painted smiley",
+      "category": "Found culture",
+      "keywords": [
+        "smiley",
+        "face"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "smiley-yellow",
+          "label": "Yellow cutout",
+          "file": "/icons/cutouts/smiley-yellow.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 39344,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2232:2711",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2232-2711",
+            "master": "src/assets/cutouts/smiley-yellow.png",
+            "masterWidth": 1450,
+            "masterHeight": 1450,
+            "masterSha256": "05fd23b69e6dfa7056c55e7aa014285a1083d1a0af1892df5879f8ee4c0a1227",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted smiley, yellow cutout",
+          "background": "light"
+        },
+        {
+          "id": "smiley-blue",
+          "label": "Blue cutout",
+          "file": "/icons/cutouts/smiley-blue.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 40658,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2232:2713",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2232-2713",
+            "master": "src/assets/cutouts/smiley-blue.png",
+            "masterWidth": 1450,
+            "masterHeight": 1450,
+            "masterSha256": "2f2be2a757d962e4c858f139543912b86c5085832d14508265f9383a46665ac6",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted smiley, blue cutout",
+          "background": "light"
+        },
+        {
+          "id": "smiley-black",
+          "label": "Black cutout",
+          "file": "/icons/cutouts/smiley-black.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 29992,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2232:2714",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2232-2714",
+            "master": "src/assets/cutouts/smiley-black.png",
+            "masterWidth": 1450,
+            "masterHeight": 1450,
+            "masterSha256": "8dd6e441ee49353ac76d38d4ae64f43f4b748711a49012e3da745b31560662a9",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Painted smiley, black cutout",
+          "background": "light"
+        },
+        {
+          "id": "smiley-face",
+          "label": "Paper-backed",
+          "file": "/icons/smiley-face.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 4982,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/smiley-face.webp"
+          },
+          "alt": "Painted smiley, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "smiley-yellow"
+    },
+    {
+      "id": "yin-yang-brush",
+      "title": "Painted yin-yang",
+      "category": "Symbols & belief",
+      "keywords": [
+        "yin",
+        "yang",
+        "brush"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "yin-yang-brush",
+          "label": "Original",
+          "file": "/icons/yin-yang-brush.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 10014,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/yin-yang-brush.webp"
+          },
+          "alt": "Painted yin-yang, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "yin-yang-brush"
+    },
+    {
+      "id": "picturesque-fountain",
+      "title": "Picturesque fountain",
+      "category": "Found culture",
+      "keywords": [
+        "picturesque",
+        "fountain"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "picturesque-fountain",
+          "label": "Original",
+          "file": "/icons/picturesque-fountain.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 24184,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/picturesque-fountain.webp"
+          },
+          "alt": "Picturesque fountain, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "picturesque-fountain"
+    },
+    {
+      "id": "digital-horse-running-pink",
+      "title": "Pink running horse",
+      "category": "Animals & flora",
+      "keywords": [
+        "digital",
+        "horse",
+        "running",
+        "pink"
+      ],
+      "rationale": "Painterly horse motif with recognisable brushwork.",
+      "variants": [
+        {
+          "id": "digital-horse-running-pink",
+          "label": "Original",
+          "file": "/icons/digital-horse-running-pink.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 55762,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/digital-horse-running-pink.png"
+          },
+          "alt": "Pink running horse, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "digital-horse-running-pink"
+    },
+    {
+      "id": "pool-balls-triangle",
+      "title": "Pool rack",
+      "category": "Bodies & play",
+      "keywords": [
+        "pool",
+        "balls",
+        "triangle"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "pool-balls-triangle",
+          "label": "Original",
+          "file": "/icons/pool-balls-triangle.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 111466,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/digital-balls-triangular-rack.png"
+          },
+          "alt": "Pool rack, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "pool-balls-triangle"
+    },
+    {
+      "id": "powerline-flames",
+      "title": "Powerline in flames",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "powerline",
+        "flames"
+      ],
+      "rationale": "Infrastructure, landscape and fire in one distinctive painted cutout.",
+      "variants": [
+        {
+          "id": "powerline-flames",
+          "label": "Original colour",
+          "file": "/icons/cutouts/powerline-flames.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1021,
+          "bytes": 119596,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2233:2923",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2233-2923",
+            "master": "src/assets/cutouts/powerline-flames.png",
+            "masterWidth": 2064,
+            "masterHeight": 2058,
+            "masterSha256": "4a94f965b2d5380133cc36b03724e421f72cfef8b6c56f06d675c6cc85ca69cb",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Powerline in flames, original colour",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "powerline-flames"
+    },
+    {
+      "id": "racing-decals",
+      "title": "Racing decals",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "racing",
+        "decals"
+      ],
+      "rationale": "Motorsport sponsor typography and fairing fragments.",
+      "variants": [
+        {
+          "id": "racing-decals",
+          "label": "Original colour",
+          "file": "/icons/cutouts/racing-decals.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "bytes": 41542,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "1082:99",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-99",
+            "master": "src/assets/cutouts/racing-decals.png",
+            "masterWidth": 1100,
+            "masterHeight": 825,
+            "masterSha256": "097cbca8f261e1be7c547b51fff50fd46ac516d39e6d45da4e1aeb6bb33ea5f2",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Racing decals, original colour",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "racing-decals"
+    },
+    {
+      "id": "jesus-superstar-crucifix",
+      "title": "Radiant crucifixion",
+      "category": "Symbols & belief",
+      "keywords": [
+        "jesus",
+        "superstar",
+        "crucifix"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "jesus-superstar-crucifix",
+          "label": "Original",
+          "file": "/icons/jesus-superstar-crucifix.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 39460,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/digital-figure-crucifixion-radiating.png"
+          },
+          "alt": "Radiant crucifixion, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "jesus-superstar-crucifix"
+    },
+    {
+      "id": "lying-nude-blue-and-yellow",
+      "title": "Reclining figure",
+      "category": "Bodies & play",
+      "keywords": [
+        "lying",
+        "nude",
+        "blue",
+        "and",
+        "yellow"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "reclining-figure-black",
+          "label": "Black ink",
+          "file": "/icons/cutouts/reclining-figure-black.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 522,
+          "bytes": 99778,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:1999",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-1999",
+            "master": "src/assets/cutouts/reclining-figure-black.png",
+            "masterWidth": 1100,
+            "masterHeight": 561,
+            "masterSha256": "5b4fdbb054345756ff56c1d1c4673f42b9920e469a1a0ca7f76d7977d596c094",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Reclining figure, black ink",
+          "background": "light"
+        },
+        {
+          "id": "reclining-figure-white",
+          "label": "White ink",
+          "file": "/icons/cutouts/reclining-figure-white.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 522,
+          "bytes": 103962,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:2002",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-2002",
+            "master": "src/assets/cutouts/reclining-figure-white.png",
+            "masterWidth": 1100,
+            "masterHeight": 561,
+            "masterSha256": "96d699bc9cec6c084da5dedb93b67763352908da604f967df6e8c22ea1d9ad50",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Reclining figure, white ink",
+          "background": "dark"
+        },
+        {
+          "id": "lying-nude-blue-and-yellow",
+          "label": "Paper-backed",
+          "file": "/icons/lying-nude-blue-and-yellow.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 25182,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/lying-nude-blue-and-yellow.webp"
+          },
+          "alt": "Reclining figure, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "reclining-figure-black"
+    },
+    {
+      "id": "photo-matchbox-red-vintage",
+      "title": "Redheads matchbox",
+      "category": "Found culture",
+      "keywords": [
+        "photo",
+        "matchbox",
+        "red",
+        "vintage"
+      ],
+      "rationale": "Australian everyday packaging and a recognisable print reference.",
+      "variants": [
+        {
+          "id": "photo-matchbox-red-vintage",
+          "label": "Original",
+          "file": "/icons/photo-matchbox-red-vintage.webp",
+          "format": "webp",
+          "width": 635,
+          "height": 635,
+          "bytes": 31292,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-matchbox-red-vintage.png"
+          },
+          "alt": "Redheads matchbox, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "photo-matchbox-red-vintage"
+    },
+    {
+      "id": "repsol",
+      "title": "Repsol fairing fragment",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "repsol"
+      ],
+      "rationale": "Recognisable motorsport livery cutout.",
+      "variants": [
+        {
+          "id": "repsol-fragment",
+          "label": "Original colour",
+          "file": "/icons/cutouts/repsol-fragment.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 653,
+          "bytes": 31218,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "1082:133",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-133",
+            "master": "src/assets/cutouts/repsol-fragment.png",
+            "masterWidth": 1450,
+            "masterHeight": 924,
+            "masterSha256": "5dda16f6e0f8534b62a00f1841e9e6d61c5b0dc0b41ce0e2ab43cac224a84ee2",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Repsol fairing fragment, original colour",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "repsol-fragment"
+    },
+    {
+      "id": "restlessness",
+      "title": "REST / LESS / NESS",
+      "category": "Words & print",
+      "keywords": [
+        "restlessness"
+      ],
+      "rationale": "Hand-lettered language and meaning split across lines.",
+      "variants": [
+        {
+          "id": "restlessness-black",
+          "label": "Black ink",
+          "file": "/icons/cutouts/restlessness-black.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 981,
+          "bytes": 84086,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2233:2927",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2233-2927",
+            "master": "src/assets/cutouts/restlessness-black.png",
+            "masterWidth": 2450,
+            "masterHeight": 2346,
+            "masterSha256": "f53f52e86704f8272d00093c146e577a8c018a49b45b4d1f789ce12a0a8e26e4",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "REST / LESS / NESS, black ink",
+          "background": "light"
+        },
+        {
+          "id": "restlessness-white",
+          "label": "White ink",
+          "file": "/icons/cutouts/restlessness-white.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 981,
+          "bytes": 89628,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2233:2928",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2233-2928",
+            "master": "src/assets/cutouts/restlessness-white.png",
+            "masterWidth": 2450,
+            "masterHeight": 2346,
+            "masterSha256": "26b8ec66de7e07704b6a2e05567ee8238d4f3827e84309ba38edaa37b3796cfd",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "REST / LESS / NESS, white ink",
+          "background": "dark"
+        }
+      ],
+      "defaultVariant": "restlessness-black"
+    },
+    {
+      "id": "print-rocket-propaganda-red",
+      "title": "Rocket propaganda clipping",
+      "category": "Symbols & belief",
+      "keywords": [
+        "print",
+        "rocket",
+        "propaganda",
+        "red"
+      ],
+      "rationale": "Political print and propaganda imagery.",
+      "variants": [
+        {
+          "id": "print-rocket-propaganda-red",
+          "label": "Original",
+          "file": "/icons/print-rocket-propaganda-red.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 52796,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/print-rocket-propaganda-red.png"
+          },
+          "alt": "Rocket propaganda clipping, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "print-rocket-propaganda-red"
+    },
+    {
+      "id": "print-rug-swatches-patterned",
+      "title": "Rug catalogue strip",
+      "category": "Found culture",
+      "keywords": [
+        "print",
+        "rug",
+        "swatches",
+        "patterned"
+      ],
+      "rationale": "A recognisable piece of domestic retail print.",
+      "variants": [
+        {
+          "id": "print-rug-swatches-patterned",
+          "label": "Original",
+          "file": "/icons/print-rug-swatches-patterned.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 42808,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/print-rug-swatches-patterned.png"
+          },
+          "alt": "Rug catalogue strip, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "print-rug-swatches-patterned"
+    },
+    {
+      "id": "runnin-dog",
+      "title": "Running greyhound",
+      "category": "Animals & flora",
+      "keywords": [
+        "runnin",
+        "dog"
+      ],
+      "rationale": "Animals and botanical motifs recur in the drawn and painted source work.",
+      "variants": [
+        {
+          "id": "runnin-dog",
+          "label": "Original",
+          "file": "/icons/runnin-dog.webp",
+          "format": "webp",
+          "width": 767,
+          "height": 767,
+          "bytes": 32108,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/mark-greyhound-running-ink.png"
+          },
+          "alt": "Running greyhound, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "runnin-dog"
+    },
+    {
+      "id": "sitting-nude",
+      "title": "Seated figure",
+      "category": "Bodies & play",
+      "keywords": [
+        "sitting",
+        "nude"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "seated-figure-black",
+          "label": "Black ink",
+          "file": "/icons/cutouts/seated-figure-black.webp",
+          "format": "webp",
+          "width": 596,
+          "height": 1024,
+          "bytes": 91730,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:1997",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-1997",
+            "master": "src/assets/cutouts/seated-figure-black.png",
+            "masterWidth": 844,
+            "masterHeight": 1450,
+            "masterSha256": "c452078b78ff91e04e70c92bcdfa83a11c467321dfe3b28966f36186510c5d6b",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Seated figure, black ink",
+          "background": "light"
+        },
+        {
+          "id": "seated-figure-white",
+          "label": "White ink",
+          "file": "/icons/cutouts/seated-figure-white.webp",
+          "format": "webp",
+          "width": 645,
+          "height": 1024,
+          "bytes": 96362,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:1998",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-1998",
+            "master": "src/assets/cutouts/seated-figure-white.png",
+            "masterWidth": 913,
+            "masterHeight": 1450,
+            "masterSha256": "895bcde986835c292f266b908a233d2f7e9ab274fba967e786e7a72083f8ce83",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Seated figure, white ink",
+          "background": "dark"
+        },
+        {
+          "id": "sitting-nude",
+          "label": "Paper-backed",
+          "file": "/icons/sitting-nude.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 11596,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/sitting-nude.webp"
+          },
+          "alt": "Seated figure, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "seated-figure-black"
+    },
+    {
+      "id": "shooting-star",
+      "title": "Shooting star",
+      "category": "Found culture",
+      "keywords": [
+        "shooting",
+        "star"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "shooting-star",
+          "label": "Original",
+          "file": "/icons/shooting-star.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 8670,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/shooting-star.webp"
+          },
+          "alt": "Shooting star, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "shooting-star"
+    },
+    {
+      "id": "silence-death-aids-poster",
+      "title": "SILENCE=DEATH",
+      "category": "Symbols & belief",
+      "keywords": [
+        "silence",
+        "death",
+        "aids",
+        "poster"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "silence-death-aids-poster",
+          "label": "Original",
+          "file": "/icons/silence-death-aids-poster.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 23284,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/silence-death-aids-poster.webp"
+          },
+          "alt": "SILENCE=DEATH, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "silence-death-aids-poster"
+    },
+    {
+      "id": "smile-please-lettering",
+      "title": "Smile please",
+      "category": "Words & print",
+      "keywords": [
+        "smile",
+        "please",
+        "lettering"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "smile-please-lettering",
+          "label": "Original",
+          "file": "/icons/smile-please-lettering.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 14660,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/smile-please-lettering.webp"
+          },
+          "alt": "Smile please, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "smile-please-lettering"
+    },
+    {
+      "id": "cool-smoking",
+      "title": "Smoking advertisement strip",
+      "category": "Found culture",
+      "keywords": [
+        "cool",
+        "smoking"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "cool-smoking",
+          "label": "Original",
+          "file": "/icons/cool-smoking.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 7724,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/cool-smoking.webp"
+          },
+          "alt": "Smoking advertisement strip, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "cool-smoking"
+    },
+    {
+      "id": "snoopy-comic-strip-2",
+      "title": "Snoopy, backpack",
+      "category": "Found culture",
+      "keywords": [
+        "snoopy",
+        "comic",
+        "strip",
+        "2"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "snoopy-comic-strip-2",
+          "label": "Original",
+          "file": "/icons/snoopy-comic-strip-2.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 42312,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/snoopy-comic-strip-2.webp"
+          },
+          "alt": "Snoopy, backpack, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "snoopy-comic-strip-2"
+    },
+    {
+      "id": "snoopy-comic-strip",
+      "title": "Snoopy, bath",
+      "category": "Found culture",
+      "keywords": [
+        "snoopy",
+        "comic",
+        "strip"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "snoopy-comic-strip",
+          "label": "Original",
+          "file": "/icons/snoopy-comic-strip.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 34082,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/snoopy-comic-strip.webp"
+          },
+          "alt": "Snoopy, bath, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "snoopy-comic-strip"
+    },
+    {
+      "id": "ancient-statue",
+      "title": "Sphinx study",
+      "category": "Symbols & belief",
+      "keywords": [
+        "ancient",
+        "statue"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "ancient-statue",
+          "label": "Original",
+          "file": "/icons/ancient-statue.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 49112,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/ancient-statue.webp"
+          },
+          "alt": "Sphinx study, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "ancient-statue"
+    },
+    {
+      "id": "unlimited-steamship-woodcut",
+      "title": "Steamboat engraving",
+      "category": "Found culture",
+      "keywords": [
+        "unlimited",
+        "steamship",
+        "woodcut"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "unlimited-steamship-woodcut",
+          "label": "Original",
+          "file": "/icons/unlimited-steamship-woodcut.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 40064,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/unlimited-steamship-woodcut.webp"
+          },
+          "alt": "Steamboat engraving, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "unlimited-steamship-woodcut"
+    },
+    {
+      "id": "super-starliner",
+      "title": "Super Starliner",
+      "category": "Words & print",
+      "keywords": [
+        "super",
+        "starliner"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "super-starliner",
+          "label": "Original",
+          "file": "/icons/super-starliner.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 5024,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/super-starliner.webp"
+          },
+          "alt": "Super Starliner, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "super-starliner"
+    },
+    {
+      "id": "photo-bottle-sauce-diamond",
+      "title": "Tabasco bottle",
+      "category": "Found culture",
+      "keywords": [
+        "photo",
+        "bottle",
+        "sauce",
+        "diamond"
+      ],
+      "rationale": "Distinctive commercial packaging.",
+      "variants": [
+        {
+          "id": "photo-bottle-sauce-diamond",
+          "label": "Original",
+          "file": "/icons/photo-bottle-sauce-diamond.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 22698,
+          "source": {
+            "kind": "existing-repository",
+            "path": "src/assets/elements/photo-bottle-sauce-diamond.png"
+          },
+          "alt": "Tabasco bottle, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "photo-bottle-sauce-diamond"
+    },
+    {
+      "id": "target-dummy-crosshairs",
+      "title": "Target figure",
+      "category": "Symbols & belief",
+      "keywords": [
+        "target",
+        "dummy",
+        "crosshairs"
+      ],
+      "rationale": "Religious, political or identity imagery with a specific referent.",
+      "variants": [
+        {
+          "id": "target-dummy-crosshairs",
+          "label": "Original",
+          "file": "/icons/target-dummy-crosshairs.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 26140,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/target-dummy-crosshairs.webp"
+          },
+          "alt": "Target figure, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "target-dummy-crosshairs"
+    },
+    {
+      "id": "tennis-ball",
+      "title": "Tennis ball",
+      "category": "Bodies & play",
+      "keywords": [
+        "tennis",
+        "ball"
+      ],
+      "rationale": "Sport and play through two distinct drawn treatments.",
+      "variants": [
+        {
+          "id": "tennis-ball-textured",
+          "label": "Textured",
+          "file": "/icons/cutouts/tennis-ball-textured.webp",
+          "format": "webp",
+          "width": 877,
+          "height": 1024,
+          "bytes": 110324,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:58",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-58",
+            "master": "src/assets/cutouts/tennis-ball-textured.png",
+            "masterWidth": 981,
+            "masterHeight": 1146,
+            "masterSha256": "acc4a2e3eb711a5317c0e3cd5259611ce0d70d15c0b2c960f48cdd59cb4cd109",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Tennis ball, textured",
+          "background": "light"
+        },
+        {
+          "id": "tennis-ball-flat",
+          "label": "Flat",
+          "file": "/icons/cutouts/tennis-ball-flat.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 34776,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2120:1351",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2120-1351",
+            "master": "src/assets/cutouts/tennis-ball-flat.png",
+            "masterWidth": 1505,
+            "masterHeight": 1505,
+            "masterSha256": "a8dca69da946f2da26ebc87cde481ca8a6a62abd1faf59b5624a998b931d9d36",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Tennis ball, flat",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "tennis-ball-textured"
+    },
+    {
+      "id": "timelessness",
+      "title": "TIME / LESS / NESS",
+      "category": "Words & print",
+      "keywords": [
+        "timelessness"
+      ],
+      "rationale": "Companion phrase; a distinct word, not a colour variant.",
+      "variants": [
+        {
+          "id": "timelessness-paper",
+          "label": "Paper-backed",
+          "file": "/icons/cutouts/timelessness-paper.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 981,
+          "bytes": 25688,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "1737:4",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1737-4",
+            "master": "src/assets/cutouts/timelessness-paper.png",
+            "masterWidth": 2450,
+            "masterHeight": 2346,
+            "masterSha256": "d780eb05d39ed4df3d1092ce53f7565b6da99280f2ceb60fced3471ad5377758",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "TIME / LESS / NESS, paper-backed",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "timelessness-paper"
+    },
+    {
+      "id": "nude-figure-olympian",
+      "title": "Torch bearer",
+      "category": "Bodies & play",
+      "keywords": [
+        "nude",
+        "figure",
+        "olympian"
+      ],
+      "rationale": "Sport, bodies and everyday play carry the figure studies.",
+      "variants": [
+        {
+          "id": "nude-figure-olympian",
+          "label": "Original",
+          "file": "/icons/nude-figure-olympian.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 23756,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/nude-figure-olympian.webp"
+          },
+          "alt": "Torch bearer, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "nude-figure-olympian"
+    },
+    {
+      "id": "comic-swimmer-torn",
+      "title": "Torn swimming panel",
+      "category": "Found culture",
+      "keywords": [
+        "comic",
+        "swimmer",
+        "torn"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "comic-swimmer-torn",
+          "label": "Original",
+          "file": "/icons/comic-swimmer-torn.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 31766,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/comic-swimmer-torn.webp"
+          },
+          "alt": "Torn swimming panel, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "comic-swimmer-torn"
+    },
+    {
+      "id": "traffic-jam",
+      "title": "Traffic jam",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "traffic",
+        "jam"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "traffic-jam",
+          "label": "Original",
+          "file": "/icons/traffic-jam.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 19418,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/traffic-jam.webp"
+          },
+          "alt": "Traffic jam, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "traffic-jam"
+    },
+    {
+      "id": "tattoo-crescent",
+      "title": "Tribal tattoo: Crescent",
+      "category": "Symbols & belief",
+      "keywords": [
+        "tattoo",
+        "crescent"
+      ],
+      "rationale": "Specific late-1990s/2000s tattoo and graphic-culture reference, retained as a named motif rather than generic decoration.",
+      "variants": [
+        {
+          "id": "tattoo-crescent",
+          "label": "Black ink",
+          "file": "/icons/cutouts/tattoo-crescent.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 747,
+          "bytes": 13444,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2029:62",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2029-62",
+            "master": "src/assets/cutouts/tattoo-crescent.png",
+            "masterWidth": 2573,
+            "masterHeight": 1878,
+            "masterSha256": "4d81a0d319c3dbdc7aae01e4b21b2ad01496f5720610fabf1a28b72f00fed863",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Tribal tattoo: Crescent, black ink",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "tattoo-crescent"
+    },
+    {
+      "id": "tattoo-sun",
+      "title": "Tribal tattoo: Sun",
+      "category": "Symbols & belief",
+      "keywords": [
+        "tattoo",
+        "sun"
+      ],
+      "rationale": "Specific late-1990s/2000s tattoo and graphic-culture reference, retained as a named motif rather than generic decoration.",
+      "variants": [
+        {
+          "id": "tattoo-sun",
+          "label": "Black ink",
+          "file": "/icons/cutouts/tattoo-sun.webp",
+          "format": "webp",
+          "width": 1014,
+          "height": 1024,
+          "bytes": 32396,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2029:65",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2029-65",
+            "master": "src/assets/cutouts/tattoo-sun.png",
+            "masterWidth": 1908,
+            "masterHeight": 1927,
+            "masterSha256": "ecd498cc1a1dc39a3ab90d6715803163600e43b009cfbda35efbd32f12203c9a",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Tribal tattoo: Sun, black ink",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "tattoo-sun"
+    },
+    {
+      "id": "tattoo-wings",
+      "title": "Tribal tattoo: Wings",
+      "category": "Symbols & belief",
+      "keywords": [
+        "tattoo",
+        "wings"
+      ],
+      "rationale": "Specific late-1990s/2000s tattoo and graphic-culture reference, retained as a named motif rather than generic decoration.",
+      "variants": [
+        {
+          "id": "tattoo-wings",
+          "label": "Black ink",
+          "file": "/icons/cutouts/tattoo-wings.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 342,
+          "bytes": 16684,
+          "source": {
+            "kind": "figma",
+            "fileKey": "qyEFUAVCyOfiHMK2spNi2D",
+            "nodeId": "2029:54",
+            "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=2029-54",
+            "master": "src/assets/cutouts/tattoo-wings.png",
+            "masterWidth": 3589,
+            "masterHeight": 1198,
+            "masterSha256": "8254f6c9ac6345069bff0ef3bc7ac00e04f8dc12d0762460a5d96dc8a0ee886f",
+            "transfer": "Isolated native-size PNG render; original Figma node unchanged."
+          },
+          "alt": "Tribal tattoo: Wings, black ink",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "tattoo-wings"
+    },
+    {
+      "id": "truck-stop",
+      "title": "Truck stop",
+      "category": "Speed & infrastructure",
+      "keywords": [
+        "truck",
+        "stop"
+      ],
+      "rationale": "Transport, motor culture and built environments form a recurring visual language.",
+      "variants": [
+        {
+          "id": "truck-stop",
+          "label": "Original",
+          "file": "/icons/truck-stop.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 33156,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/truck-stop.webp"
+          },
+          "alt": "Truck stop, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "truck-stop"
+    },
+    {
+      "id": "union-lettering",
+      "title": "UNION",
+      "category": "Words & print",
+      "keywords": [
+        "union",
+        "lettering"
+      ],
+      "rationale": "Language, lettering and found print function as subject matter.",
+      "variants": [
+        {
+          "id": "union-lettering",
+          "label": "Original",
+          "file": "/icons/union-lettering.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 14426,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/union-lettering.webp"
+          },
+          "alt": "UNION, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "union-lettering"
+    },
+    {
+      "id": "oil-companies-in-a-desert",
+      "title": "Winged ink form and landscape",
+      "category": "Found culture",
+      "keywords": [
+        "oil",
+        "companies",
+        "in",
+        "a",
+        "desert"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "oil-companies-in-a-desert",
+          "label": "Original",
+          "file": "/icons/oil-companies-in-a-desert.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 14418,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/oil-companies-in-a-desert.webp"
+          },
+          "alt": "Winged ink form and landscape, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "oil-companies-in-a-desert"
+    },
+    {
+      "id": "lady-swimming-comic",
+      "title": "Woman reflected in water",
+      "category": "Found culture",
+      "keywords": [
+        "lady",
+        "swimming",
+        "comic"
+      ],
+      "rationale": "Recognisable advertising, popular culture or everyday material, rather than anonymous decoration.",
+      "variants": [
+        {
+          "id": "lady-swimming-comic",
+          "label": "Original",
+          "file": "/icons/lady-swimming-comic.webp",
+          "format": "webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 26356,
+          "source": {
+            "kind": "existing-repository",
+            "path": "public/icons/lady-swimming-comic.webp"
+          },
+          "alt": "Woman reflected in water, original",
+          "background": "light"
+        }
+      ],
+      "defaultVariant": "lady-swimming-comic"
+    }
+  ],
   "icons": [
     {
-      "name": "american-spirit",
-      "file": "american-spirit.webp",
-      "url": "https://finnastle.com/icons/american-spirit.webp",
-      "bytes": 41204
-    },
-    {
-      "name": "ancient-statue",
-      "file": "ancient-statue.webp",
-      "url": "https://finnastle.com/icons/ancient-statue.webp",
-      "bytes": 49112
-    },
-    {
-      "name": "angel-statue-church",
-      "file": "angel-statue-church.webp",
-      "url": "https://finnastle.com/icons/angel-statue-church.webp",
-      "bytes": 40336
-    },
-    {
-      "name": "angelic-baby",
-      "file": "angelic-baby.webp",
-      "url": "https://finnastle.com/icons/angelic-baby.webp",
-      "bytes": 22708
-    },
-    {
-      "name": "apache-helicopter",
-      "file": "apache-helicopter.webp",
-      "url": "https://finnastle.com/icons/apache-helicopter.webp",
-      "bytes": 19750
-    },
-    {
-      "name": "audi-quattro",
-      "file": "audi-quattro.webp",
-      "url": "https://finnastle.com/icons/audi-quattro.webp",
-      "bytes": 32954
-    },
-    {
-      "name": "basic-ned-kelly",
-      "file": "basic-ned-kelly.webp",
-      "url": "https://finnastle.com/icons/basic-ned-kelly.webp",
-      "bytes": 27328
-    },
-    {
-      "name": "batman",
-      "file": "batman.webp",
-      "url": "https://finnastle.com/icons/batman.webp",
-      "bytes": 33312
-    },
-    {
-      "name": "billboard-spokane",
-      "file": "billboard-spokane.webp",
-      "url": "https://finnastle.com/icons/billboard-spokane.webp",
-      "bytes": 22840
-    },
-    {
-      "name": "black-panther",
-      "file": "black-panther.webp",
-      "url": "https://finnastle.com/icons/black-panther.webp",
-      "bytes": 6326
-    },
-    {
-      "name": "blue-sedan-car",
-      "file": "blue-sedan-car.webp",
-      "url": "https://finnastle.com/icons/blue-sedan-car.webp",
-      "bytes": 16308
-    },
-    {
-      "name": "boeing-advert-jet",
-      "file": "boeing-advert-jet.webp",
-      "url": "https://finnastle.com/icons/boeing-advert-jet.webp",
-      "bytes": 24140
-    },
-    {
-      "name": "born-to-kill-helmet",
-      "file": "born-to-kill-helmet.webp",
-      "url": "https://finnastle.com/icons/born-to-kill-helmet.webp",
-      "bytes": 12792
-    },
-    {
-      "name": "bottlebrush-flower",
-      "file": "bottlebrush-flower.webp",
-      "url": "https://finnastle.com/icons/bottlebrush-flower.webp",
-      "bytes": 34140
-    },
-    {
-      "name": "boundlessness-text",
-      "file": "boundlessness-text.webp",
-      "url": "https://finnastle.com/icons/boundlessness-text.webp",
-      "bytes": 23496
-    },
-    {
-      "name": "boxing-frame",
-      "file": "boxing-frame.webp",
-      "url": "https://finnastle.com/icons/boxing-frame.webp",
-      "bytes": 7784
-    },
-    {
-      "name": "bull-skull-stars",
-      "file": "bull-skull-stars.webp",
-      "url": "https://finnastle.com/icons/bull-skull-stars.webp",
-      "bytes": 9664
-    },
-    {
-      "name": "checkered-flag",
-      "file": "checkered-flag.webp",
-      "url": "https://finnastle.com/icons/checkered-flag.webp",
-      "bytes": 3332
-    },
-    {
-      "name": "climax-film-still",
-      "file": "climax-film-still.webp",
-      "url": "https://finnastle.com/icons/climax-film-still.webp",
-      "bytes": 7644
-    },
-    {
-      "name": "cloud-outline",
-      "file": "cloud-outline.webp",
-      "url": "https://finnastle.com/icons/cloud-outline.webp",
-      "bytes": 26786
+      "name": "pole-dancer",
+      "file": "pole-dancer.webp",
+      "url": "https://finnastle.com/icons/pole-dancer.webp",
+      "bytes": 10662,
+      "familyId": "pole-dancer"
     },
     {
       "name": "comic-panel-captain",
       "file": "comic-panel-captain.webp",
       "url": "https://finnastle.com/icons/comic-panel-captain.webp",
-      "bytes": 46432
+      "bytes": 46432,
+      "familyId": "comic-panel-captain"
     },
     {
-      "name": "comic-swimmer-torn",
-      "file": "comic-swimmer-torn.webp",
-      "url": "https://finnastle.com/icons/comic-swimmer-torn.webp",
-      "bytes": 31766
+      "name": "american-spirit",
+      "file": "american-spirit.webp",
+      "url": "https://finnastle.com/icons/american-spirit.webp",
+      "bytes": 41204,
+      "familyId": "american-spirit"
     },
     {
-      "name": "cool-smoking",
-      "file": "cool-smoking.webp",
-      "url": "https://finnastle.com/icons/cool-smoking.webp",
-      "bytes": 7724
+      "name": "angel-statue-church",
+      "file": "angel-statue-church.webp",
+      "url": "https://finnastle.com/icons/angel-statue-church.webp",
+      "bytes": 40336,
+      "familyId": "angel-statue-church"
     },
     {
-      "name": "cowboy-boot",
-      "file": "cowboy-boot.webp",
-      "url": "https://finnastle.com/icons/cowboy-boot.webp",
-      "bytes": 29242
+      "name": "angelic-baby",
+      "file": "angelic-baby.webp",
+      "url": "https://finnastle.com/icons/angelic-baby.webp",
+      "bytes": 22708,
+      "familyId": "angelic-baby"
     },
     {
-      "name": "dog-and-traffic-light",
-      "file": "dog-and-traffic-light.webp",
-      "url": "https://finnastle.com/icons/dog-and-traffic-light.webp",
-      "bytes": 15016
-    },
-    {
-      "name": "dolphins-silhouette",
-      "file": "dolphins-silhouette.webp",
-      "url": "https://finnastle.com/icons/dolphins-silhouette.webp",
-      "bytes": 2472
-    },
-    {
-      "name": "drag-race-dragway",
-      "file": "drag-race-dragway.webp",
-      "url": "https://finnastle.com/icons/drag-race-dragway.webp",
-      "bytes": 16506
-    },
-    {
-      "name": "eighties-call-girl",
-      "file": "eighties-call-girl.webp",
-      "url": "https://finnastle.com/icons/eighties-call-girl.webp",
-      "bytes": 33982
-    },
-    {
-      "name": "end-lettering",
-      "file": "end-lettering.webp",
-      "url": "https://finnastle.com/icons/end-lettering.webp",
-      "bytes": 15340
-    },
-    {
-      "name": "falcon-sketch-1",
-      "file": "falcon-sketch-1.webp",
-      "url": "https://finnastle.com/icons/falcon-sketch-1.webp",
-      "bytes": 14730
-    },
-    {
-      "name": "falcon-sketch-2",
-      "file": "falcon-sketch-2.webp",
-      "url": "https://finnastle.com/icons/falcon-sketch-2.webp",
-      "bytes": 13814
-    },
-    {
-      "name": "falcon-sun",
-      "file": "falcon-sun.webp",
-      "url": "https://finnastle.com/icons/falcon-sun.webp",
-      "bytes": 21692
-    },
-    {
-      "name": "flame-animation-01",
-      "file": "flame-animation-01.webp",
-      "url": "https://finnastle.com/icons/flame-animation-01.webp",
-      "bytes": 17254
-    },
-    {
-      "name": "flame-animation-02",
-      "file": "flame-animation-02.webp",
-      "url": "https://finnastle.com/icons/flame-animation-02.webp",
-      "bytes": 22100
-    },
-    {
-      "name": "flame-animation-03",
-      "file": "flame-animation-03.webp",
-      "url": "https://finnastle.com/icons/flame-animation-03.webp",
-      "bytes": 21686
-    },
-    {
-      "name": "flower-yellow",
-      "file": "flower-yellow.webp",
-      "url": "https://finnastle.com/icons/flower-yellow.webp",
-      "bytes": 7408
-    },
-    {
-      "name": "flying-jets-in-formation",
-      "file": "flying-jets-in-formation.webp",
-      "url": "https://finnastle.com/icons/flying-jets-in-formation.webp",
-      "bytes": 25762
-    },
-    {
-      "name": "food-tray-cutout",
-      "file": "food-tray-cutout.webp",
-      "url": "https://finnastle.com/icons/food-tray-cutout.webp",
-      "bytes": 7074
-    },
-    {
-      "name": "full-elevator",
-      "file": "full-elevator.webp",
-      "url": "https://finnastle.com/icons/full-elevator.webp",
-      "bytes": 22002
-    },
-    {
-      "name": "golden-marilyn",
-      "file": "golden-marilyn.webp",
-      "url": "https://finnastle.com/icons/golden-marilyn.webp",
-      "bytes": 17284
-    },
-    {
-      "name": "good-game",
-      "file": "good-game.webp",
-      "url": "https://finnastle.com/icons/good-game.webp",
-      "bytes": 25454
-    },
-    {
-      "name": "greco-wrestlers",
-      "file": "greco-wrestlers.webp",
-      "url": "https://finnastle.com/icons/greco-wrestlers.webp",
-      "bytes": 33064
-    },
-    {
-      "name": "handcuffs-cutout",
-      "file": "handcuffs-cutout.webp",
-      "url": "https://finnastle.com/icons/handcuffs-cutout.webp",
-      "bytes": 4882
-    },
-    {
-      "name": "heart-sacred-flaming",
-      "file": "heart-sacred-flaming.webp",
-      "url": "https://finnastle.com/icons/heart-sacred-flaming.webp",
-      "bytes": 2930
-    },
-    {
-      "name": "intermission-text",
-      "file": "intermission-text.webp",
-      "url": "https://finnastle.com/icons/intermission-text.webp",
-      "bytes": 4884
-    },
-    {
-      "name": "jesus-superstar-crucifix",
-      "file": "jesus-superstar-crucifix.webp",
-      "url": "https://finnastle.com/icons/jesus-superstar-crucifix.webp",
-      "bytes": 10196
-    },
-    {
-      "name": "jumping-horse",
-      "file": "jumping-horse.webp",
-      "url": "https://finnastle.com/icons/jumping-horse.webp",
-      "bytes": 16146
-    },
-    {
-      "name": "lady-swimming-comic",
-      "file": "lady-swimming-comic.webp",
-      "url": "https://finnastle.com/icons/lady-swimming-comic.webp",
-      "bytes": 26356
-    },
-    {
-      "name": "late-night-w-the-devil",
-      "file": "late-night-w-the-devil.webp",
-      "url": "https://finnastle.com/icons/late-night-w-the-devil.webp",
-      "bytes": 14284
-    },
-    {
-      "name": "life-in-layers-text",
-      "file": "life-in-layers-text.webp",
-      "url": "https://finnastle.com/icons/life-in-layers-text.webp",
-      "bytes": 8388
-    },
-    {
-      "name": "long-legs",
-      "file": "long-legs.webp",
-      "url": "https://finnastle.com/icons/long-legs.webp",
-      "bytes": 17028
-    },
-    {
-      "name": "lying-nude-blue-and-yellow",
-      "file": "lying-nude-blue-and-yellow.webp",
-      "url": "https://finnastle.com/icons/lying-nude-blue-and-yellow.webp",
-      "bytes": 25182
-    },
-    {
-      "name": "mario-anarchists",
-      "file": "mario-anarchists.webp",
-      "url": "https://finnastle.com/icons/mario-anarchists.webp",
-      "bytes": 24564
-    },
-    {
-      "name": "marlboro-horses",
-      "file": "marlboro-horses.webp",
-      "url": "https://finnastle.com/icons/marlboro-horses.webp",
-      "bytes": 31780
-    },
-    {
-      "name": "matchsticks-element",
-      "file": "matchsticks-element.webp",
-      "url": "https://finnastle.com/icons/matchsticks-element.webp",
-      "bytes": 3204
-    },
-    {
-      "name": "mother-mary-halo",
-      "file": "mother-mary-halo.webp",
-      "url": "https://finnastle.com/icons/mother-mary-halo.webp",
-      "bytes": 15144
-    },
-    {
-      "name": "muscle-man-larger",
-      "file": "muscle-man-larger.webp",
-      "url": "https://finnastle.com/icons/muscle-man-larger.webp",
-      "bytes": 23850
-    },
-    {
-      "name": "muscle-man",
-      "file": "muscle-man.webp",
-      "url": "https://finnastle.com/icons/muscle-man.webp",
-      "bytes": 21282
-    },
-    {
-      "name": "ned-kelly-2",
-      "file": "ned-kelly-2.webp",
-      "url": "https://finnastle.com/icons/ned-kelly-2.webp",
-      "bytes": 23844
-    },
-    {
-      "name": "ned-kelly",
-      "file": "ned-kelly.webp",
-      "url": "https://finnastle.com/icons/ned-kelly.webp",
-      "bytes": 23428
-    },
-    {
-      "name": "neighbourhood-watch",
-      "file": "neighbourhood-watch.webp",
-      "url": "https://finnastle.com/icons/neighbourhood-watch.webp",
-      "bytes": 6334
-    },
-    {
-      "name": "nude-figure-olympian",
-      "file": "nude-figure-olympian.webp",
-      "url": "https://finnastle.com/icons/nude-figure-olympian.webp",
-      "bytes": 23756
-    },
-    {
-      "name": "ohm-symbol",
-      "file": "ohm-symbol.webp",
-      "url": "https://finnastle.com/icons/ohm-symbol.webp",
-      "bytes": 4276
-    },
-    {
-      "name": "oil-companies-in-a-desert",
-      "file": "oil-companies-in-a-desert.webp",
-      "url": "https://finnastle.com/icons/oil-companies-in-a-desert.webp",
-      "bytes": 14418
-    },
-    {
-      "name": "phallic-objects",
-      "file": "phallic-objects.webp",
-      "url": "https://finnastle.com/icons/phallic-objects.webp",
-      "bytes": 7878
-    },
-    {
-      "name": "photoshop-horse",
-      "file": "photoshop-horse.webp",
-      "url": "https://finnastle.com/icons/photoshop-horse.webp",
-      "bytes": 19794
-    },
-    {
-      "name": "picturesque-fountain",
-      "file": "picturesque-fountain.webp",
-      "url": "https://finnastle.com/icons/picturesque-fountain.webp",
-      "bytes": 24184
-    },
-    {
-      "name": "plane-blue-painted",
-      "file": "plane-blue-painted.webp",
-      "url": "https://finnastle.com/icons/plane-blue-painted.webp",
-      "bytes": 11534
-    },
-    {
-      "name": "pole-dancer",
-      "file": "pole-dancer.webp",
-      "url": "https://finnastle.com/icons/pole-dancer.webp",
-      "bytes": 10662
-    },
-    {
-      "name": "pool-balls-triangle",
-      "file": "pool-balls-triangle.webp",
-      "url": "https://finnastle.com/icons/pool-balls-triangle.webp",
-      "bytes": 67086
-    },
-    {
-      "name": "runnin-dog",
-      "file": "runnin-dog.webp",
-      "url": "https://finnastle.com/icons/runnin-dog.webp",
-      "bytes": 22320
-    },
-    {
-      "name": "running-horse-2",
-      "file": "running-horse-2.webp",
-      "url": "https://finnastle.com/icons/running-horse-2.webp",
-      "bytes": 8152
-    },
-    {
-      "name": "running-horse",
-      "file": "running-horse.webp",
-      "url": "https://finnastle.com/icons/running-horse.webp",
-      "bytes": 13420
-    },
-    {
-      "name": "sacred-heart",
-      "file": "sacred-heart.webp",
-      "url": "https://finnastle.com/icons/sacred-heart.webp",
-      "bytes": 31286
-    },
-    {
-      "name": "shooting-star",
-      "file": "shooting-star.webp",
-      "url": "https://finnastle.com/icons/shooting-star.webp",
-      "bytes": 8670
-    },
-    {
-      "name": "silence-death-aids-poster",
-      "file": "silence-death-aids-poster.webp",
-      "url": "https://finnastle.com/icons/silence-death-aids-poster.webp",
-      "bytes": 23284
-    },
-    {
-      "name": "sitting-nude",
-      "file": "sitting-nude.webp",
-      "url": "https://finnastle.com/icons/sitting-nude.webp",
-      "bytes": 11596
-    },
-    {
-      "name": "smile-please-lettering",
-      "file": "smile-please-lettering.webp",
-      "url": "https://finnastle.com/icons/smile-please-lettering.webp",
-      "bytes": 14660
-    },
-    {
-      "name": "smiley-face",
-      "file": "smiley-face.webp",
-      "url": "https://finnastle.com/icons/smiley-face.webp",
-      "bytes": 4982
-    },
-    {
-      "name": "snoopy-comic-strip-2",
-      "file": "snoopy-comic-strip-2.webp",
-      "url": "https://finnastle.com/icons/snoopy-comic-strip-2.webp",
-      "bytes": 42312
-    },
-    {
-      "name": "snoopy-comic-strip",
-      "file": "snoopy-comic-strip.webp",
-      "url": "https://finnastle.com/icons/snoopy-comic-strip.webp",
-      "bytes": 34082
-    },
-    {
-      "name": "speed-cartoon-racecar",
-      "file": "speed-cartoon-racecar.webp",
-      "url": "https://finnastle.com/icons/speed-cartoon-racecar.webp",
-      "bytes": 7650
+      "name": "apache-helicopter",
+      "file": "apache-helicopter.webp",
+      "url": "https://finnastle.com/icons/apache-helicopter.webp",
+      "bytes": 19750,
+      "familyId": "apache-helicopter"
     },
     {
       "name": "staple-gun-arrow",
       "file": "staple-gun-arrow.webp",
       "url": "https://finnastle.com/icons/staple-gun-arrow.webp",
-      "bytes": 51834
+      "bytes": 107946,
+      "familyId": "staple-gun-arrow"
     },
     {
-      "name": "star-burst-flourish-radiant",
-      "file": "star-burst-flourish-radiant.webp",
-      "url": "https://finnastle.com/icons/star-burst-flourish-radiant.webp",
-      "bytes": 75700
+      "name": "audi-quattro",
+      "file": "audi-quattro.webp",
+      "url": "https://finnastle.com/icons/audi-quattro.webp",
+      "bytes": 32954,
+      "familyId": "audi-quattro"
     },
     {
-      "name": "star-burst-flourish-scallop",
-      "file": "star-burst-flourish-scallop.webp",
-      "url": "https://finnastle.com/icons/star-burst-flourish-scallop.webp",
-      "bytes": 49604
+      "name": "mark-athletes-jumping-watercolor",
+      "file": "mark-athletes-jumping-watercolor.webp",
+      "url": "https://finnastle.com/icons/mark-athletes-jumping-watercolor.webp",
+      "bytes": 31294,
+      "familyId": "mark-athletes-jumping-watercolor"
     },
     {
-      "name": "star-burst-gold",
-      "file": "star-burst-gold.webp",
-      "url": "https://finnastle.com/icons/star-burst-gold.webp",
-      "bytes": 8002
+      "name": "batman",
+      "file": "batman.webp",
+      "url": "https://finnastle.com/icons/batman.webp",
+      "bytes": 33312,
+      "familyId": "batman"
     },
     {
-      "name": "sun-newspaper",
-      "file": "sun-newspaper.webp",
-      "url": "https://finnastle.com/icons/sun-newspaper.webp",
-      "bytes": 37646
+      "name": "black-panther",
+      "file": "black-panther.webp",
+      "url": "https://finnastle.com/icons/black-panther.webp",
+      "bytes": 6326,
+      "familyId": "black-panther"
     },
     {
-      "name": "sunflower-burst",
-      "file": "sunflower-burst.webp",
-      "url": "https://finnastle.com/icons/sunflower-burst.webp",
-      "bytes": 9014
+      "name": "photo-lighter-blue-plastic",
+      "file": "photo-lighter-blue-plastic.webp",
+      "url": "https://finnastle.com/icons/photo-lighter-blue-plastic.webp",
+      "bytes": 5086,
+      "familyId": "photo-lighter-blue-plastic"
     },
     {
-      "name": "super-starliner",
-      "file": "super-starliner.webp",
-      "url": "https://finnastle.com/icons/super-starliner.webp",
-      "bytes": 5024
+      "name": "blue-sedan-car",
+      "file": "blue-sedan-car.webp",
+      "url": "https://finnastle.com/icons/blue-sedan-car.webp",
+      "bytes": 50306,
+      "familyId": "blue-sedan-car"
     },
     {
-      "name": "target-dummy-crosshairs",
-      "file": "target-dummy-crosshairs.webp",
-      "url": "https://finnastle.com/icons/target-dummy-crosshairs.webp",
-      "bytes": 26140
+      "name": "muscle-man-larger",
+      "file": "muscle-man-larger.webp",
+      "url": "https://finnastle.com/icons/muscle-man-larger.webp",
+      "bytes": 23850,
+      "familyId": "muscle-man-larger"
+    },
+    {
+      "name": "muscle-man",
+      "file": "muscle-man.webp",
+      "url": "https://finnastle.com/icons/muscle-man.webp",
+      "bytes": 21282,
+      "familyId": "muscle-man-larger"
+    },
+    {
+      "name": "boeing-advert-jet",
+      "file": "boeing-advert-jet.webp",
+      "url": "https://finnastle.com/icons/boeing-advert-jet.webp",
+      "bytes": 24140,
+      "familyId": "boeing-advert-jet"
+    },
+    {
+      "name": "long-legs",
+      "file": "long-legs.webp",
+      "url": "https://finnastle.com/icons/long-legs.webp",
+      "bytes": 17028,
+      "familyId": "long-legs"
+    },
+    {
+      "name": "born-to-kill-helmet",
+      "file": "born-to-kill-helmet.webp",
+      "url": "https://finnastle.com/icons/born-to-kill-helmet.webp",
+      "bytes": 10166,
+      "familyId": "born-to-kill-helmet"
+    },
+    {
+      "name": "clipping-collage-botanical-mixed",
+      "file": "clipping-collage-botanical-mixed.webp",
+      "url": "https://finnastle.com/icons/clipping-collage-botanical-mixed.webp",
+      "bytes": 124502,
+      "familyId": "clipping-collage-botanical-mixed"
+    },
+    {
+      "name": "bottlebrush-flower",
+      "file": "bottlebrush-flower.webp",
+      "url": "https://finnastle.com/icons/bottlebrush-flower.webp",
+      "bytes": 34140,
+      "familyId": "bottlebrush-flower"
+    },
+    {
+      "name": "boundlessness-text",
+      "file": "boundlessness-text.webp",
+      "url": "https://finnastle.com/icons/boundlessness-text.webp",
+      "bytes": 23496,
+      "familyId": "boundlessness-text"
+    },
+    {
+      "name": "boxers-cutout",
+      "file": "cutouts/boxers-cutout.webp",
+      "url": "https://finnastle.com/icons/cutouts/boxers-cutout.webp",
+      "bytes": 68856,
+      "familyId": "boxing-frame"
+    },
+    {
+      "name": "boxing-frame",
+      "file": "boxing-frame.webp",
+      "url": "https://finnastle.com/icons/boxing-frame.webp",
+      "bytes": 7784,
+      "familyId": "boxing-frame"
+    },
+    {
+      "name": "bull-skull-stars",
+      "file": "bull-skull-stars.webp",
+      "url": "https://finnastle.com/icons/bull-skull-stars.webp",
+      "bytes": 9664,
+      "familyId": "bull-skull-stars"
+    },
+    {
+      "name": "ohm-symbol",
+      "file": "ohm-symbol.webp",
+      "url": "https://finnastle.com/icons/ohm-symbol.webp",
+      "bytes": 4276,
+      "familyId": "ohm-symbol"
+    },
+    {
+      "name": "dog-and-traffic-light",
+      "file": "dog-and-traffic-light.webp",
+      "url": "https://finnastle.com/icons/dog-and-traffic-light.webp",
+      "bytes": 15016,
+      "familyId": "dog-and-traffic-light"
+    },
+    {
+      "name": "checkered-flag",
+      "file": "checkered-flag.webp",
+      "url": "https://finnastle.com/icons/checkered-flag.webp",
+      "bytes": 3332,
+      "familyId": "checkered-flag"
+    },
+    {
+      "name": "clutch-black",
+      "file": "cutouts/clutch-black.webp",
+      "url": "https://finnastle.com/icons/cutouts/clutch-black.webp",
+      "bytes": 23266,
+      "familyId": "clutch"
+    },
+    {
+      "name": "clutch-white",
+      "file": "cutouts/clutch-white.webp",
+      "url": "https://finnastle.com/icons/cutouts/clutch-white.webp",
+      "bytes": 69252,
+      "familyId": "clutch"
+    },
+    {
+      "name": "cowboy-boot",
+      "file": "cowboy-boot.webp",
+      "url": "https://finnastle.com/icons/cowboy-boot.webp",
+      "bytes": 29242,
+      "familyId": "cowboy-boot"
     },
     {
       "name": "the-free-country",
       "file": "the-free-country.webp",
       "url": "https://finnastle.com/icons/the-free-country.webp",
-      "bytes": 34110
+      "bytes": 34110,
+      "familyId": "the-free-country"
     },
     {
-      "name": "traffic-jam",
-      "file": "traffic-jam.webp",
-      "url": "https://finnastle.com/icons/traffic-jam.webp",
-      "bytes": 19418
+      "name": "print-crucifixion-flaming-halftone",
+      "file": "print-crucifixion-flaming-halftone.webp",
+      "url": "https://finnastle.com/icons/print-crucifixion-flaming-halftone.webp",
+      "bytes": 108898,
+      "familyId": "print-crucifixion-flaming-halftone"
     },
     {
-      "name": "truck-stop",
-      "file": "truck-stop.webp",
-      "url": "https://finnastle.com/icons/truck-stop.webp",
-      "bytes": 33156
+      "name": "photo-can-crushed-red",
+      "file": "photo-can-crushed-red.webp",
+      "url": "https://finnastle.com/icons/photo-can-crushed-red.webp",
+      "bytes": 22744,
+      "familyId": "photo-can-crushed-red"
     },
     {
-      "name": "union-lettering",
-      "file": "union-lettering.webp",
-      "url": "https://finnastle.com/icons/union-lettering.webp",
-      "bytes": 14426
+      "name": "billboard-spokane",
+      "file": "billboard-spokane.webp",
+      "url": "https://finnastle.com/icons/billboard-spokane.webp",
+      "bytes": 22840,
+      "familyId": "billboard-spokane"
     },
     {
-      "name": "unlimited-red-lettering",
-      "file": "unlimited-red-lettering.webp",
-      "url": "https://finnastle.com/icons/unlimited-red-lettering.webp",
-      "bytes": 24766
+      "name": "drag-race-dragway",
+      "file": "drag-race-dragway.webp",
+      "url": "https://finnastle.com/icons/drag-race-dragway.webp",
+      "bytes": 16506,
+      "familyId": "drag-race-dragway"
     },
     {
-      "name": "unlimited-steamship-woodcut",
-      "file": "unlimited-steamship-woodcut.webp",
-      "url": "https://finnastle.com/icons/unlimited-steamship-woodcut.webp",
-      "bytes": 40064
+      "name": "mark-armchair-draped-cloth",
+      "file": "mark-armchair-draped-cloth.webp",
+      "url": "https://finnastle.com/icons/mark-armchair-draped-cloth.webp",
+      "bytes": 9654,
+      "familyId": "mark-armchair-draped-cloth"
+    },
+    {
+      "name": "flame-animation-01",
+      "file": "flame-animation-01.webp",
+      "url": "https://finnastle.com/icons/flame-animation-01.webp",
+      "bytes": 17254,
+      "familyId": "flame-animation-01"
+    },
+    {
+      "name": "flame-animation-02",
+      "file": "flame-animation-02.webp",
+      "url": "https://finnastle.com/icons/flame-animation-02.webp",
+      "bytes": 22100,
+      "familyId": "flame-animation-01"
+    },
+    {
+      "name": "flame-animation-03",
+      "file": "flame-animation-03.webp",
+      "url": "https://finnastle.com/icons/flame-animation-03.webp",
+      "bytes": 21686,
+      "familyId": "flame-animation-01"
+    },
+    {
+      "name": "photo-pill-embossed-rectangular",
+      "file": "photo-pill-embossed-rectangular.webp",
+      "url": "https://finnastle.com/icons/photo-pill-embossed-rectangular.webp",
+      "bytes": 1878,
+      "familyId": "photo-pill-embossed-rectangular"
+    },
+    {
+      "name": "end-lettering",
+      "file": "end-lettering.webp",
+      "url": "https://finnastle.com/icons/end-lettering.webp",
+      "bytes": 15340,
+      "familyId": "end-lettering"
+    },
+    {
+      "name": "falcon-sketch-1",
+      "file": "falcon-sketch-1.webp",
+      "url": "https://finnastle.com/icons/falcon-sketch-1.webp",
+      "bytes": 14730,
+      "familyId": "falcon-sketch-1"
+    },
+    {
+      "name": "falcon-sketch-2",
+      "file": "falcon-sketch-2.webp",
+      "url": "https://finnastle.com/icons/falcon-sketch-2.webp",
+      "bytes": 13814,
+      "familyId": "falcon-sketch-1"
+    },
+    {
+      "name": "falcon-sun",
+      "file": "falcon-sun.webp",
+      "url": "https://finnastle.com/icons/falcon-sun.webp",
+      "bytes": 21692,
+      "familyId": "falcon-sun"
+    },
+    {
+      "name": "falling-angel",
+      "file": "cutouts/falling-angel.webp",
+      "url": "https://finnastle.com/icons/cutouts/falling-angel.webp",
+      "bytes": 122914,
+      "familyId": "falling-angel"
+    },
+    {
+      "name": "sacred-heart-cutout",
+      "file": "cutouts/sacred-heart-cutout.webp",
+      "url": "https://finnastle.com/icons/cutouts/sacred-heart-cutout.webp",
+      "bytes": 212472,
+      "familyId": "sacred-heart"
+    },
+    {
+      "name": "sacred-heart",
+      "file": "sacred-heart.webp",
+      "url": "https://finnastle.com/icons/sacred-heart.webp",
+      "bytes": 31286,
+      "familyId": "sacred-heart"
+    },
+    {
+      "name": "comic-coffin-floating-strip",
+      "file": "comic-coffin-floating-strip.webp",
+      "url": "https://finnastle.com/icons/comic-coffin-floating-strip.webp",
+      "bytes": 116778,
+      "familyId": "comic-coffin-floating-strip"
+    },
+    {
+      "name": "flying-jets-in-formation",
+      "file": "flying-jets-in-formation.webp",
+      "url": "https://finnastle.com/icons/flying-jets-in-formation.webp",
+      "bytes": 25762,
+      "familyId": "flying-jets-in-formation"
+    },
+    {
+      "name": "fuel-colour",
+      "file": "cutouts/fuel-colour.webp",
+      "url": "https://finnastle.com/icons/cutouts/fuel-colour.webp",
+      "bytes": 96236,
+      "familyId": "fuel-station"
+    },
+    {
+      "name": "fuel-dark",
+      "file": "cutouts/fuel-dark.webp",
+      "url": "https://finnastle.com/icons/cutouts/fuel-dark.webp",
+      "bytes": 132712,
+      "familyId": "fuel-station"
+    },
+    {
+      "name": "fuel-white",
+      "file": "cutouts/fuel-white.webp",
+      "url": "https://finnastle.com/icons/cutouts/fuel-white.webp",
+      "bytes": 110740,
+      "familyId": "fuel-station"
+    },
+    {
+      "name": "fuel-cyan-scene",
+      "file": "cutouts/fuel-cyan-scene.webp",
+      "url": "https://finnastle.com/icons/cutouts/fuel-cyan-scene.webp",
+      "bytes": 69236,
+      "familyId": "fuel-station-scene"
+    },
+    {
+      "name": "full-elevator",
+      "file": "full-elevator.webp",
+      "url": "https://finnastle.com/icons/full-elevator.webp",
+      "bytes": 22002,
+      "familyId": "full-elevator"
+    },
+    {
+      "name": "clipping-collage-green-mixed",
+      "file": "clipping-collage-green-mixed.webp",
+      "url": "https://finnastle.com/icons/clipping-collage-green-mixed.webp",
+      "bytes": 81134,
+      "familyId": "clipping-collage-green-mixed"
+    },
+    {
+      "name": "good-game",
+      "file": "good-game.webp",
+      "url": "https://finnastle.com/icons/good-game.webp",
+      "bytes": 25454,
+      "familyId": "good-game"
+    },
+    {
+      "name": "greco-wrestlers",
+      "file": "greco-wrestlers.webp",
+      "url": "https://finnastle.com/icons/greco-wrestlers.webp",
+      "bytes": 33064,
+      "familyId": "greco-wrestlers"
+    },
+    {
+      "name": "hopelessness-paper",
+      "file": "cutouts/hopelessness-paper.webp",
+      "url": "https://finnastle.com/icons/cutouts/hopelessness-paper.webp",
+      "bytes": 27578,
+      "familyId": "hopelessness"
+    },
+    {
+      "name": "running-horse",
+      "file": "running-horse.webp",
+      "url": "https://finnastle.com/icons/running-horse.webp",
+      "bytes": 13420,
+      "familyId": "running-horse"
+    },
+    {
+      "name": "jumping-horse",
+      "file": "jumping-horse.webp",
+      "url": "https://finnastle.com/icons/jumping-horse.webp",
+      "bytes": 16146,
+      "familyId": "jumping-horse"
+    },
+    {
+      "name": "horses-procession",
+      "file": "cutouts/horses-procession.webp",
+      "url": "https://finnastle.com/icons/cutouts/horses-procession.webp",
+      "bytes": 44112,
+      "familyId": "horse-procession"
+    },
+    {
+      "name": "horse-silhouette",
+      "file": "cutouts/horse-silhouette.webp",
+      "url": "https://finnastle.com/icons/cutouts/horse-silhouette.webp",
+      "bytes": 62050,
+      "familyId": "horse-silhouette"
+    },
+    {
+      "name": "intermission-text",
+      "file": "intermission-text.webp",
+      "url": "https://finnastle.com/icons/intermission-text.webp",
+      "bytes": 4884,
+      "familyId": "intermission-text"
+    },
+    {
+      "name": "mark-figures-intertwined-gestural",
+      "file": "mark-figures-intertwined-gestural.webp",
+      "url": "https://finnastle.com/icons/mark-figures-intertwined-gestural.webp",
+      "bytes": 34276,
+      "familyId": "mark-figures-intertwined-gestural"
+    },
+    {
+      "name": "print-typography-iridescent-car",
+      "file": "print-typography-iridescent-car.webp",
+      "url": "https://finnastle.com/icons/print-typography-iridescent-car.webp",
+      "bytes": 87426,
+      "familyId": "print-typography-iridescent-car"
+    },
+    {
+      "name": "clipping-embroidery-kangaroo-wheat",
+      "file": "clipping-embroidery-kangaroo-wheat.webp",
+      "url": "https://finnastle.com/icons/clipping-embroidery-kangaroo-wheat.webp",
+      "bytes": 34130,
+      "familyId": "clipping-embroidery-kangaroo-wheat"
+    },
+    {
+      "name": "print-text-gardening-layered",
+      "file": "print-text-gardening-layered.webp",
+      "url": "https://finnastle.com/icons/print-text-gardening-layered.webp",
+      "bytes": 87940,
+      "familyId": "print-text-gardening-layered"
+    },
+    {
+      "name": "dolphins-silhouette",
+      "file": "dolphins-silhouette.webp",
+      "url": "https://finnastle.com/icons/dolphins-silhouette.webp",
+      "bytes": 2472,
+      "familyId": "dolphins-silhouette"
+    },
+    {
+      "name": "life-in-layers-text",
+      "file": "life-in-layers-text.webp",
+      "url": "https://finnastle.com/icons/life-in-layers-text.webp",
+      "bytes": 8388,
+      "familyId": "life-in-layers-text"
+    },
+    {
+      "name": "matchsticks-element",
+      "file": "matchsticks-element.webp",
+      "url": "https://finnastle.com/icons/matchsticks-element.webp",
+      "bytes": 5302,
+      "familyId": "matchsticks-element"
+    },
+    {
+      "name": "ned-kelly",
+      "file": "ned-kelly.webp",
+      "url": "https://finnastle.com/icons/ned-kelly.webp",
+      "bytes": 23428,
+      "familyId": "ned-kelly"
+    },
+    {
+      "name": "ned-kelly-2",
+      "file": "ned-kelly-2.webp",
+      "url": "https://finnastle.com/icons/ned-kelly-2.webp",
+      "bytes": 23844,
+      "familyId": "ned-kelly-2"
+    },
+    {
+      "name": "basic-ned-kelly",
+      "file": "basic-ned-kelly.webp",
+      "url": "https://finnastle.com/icons/basic-ned-kelly.webp",
+      "bytes": 27328,
+      "familyId": "basic-ned-kelly"
+    },
+    {
+      "name": "sun-newspaper",
+      "file": "sun-newspaper.webp",
+      "url": "https://finnastle.com/icons/sun-newspaper.webp",
+      "bytes": 37646,
+      "familyId": "sun-newspaper"
+    },
+    {
+      "name": "mark-figures-tangled-dripping",
+      "file": "mark-figures-tangled-dripping.webp",
+      "url": "https://finnastle.com/icons/mark-figures-tangled-dripping.webp",
+      "bytes": 99934,
+      "familyId": "mark-figures-tangled-dripping"
+    },
+    {
+      "name": "daisy-single",
+      "file": "cutouts/daisy-single.webp",
+      "url": "https://finnastle.com/icons/cutouts/daisy-single.webp",
+      "bytes": 103078,
+      "familyId": "daisies"
+    },
+    {
+      "name": "daisies-row",
+      "file": "cutouts/daisies-row.webp",
+      "url": "https://finnastle.com/icons/cutouts/daisies-row.webp",
+      "bytes": 158948,
+      "familyId": "daisies"
+    },
+    {
+      "name": "clipping-portrait-jesus-painted",
+      "file": "clipping-portrait-jesus-painted.webp",
+      "url": "https://finnastle.com/icons/clipping-portrait-jesus-painted.webp",
+      "bytes": 71700,
+      "familyId": "clipping-portrait-jesus-painted"
+    },
+    {
+      "name": "plane-blue-cutout",
+      "file": "cutouts/plane-blue-cutout.webp",
+      "url": "https://finnastle.com/icons/cutouts/plane-blue-cutout.webp",
+      "bytes": 60796,
+      "familyId": "plane-blue-painted"
+    },
+    {
+      "name": "plane-white",
+      "file": "cutouts/plane-white.webp",
+      "url": "https://finnastle.com/icons/cutouts/plane-white.webp",
+      "bytes": 28364,
+      "familyId": "plane-blue-painted"
+    },
+    {
+      "name": "plane-blue-painted",
+      "file": "plane-blue-painted.webp",
+      "url": "https://finnastle.com/icons/plane-blue-painted.webp",
+      "bytes": 11534,
+      "familyId": "plane-blue-painted"
+    },
+    {
+      "name": "rose-painted",
+      "file": "cutouts/rose-painted.webp",
+      "url": "https://finnastle.com/icons/cutouts/rose-painted.webp",
+      "bytes": 85956,
+      "familyId": "painted-rose"
+    },
+    {
+      "name": "running-horse-2",
+      "file": "running-horse-2.webp",
+      "url": "https://finnastle.com/icons/running-horse-2.webp",
+      "bytes": 8152,
+      "familyId": "running-horse-2"
+    },
+    {
+      "name": "smiley-yellow",
+      "file": "cutouts/smiley-yellow.webp",
+      "url": "https://finnastle.com/icons/cutouts/smiley-yellow.webp",
+      "bytes": 39344,
+      "familyId": "smiley-face"
+    },
+    {
+      "name": "smiley-blue",
+      "file": "cutouts/smiley-blue.webp",
+      "url": "https://finnastle.com/icons/cutouts/smiley-blue.webp",
+      "bytes": 40658,
+      "familyId": "smiley-face"
+    },
+    {
+      "name": "smiley-black",
+      "file": "cutouts/smiley-black.webp",
+      "url": "https://finnastle.com/icons/cutouts/smiley-black.webp",
+      "bytes": 29992,
+      "familyId": "smiley-face"
+    },
+    {
+      "name": "smiley-face",
+      "file": "smiley-face.webp",
+      "url": "https://finnastle.com/icons/smiley-face.webp",
+      "bytes": 4982,
+      "familyId": "smiley-face"
     },
     {
       "name": "yin-yang-brush",
       "file": "yin-yang-brush.webp",
       "url": "https://finnastle.com/icons/yin-yang-brush.webp",
-      "bytes": 10014
+      "bytes": 10014,
+      "familyId": "yin-yang-brush"
+    },
+    {
+      "name": "picturesque-fountain",
+      "file": "picturesque-fountain.webp",
+      "url": "https://finnastle.com/icons/picturesque-fountain.webp",
+      "bytes": 24184,
+      "familyId": "picturesque-fountain"
+    },
+    {
+      "name": "digital-horse-running-pink",
+      "file": "digital-horse-running-pink.webp",
+      "url": "https://finnastle.com/icons/digital-horse-running-pink.webp",
+      "bytes": 55762,
+      "familyId": "digital-horse-running-pink"
+    },
+    {
+      "name": "pool-balls-triangle",
+      "file": "pool-balls-triangle.webp",
+      "url": "https://finnastle.com/icons/pool-balls-triangle.webp",
+      "bytes": 111466,
+      "familyId": "pool-balls-triangle"
+    },
+    {
+      "name": "powerline-flames",
+      "file": "cutouts/powerline-flames.webp",
+      "url": "https://finnastle.com/icons/cutouts/powerline-flames.webp",
+      "bytes": 119596,
+      "familyId": "powerline-flames"
+    },
+    {
+      "name": "racing-decals",
+      "file": "cutouts/racing-decals.webp",
+      "url": "https://finnastle.com/icons/cutouts/racing-decals.webp",
+      "bytes": 41542,
+      "familyId": "racing-decals"
+    },
+    {
+      "name": "jesus-superstar-crucifix",
+      "file": "jesus-superstar-crucifix.webp",
+      "url": "https://finnastle.com/icons/jesus-superstar-crucifix.webp",
+      "bytes": 39460,
+      "familyId": "jesus-superstar-crucifix"
+    },
+    {
+      "name": "reclining-figure-black",
+      "file": "cutouts/reclining-figure-black.webp",
+      "url": "https://finnastle.com/icons/cutouts/reclining-figure-black.webp",
+      "bytes": 99778,
+      "familyId": "lying-nude-blue-and-yellow"
+    },
+    {
+      "name": "reclining-figure-white",
+      "file": "cutouts/reclining-figure-white.webp",
+      "url": "https://finnastle.com/icons/cutouts/reclining-figure-white.webp",
+      "bytes": 103962,
+      "familyId": "lying-nude-blue-and-yellow"
+    },
+    {
+      "name": "lying-nude-blue-and-yellow",
+      "file": "lying-nude-blue-and-yellow.webp",
+      "url": "https://finnastle.com/icons/lying-nude-blue-and-yellow.webp",
+      "bytes": 25182,
+      "familyId": "lying-nude-blue-and-yellow"
+    },
+    {
+      "name": "photo-matchbox-red-vintage",
+      "file": "photo-matchbox-red-vintage.webp",
+      "url": "https://finnastle.com/icons/photo-matchbox-red-vintage.webp",
+      "bytes": 31292,
+      "familyId": "photo-matchbox-red-vintage"
+    },
+    {
+      "name": "repsol-fragment",
+      "file": "cutouts/repsol-fragment.webp",
+      "url": "https://finnastle.com/icons/cutouts/repsol-fragment.webp",
+      "bytes": 31218,
+      "familyId": "repsol"
+    },
+    {
+      "name": "restlessness-black",
+      "file": "cutouts/restlessness-black.webp",
+      "url": "https://finnastle.com/icons/cutouts/restlessness-black.webp",
+      "bytes": 84086,
+      "familyId": "restlessness"
+    },
+    {
+      "name": "restlessness-white",
+      "file": "cutouts/restlessness-white.webp",
+      "url": "https://finnastle.com/icons/cutouts/restlessness-white.webp",
+      "bytes": 89628,
+      "familyId": "restlessness"
+    },
+    {
+      "name": "print-rocket-propaganda-red",
+      "file": "print-rocket-propaganda-red.webp",
+      "url": "https://finnastle.com/icons/print-rocket-propaganda-red.webp",
+      "bytes": 52796,
+      "familyId": "print-rocket-propaganda-red"
+    },
+    {
+      "name": "print-rug-swatches-patterned",
+      "file": "print-rug-swatches-patterned.webp",
+      "url": "https://finnastle.com/icons/print-rug-swatches-patterned.webp",
+      "bytes": 42808,
+      "familyId": "print-rug-swatches-patterned"
+    },
+    {
+      "name": "runnin-dog",
+      "file": "runnin-dog.webp",
+      "url": "https://finnastle.com/icons/runnin-dog.webp",
+      "bytes": 32108,
+      "familyId": "runnin-dog"
+    },
+    {
+      "name": "seated-figure-black",
+      "file": "cutouts/seated-figure-black.webp",
+      "url": "https://finnastle.com/icons/cutouts/seated-figure-black.webp",
+      "bytes": 91730,
+      "familyId": "sitting-nude"
+    },
+    {
+      "name": "seated-figure-white",
+      "file": "cutouts/seated-figure-white.webp",
+      "url": "https://finnastle.com/icons/cutouts/seated-figure-white.webp",
+      "bytes": 96362,
+      "familyId": "sitting-nude"
+    },
+    {
+      "name": "sitting-nude",
+      "file": "sitting-nude.webp",
+      "url": "https://finnastle.com/icons/sitting-nude.webp",
+      "bytes": 11596,
+      "familyId": "sitting-nude"
+    },
+    {
+      "name": "shooting-star",
+      "file": "shooting-star.webp",
+      "url": "https://finnastle.com/icons/shooting-star.webp",
+      "bytes": 8670,
+      "familyId": "shooting-star"
+    },
+    {
+      "name": "silence-death-aids-poster",
+      "file": "silence-death-aids-poster.webp",
+      "url": "https://finnastle.com/icons/silence-death-aids-poster.webp",
+      "bytes": 23284,
+      "familyId": "silence-death-aids-poster"
+    },
+    {
+      "name": "smile-please-lettering",
+      "file": "smile-please-lettering.webp",
+      "url": "https://finnastle.com/icons/smile-please-lettering.webp",
+      "bytes": 14660,
+      "familyId": "smile-please-lettering"
+    },
+    {
+      "name": "cool-smoking",
+      "file": "cool-smoking.webp",
+      "url": "https://finnastle.com/icons/cool-smoking.webp",
+      "bytes": 7724,
+      "familyId": "cool-smoking"
+    },
+    {
+      "name": "snoopy-comic-strip-2",
+      "file": "snoopy-comic-strip-2.webp",
+      "url": "https://finnastle.com/icons/snoopy-comic-strip-2.webp",
+      "bytes": 42312,
+      "familyId": "snoopy-comic-strip-2"
+    },
+    {
+      "name": "snoopy-comic-strip",
+      "file": "snoopy-comic-strip.webp",
+      "url": "https://finnastle.com/icons/snoopy-comic-strip.webp",
+      "bytes": 34082,
+      "familyId": "snoopy-comic-strip"
+    },
+    {
+      "name": "ancient-statue",
+      "file": "ancient-statue.webp",
+      "url": "https://finnastle.com/icons/ancient-statue.webp",
+      "bytes": 49112,
+      "familyId": "ancient-statue"
+    },
+    {
+      "name": "unlimited-steamship-woodcut",
+      "file": "unlimited-steamship-woodcut.webp",
+      "url": "https://finnastle.com/icons/unlimited-steamship-woodcut.webp",
+      "bytes": 40064,
+      "familyId": "unlimited-steamship-woodcut"
+    },
+    {
+      "name": "super-starliner",
+      "file": "super-starliner.webp",
+      "url": "https://finnastle.com/icons/super-starliner.webp",
+      "bytes": 5024,
+      "familyId": "super-starliner"
+    },
+    {
+      "name": "photo-bottle-sauce-diamond",
+      "file": "photo-bottle-sauce-diamond.webp",
+      "url": "https://finnastle.com/icons/photo-bottle-sauce-diamond.webp",
+      "bytes": 22698,
+      "familyId": "photo-bottle-sauce-diamond"
+    },
+    {
+      "name": "target-dummy-crosshairs",
+      "file": "target-dummy-crosshairs.webp",
+      "url": "https://finnastle.com/icons/target-dummy-crosshairs.webp",
+      "bytes": 26140,
+      "familyId": "target-dummy-crosshairs"
+    },
+    {
+      "name": "tennis-ball-textured",
+      "file": "cutouts/tennis-ball-textured.webp",
+      "url": "https://finnastle.com/icons/cutouts/tennis-ball-textured.webp",
+      "bytes": 110324,
+      "familyId": "tennis-ball"
+    },
+    {
+      "name": "tennis-ball-flat",
+      "file": "cutouts/tennis-ball-flat.webp",
+      "url": "https://finnastle.com/icons/cutouts/tennis-ball-flat.webp",
+      "bytes": 34776,
+      "familyId": "tennis-ball"
+    },
+    {
+      "name": "timelessness-paper",
+      "file": "cutouts/timelessness-paper.webp",
+      "url": "https://finnastle.com/icons/cutouts/timelessness-paper.webp",
+      "bytes": 25688,
+      "familyId": "timelessness"
+    },
+    {
+      "name": "nude-figure-olympian",
+      "file": "nude-figure-olympian.webp",
+      "url": "https://finnastle.com/icons/nude-figure-olympian.webp",
+      "bytes": 23756,
+      "familyId": "nude-figure-olympian"
+    },
+    {
+      "name": "comic-swimmer-torn",
+      "file": "comic-swimmer-torn.webp",
+      "url": "https://finnastle.com/icons/comic-swimmer-torn.webp",
+      "bytes": 31766,
+      "familyId": "comic-swimmer-torn"
+    },
+    {
+      "name": "traffic-jam",
+      "file": "traffic-jam.webp",
+      "url": "https://finnastle.com/icons/traffic-jam.webp",
+      "bytes": 19418,
+      "familyId": "traffic-jam"
+    },
+    {
+      "name": "tattoo-crescent",
+      "file": "cutouts/tattoo-crescent.webp",
+      "url": "https://finnastle.com/icons/cutouts/tattoo-crescent.webp",
+      "bytes": 13444,
+      "familyId": "tattoo-crescent"
+    },
+    {
+      "name": "tattoo-sun",
+      "file": "cutouts/tattoo-sun.webp",
+      "url": "https://finnastle.com/icons/cutouts/tattoo-sun.webp",
+      "bytes": 32396,
+      "familyId": "tattoo-sun"
+    },
+    {
+      "name": "tattoo-wings",
+      "file": "cutouts/tattoo-wings.webp",
+      "url": "https://finnastle.com/icons/cutouts/tattoo-wings.webp",
+      "bytes": 16684,
+      "familyId": "tattoo-wings"
+    },
+    {
+      "name": "truck-stop",
+      "file": "truck-stop.webp",
+      "url": "https://finnastle.com/icons/truck-stop.webp",
+      "bytes": 33156,
+      "familyId": "truck-stop"
+    },
+    {
+      "name": "union-lettering",
+      "file": "union-lettering.webp",
+      "url": "https://finnastle.com/icons/union-lettering.webp",
+      "bytes": 14426,
+      "familyId": "union-lettering"
+    },
+    {
+      "name": "oil-companies-in-a-desert",
+      "file": "oil-companies-in-a-desert.webp",
+      "url": "https://finnastle.com/icons/oil-companies-in-a-desert.webp",
+      "bytes": 14418,
+      "familyId": "oil-companies-in-a-desert"
+    },
+    {
+      "name": "lady-swimming-comic",
+      "file": "lady-swimming-comic.webp",
+      "url": "https://finnastle.com/icons/lady-swimming-comic.webp",
+      "bytes": 26356,
+      "familyId": "lady-swimming-comic"
     }
   ]
 }

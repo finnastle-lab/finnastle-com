@@ -62,3 +62,12 @@ jobs:
         with:
           name: sunmark-theme-previews
           path: sunmark-*.png
+      - name: Verify cutout catalogue and browser behaviour
+        run: |
+          node scripts/check-icon-catalogue.mjs
+          node scripts/check-cutout-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cutout-library-previews
+          path: cutout-*.png
