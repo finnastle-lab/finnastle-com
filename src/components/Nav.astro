@@ -1,7 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import { NAV } from '../consts';
-import sun from '../assets/elements/print-monogram-square-framed.png';
+import sun from '../assets/brand/fa-sunmark/fa-sunmark-dark.png';
 const sunMark = await getImage({ src: sun, width: 52, format: 'webp' });
 const path = Astro.url.pathname;
 const isCurrent = (href: string) =>
@@ -94,3 +94,4 @@ const icon = (href: string) => icons[href] ?? '<circle cx="12" cy="12" r="8"/>';
     }),
   );
 </script>
+
