@@ -7,7 +7,8 @@ const catalogue = require('../public/icons/index.json');
   const page = await browser.newPage({ reducedMotion: 'reduce' });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('http://127.0.0.1:4321/tools/icon-pack/');
+  const response = await page.goto('http://127.0.0.1:4321/tools/icon-pack');
+  assert.equal(response.status(), 200, 'Gallery route must load');
   await page.waitForSelector('.cutout-card');
   assert.equal(await page.locator('.cutout-card').count(), catalogue.families.length);
   for (const width of [390, 1440]) {
