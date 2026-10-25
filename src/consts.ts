@@ -34,11 +34,11 @@ export const NAV: NavItem[] = [
   { label: 'Art', href: '/work' },
   { label: 'Studio', href: '/studio' },
   {
-    // Tools leads, so Lab still reads as resolving to /tools. The path does
-    // not move until that is decided.
+    // Lab is the label everywhere; /tools is still the slug. That slug move is
+    // deferred, not cancelled, so treat /tools as a URL that moves once.
     label: 'Lab',
     items: [
-      { href: '/tools', label: 'Tools' },
+      { href: '/tools', label: 'Lab' },
       { href: '/tools/almanac', label: 'FA Almanac' },
       { href: '/tools/icon-pack', label: 'Icon Pack' },
       { href: '/writing', label: 'Writing' },

@@ -49,7 +49,7 @@ There's another benefit to having the material in one place. The agents I work w
 
 ## The rules I hadn't written down
 
-[Source Material](/tools/design-system) is the design system behind this site. I built it to document choices that had been implicit until then: typography and hierarchy, colour, recurring marks, composition, and the difference between a useful imperfection and decoration for its own sake.
+I built [the FA Design System](/tools/design-system) to document choices that had been implicit until then: typography and hierarchy, colour, recurring marks, composition, and the difference between a useful imperfection and decoration for its own sake.
 
 I knew how I wanted the work to look. The harder part was making those decisions accessible to other people and to the AI agents helping build the site. A shared reference means we're not re-establishing the visual direction every time something changes.
 
