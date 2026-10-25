@@ -1,0 +1,877 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import {
+  palette, voices, scale, grids, studio, darkBlocksAgree,
+  sunmark, taxonomy, motion,
+} from '../../lib/design-tokens';
+
+import sunmarkDark from '../../assets/brand/fa-sunmark/fa-sunmark-dark.png';
+import flourish from '../../assets/brand/sun-flourish.png';
+import yinYang from '../../assets/brand/stamps/yin-yang.png';
+import sunNewspaper from '../../assets/brand/stamps/sun-newspaper.png';
+import wordmark from '../../assets/brand/wordmark.png';
+
+// Real examples, picked to show the range of the image language rather than
+// one corner of it. Each is an asset already on the site.
+import exEngraving from '../../assets/elements/engraving-otter-crayfish-dark.png';
+import exComic from '../../assets/elements/comic-airplane-halftone-clouds.png';
+import exClipping from '../../assets/elements/clipping-collage-botanical-mixed.png';
+import exDigital from '../../assets/elements/digital-horse-running-pink.png';
+import exPhoto from '../../assets/elements/photo-sky-cumulus-midafternoon.webp';
+import exPrint from '../../assets/elements/print-monogram-square-framed.png';
+
+const examples = [
+  { src: exEngraving, prefix: 'engraving', caption: 'Engraved line illustration, scanned. Old stock, used as line art rather than as an antique.', alt: 'An engraving of an otter holding a crayfish, in dense black line.' },
+  { src: exComic, prefix: 'comic', caption: 'Halftone reproduction. The dot is the subject; the printing process is visible on purpose.', alt: 'A comic-book aeroplane against halftone-dotted clouds.' },
+  { src: exClipping, prefix: 'clipping', caption: 'Cut and collaged. Contemporary paper and plaid, not aged.', alt: 'A mixed-media collage of textured green paper, garden flowers, a letter A and a plaid pattern.' },
+  { src: exDigital, prefix: 'digital', caption: 'Made on screen, and not disguised as anything else.', alt: 'A running horse rendered in flat pink on a clean ground.' },
+  { src: exPhoto, prefix: 'photo', caption: 'A straight photograph. Clean, current, no treatment applied.', alt: 'Cumulus cloud against blue sky, mid-afternoon.' },
+  { src: exPrint, prefix: 'print', caption: 'Printed matter, scanned. The FA monogram as it exists on paper.', alt: 'The hand-brushed FA monogram with its sun flourish, scanned from print.' },
+];
+
+const provenance = [
+  { kind: 'Authentic', rule: 'A photograph or scan of a thing that existed. Caption says what and when if it matters.' },
+  { kind: 'Manipulated', rule: 'A photograph altered beyond crop and levels. The caption says so.' },
+  { kind: 'Assembled', rule: 'Collage and hand-made composition. Credited as artwork, not as a photograph.' },
+  { kind: 'Generated', rule: 'Made by a model. Labelled, every time, without exception.' },
+];
+
+const retired = [
+  { thing: 'Sage frame', was: '--frame: #c9d0c0', why: 'Declared as web chrome on 30 August and consumed by no rule on the site in the two months since.', on: '2026-10-25' },
+  { thing: 'Old amber', was: '#dd5b1e', why: 'Too light, too bright. Replaced by vermilion sampled from the felt-tip sun burst and deepened for ink.', on: 'V2' },
+  { thing: 'Third grey', was: '--ink-3: #a59f95', why: 'Two greys have carried the site since launch. Never implemented.', on: '2026-10-25' },
+  { thing: 'Inter display scale', was: 'Display 48 / Title 24', why: 'Gave Inter a display role that belongs to the serif. Never implemented.', on: '2026-10-25' },
+  { thing: 'Cloud mark', was: 'Outline, white fill, shadow ledge', why: 'Documented as a secondary mark with a specified treatment. No asset has ever existed.', on: '2026-10-25' },
+  { thing: 'Filmic side tab', was: 'Dashed film-strip spine', why: 'Called "the recurring structural rule" and implemented nowhere.', on: '2026-10-25' },
+];
+---
+
+<BaseLayout
+  title="FA Design System"
+  description="The design system behind finnastle.com: two registers, three type voices, the canonical FA sunmark, and the rules for images and motion."
+>
+  <article class="ds">
+
+    <header class="ds-open">
+      <p class="ds-eyebrow">Reference &middot; v3</p>
+      <h1>Not one single thing</h1>
+      <p class="ds-standfirst">
+        A monochrome system built on tension: the hand-drawn and irregular against
+        the technical and exact. Black and white do the structural work,
+        photography carries the colour, and one deep vermilion is the only pigment
+        the graphic system permits.
+      </p>
+      <p class="ds-note">
+        Every value on this page is read out of the files that implement it when
+        the page is built. The swatches are the stylesheet's own custom
+        properties, the hashes are computed from the shipping bytes, and the
+        counts come from the asset directory. A specimen here cannot drift from
+        the system it describes.
+      </p>
+    </header>
+
+    <img class="flourish" src={flourish.src} alt="" aria-hidden="true" width="76" />
+
+    <!-- ============================================ for agents -->
+    <section id="rules" class="ds-sec">
+      <h2>Before you change anything</h2>
+      <p>
+        The short version, for anyone (or anything) implementing against this
+        system. Everything below this section is the long version.
+      </p>
+
+      <div class="ds-rules">
+        <div class="ds-rule ds-rule--hard">
+          <h3>The mark</h3>
+          <ul>
+            <li>Copy the supplied file. Never redraw, trace, regenerate, stretch, crop or colour-filter it.</li>
+            <li>Never substitute typography or a generated lookalike.</li>
+            <li>Pick the variant that contrasts with the actual background.</li>
+            <li>Check the hash before trusting a copy.</li>
+          </ul>
+        </div>
+        <div class="ds-rule">
+          <h3>Canonical paths</h3>
+          <ul>
+            <li><code>src/assets/brand/fa-sunmark/</code> &mdash; the mark, both variants</li>
+            <li><code>src/styles/global.css</code> &mdash; every token, the only stylesheet</li>
+            <li><code>src/assets/elements/</code> &mdash; the element library</li>
+            <li><code>public/icons/</code> &mdash; the Icon Pack and its index</li>
+            <li><code>finnastle-lab/fa-design-system</code> &mdash; the cross-tool source</li>
+          </ul>
+        </div>
+        <div class="ds-rule">
+          <h3>Standing rules</h3>
+          <ul>
+            <li>Two registers. Never merge them.</li>
+            <li>Emphasis is an underline, never a colour swap.</li>
+            <li>Vermilion is a guest. One compositional accent per view; interaction states are not that accent.</li>
+            <li>Age is a dial, not a default.</li>
+            <li>Motion passes the reduced-motion gate or it does not ship.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ I -->
+    <section id="foundations" class="ds-sec">
+      <p class="ds-num">I</p>
+      <h2>Identity foundations</h2>
+
+      <h3>Two registers</h3>
+      <p>
+        This is the first rule because everything else bends around it. The work
+        goes out under two registers and they are kept apart: art runs a
+        chapter-variable visual language, and business goes out monochrome as
+        Astle Creative. Merging them is the one thing the system forbids outright.
+      </p>
+      <p>
+        It is enforced in code rather than by discipline. <code>BaseLayout</code>
+        stamps <code>data-register</code> on the root element, and the stylesheet
+        answers:
+      </p>
+      <div class="ds-code">
+        <pre><code>:root[data-register="studio"] &#123;
+{Object.entries(studio).map(([k, v]) => `  ${k}: ${v};\n`)}&#125;</code></pre>
+      </div>
+      <p>
+        One line covers light and dark, because <code>--ink</code> is itself
+        theme-dependent and resolves at use. The vermilion is an art-register
+        device and never appears on a business page.
+      </p>
+
+      <p class="ds-caption">
+        The two panels below carry the real declarations. The second mirrors the
+        root rule onto itself, because <code>:root[data-register]</code> only
+        ever matches the root element; on the site it is set once, on
+        <code>&lt;html&gt;</code>, and the whole page inherits it.
+      </p>
+      <div class="ds-registers">
+        <div class="ds-register">
+          <span class="ds-reg-label">Art register</span>
+          <p class="ds-reg-demo">Emphasis is <a href="#foundations">a link</a>, and the guest shows on hover.</p>
+          <span class="ds-chip">Accent: vermilion</span>
+        </div>
+        <div class="ds-register" data-register="studio">
+          <span class="ds-reg-label">Studio register</span>
+          <p class="ds-reg-demo">Emphasis is <a href="#foundations">a link</a>, and the guest resolves to ink.</p>
+          <span class="ds-chip">Accent: ink</span>
+        </div>
+      </div>
+
+      <h3>Palette</h3>
+      <p>
+        Monochrome first, with a whisper of warmth so the neutrals never read as
+        default grey. Each swatch below paints itself with the token named on it,
+        so what you see is what the site holds. Hex values are parsed from the
+        stylesheet at build time.
+      </p>
+      <div class="ds-swatches">
+        {palette.map((s) => (
+          <div class="ds-swatch">
+            <div class="ds-chip-fill" style={`background: var(${s.token})`}></div>
+            <div class="ds-swatch-lab">
+              <span class="ds-swatch-name">{s.name}</span>
+              <code class="ds-swatch-token">{s.token}</code>
+              <span class="ds-swatch-hex">{s.light} <span class="ds-sep">/</span> {s.dark}</span>
+              <span class="ds-swatch-role">{s.role}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="ds-caption">
+        Light value, then dark. Flip the theme with the control in the masthead
+        and every swatch follows, because none of them carries a colour of its own.
+      </p>
+
+      <h3>Three voices in tension</h3>
+      <p>
+        A three-way argument, and the tension is the point. Never blend them.
+        Against all three sits a fourth, wordless voice: the hand-drawn marks.
+      </p>
+      {voices.map((v) => (
+        <div class="ds-voice">
+          <div class="ds-voice-meta">
+            <span class="ds-voice-role">{v.role}</span>
+            <span class="ds-voice-name">{v.name}</span>
+            <code class="ds-voice-token">{v.token}</code>
+          </div>
+          <p class="ds-voice-demo" style={v.css}>A fearless search for answers</p>
+          <p class="ds-caption">{v.note}</p>
+          <p class="ds-stack"><code>{v.stack}</code></p>
+        </div>
+      ))}
+
+      <h3>Scale and measure</h3>
+      <table class="ds-table">
+        <tbody>
+          <tr><th scope="row">Display, h1</th><td><code>{scale.h1}</code></td><td>Instrument Serif italic</td></tr>
+          <tr><th scope="row">Section, h2</th><td><code>{scale.h2}</code></td><td>Instrument Serif italic</td></tr>
+          <tr><th scope="row">Label, h3</th><td><code>{scale.h3}</code></td><td>Inter, uppercase, graphite</td></tr>
+          <tr><th scope="row">Body</th><td><code>{scale.body}</code></td><td>Cousine, line-height 1.65</td></tr>
+          <tr><th scope="row">Measure</th><td><code>{scale.measure}</code></td><td>Every reading column on the site</td></tr>
+          <tr><th scope="row">Content width</th><td><code>{scale.maxw}</code></td><td><code>--maxw</code>, main and footer</td></tr>
+          <tr><th scope="row">Shell width</th><td><code>{scale.frame}</code></td><td><code>.frame</code>, wide enough to hold collage stamps</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Grid densities</h3>
+      <p>Four, each an <code>auto-fill</code> track with a minimum. Read from the stylesheet:</p>
+      <ul class="ds-inline-list">
+        {grids.map((g) => (
+          <li><code>{g.selector}</code> <span class="ds-sep">&rarr;</span> {g.min}</li>
+        ))}
+      </ul>
+
+      <h3>Theme</h3>
+      <p>
+        Light is the default and lives on the bare <code>:root</code>. Dark
+        arrives two ways: a <code>prefers-color-scheme</code> block guarded
+        against an explicit light choice, and a <code>[data-theme="dark"]</code>
+        block so the masthead control wins in both directions. The choice
+        persists in <code>localStorage</code> under <code>fa-theme</code>, read by
+        an inline script before first paint so the page never flashes the wrong
+        ground.
+      </p>
+      <p class={darkBlocksAgree ? 'ds-check ds-check--ok' : 'ds-check ds-check--bad'}>
+        {darkBlocksAgree
+          ? 'Checked at build: the two dark blocks hold identical values.'
+          : 'Checked at build: the two dark blocks have DRIFTED. Fix global.css.'}
+      </p>
+      <p class="ds-caption">
+        The palette is maintained twice by hand, which is a standing risk rather
+        than a feature. This page compares the two blocks on every build so a
+        drift surfaces here instead of on the site.
+      </p>
+    </section>
+
+    <img class="flourish" src={flourish.src} alt="" aria-hidden="true" width="76" />
+
+    <!-- ============================================ II -->
+    <section id="marks" class="ds-sec">
+      <p class="ds-num">II</p>
+      <h2>Marks</h2>
+
+      <h3>The FA sunmark</h3>
+      <div class="ds-mark-hero">
+        <Image src={sunmarkDark} alt="The FA sunmark: a hand-brushed FA monogram with a sun flourish to its right." width={420} densities={[1, 2]} class="mark" />
+      </div>
+      <p>
+        The primary identity mark. Hand-brushed, uneven, stamp-like. Reach for
+        this before any other mark when a single symbol has to stand for Finn or
+        for Astle Creative.
+      </p>
+      <p>
+        It ships as a supplied vector pair and must be copied, never recreated.
+        The hashes below are computed from the bytes in this repository at build
+        time, so they can be checked against any other copy.
+      </p>
+      <div class="ds-scroll">
+        <table class="ds-table ds-table--wide">
+          <thead>
+            <tr><th scope="col">File</th><th scope="col">Artwork</th><th scope="col">Use on</th><th scope="col">viewBox</th><th scope="col">SHA-256</th></tr>
+          </thead>
+          <tbody>
+            {sunmark.map((m) => (
+              <tr>
+                <td><code>{m.file}</code></td>
+                <td>{m.artwork}</td>
+                <td>{m.use}</td>
+                <td><code>{m.viewBox}</code></td>
+                <td><code class="ds-hash">{m.sha256}</code></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="ds-caption">
+        "Dark" and "light" name the mark colour, not the page theme. Both grounds
+        are genuinely transparent: the only full-bleed rect in either file sits
+        inside a <code>clipPath</code> and renders nothing.
+      </p>
+
+      <h4 class="ds-sub">How this site renders it</h4>
+      <p>
+        At chrome sizes the site ships one black-ink source and recolours it:
+        <code>--mark-inv</code> is 0 in light and 1 in dark, and
+        <code>.mark</code> applies <code>brightness(0) invert(var(--mark-inv))</code>.
+        One file covers both themes and runs through the WebP pipeline, which
+        does not process SVG.
+      </p>
+      <div class="ds-sizes">
+        <div><Image src={sunmarkDark} alt="" width={18} densities={[2]} class="mark" /><span>18px &middot; footer</span></div>
+        <div><Image src={sunmarkDark} alt="" width={26} densities={[2]} class="mark" /><span>26px &middot; nav</span></div>
+        <div><Image src={sunmarkDark} alt="" width={64} densities={[2]} class="mark" /><span>64px &middot; stamp</span></div>
+      </div>
+      <p class="ds-caption">
+        Three sizes, one source, recoloured by filter. Below roughly 16px the
+        irregular edges stop reading and the mark becomes a smudge; that is the
+        floor.
+      </p>
+      <p>
+        Above chrome size, and anywhere the mark sits over photography, the filter
+        cannot be trusted against an arbitrary ground. There, swap to the variant
+        that contrasts, the way the favicons do. The favicons are the only place
+        on the site that currently consumes the white variant.
+      </p>
+
+      <h3>Secondary marks</h3>
+      <div class="ds-marks">
+        <figure class="ds-markcard">
+          <img src={flourish.src} alt="A felt-tip sun-ray burst, scalloped and uneven." width="96" class="mark" />
+          <figcaption>
+            <b>Sun-ray flourish.</b> Section break, and an overlay on photography.
+            The vermilion was sampled from the felt-tip fill of this burst, then
+            deepened for ink.
+          </figcaption>
+        </figure>
+        <figure class="ds-markcard">
+          <img src={yinYang.src} alt="A hand-brushed yin-yang, uneven and organic." width="96" class="mark" />
+          <figcaption>
+            <b>Ink yin-yang.</b> The duality, and the visual thesis of Fearless /
+            Answers. Never replace it with a clean geometric one: the wobble in
+            the linework is the meaning.
+          </figcaption>
+        </figure>
+        <figure class="ds-markcard">
+          <img src={sunNewspaper.src} alt="A sun printed in newsprint halftone." width="96" />
+          <figcaption>
+            <b>Stamps.</b> Collage elements placed as stamps, rotated slightly,
+            bleeding past the content column into the shell. Decorative, always
+            <code>aria-hidden</code>.
+          </figcaption>
+        </figure>
+        <figure class="ds-markcard">
+          <img src={wordmark.src} alt="The hand-brushed Finn Astle wordmark." width="150" />
+          <figcaption>
+            <b>Wordmark.</b> The hand-brushed signature. A light and dark pair,
+            swapped by file rather than filtered, because the brush texture does
+            not survive inversion.
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3>The Icon Pack</h3>
+      <p>
+        The pack is the library of artistic elements. This system defines how to
+        use them and does not restate what is in it: the pack has its own index
+        and its own page, and a rebuild is in progress. Elements are decorative
+        unless they carry meaning, they sit on a checkerboard in the gallery so
+        transparency stays legible, and they are never recoloured to match a page.
+      </p>
+      <p><a href="/tools/icon-pack">Open the Icon Pack &rarr;</a></p>
+    </section>
+
+    <img class="flourish" src={flourish.src} alt="" aria-hidden="true" width="76" />
+
+    <!-- ============================================ III -->
+    <section id="images" class="ds-sec">
+      <p class="ds-num">III</p>
+      <h2>Image language</h2>
+
+      <p class="ds-lead">Age is a dial, not a default.</p>
+      <p>
+        The identity has halftone, engraving, photocopy and worn print in it, and
+        none of that means everything should look old. Contemporary paper, card,
+        plastic and clean digital surfaces are equally valid. An imperfection is
+        a decision with a reason: it shows a process, dates a source, or gives the
+        eye something true to hold. Applied by habit, it is costume.
+      </p>
+
+      <h3>The library names its materials</h3>
+      <p>
+        {taxonomy.total} elements, grouped by the prefix that says what each one
+        is made of rather than what it depicts. {taxonomy.renamed} of them were
+        renamed from subject and joke names to these. The taxonomy is the rule:
+        reach for a material, not a motif.
+      </p>
+      <ul class="ds-tax">
+        {taxonomy.groups.map((g) => (
+          <li>
+            <code>{g.prefix}-</code>
+            <span class="ds-tax-n">{g.count}</span>
+            <span class="ds-tax-m">{g.meaning}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h3>The range, in real assets</h3>
+      <div class="ds-gallery">
+        {examples.map((e) => (
+          <figure class="ds-shot">
+            <div class="ds-shot-frame">
+              <Image src={e.src} alt={e.alt} width={360} densities={[1, 2]} />
+            </div>
+            <figcaption><code>{e.prefix}-</code> {e.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="ds-caption">
+        Six of {taxonomy.total}, chosen to show the spread. Halftone and engraving
+        sit in the same library as a clean photograph and a flat digital render,
+        and nothing forces a vintage pass over the top.
+      </p>
+
+      <h3>Cropping and placement</h3>
+      <p>
+        Work cards crop to a uniform 4/3. Natural heights were tried and
+        abandoned: a grid of mixed aspect ratios reads as a mistake rather than a
+        decision. Because a fixed crop will cut the wrong part of some images,
+        each chapter carries its own focal point in
+        <code>src/lib/work-chapters.ts</code>, so the crop is authored rather
+        than centred by default.
+      </p>
+      <p>
+        Collage stamps are the deliberate exception to the content column. They
+        sit outside it and bleed into the shell, which is why
+        <code>.frame</code> runs to {scale.frame} with <code>overflow-x: clip</code>
+        rather than letting them cause a horizontal scroll.
+      </p>
+
+      <h3>Provenance</h3>
+      <p>Four kinds, kept distinct. The caption carries the difference.</p>
+      <dl class="ds-prov">
+        {provenance.map((p) => (
+          <div class="ds-prov-row">
+            <dt>{p.kind}</dt>
+            <dd>{p.rule}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <h3>When not to use an image at all</h3>
+      <p>
+        The certificates piece lists eight courses. The badges were set in type
+        rather than shown as a picture of the issuer's artwork, because the badges
+        are in four colours that are not ours, and because a picture of a list is
+        how the copy and the heading came to disagree in the first place. Type
+        cannot drift from itself. A screenshot can.
+      </p>
+
+      <h3>Alt text</h3>
+      <p>
+        Describe what is in the picture, not what it is for. A decorative mark
+        takes an empty <code>alt</code> and <code>aria-hidden</code>. A mark
+        carrying identity takes real alt text. Never restate a caption the screen
+        reader has just read.
+      </p>
+    </section>
+
+    <img class="flourish" src={flourish.src} alt="" aria-hidden="true" width="76" />
+
+    <!-- ============================================ IV -->
+    <section id="digital" class="ds-sec">
+      <p class="ds-num">IV</p>
+      <h2>Digital design language</h2>
+
+      <h3>Page archetypes</h3>
+      <p>Six, and no page invents a seventh without a reason.</p>
+      <div class="ds-arch">
+        <div><b>Homepage</b><span>Proposition, proof, studio call, the explore cards, sign-off.</span></div>
+        <div><b>Editorial</b><span>Standfirst, meta line, {scale.measure} column, follow-on links.</span></div>
+        <div><b>Studio case</b><span>Business register. Accordion sections, anchored by slug.</span></div>
+        <div><b>Tool page</b><span>Card per tool, tag, blurb, one or two links out.</span></div>
+        <div><b>Gallery</b><span>Uniform crop, authored focal points, chapter thumbnails.</span></div>
+        <div><b>Poem</b><span>Per-line rendering, so a soft wrap reads differently from an authored break.</span></div>
+      </div>
+
+      <h3>Links and emphasis</h3>
+      <p>
+        Links inherit their colour and carry a 1px underline at a 0.15em offset.
+        The guest appears on hover, as the underline colour, and nowhere else.
+        Emphasis inside the mono body is an underline at 1.5px, never a weight
+        change and never a colour swap: a monospace bold reads as a different
+        typeface, which breaks the voice.
+      </p>
+      <p class="ds-demo-line">
+        Here is <a href="#digital">a link</a>, and here is <strong>emphasis</strong>,
+        in the body voice.
+      </p>
+
+      <h3>Interaction states</h3>
+      <p>
+        Every interactive thing needs a visible keyboard state. The ring is
+        2px of ink at a 2px offset, and it is not optional.
+      </p>
+      <div class="ds-states">
+        <button type="button" class="ds-btn">Focusable button</button>
+        <a class="ds-btn" href="#digital">Focusable link</a>
+        <span class="ds-caption">Tab to them.</span>
+      </div>
+
+      <h3>Technical and filmic detail</h3>
+      <p>
+        Hairlines, measurement marks, metadata lines and film tags earn a place
+        when they carry navigation, provenance or real technical information.
+        They become decoration the moment they carry none, and the system has
+        already paid for that once: a dashed film-strip spine was documented as
+        "the recurring structural rule" for two months without ever being built.
+        The test is whether removing the detail loses the reader anything.
+      </p>
+    </section>
+
+    <img class="flourish" src={flourish.src} alt="" aria-hidden="true" width="76" />
+
+    <!-- ============================================ V -->
+    <section id="motion" class="ds-sec">
+      <p class="ds-num">V</p>
+      <h2>Motion and atmosphere</h2>
+
+      <p>
+        This is a short section and it should be. Counted from the stylesheet at
+        build time: <b>{motion.transitions} transitions</b> on the whole site,
+        both on the work card, and a global reduced-motion block that is
+        {motion.reducedMotion ? ' present' : ' MISSING'}.
+      </p>
+
+      <div class="ds-status">
+        <div class="ds-status-row">
+          <span class="ds-tag ds-tag--on">Implemented</span>
+          <p>Work-card hover: a 0.25s opacity and transform cue, and a 0.4s image scale, both behind <code>@media (hover: hover)</code>. The reduced-motion block resets both.</p>
+        </div>
+        <div class="ds-status-row">
+          <span class="ds-tag ds-tag--on">Approved</span>
+          <p>Nothing beyond the above.</p>
+        </div>
+        <div class="ds-status-row">
+          <span class="ds-tag">Scoped</span>
+          <p>An atmospheric homepage panel and an extended-footer wordmark. Scoped only, with a release gate. No branch, no prototype, nothing in the repository.</p>
+        </div>
+        <div class="ds-status-row">
+          <span class="ds-tag ds-tag--off">Not absorbed</span>
+          <p>The GPU sky examples cited in that scope. Referenced once, never prototyped here, and not part of this system by default.</p>
+        </div>
+      </div>
+
+      <h3>The gate</h3>
+      <p>Before any motion moves from scoped to approved it needs all six:</p>
+      <ol class="ds-gate">
+        <li>A stated design purpose. Not "it felt flat".</li>
+        <li>Reduced-motion behaviour that is a real alternative, not a freeze.</li>
+        <li>A performance budget, measured on a phone.</li>
+        <li>Responsive behaviour down to 320px.</li>
+        <li>Keyboard and screen-reader behaviour, and no new focus traps.</li>
+        <li>A fallback that renders before JavaScript and survives without it.</li>
+      </ol>
+      <p>
+        Motion should demonstrate technical proficiency without costing anyone
+        usability. The reduced-motion block at the foot of the stylesheet is the
+        floor, and it is already global.
+      </p>
+    </section>
+
+    <img class="flourish" src={flourish.src} alt="" aria-hidden="true" width="76" />
+
+    <!-- ============================================ retired -->
+    <section id="retired" class="ds-sec">
+      <p class="ds-num">VI</p>
+      <h2>Retired</h2>
+      <p>
+        Dropped rules are recorded rather than deleted, so nobody reinstates one
+        by reading an old file. A documented mark with no asset is how the next
+        person ends up drawing their own.
+      </p>
+      <div class="ds-scroll">
+        <table class="ds-table ds-table--wide">
+          <thead>
+            <tr><th scope="col">Was</th><th scope="col">Value</th><th scope="col">Why it went</th><th scope="col">Retired</th></tr>
+          </thead>
+          <tbody>
+            {retired.map((r) => (
+              <tr>
+                <td><s>{r.thing}</s></td>
+                <td><code>{r.was}</code></td>
+                <td>{r.why}</td>
+                <td class="ds-when">{r.on}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="ds-foot">
+      <p>
+        Built from <code>src/styles/global.css</code>,
+        <code>src/assets/brand/fa-sunmark/</code> and
+        <code>src/assets/elements/</code>. The canonical cross-tool copy of the
+        mark lives at <code>finnastle-lab/fa-design-system</code>.
+      </p>
+      <p>
+        Public availability does not grant ownership of Finn Astle's brand
+        identity.
+      </p>
+    </footer>
+
+  </article>
+</BaseLayout>
+
+<style>
+  .ds { padding-bottom: 2rem; }
+
+  .ds-open { padding: 1rem 0 0; }
+  .ds-eyebrow {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite);
+    margin: 0 0 0.6rem;
+  }
+  .ds-standfirst { font-size: 1.05rem; max-width: 38rem; }
+  .ds-note {
+    font-family: var(--sans); font-size: 0.82rem; color: var(--graphite);
+    border-left: 2px solid var(--line-strong); padding-left: 1rem;
+    max-width: 38rem; margin-top: 1.5rem;
+  }
+
+  .ds-sec { padding-top: 1.5rem; scroll-margin-top: 4.5rem; }
+  .ds-num {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.14em; color: var(--graphite); margin: 0 0 0.2rem;
+  }
+  .ds-sec > h2 { margin-top: 0; }
+  .ds-lead {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.15;
+    margin: 1.5rem 0 1rem; max-width: 30rem;
+  }
+  .ds-sub {
+    font-family: var(--sans); font-size: 0.76rem; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase; color: var(--graphite);
+    margin: 2rem 0 0.75rem;
+  }
+  .ds-caption {
+    font-family: var(--sans); font-size: 0.8rem; color: var(--graphite);
+    max-width: 38rem;
+  }
+
+  /* --- agent rules --- */
+  .ds-rules {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .ds-rule {
+    border: 1px solid var(--line); background: var(--card); padding: 1rem;
+  }
+  .ds-rule--hard { border-color: var(--line-strong); border-left: 3px solid var(--accent); }
+  .ds-rule h3 { margin: 0 0 0.6rem; }
+  .ds-rule ul { margin: 0; padding-left: 1rem; font-size: 0.86rem; }
+  .ds-rule li { margin-bottom: 0.35rem; }
+
+  /* --- registers --- */
+  .ds-registers {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem; margin: 1.25rem 0 2rem;
+  }
+  .ds-register { border: 1px solid var(--line); background: var(--card); padding: 1rem; }
+  /* The real rule is :root[data-register="studio"], which only ever matches the
+     root element. This mirrors it onto the specimen card so the second panel
+     actually shows the override instead of describing it. Same two
+     declarations, same source order logic. */
+  .ds-register[data-register="studio"] {
+    --accent: var(--ink);
+    --accent-press: var(--graphite);
+  }
+  .ds-reg-label {
+    font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase; color: var(--graphite);
+  }
+  .ds-reg-demo { margin: 0.5rem 0 0.75rem; max-width: none; }
+  .ds-reg-demo a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+  .ds-chip {
+    font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.06em;
+    border: 1px solid var(--accent); color: var(--accent);
+    padding: 0.14rem 0.4rem; border-radius: 2px; display: inline-block;
+  }
+
+  /* --- code --- */
+  .ds-code {
+    border: 1px solid var(--line); background: var(--card);
+    padding: 0.75rem 1rem; overflow-x: auto; margin: 1rem 0;
+  }
+  .ds-code pre { margin: 0; font-size: 0.8rem; }
+  .ds-code code { white-space: pre; }
+
+  /* --- swatches --- */
+  .ds-swatches {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 0.75rem; margin: 1.25rem 0 0.75rem;
+  }
+  .ds-swatch { border: 1px solid var(--line); background: var(--card); }
+  .ds-chip-fill { height: 3.2rem; border-bottom: 1px solid var(--line); }
+  .ds-swatch-lab { padding: 0.5rem 0.65rem; display: flex; flex-direction: column; gap: 0.1rem; }
+  .ds-swatch-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; }
+  .ds-swatch-token { font-size: 0.68rem; color: var(--graphite); }
+  .ds-swatch-hex { font-size: 0.72rem; font-variant-numeric: tabular-nums; }
+  .ds-swatch-role { font-family: var(--sans); font-size: 0.64rem; color: var(--graphite); }
+  .ds-sep { color: var(--graphite); }
+
+  /* --- voices --- */
+  .ds-voice { border-top: 1px solid var(--line); padding: 1.1rem 0; }
+  .ds-voice-meta { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+  .ds-voice-role {
+    font-family: var(--sans); font-size: 0.64rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite);
+  }
+  .ds-voice-name { font-family: var(--sans); font-size: 0.86rem; font-weight: 500; }
+  .ds-voice-token { font-size: 0.72rem; color: var(--graphite); }
+  .ds-voice-demo {
+    font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1.12;
+    margin: 0.5rem 0 0.4rem; max-width: none;
+  }
+  .ds-stack { margin: 0.3rem 0 0; }
+  .ds-stack code { font-size: 0.7rem; color: var(--graphite); word-break: break-word; }
+
+  /* --- tables --- */
+  .ds-scroll { overflow-x: auto; margin: 1rem 0; }
+  .ds-table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  .ds-table--wide { min-width: 44rem; margin: 0; }
+  .ds-table th, .ds-table td {
+    text-align: left; vertical-align: top; padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--line); font-size: 0.84rem;
+  }
+  .ds-table thead th {
+    font-family: var(--sans); font-size: 0.64rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite);
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .ds-table tbody th {
+    font-family: var(--sans); font-size: 0.74rem; font-weight: 500;
+    white-space: nowrap;
+  }
+  .ds-table td:first-child { white-space: nowrap; }
+  .ds-table--wide td:nth-child(3) { white-space: normal; }
+  .ds-hash { font-size: 0.68rem; word-break: break-all; }
+  .ds-when { font-family: var(--sans); font-size: 0.74rem; color: var(--graphite); white-space: nowrap; }
+
+  .ds-inline-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.86rem; }
+
+  .ds-check {
+    font-family: var(--sans); font-size: 0.78rem;
+    border: 1px solid var(--line-strong); padding: 0.5rem 0.75rem;
+    display: inline-block; max-width: none;
+  }
+  .ds-check--bad { border-color: var(--accent); color: var(--accent); }
+
+  /* --- marks --- */
+  .ds-mark-hero {
+    border: 1px solid var(--line); background: var(--card);
+    padding: 2.5rem 1rem; display: flex; justify-content: center;
+    margin: 1.25rem 0;
+  }
+  .ds-mark-hero img { max-width: 100%; height: auto; }
+  .ds-sizes {
+    display: flex; align-items: flex-end; gap: 2rem; flex-wrap: wrap;
+    border: 1px solid var(--line); background: var(--card);
+    padding: 1.25rem; margin: 1rem 0;
+  }
+  .ds-sizes > div { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .ds-sizes span {
+    font-family: var(--sans); font-size: 0.66rem; color: var(--graphite); white-space: nowrap;
+  }
+  .ds-marks {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1rem; margin: 1.25rem 0;
+  }
+  .ds-markcard {
+    margin: 0; border: 1px solid var(--line); background: var(--card);
+    padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .ds-markcard img { align-self: flex-start; height: auto; }
+  .ds-markcard figcaption { font-size: 0.82rem; }
+
+  /* --- taxonomy --- */
+  .ds-tax { list-style: none; padding: 0; margin: 1rem 0; }
+  .ds-tax li {
+    display: grid; grid-template-columns: 7rem 2.5rem 1fr;
+    gap: 0.75rem; align-items: baseline;
+    border-bottom: 1px solid var(--line); padding: 0.45rem 0;
+    font-size: 0.86rem;
+  }
+  .ds-tax-n { font-variant-numeric: tabular-nums; color: var(--graphite); }
+  .ds-tax-m { font-family: var(--sans); font-size: 0.8rem; }
+
+  .ds-gallery {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1.25rem; margin: 1.25rem 0;
+  }
+  .ds-shot { margin: 0; }
+  .ds-shot-frame {
+    border: 1px solid var(--line); background: var(--card);
+    aspect-ratio: 4 / 3; display: flex; align-items: center;
+    justify-content: center; overflow: hidden; padding: 0.75rem;
+  }
+  .ds-shot-frame img { max-width: 100%; max-height: 100%; width: auto; height: auto; }
+  .ds-shot figcaption {
+    font-family: var(--sans); font-size: 0.76rem; color: var(--graphite);
+    margin-top: 0.5rem;
+  }
+  .ds-shot figcaption code { font-family: var(--mono); color: var(--ink); }
+
+  /* --- provenance --- */
+  .ds-prov { margin: 1rem 0; }
+  .ds-prov-row {
+    display: grid; grid-template-columns: 8rem 1fr; gap: 1rem;
+    border-bottom: 1px solid var(--line); padding: 0.6rem 0;
+  }
+  .ds-prov dt { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; }
+  .ds-prov dd { margin: 0; font-size: 0.86rem; }
+
+  /* --- archetypes --- */
+  .ds-arch {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.75rem; margin: 1rem 0;
+  }
+  .ds-arch > div {
+    border-left: 2px solid var(--line-strong); padding-left: 0.85rem;
+    display: flex; flex-direction: column; gap: 0.2rem;
+  }
+  .ds-arch b { font-weight: 700; text-decoration: none; }
+  .ds-arch span { font-family: var(--sans); font-size: 0.78rem; color: var(--graphite); }
+
+  .ds-demo-line {
+    border: 1px solid var(--line); background: var(--card);
+    padding: 0.85rem 1rem; max-width: none;
+  }
+  .ds-demo-line a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+
+  .ds-states { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+  .ds-btn {
+    font-family: var(--sans); font-size: 0.78rem; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line-strong);
+    padding: 0.4rem 0.8rem; border-radius: 3px; cursor: pointer;
+    text-decoration: none; display: inline-block;
+  }
+  .ds-btn:hover { border-color: var(--ink); }
+  .ds-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  /* --- motion status --- */
+  .ds-status { margin: 1.25rem 0; }
+  .ds-status-row {
+    display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem;
+    border-top: 1px solid var(--line); padding: 0.7rem 0; align-items: start;
+  }
+  .ds-status-row p { margin: 0; font-size: 0.86rem; }
+  .ds-tag {
+    font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px dashed var(--line-strong); color: var(--graphite);
+    padding: 0.18rem 0.42rem; border-radius: 2px; justify-self: start;
+  }
+  .ds-tag--on { background: var(--ink); color: var(--paper); border-style: solid; border-color: var(--ink); }
+  .ds-tag--off { text-decoration: line-through; }
+  .ds-gate { padding-left: 1.3rem; }
+  .ds-gate li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+  .ds-foot {
+    margin-top: 3rem; padding-top: 1.25rem;
+    border-top: 1px solid var(--line-strong);
+    font-family: var(--sans); font-size: 0.76rem; color: var(--graphite);
+  }
+  .ds-foot p { max-width: 40rem; }
+
+  @media (max-width: 620px) {
+    .ds-tax li { grid-template-columns: 6rem 2.2rem 1fr; gap: 0.5rem; }
+    .ds-prov-row, .ds-status-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    .ds-sizes { gap: 1.25rem; }
+  }
+</style>

@@ -9,7 +9,7 @@ import { chapterSlugs } from '../lib/work-chapters';
 // line at the foot of /writing, so they are not submitted for indexing either.
 const STATIC = [
   '/', '/personal', '/work', '/exhibitions', '/studio', '/studio/fearless-answers',
-  '/writing', '/tools', '/tools/icon-pack', '/tools/design-system/',
+  '/writing', '/tools', '/tools/icon-pack', '/tools/design-system',
 ];
 
 export const GET: APIRoute = async ({ site }) => {

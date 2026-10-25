@@ -7,3 +7,7 @@
 
 # Certificates essay retitled; slug follows the new title.
 /writing/four-things-i-built    /writing/things-a-certificate-wont-teach-you    301
+
+# Reference page moved from a static file to an Astro route; the
+# trailing-slash form was the published URL.
+/tools/design-system/    /tools/design-system    301
