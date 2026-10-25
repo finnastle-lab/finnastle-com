@@ -227,6 +227,54 @@ starting.
 
 ---
 
+## Built 2026-10-25: the reference page is now an Astro route
+
+P1 items 3 and 4, done together on `staging/fa-design-system-v3`.
+
+`public/tools/design-system/index.html` is deleted. `/tools/design-system` is
+an Astro route that imports `global.css`. **505,922 bytes to 51,182.**
+
+`src/lib/design-tokens.ts` reads the system out of the files that implement it
+at build time: hexes and font stacks parsed from `global.css`, sunmark hashes
+computed from the shipping bytes, element counts from the asset directory, the
+transition count counted. Swatches paint themselves with `var(--token)`. A
+specimen cannot print a value the site does not hold, which is the whole
+argument for the rebuild.
+
+It also compares the two hand-maintained dark blocks on every build and prints
+the result on the page, so the duplication risk surfaces there rather than on
+the site.
+
+Six sections: an agent-readable rules block, identity foundations opening on
+the two registers, marks with live hashes, image language built from the
+element taxonomy, digital design language, motion stated as two transitions
+and a kill-switch. Plus a retired ledger carrying all six dropped rules.
+
+**The URL lost its trailing slash**, which `trailingSlash: 'never'` requires.
+The `/tools` card, the essay link and the sitemap are repointed to the final
+URL rather than left following a redirect, and `/tools/design-system/` 301s in
+`public/_redirects`.
+
+Verified: build passes at 52 pages; all 16 image assets serve 200; both themes
+resolve from tokens; the studio register specimen resolves the accent to ink;
+375px has no horizontal page scroll, with wide tables scrolling inside their
+own container.
+
+**Still open, and it needs a push I have not made:** the second copy of the old
+506KB page still exists at `finnastle-lab/fa-design-system/index.html`, along
+with its open PR #1 to refresh that copy's embedded marks. Deleting it, and
+deciding whether that repo keeps a rendered page at all or just assets plus
+`AGENTS.md`, is the remaining half of the duplication fix.
+
+### A correction the parser caught
+
+The audit said the four grid densities were gallery 220, work-grid 240,
+icon-grid 96 and tool-links 120. Reading the stylesheet rather than my notes:
+gallery 220, work-grid 240, **chapter-thumbs 96**, **icon-grid 120**. The page
+prints what it parses.
+
+---
+
 ## Corrections to the cross-agent record
 
 Flagged here rather than edited in place, per that file's own instruction.
@@ -254,4 +302,4 @@ None pushed. Each builds; none is merged.
 | `staging/canonical-sunmark` | `main` | PR #39's two commits verbatim, plus the committed canonical pair and the merged README |
 | `staging/favicon-canonical-rasterisation` | `staging/canonical-sunmark` | Transparent favicons, both variants, the icon links and `scripts/make-favicons.py` |
 | `staging/ci-build-workflow` | `main` | `.github/workflows/build.yml` |
-| `staging/fa-design-system-v3` | `main` | The rename, the sage retirement, the site description, this log |
+| `staging/fa-design-system-v3` | `staging/favicon-canonical-rasterisation` | The rename, the sage retirement, the site description, the Astro reference page, this log |
