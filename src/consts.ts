@@ -1,6 +1,6 @@
 export const SITE = {
   title: 'Finn Astle',
-  description: 'What happens to making when machines can make.',
+  description: "What's irreducible in human making, and how you'd know.",
   url: 'https://finnastle.com',
   locale: 'en-AU',
 } as const;

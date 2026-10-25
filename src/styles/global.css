@@ -1,8 +1,11 @@
 /*
-  FA / Astle Creative design system — monochrome-first, built on tension.
-  Three type voices held apart (Instrument Serif italic · Cousine · Inter),
-  monochrome + one vermilion guest, sage web-chrome frame. Tokens from the
-  FA Brand Reference. See design-like-finn.
+  FA Design System — monochrome-first, built on tension. Three type voices
+  held apart (Instrument Serif italic · Cousine · Inter), monochrome plus one
+  vermilion guest. Two registers: the guest is an art-register device and the
+  studio register resolves it to ink. See design-like-finn.
+
+  Sage (--frame, #c9d0c0) was retired on 2026-10-25. It was declared as web
+  chrome for two months and consumed by no rule on the site.
 */
 
 :root {
@@ -13,7 +16,6 @@
   --card: #ffffff;
   --line: #e6e3db;
   --line-strong: #d3cfc5;
-  --frame: #c9d0c0;        /* sage — web chrome only */
   --accent: #d9360f;       /* vermilion — the one guest */
   --accent-press: #a82908;
   --mark-inv: 0;           /* invert off in light */
@@ -34,7 +36,6 @@
     --card: #171716;
     --line: #2c2b27;
     --line-strong: #3a3934;
-    --frame: #1b1b19;
     --accent: #e5451a;
     --accent-press: #f0673d;
     --mark-inv: 1;         /* flip ink marks to white on dark */
@@ -48,7 +49,6 @@
   --card: #171716;
   --line: #2c2b27;
   --line-strong: #3a3934;
-  --frame: #1b1b19;
   --accent: #e5451a;
   --accent-press: #f0673d;
   --mark-inv: 1;
@@ -78,7 +78,7 @@ body {
   font-feature-settings: "liga" 1;
 }
 
-/* Sage frame + paper card — the web/app shell chrome */
+/* The paper shell — page chrome, holding the content column */
 .frame {
   background: var(--paper);
   max-width: 78rem;
