@@ -6,13 +6,12 @@ Source Material V3 audit. Numbering follows the audit's section 05.
 Audit: https://claude.ai/code/artifact/19d2931b-5ceb-4a81-be86-ad1ca5f93021
 Staging branch: `staging/fa-design-system-v3`
 
-Each entry records what was decided and what it settles. Open questions are
-listed with their original recommendation and no action taken.
+All twelve are answered. Each entry records what was decided, what it settles
+and where it was applied.
 
 ---
 
 ## Decided 2026-10-25
-
 ### 01 · Two registers, not one system
 
 **Decided:** two registers, kept apart.
@@ -55,31 +54,6 @@ Still to change, each blocked on something:
 
 Not changed: the path. `/tools/design-system/` stays until decision 03 is taken.
 
-### 08 · The cloud mark and the filmic spine are struck
-
-**Decided:** both struck from the documented system, with the strike recorded.
-
-Neither has an asset. The V2 page documents a cloud mark with a specified
-treatment (black outline, white fill, shadow ledge) and there is no cloud in
-`src/assets/brand/`. It documents a filmic side tab, a dashed film-strip spine,
-and calls it "the recurring structural rule"; it is implemented nowhere in
-`global.css`.
-
-A documented mark with no file is how an agent ends up drawing one. Both are
-recorded as retired claims rather than deleted silently, so the record shows
-they were considered and dropped.
-
-If either returns, it returns with an asset.
-
-**Known exception, open until the reference page is rebuilt:** the live page at
-`/tools/design-system/` still asserts both marks, and still calls the filmic
-spine a recurring structural rule. Editing two blocks out of a 506KB file that
-is slated for replacement widens the drift between its two copies for no gain.
-The strike lands when the page is rebuilt as an Astro route (P1 item 4).
-
-Approved marks, unchanged: the FA sunmark (primary), the sun-ray flourish, the
-ink yin-yang.
-
 ### 04 · PR #39 is split three ways
 
 **Decided:** split.
@@ -113,28 +87,143 @@ rather than riding along.
 Not done: nothing is pushed and no PR is opened. PR #39's own disposition —
 close it in favour of `staging/canonical-sunmark`, or retarget it — is Finn's.
 
+### 05 · Favicons are transparent
+
+**Decided:** transparent padding. PR #39's opaque Paper ground is dropped.
+
+Rasterised from the canonical SVGs with cairosvg, fitted to 87.5% of each
+square canvas, never distorted to fill. Pillow only scales and centres what
+cairosvg returns; nothing is redrawn, traced or recoloured.
+`scripts/make-favicons.py` regenerates the set.
+
+One exception, on purpose: `apple-touch-icon.png` keeps an opaque Paper ground
+at 180px, because iOS composites it onto the home screen where transparency
+renders black.
+
+Checked at 8× magnification: the mark reads at 32px in both themes, and the
+16px pair is legible as a mark.
+
+On `staging/favicon-canonical-rasterisation`, now rebased on top of
+`staging/canonical-sunmark` since it needs the canonical SVGs and the icon
+links.
+
+### 06 · Both variants ship, and the split is written down
+
+**Asked:** have we done this already?
+
+Partly, and now the rest of it. The split has three parts:
+
+1. **The light variant ships.** Done in the PR #39 split. It was never in
+   PR #39 and is now tracked.
+2. **Chrome sizes keep the filter.** Unchanged. `--mark-inv` drives
+   `brightness(0) invert()` on `.mark` and `.stamp--ink` at 18, 26 and 64px.
+   One black-ink source covers both themes and runs through Astro's WebP
+   pipeline, which does not process SVG.
+3. **Favicons swap files rather than filter.** Done above, and this is the
+   first place on the site that actually consumes `fa-sunmark-light.svg`.
+
+What remains is one documentation line, not code: the rule for display-size
+use and for the mark over photography, where a filter cannot be trusted
+against an arbitrary ground. There is no instance of either on the site today,
+so V3 states the rule and the first use follows it.
+
+### 07 · Sage is retired
+
+**Decided:** retire.
+
+`--frame: #c9d0c0` is removed from `global.css`, from all three blocks (light,
+`prefers-color-scheme` dark, `[data-theme="dark"]`). It was declared as web
+chrome on 30 August, documented in the V2 palette as identity, and consumed by
+no rule on the site in the two months since. The only consumer anywhere was
+the reference page's own `body`, and that page declares its own copy.
+
+The `.frame` class stays. It was never using the token.
+
+The retirement is recorded in the stylesheet header rather than dropped
+silently. The header also stops calling itself the Astle Creative system and
+names the two registers, per decision 01.
+
+### 08 · The cloud mark and the filmic spine are struck
+
+**Decided:** both struck from the documented system, with the strike recorded.
+
+Neither has an asset. The V2 page documents a cloud mark with a specified
+treatment (black outline, white fill, shadow ledge) and there is no cloud in
+`src/assets/brand/`. It documents a filmic side tab, a dashed film-strip spine,
+and calls it "the recurring structural rule"; it is implemented nowhere in
+`global.css`.
+
+A documented mark with no file is how an agent ends up drawing one. Both are
+recorded as retired claims rather than deleted silently, so the record shows
+they were considered and dropped.
+
+If either returns, it returns with an asset.
+
+**Known exception, open until the reference page is rebuilt:** the live page at
+`/tools/design-system/` still asserts both marks, and still calls the filmic
+spine a recurring structural rule. Editing two blocks out of a 506KB file that
+is slated for replacement widens the drift between its two copies for no gain.
+The strike lands when the page is rebuilt as an Astro route (P1 item 4).
+
+Approved marks, unchanged: the FA sunmark (primary), the sun-ray flourish, the
+ink yin-yang.
+
+### 09 · `--maxw` stays at 62rem
+
+**Decided:** 62rem. No code change; the site is already there. V3 documents
+62rem and drops the V2 page's 1080px claim.
+
+### 10 · Inter keeps no display scale
+
+**Decided:** no. The serif carries display, the mono carries body, Inter
+carries labels and metadata. No code change; the site is already there. V3
+drops the V2 page's "Interface scale · Inter: Display 48 / Title 24 / Body 16
+/ Label 11", which was never implemented.
+
+### 11 · The Icon Pack work comes first
+
+**Decided:** before. Confirmed by work already in flight.
+
+This is bigger than the rename the audit assumed. A cutout-library rebuild is
+paused at `handover/cutout-library-2026-10-24`, which carries handover records
+only, no implementation. Per that record: 110 asset families across 131
+versions, 35 native Figma renders with WebP derivatives, 21 legacy public-pack
+files removed, and the gallery rebuilt with variant dropdowns, search, category
+filter and per-preview ground selection. Astro build and catalogue checks
+passed; visual checks did not, and it is explicitly not signed off.
+
+It also records that `src/assets/elements/` was left intact, so the 127-file
+material taxonomy the V3 image-language section is built on is unaffected.
+
+V3 documents principles for using the pack and points at it. It does not
+restate the inventory, which would need rewriting the moment that branch lands.
+
+### 12 · The public line catches up
+
+**Decided:** yes. `SITE.description` moves from "What happens to making when
+machines can make." to "What's irreducible in human making, and how you'd
+know." Verified gone from the built site: the old line survives only as essay
+prose. `/studio` keeps its own business-register description.
+
 ---
 
 ## Open
 
-No action taken on any of these.
+Only decision 03 remains, and it is not ours to take.
 
 | # | Question | Recommendation at checkpoint one |
 |---|---|---|
 | 03 | Does the rename wait for the `/tools` or `/lab` path decision? | Yes. Moving the path now costs the page two 301s and the CV two rebuilds. |
-| 05 | Favicon ground: opaque Paper, or transparent? | Transparent, with the light variant for dark chrome. |
-| 06 | Ship both sunmark variants, or filter one? | Filter the dark variant at chrome sizes, ship both for display size and over photography, and write the split down. |
-| 07 | The sage frame: build it, or retire it? | Retire. Declared and documented for two months, never used. |
-| 09 | `--maxw`: 62rem or 1080px? | 62rem. What every page is built and reviewed at. |
-| 10 | Does Inter keep a display scale? | No. Serif carries display, mono carries body, Inter carries labels and metadata. |
-| 11 | Icon Pack rename: before or after V3 documents it? | Before. `index.json` already flags the filenames as placeholders. |
-| 12 | Does `SITE.description` move to the widened public line? | Yes. It ships in every meta description and share card. |
 
-Decision 05 now gates `staging/favicon-canonical-rasterisation`, which is
-otherwise ready. Decision 06 is answered in part by the split: the site keeps
-filtering the dark variant, and the light variant now ships alongside it
-unused, so the remaining question is only whether display-size and
-over-photography uses should swap to it.
+Decision 03 is shared with the website repo and sits in section 5 of
+`2026-10-24-lab-shift-open-stream.md`. The rename is applied without it: the
+name changed, the path did not. Nothing here is blocked on it.
+
+Scope for V3 is now agreed. The next item that needs a go-ahead is not a
+decision but a build: replacing the static 506KB reference page with an Astro
+route that consumes `global.css` (P1 items 3 and 4). That is the change the
+whole source-of-truth argument rests on, and it is large enough to ask before
+starting.
 
 ---
 
@@ -142,7 +231,27 @@ over-photography uses should swap to it.
 
 Flagged here rather than edited in place, per that file's own instruction.
 
-`2026-10-24-lab-shift-open-stream.md` section 4 states that "Source Material"
-appears "three times in the certificates essay body". It appears **twice** in
-that file, and only one is body copy: line 52 is prose, line 56 is image alt
-text. The change list in section 4 is one item shorter than written.
+1. `2026-10-24-lab-shift-open-stream.md` section 4 states that "Source
+   Material" appears "three times in the certificates essay body". It appears
+   **twice** in that file, and only one is body copy: line 52 is prose, line 56
+   is image alt text. The change list in section 4 is one item shorter than
+   written.
+
+2. The essay moved. `main` is at `a17ea6a`, which renamed the slug to
+   `things-a-certificate-wont-teach-you` with a 301 off the old path, and
+   repointed the `FeaturedWriting` slug on `src/pages/tools.astro:84`. Section
+   5's note that the master CV "breaks when the essay slug changes" has now
+   fired. All four staging branches are based on that commit.
+
+---
+
+## Branches
+
+None pushed. Each builds; none is merged.
+
+| Branch | Base | Carries |
+| --- | --- | --- |
+| `staging/canonical-sunmark` | `main` | PR #39's two commits verbatim, plus the committed canonical pair and the merged README |
+| `staging/favicon-canonical-rasterisation` | `staging/canonical-sunmark` | Transparent favicons, both variants, the icon links and `scripts/make-favicons.py` |
+| `staging/ci-build-workflow` | `main` | `.github/workflows/build.yml` |
+| `staging/fa-design-system-v3` | `main` | The rename, the sage retirement, the site description, this log |
