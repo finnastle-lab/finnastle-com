@@ -57,7 +57,10 @@ moves.** The slug move is **deferred, not cancelled** — treat `/tools` as a UR
 that moves once.
 
 That closes the `/tools` vs `/lab` question in section 5 of
-`2026-10-24-lab-shift-open-stream.md`, which had been open since 24 October.
+the Lab shift open stream, open since 24 October.
+That stream now lives at `My Drive/00_SYSTEM/2026-10-24-lab-shift-open-stream.md`.
+It was merged there on 25 October from two forked copies; both local copies are
+gone or stubbed.
 Whoever picks that file up next should record the answer there.
 
 Also in #46: the essay sentence the rename broke. It read "FA Design System is
