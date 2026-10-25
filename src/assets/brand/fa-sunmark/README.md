@@ -64,10 +64,23 @@ than editing the raster.
 Favicons derive from these: fit the whole mark inside a square canvas with
 transparent padding, don't distort to fill. Test at 16px and 32px.
 
-The regenerated favicons are **not** in this branch. They were carved out of
-PR #39 into `staging/favicon-canonical-rasterisation`, because they introduce
-an opaque Paper `#FAF9F6` ground rather than the transparent padding this file
-specifies. That is decision 05 and it is open.
+**Decision 05, taken 2026-10-25: transparent.** The favicons are rasterised
+from these SVGs with cairosvg, fitted to 87.5% of each square canvas with
+transparent padding, and never distorted to fill. PR #39's opaque Paper ground
+is dropped.
+
+Both variants ship, which is where decision 06 lands in practice: the black
+mark serves light browser chrome, the white mark serves dark, selected by
+`media="(prefers-color-scheme: ...)"` on the `rel="icon"` links. Those links
+are ordered with the black mark last, because `media` on `rel="icon"` is
+honoured unevenly and a browser that ignores it takes the final link.
+`favicon.ico` carries 16, 32 and 48px frames of the black mark as the fallback.
+
+One exception: `apple-touch-icon.png` keeps an opaque Paper ground at 180px.
+iOS composites it onto the home screen, where a transparent ground renders
+black.
+
+To regenerate, `scripts/make-favicons.py`.
 
 ## Superseded
 
