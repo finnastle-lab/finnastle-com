@@ -260,11 +260,17 @@ resolve from tokens; the studio register specimen resolves the accent to ink;
 375px has no horizontal page scroll, with wide tables scrolling inside their
 own container.
 
-**Still open, and it needs a push I have not made:** the second copy of the old
-506KB page still exists at `finnastle-lab/fa-design-system/index.html`, along
-with its open PR #1 to refresh that copy's embedded marks. Deleting it, and
-deciding whether that repo keeps a rendered page at all or just assets plus
-`AGENTS.md`, is the remaining half of the duplication fix.
+**The second copy is gone too.** `finnastle-lab/fa-design-system#2` deletes
+`index.html` there and repoints the repository at the published route. That
+repo now holds the canonical sunmark pair, the rules for using it and favicon
+guidance, and nothing else; `README.md` and `AGENTS.md` both lead with
+<https://finnastle.com/tools/design-system> and tell an agent to read the
+system there rather than reconstruct it from an older document. The two SVGs
+are untouched, hash-verified identical before and after. Its PR #1, which
+refreshed embedded marks inside the deleted file, is closed.
+
+The duplication this audit opened on is now closed on both sides: one rendered
+page, generated from the code it describes.
 
 ### A correction the parser caught
 
@@ -295,7 +301,7 @@ Flagged here rather than edited in place, per that file's own instruction.
 
 ## Branches
 
-None pushed. Each builds; none is merged.
+Each builds. None is merged.
 
 | Branch | Base | Carries |
 | --- | --- | --- |
@@ -303,3 +309,16 @@ None pushed. Each builds; none is merged.
 | `staging/favicon-canonical-rasterisation` | `staging/canonical-sunmark` | Transparent favicons, both variants, the icon links and `scripts/make-favicons.py` |
 | `staging/ci-build-workflow` | `main` | `.github/workflows/build.yml` |
 | `staging/fa-design-system-v3` | `staging/favicon-canonical-rasterisation` | The rename, the sage retirement, the site description, the Astro reference page, this log |
+
+Pushed 2026-10-25, with pull requests open and no merges:
+
+| PR | Base | Carries |
+| --- | --- | --- |
+| finnastle-com#41 | `main` | The canonical sunmark, split out of #39 |
+| finnastle-com#42 | #41 | Transparent favicons, both variants |
+| finnastle-com#43 | #42 | FA Design System v3 and the rebuilt reference page |
+| finnastle-com#44 | `main` | The CI workflow, independent of the stack |
+| fa-design-system#2 | `main` | Assets and rules only; `index.html` deleted |
+
+Closed in favour of the above: finnastle-com#39 and fa-design-system#1. Neither
+branch was force-pushed; both still sit where they were.
