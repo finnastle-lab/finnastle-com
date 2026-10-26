@@ -11,3 +11,7 @@
 # Reference page moved from a static file to an Astro route; the
 # trailing-slash form was the published URL.
 /tools/design-system/    /tools/design-system    301
+
+# Cutout gallery renamed from "Icon Pack" to "Collage cutouts"; the route
+# follows the name.
+/tools/icon-pack    /tools/collage-cutouts    301

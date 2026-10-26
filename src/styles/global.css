@@ -707,7 +707,7 @@ code { font-family: var(--mono); font-size: 0.9em; }
   border-color: var(--accent);
 }
 
-/* Icon pack filter */
+/* Collage cutouts filter */
 .icon-filter {
   display: block;
   width: 100%;
@@ -736,7 +736,7 @@ code { font-family: var(--mono); font-size: 0.9em; }
   margin-top: 2rem;
 }
 
-/* Icon pack grid */
+/* Collage cutouts grid */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
