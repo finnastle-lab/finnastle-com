@@ -40,7 +40,7 @@ export const NAV: NavItem[] = [
     items: [
       { href: '/tools', label: 'Lab' },
       { href: '/tools/almanac', label: 'FA Almanac' },
-      { href: '/tools/icon-pack', label: 'Icon Pack' },
+      { href: '/tools/collage-cutouts', label: 'Collage cutouts' },
       { href: '/writing', label: 'Writing' },
     ],
   },
