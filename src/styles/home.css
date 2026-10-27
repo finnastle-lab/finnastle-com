@@ -1,13 +1,16 @@
 /*
-  Homepage atmosphere — the approved light and dark studies.
+  Homepage atmosphere — the approved light and dark studies, plus the first-
+  impression treatment signed off on top of them (pixel sky, pixel stars, slide
+  mounts, progressive landing).
+
   Figma: GPT Space, "10 · finnastle.com · Atmosphere".
     8:389 light desktop · 8:511 light mobile
     52:890 dark desktop · 52:1438 dark mobile · 8:640 annotations
 
-  Measurements come straight off those frames. The design width is 1248px
-  (78rem), the reading column 944px (59rem), the body measure 640px (40rem).
-  Desktop sections are 112px (7rem) tall in the padding, mobile 72px (4.5rem).
-  Everything in between is fluid rather than stepped.
+  Measurements come off those frames. The design width is 1248px (78rem), the
+  reading column 944px (59rem), the body measure 640px (40rem). Section padding
+  runs more generous than the frames draw it, so each block lands on its own as
+  you scroll rather than arriving with its neighbours.
 
   Every selector here is namespaced to the homepage. Nothing in this file
   changes another route.
@@ -25,7 +28,7 @@ main.main--wide {
 
 .home-section {
   position: relative;
-  padding-block: 4.5rem;
+  padding-block: 5.5rem;
 }
 
 .home-col {
@@ -33,10 +36,13 @@ main.main--wide {
   margin-inline: auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
+  text-align: center;
 }
 
-.home-col > * { margin: 0; }
+/* Centred, and centred against the column rather than against the 40rem
+   measure global.css puts on a paragraph. */
+.home-col > * { margin: 0 auto; }
 
 /* --- Type ------------------------------------------------------------------ */
 
@@ -46,6 +52,7 @@ main.main--wide {
   font-family: var(--sans);
   font-size: 0.8125rem;
   line-height: 1.5;
+  letter-spacing: 0.02em;
   color: var(--graphite);
 }
 
@@ -70,6 +77,17 @@ main.main--wide {
   text-wrap: balance;
 }
 
+/* The mission, stated plainly. It pairs with the lead rather than sitting a
+   whole gap below it, so the two read as one claim in two lines. */
+.home-mission {
+  margin-top: -0.875rem;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.04rem + 0.35vw, 1.3125rem);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
 .home-body {
   font-family: var(--mono);
   font-size: 1rem;
@@ -80,10 +98,22 @@ main.main--wide {
 .home-pointer {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 1.375rem;
+  font-size: clamp(1.375rem, 1.261rem + 0.466vw, 1.625rem);
   line-height: 1.4;
 }
-.home-pointer a { text-decoration-thickness: 1px; }
+/* The whole line goes orange on highlight, not just its underline. */
+.home-pointer a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--line-strong);
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+.home-pointer a:hover,
+.home-pointer a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
 
 .home-signature {
   font-family: var(--serif);
@@ -92,77 +122,175 @@ main.main--wide {
   line-height: 1.5;
 }
 
-/* --- Destinations: Studio and Lab ------------------------------------------ */
+/* --- Progressive landing ---------------------------------------------------
+   Armed by an inline script before the body parses, so a block starts hidden
+   rather than flashing in and out. No JS and reduced motion never arm it, and
+   every block is simply present. */
 
-.home-destinations {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+html[data-reveal-armed] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 1.125rem, 0);
+}
+html[data-reveal-armed] [data-reveal][data-landed] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) calc(var(--reveal-i, 0) * 90ms),
+    transform 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) calc(var(--reveal-i, 0) * 90ms);
 }
 
-.home-destination {
+/* --- Destinations: two slide mounts ----------------------------------------
+   Two 35mm slides, ready to go. The proportions are a real mount: a 36 x 24
+   window set slightly high with rounded corners, a thumb notch on the top
+   rail, and the frame number and format stamped along the bottom. The window
+   carries a hint of the work rather than sitting empty. */
+
+.home-slides {
+  display: grid;
+  gap: 1.25rem;
+  margin-block: 0.75rem;
+  /* A screen blend on a dark ground lifts a cutout far harder than a multiply
+     blend sinks it on a light one, so the hint carries its own pair of
+     strengths per theme. Same three-block shape as global.css. */
+  --hint: 0.16;
+  --hint-on: 0.42;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .home-slides { --hint: 0.09; --hint-on: 0.26; }
+}
+:root[data-theme='dark'] .home-slides { --hint: 0.09; --hint-on: 0.26; }
+
+.home-slide {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.125rem 1.25rem;
-  background: var(--paper);
+  gap: 0.875rem;
+  padding: 1.25rem 1.125rem 1.125rem;
+  /* Three tonal steps: the page, the mount, the window. Without the middle
+     one a mount is just a border. */
+  background: color-mix(in srgb, var(--ink) 4%, var(--paper));
   border: 1px solid var(--line);
+  border-radius: 3px;
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s ease;
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
-.home-destination:hover,
-.home-destination:focus-visible { border-color: var(--accent); }
+.home-slide:hover,
+.home-slide:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -18px rgba(0, 0, 0, 0.5);
+}
 
-.home-destination-label {
+/* The thumb notch, the one detail that makes a rectangle read as a mount. */
+.home-slide::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 2.5rem;
+  height: 0.4375rem;
+  transform: translateX(-50%);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 2.5rem 2.5rem;
+}
+
+.home-slide-label {
   font-family: var(--sans);
   font-weight: 500;
   font-size: 1.375rem;
   line-height: 1.35;
 }
-.home-destination-body {
+
+.home-slide-window {
+  position: relative;
+  display: block;
+  aspect-ratio: 36 / 24;
+  overflow: hidden;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ink) 11%, var(--paper));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+/* A hint, not a thumbnail: enough to tell you there is work behind the link,
+   not enough to compete with the label. */
+.home-slide-hint {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  mix-blend-mode: var(--ink-blend);
+  opacity: var(--hint);
+  transition: opacity 0.3s ease;
+}
+.home-slide:hover .home-slide-hint,
+.home-slide:focus-visible .home-slide-hint { opacity: var(--hint-on); }
+
+.home-slide-rail--bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.home-slide-body {
   font-family: var(--sans);
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--graphite);
 }
 
-/* --- Centred from tablet up ------------------------------------------------- */
+/* Stamped along the bottom edge of the mount, so both slides line up however
+   long their body copy runs. */
+.home-slide-code {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 0.5625rem;      /* 9px, the margin-caption size */
+  letter-spacing: 0.08em;
+  color: var(--graphite);
+}
+
+/* --- Wider than mobile ------------------------------------------------------ */
 
 @media (min-width: 48rem) {
-  .home-section { padding-block: 7rem; }
-  .home-hero .home-col { gap: 1.75rem; }
-  .home-proof .home-col { gap: 2.75rem; }
-  .home-col { text-align: center; }
-  .home-body { margin-inline: auto; }
+  /* 160px, more open than the frames' 112px: each block gets room to land. */
+  .home-section { padding-block: 10rem; }
+  .home-hero .home-col { gap: 2.25rem; }
+  .home-proof .home-col { gap: 4rem; }
 
-  .home-destinations {
-    flex-direction: row;
+  .home-slides {
+    grid-template-columns: repeat(2, minmax(0, 20.5rem));
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin-block: 1rem;
   }
-  .home-destination {
-    flex: 0 1 18.625rem;   /* 298px */
-    text-align: center;
-  }
+  .home-slide { padding: 1.375rem 1.375rem 1.5rem; }
 }
 
 @media (max-width: 47.99rem) {
-  .home-proof .home-col { gap: 2rem; }
+  .home-proof .home-col { gap: 2.75rem; }
 }
 
-/* --- Sky panel -------------------------------------------------------------- */
+/* --- Sky panel --------------------------------------------------------------
+   Both halves are pixel art. The day sky is an ordered-dithered 440px plate
+   scaled up with nearest-neighbour; the night sky answers it with square
+   stars. Nothing here is round and nothing is blurred. */
 
 .sky {
   position: relative;
-  height: 25rem;              /* 400px, the mobile frame */
+  height: 28rem;              /* 448px */
   overflow: hidden;
   isolation: isolate;
   contain: paint;
 }
 
 @media (min-width: 48rem) {
-  .sky { height: 32.5rem; }   /* 520px, the desktop frame */
+  .sky { height: 38rem; }     /* 608px */
 }
 
 .sky-light,
@@ -172,64 +300,99 @@ main.main--wide {
   display: var(--show-light);
 }
 /* Each ground paints before its imagery arrives, so the panel is never a
-   black hole on a light page while the plates load. */
-.sky-light { background: #c9dcee; }
+   black hole on a light page while the plates load. Both are palette entries,
+   so the plate arriving is a change of detail, not a change of colour. */
+.sky-light { background: #b6c3d2; }
 .sky-dark { display: var(--show-dark); background: #06090d; }
 
 /* The approved composition is cloud banked left and right with a clear opening
-   between them. Two plates at different drift rates give the opening depth
-   without a volumetric sim: the base is the whole sky, the near plate keeps
-   only its edges.
-
-   The plates are blown up past the panel so the cloud reads at the size the
-   frames draw it, and pulled right down in saturation and contrast to the
-   frames' pale, high-key atmosphere. Measured off 8:389: mean 174/186/190,
-   saturation 0.08, nothing darker than mid grey. */
+   between them. Two plates at different drift rates give the opening depth:
+   the base is the whole sky, the near plate keeps only its edges, its falloff
+   stippled into the alpha channel at build time so the edge dissolves pixel by
+   pixel instead of a smooth gradient blurring across a visible grid. */
 .sky-plate {
   position: absolute;
   left: -18%;
   top: -10%;
   width: 136%;
   height: 130%;
-  object-fit: cover;
-  filter: saturate(0.2) brightness(1.25) contrast(0.68);
+  display: block;
   will-change: transform;
 }
+.sky-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
 .sky-plate--base {
-  transform: translate3d(0, calc(var(--sky-shift, 0) * 22px), 0);
+  transform: translate3d(0, calc(var(--sky-shift, 0) * 24px), 0);
 }
+/* Flipped, so the near plate's cloud mass banks against the right edge and the
+   base plate's against the left: the approved composition is cloud both sides
+   with a clear opening between them, and the mark sits in that opening. */
 .sky-plate--near {
-  opacity: 0.62;
-  transform: translate3d(0, calc(var(--sky-shift, 0) * -34px), 0);
-  -webkit-mask-image: radial-gradient(118% 86% at 50% 44%, transparent 26%, #000 72%);
-  mask-image: radial-gradient(118% 86% at 50% 44%, transparent 26%, #000 72%);
+  transform: translate3d(0, calc(var(--sky-shift, 0) * -32px), 0) scaleX(-1);
 }
 
-/* The pale warm horizon the frames carry under the cloud. Outside the plates'
-   filter, so it keeps its warmth. */
-.sky-warmth {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(247, 235, 203, 0.42), rgba(247, 235, 203, 0) 38%);
-  pointer-events: none;
-}
-
+/* A star is one lit pixel; a brighter one is a five-pixel plus. */
 .star {
   position: absolute;
   width: var(--d);
   height: var(--d);
-  margin: calc(var(--d) / -2);
-  border-radius: 50%;
   background: #ffffff;
   opacity: var(--o);
 }
+.star--plus {
+  box-shadow:
+    var(--d) 0 0 #ffffff, calc(var(--d) * -1) 0 0 #ffffff,
+    0 var(--d) 0 #ffffff, 0 calc(var(--d) * -1) 0 #ffffff;
+}
+/* Stepped, not faded: a pixel is lit or it is not. */
 .star--twinkle {
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.55);
-  animation: fa-twinkle 9s var(--t) infinite ease-in-out;
+  animation: fa-twinkle 9s var(--t) infinite steps(1, end);
 }
 @keyframes fa-twinkle {
-  0%, 100% { opacity: 0.25; }
-  50%      { opacity: 1; }
+  0%, 46%   { opacity: 0.25; }
+  50%, 96%  { opacity: 1; }
+  100%      { opacity: 0.25; }
+}
+
+/* Crux. Real positions, not a drawn cross — see SOUTHERN_CROSS in
+   src/lib/home-atmosphere.ts. The box holds the constellation's own 0.69 : 1
+   span, so the kite keeps its shape at every width. */
+.crux {
+  position: absolute;
+  left: 68%;
+  top: 44%;
+  width: 5.25rem;
+  height: 7.6rem;
+}
+@media (min-width: 48rem) {
+  .crux { left: 71%; top: 38%; width: 8rem; height: 11.6rem; }
+}
+
+.crux-star {
+  position: absolute;
+  width: var(--d);
+  height: var(--d);
+  margin: calc(var(--d) / -2);
+  background: #ffffff;
+  box-shadow:
+    var(--d) 0 0 #ffffff, calc(var(--d) * -1) 0 0 #ffffff,
+    0 var(--d) 0 #ffffff, 0 calc(var(--d) * -1) 0 #ffffff;
+}
+/* The blink travels around the cross one star at a time, and never puts a star
+   all the way out, so the constellation stays legible throughout. Negative
+   delays put every star in its own phase at the first frame. */
+.sky[data-sky-active] .crux-star {
+  animation: fa-crux var(--crux-cycle) calc(var(--t) * -1) infinite steps(1, end);
+}
+@keyframes fa-crux {
+  0%, 88%   { opacity: 1; }
+  90%, 96%  { opacity: 0.3; }
+  100%      { opacity: 1; }
 }
 
 /* Canonical marks, both shipped, neither recoloured: the black mark serves the
@@ -317,16 +480,17 @@ main.main--wide {
 .fa-footer {
   max-width: 78rem;
   margin-inline: auto;
-  padding: 3.75rem 1.5rem;
+  padding: 4.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
+  gap: 2.5rem;
 }
 
 .fa-footer-links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem 1.5rem;
+  text-align: center;
 }
 .fa-footer-links a {
   font-family: var(--sans);
@@ -338,6 +502,7 @@ main.main--wide {
 }
 .fa-footer-links a:hover,
 .fa-footer-links a:focus-visible {
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-color: var(--accent);
   text-underline-offset: 0.2em;
@@ -409,31 +574,31 @@ main.main--wide {
   font-family: var(--mono);
   font-size: 0.75rem;
   line-height: 1.5;
+  text-align: center;
   color: var(--graphite);
 }
 
 @media (min-width: 48rem) {
   .fa-footer {
-    padding: 6rem 4rem;
-    gap: 3.5rem;
+    padding: 7rem 4rem;
+    gap: 4rem;
   }
   .fa-footer-links {
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    text-align: center;
   }
   .fa-paper { aspect-ratio: 1120 / 490; }
   .fa-paper-mark--wide-only { display: block; }
-  .fa-footer-signoff { text-align: center; }
 }
 
 /* --- Reduced motion ---------------------------------------------------------
-   One static image per margin group, every footer mark present, no drift.
-   global.css already clamps durations; these rules remove the animations
-   outright so nothing lands mid-fade. */
+   One static image per margin group, every footer mark present, every star
+   lit, no drift and no landing. global.css already clamps durations; these
+   rules remove the animations outright so nothing lands mid-fade. */
 @media (prefers-reduced-motion: reduce) {
   .margin-note[data-playing] .margin-frame,
   .fa-paper[data-playing] .fa-paper-mark,
+  .sky[data-sky-active] .crux-star,
   .star--twinkle {
     animation: none !important;
   }
@@ -441,4 +606,11 @@ main.main--wide {
   .margin-frame { opacity: 0; }
   .margin-frame:first-child { opacity: 1; }
   .sky-plate { transform: none !important; }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .home-slide:hover,
+  .home-slide:focus-visible { transform: none; }
 }

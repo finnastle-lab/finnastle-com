@@ -1,5 +1,5 @@
 {
-  "note": "Homepage atmosphere assets. Exported from Figma with download_assets at node resolution, then resampled down with Lanczos (aspect preserved). No redraw, no retrace, no recolour, no crop. HOPE/LESS/NESS and TIME/LESS/NESS are not listed here: they already live in the curated cutout library at src/assets/cutouts/ (nodes 1737:3 and 1737:4) and are reused from there.",
+  "note": "Homepage atmosphere assets. Exported from Figma with download_assets at node resolution, then resampled down with Lanczos (aspect preserved). No redraw, no retrace, no recolour, no crop. HOPE/LESS/NESS and TIME/LESS/NESS are not listed here: they already live in the curated cutout library at src/assets/cutouts/ (nodes 1737:3 and 1737:4) and are reused from there. The four sky plates are not Figma exports: they are generated from the repository's own cloud photographs by scripts/build-sky-dither.mjs and are listed below with the parameters that reproduce them.",
   "assets": [
     {
       "name": "billboard-spokane",
@@ -364,6 +364,98 @@
           637
         ],
         "resample": "Lanczos, longest edge 2400px, aspect preserved"
+      }
+    },
+    {
+      "name": "sky-base-wide",
+      "file": "src/assets/home/sky/sky-base-wide.png",
+      "group": "SKY",
+      "alt": "",
+      "role": "desktop base plate",
+      "source": {
+        "file": "this repository",
+        "path": "src/assets/elements/photo-sky-cumulus-clear-gap.webp",
+        "note": "The Figma frame's own cloud fill is a 440 x 293 review copy and is not shipped. This is the repository's full-resolution photograph of the same composition, reduced to the same 440px grid the frame was drawn on."
+      },
+      "export": {
+        "tool": "scripts/build-sky-dither.mjs (sharp + 8x8 Bayer ordered dither)",
+        "shippedPixels": [
+          440,
+          293
+        ],
+        "bytes": 18204,
+        "palette": "12 fixed sky tones, warm cream to cool blue-grey, chosen to the frames' measured atmosphere (mean 174/186/190, saturation 0.08)",
+        "pipeline": "resize cover (Lanczos) -> modulate saturation 0.16 brightness 1.26 -> linear 0.6/72 -> altitude and horizon gradient -> Bayer 8x8 ordered dither to the palette, spread 26",
+        "reproduce": "node scripts/build-sky-dither.mjs"
+      }
+    },
+    {
+      "name": "sky-base-narrow",
+      "file": "src/assets/home/sky/sky-base-narrow.png",
+      "group": "SKY",
+      "alt": "",
+      "role": "mobile base plate",
+      "source": {
+        "file": "this repository",
+        "path": "src/assets/elements/photo-sky-cumulus-clear-gap.webp",
+        "note": "The Figma frame's own cloud fill is a 440 x 293 review copy and is not shipped. This is the repository's full-resolution photograph of the same composition, reduced to the same 440px grid the frame was drawn on."
+      },
+      "export": {
+        "tool": "scripts/build-sky-dither.mjs (sharp + 8x8 Bayer ordered dither)",
+        "shippedPixels": [
+          220,
+          220
+        ],
+        "bytes": 7497,
+        "palette": "12 fixed sky tones, warm cream to cool blue-grey, chosen to the frames' measured atmosphere (mean 174/186/190, saturation 0.08)",
+        "pipeline": "resize cover (Lanczos) -> modulate saturation 0.16 brightness 1.26 -> linear 0.6/72 -> altitude and horizon gradient -> Bayer 8x8 ordered dither to the palette, spread 26",
+        "reproduce": "node scripts/build-sky-dither.mjs"
+      }
+    },
+    {
+      "name": "sky-near-wide",
+      "file": "src/assets/home/sky/sky-near-wide.png",
+      "group": "SKY",
+      "alt": "",
+      "role": "desktop near plate, stippled alpha",
+      "source": {
+        "file": "this repository",
+        "path": "src/assets/elements/photo-sky-cumulus-sparse.webp",
+        "note": "The Figma frame's own cloud fill is a 440 x 293 review copy and is not shipped. This is the repository's full-resolution photograph of the same composition, reduced to the same 440px grid the frame was drawn on."
+      },
+      "export": {
+        "tool": "scripts/build-sky-dither.mjs (sharp + 8x8 Bayer ordered dither)",
+        "shippedPixels": [
+          440,
+          293
+        ],
+        "bytes": 10405,
+        "palette": "12 fixed sky tones, warm cream to cool blue-grey, chosen to the frames' measured atmosphere (mean 174/186/190, saturation 0.08)",
+        "pipeline": "resize cover (Lanczos) -> modulate saturation 0.16 brightness 1.26 -> linear 0.6/72 -> altitude and horizon gradient -> Bayer 8x8 ordered dither to the palette, spread 26 -> radial falloff dithered to hard alpha",
+        "reproduce": "node scripts/build-sky-dither.mjs"
+      }
+    },
+    {
+      "name": "sky-near-narrow",
+      "file": "src/assets/home/sky/sky-near-narrow.png",
+      "group": "SKY",
+      "alt": "",
+      "role": "mobile near plate, stippled alpha",
+      "source": {
+        "file": "this repository",
+        "path": "src/assets/elements/photo-sky-cumulus-sparse.webp",
+        "note": "The Figma frame's own cloud fill is a 440 x 293 review copy and is not shipped. This is the repository's full-resolution photograph of the same composition, reduced to the same 440px grid the frame was drawn on."
+      },
+      "export": {
+        "tool": "scripts/build-sky-dither.mjs (sharp + 8x8 Bayer ordered dither)",
+        "shippedPixels": [
+          220,
+          220
+        ],
+        "bytes": 4246,
+        "palette": "12 fixed sky tones, warm cream to cool blue-grey, chosen to the frames' measured atmosphere (mean 174/186/190, saturation 0.08)",
+        "pipeline": "resize cover (Lanczos) -> modulate saturation 0.16 brightness 1.26 -> linear 0.6/72 -> altitude and horizon gradient -> Bayer 8x8 ordered dither to the palette, spread 26 -> radial falloff dithered to hard alpha",
+        "reproduce": "node scripts/build-sky-dither.mjs"
       }
     }
   ]

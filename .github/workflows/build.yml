@@ -71,6 +71,28 @@ jobs:
                 assert(sky.width > 100 && sky.width < 200, `sky mark width ${sky.width}`);
                 assert.equal(await page.locator(hidden).evaluate(i => getComputedStyle(i).display), 'none');
                 console.log(JSON.stringify({ width, theme, selector: shown, ...sky }));
+                // The day sky is pixel art: an ordered-dithered plate on the
+                // 440px grid the Figma study was drawn on, scaled up with
+                // nearest-neighbour and never recoloured at runtime. A build
+                // that re-encodes it, smooths it, or filters it has thrown
+                // away the thing it exists for.
+                if (theme === 'light') {
+                  await page.locator('.sky').scrollIntoViewIfNeeded();
+                  const plate = page.locator('.sky-plate--base img');
+                  await plate.evaluate(image => image.decode());
+                  const sky = await plate.evaluate(image => ({
+                    rendering: getComputedStyle(image).imageRendering,
+                    filter: getComputedStyle(image.parentElement).filter,
+                    natural: image.naturalWidth + 'x' + image.naturalHeight,
+                    source: image.currentSrc,
+                  }));
+                  assert.equal(sky.rendering, 'pixelated');
+                  assert.equal(sky.filter, 'none', 'the dithered plate is never recoloured at runtime');
+                  assert.equal(sky.natural, width < 768 ? '220x220' : '440x293');
+                  assert.match(sky.source, /\/sky-base-(wide|narrow)\.[^/]+\.png$/);
+                  console.log(JSON.stringify({ width, theme, ...sky }));
+                  await page.evaluate(() => scrollTo(0, 0));
+                }
                 // The homepage carries full-bleed imagery; it must still not
                 // scroll sideways at either width.
                 assert.equal(
@@ -101,6 +123,24 @@ jobs:
             echo "fa-sunmark-$ink.svg  src=$want  built=$got  ($built)"
             [ "$want" = "$got" ] || { echo "::error::$built does not match the canonical source"; exit 1; }
           done
+      - name: Dithered sky plates ship byte-identical, and rebuild the same
+        run: |
+          # Astro copies these straight through rather than re-encoding them.
+          # A palette PNG pushed through a lossy converter loses its dither,
+          # which is the whole design, so the bytes have to match.
+          for plate in sky-base-wide sky-base-narrow sky-near-wide sky-near-narrow; do
+            want=$(shasum -a 256 "src/assets/home/sky/$plate.png" | cut -d' ' -f1)
+            built=$(ls dist/_astro/$plate.*.png)
+            got=$(shasum -a 256 "$built" | cut -d' ' -f1)
+            echo "$plate.png  src=$want  built=$got  ($built)"
+            [ "$want" = "$got" ] || { echo "::error::$built does not match the committed plate"; exit 1; }
+          done
+          # And the generator is deterministic: the committed plates are what
+          # the script produces, so provenance in sources.json is checkable.
+          node scripts/build-sky-dither.mjs
+          git diff --exit-code -- src/assets/home/sky \
+            || { echo "::error::scripts/build-sky-dither.mjs does not reproduce the committed plates"; exit 1; }
+
       - name: Verify cutout catalogue and browser behaviour
         run: |
           node scripts/check-icon-catalogue.mjs

@@ -174,12 +174,16 @@ export const FOOTER_LINKS = [
 
 /**
  * Night sky. Figma 7:192 hand-places ~170 ellipses: mostly "distant" at
- * 0.8–2.1px, plus one "slow twinkle" at 2.8px every ninth star. Reproducing
+ * 0.8-2.1px, plus one "slow twinkle" at 2.8px every ninth star. Reproducing
  * the distribution from a fixed seed gives the same sparse field without
  * carrying 170 nodes of markup, and it is stable across builds.
+ *
+ * Sizes are whole pixels and shapes are squares, because the night half of the
+ * panel answers the pixel-dithered day half: a star is one lit pixel, a bright
+ * star is a five-pixel plus. Nothing here is round and nothing is blurred.
  */
 export function starField(count = 170, seed = 0x5eed1e) {
-  // mulberry32 — small, deterministic, good enough for scatter.
+  // mulberry32 - small, deterministic, good enough for scatter.
   let s = seed >>> 0;
   const rnd = () => {
     s = (s + 0x6d2b79f5) >>> 0;
@@ -191,10 +195,14 @@ export function starField(count = 170, seed = 0x5eed1e) {
   const round = (n: number) => Math.round(n * 1000) / 1000;
   return Array.from({ length: count }, (_, i) => {
     const twinkle = i % 9 === 8;
+    const r = rnd();
     return {
       x: round(rnd() * 100),
       y: round(rnd() * 100),
-      size: twinkle ? 2.8 : round(0.8 + rnd() * 1.3),
+      // 1px for the far field, 2px for the near, 3px only for a twinkler.
+      size: twinkle ? 2 : r > 0.82 ? 2 : 1,
+      // A plus is five pixels, so it is reserved for the few that earn it.
+      plus: twinkle || r > 0.94,
       twinkle,
       // spread the twinkles across the cycle so none of them pulse together
       delay: round(rnd() * 9),
@@ -202,3 +210,43 @@ export function starField(count = 170, seed = 0x5eed1e) {
     };
   });
 }
+
+export type CruxStar = {
+  id: string;
+  /** % across the constellation box */
+  x: number;
+  /** % down the constellation box */
+  y: number;
+  /** pixel unit: one lit pixel is `px` CSS pixels square */
+  px: number;
+  /** blink phase, seconds into the shared cycle */
+  delay: number;
+};
+
+/**
+ * Crux, the Southern Cross, as pixel art.
+ *
+ * Positions are the real stars, not a drawn cross: right ascension and
+ * declination projected flat (RA scaled by cos(dec) at -60 degrees), east to
+ * the left, south down, then normalised into the box. That is the orientation
+ * every Australian already knows it in, and the pointer star epsilon sits
+ * inside the kite where it belongs rather than being tidied away.
+ *
+ *   gamma Gacrux  12h31m -57d07m   mag 1.6
+ *   beta  Mimosa  12h48m -59d41m   mag 1.3
+ *   delta Crucis  12h15m -58d45m   mag 2.8
+ *   alpha Acrux   12h26m -63d06m   mag 0.8
+ *   epsilon       12h21m -60d24m   mag 3.6
+ *
+ * Pixel size follows magnitude, so the brightest star is the biggest. The
+ * blink runs around the cross rather than pulsing it as one object.
+ */
+export const CRUX_CYCLE = 7.2;
+
+export const SOUTHERN_CROSS: CruxStar[] = [
+  { id: 'gacrux',  x: 51.5, y: 0,    px: 4, delay: 0 },
+  { id: 'mimosa',  x: 0,    y: 42.8, px: 5, delay: 1.44 },
+  { id: 'acrux',   x: 66.7, y: 100,  px: 5, delay: 2.88 },
+  { id: 'delta',   x: 100,  y: 27.3, px: 3, delay: 4.32 },
+  { id: 'epsilon', x: 81.8, y: 54.9, px: 2, delay: 5.76 },
+];

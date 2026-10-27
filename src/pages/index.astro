@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SkyPanel from '../components/home/SkyPanel.astro';
 import MarginCutouts from '../components/home/MarginCutouts.astro';
+import SlideCards from '../components/home/SlideCards.astro';
 import FooterWordmark from '../components/home/FooterWordmark.astro';
 import { MARGIN_GROUPS } from '../lib/home-atmosphere';
 import '../styles/home.css';
@@ -9,22 +10,54 @@ import '../styles/home.css';
 // Studio and Lab are the two on-page destinations. Art and Writing keep theirs
 // in the footer hero, where they read larger than a card would give them.
 const destinations = [
-  { href: '/studio', label: 'Studio', body: 'Campaigns, copy and content design. The briefs, the work and what I did.' },
-  { href: '/tools', label: 'Lab', body: 'Experiments, tools and work in progress.' },
+  {
+    href: '/studio',
+    label: 'Studio',
+    body: 'Campaigns, copy and content design. The briefs, the work and what I did.',
+    frame: '01',
+    hint: 'vegas-print-ad' as const,
+    alt: 'A vintage print advertisement.',
+  },
+  {
+    href: '/tools',
+    label: 'Lab',
+    body: 'Experiments, tools and work in progress.',
+    frame: '02',
+    hint: 'super-starliner' as const,
+    alt: 'Chromed Super Starliner script lettering.',
+  },
 ];
 
 const margins = (section: 'hero' | 'proof') =>
   MARGIN_GROUPS.filter((group) => group.section === section);
 ---
 <BaseLayout title="Finn Astle" register="art" wide>
+  <script is:inline>
+    // Armed before the page body is parsed, so the reveal starts from hidden
+    // rather than flashing visible first. Without JS, and under reduced
+    // motion, the attribute is never set and every section is simply there.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var root = document.documentElement;
+      root.setAttribute('data-reveal-armed', '');
+      // Failsafe: if the module that lands the blocks never runs, un-arm and
+      // show the page rather than leaving it blank.
+      setTimeout(function () {
+        if (!document.querySelector('[data-reveal][data-landed]')) {
+          root.removeAttribute('data-reveal-armed');
+        }
+      }, 2500);
+    }
+  </script>
+
   <section class="home-section home-hero">
     <div class="home-col">
-      <p class="home-eyebrow">Finn Astle · Astle Creative</p>
-      <h1 class="home-title">Fearless <span class="amp">&amp;</span> Answers</h1>
-      <p class="home-lead">Creative thinking. Technical proficiency.</p>
-      <p class="home-body">I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
-      <p class="home-body">Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
-      <p class="home-body"><a href="/studio">See the client work</a></p>
+      <p class="home-eyebrow" data-reveal style="--reveal-i:0">Finn Astle · Astle Creative</p>
+      <h1 class="home-title" data-reveal style="--reveal-i:1">Fearless <span class="amp">&amp;</span> Answers</h1>
+      <p class="home-lead" data-reveal style="--reveal-i:2">Creative thinking. Technical proficiency.</p>
+      <p class="home-mission" data-reveal style="--reveal-i:3">Proving the value of a creative thinker.</p>
+      <p class="home-body" data-reveal style="--reveal-i:4">I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
+      <p class="home-body" data-reveal style="--reveal-i:5">Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
+      <p class="home-body" data-reveal style="--reveal-i:6"><a href="/studio">See the client work</a></p>
     </div>
     {margins('hero').map((group) => <MarginCutouts group={group} />)}
   </section>
@@ -33,20 +66,13 @@ const margins = (section: 'hero' | 'proof') =>
 
   <section class="home-section home-proof">
     <div class="home-col">
-      <p class="home-body">You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning what the brief needs, making a version and changing how I work.</p>
-      <p class="home-pointer"><a href="/studio/fearless-answers">Searching fearlessly for answers.</a></p>
+      <p class="home-body" data-reveal style="--reveal-i:0">You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning what the brief needs, making a version and changing how I work.</p>
+      <p class="home-pointer" data-reveal style="--reveal-i:1"><a href="/studio/fearless-answers">Searching fearlessly for answers.</a></p>
 
-      <nav class="home-destinations" aria-label="Where to go next">
-        {destinations.map((destination) => (
-          <a class="home-destination" href={destination.href}>
-            <span class="home-destination-label">{destination.label}</span>
-            <span class="home-destination-body">{destination.body}</span>
-          </a>
-        ))}
-      </nav>
+      <SlideCards slides={destinations} />
 
-      <p class="home-body">Copywriter, painter, occasional collagist of whatever's left in the gutter. Freedom needs a frame, expression needs strategy, so he picked both and called it a practice (<a href="/personal">mostly to justify the paint</a>).</p>
-      <p class="home-signature">Finn</p>
+      <p class="home-body" data-reveal style="--reveal-i:0">Copywriter, painter, occasional collagist of whatever's left in the gutter. Freedom needs a frame, expression needs strategy, so he picked both and called it a practice (<a href="/personal">mostly to justify the paint</a>).</p>
+      <p class="home-signature" data-reveal style="--reveal-i:1">Finn</p>
     </div>
     {margins('proof').map((group) => <MarginCutouts group={group} />)}
   </section>
@@ -80,5 +106,43 @@ const margins = (section: 'hero' | 'proof') =>
 
     stages.forEach((stage) => observer.observe(stage));
     document.addEventListener('visibilitychange', sync);
+
+    // Progressive landing: each block arrives as it comes up the page, with a
+    // short stagger inside its own group so a section settles in order rather
+    // than all at once. One-way — once a block has landed it stays landed.
+    //
+    // A position test rather than an IntersectionObserver, because a jump — a
+    // long flick, a hash link, a restored scroll position — can carry a block
+    // from below the fold to above it without the observer ever seeing it
+    // intersect, and that block would then stay invisible for good. Anything
+    // at or above the trigger line has landed, including everything already
+    // scrolled past.
+    const waiting = [...document.querySelectorAll<HTMLElement>('[data-reveal]')];
+    let queued = false;
+
+    const land = () => {
+      queued = false;
+      for (let i = waiting.length - 1; i >= 0; i--) {
+        if (waiting[i].getBoundingClientRect().top < innerHeight * 0.88) {
+          waiting[i].setAttribute('data-landed', '');
+          waiting.splice(i, 1);
+        }
+      }
+      if (!waiting.length) {
+        removeEventListener('scroll', onLand);
+        removeEventListener('resize', onLand);
+      }
+    };
+
+    const onLand = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(land);
+      }
+    };
+
+    addEventListener('scroll', onLand, { passive: true });
+    addEventListener('resize', onLand, { passive: true });
+    land();
   }
 </script>
