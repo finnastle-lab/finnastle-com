@@ -4,6 +4,7 @@ import SkyPanel from '../components/home/SkyPanel.astro';
 import MarginCutouts from '../components/home/MarginCutouts.astro';
 import SlideCards from '../components/home/SlideCards.astro';
 import FooterWordmark from '../components/home/FooterWordmark.astro';
+import SubscribeDot from '../components/home/SubscribeDot.astro';
 import { MARGIN_GROUPS } from '../lib/home-atmosphere';
 import '../styles/home.css';
 
@@ -76,6 +77,8 @@ const margins = (section: 'hero' | 'proof') =>
   </section>
 
   <FooterWordmark slot="after-footer" />
+
+  <SubscribeDot />
 </BaseLayout>
 
 <script>
