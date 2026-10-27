@@ -1,0 +1,51 @@
+---
+// One labelled margin group: a fixed caption under a fixed image window, with
+// the approved sequence rotating inside the window. Figma 49:780 / 49:790 /
+// 49:800 / 49:810; timing per the implementation annotation (8:640): a
+// 20-second sequence, 5–7 seconds an image, playing only while in view.
+//
+// The window and the caption never move, so a swap can't shift the page. The
+// first image is the resting state: first paint, no JS and reduced motion all
+// land on it.
+import { getImage } from 'astro:assets';
+import { MARGIN_WINDOW_HEIGHT, type MarginGroup } from '../../lib/home-atmosphere';
+import { CUTOUT_IMAGES, type CutoutName } from './cutout-images';
+
+interface Props { group: MarginGroup }
+const { group } = Astro.props;
+
+// The window is 132px tall and never wider than 128px, so 320px covers 2x.
+const frames = await Promise.all(
+  group.images.map(async (image) => ({
+    ...image,
+    rendered: await getImage({
+      src: CUTOUT_IMAGES[image.src as CutoutName],
+      width: 320,
+      format: 'webp',
+    }),
+  })),
+);
+---
+<aside
+  class:list={['margin-note', `margin-note--${group.side}`]}
+  data-margin-group={group.id}
+  data-count={group.images.length}
+  style={`--margin-top:${group.top}px; --margin-width:${group.width}px; --margin-height:${MARGIN_WINDOW_HEIGHT}px; --margin-count:${group.images.length}`}
+>
+  <div class="margin-window">
+    {frames.map((frame, i) => (
+      <img
+        class="margin-frame"
+        src={frame.rendered.src}
+        alt={i === 0 ? frame.alt : ''}
+        aria-hidden={i === 0 ? undefined : 'true'}
+        width={frame.rendered.attributes.width}
+        height={frame.rendered.attributes.height}
+        loading="lazy"
+        decoding="async"
+        style={`left:${frame.x}%; top:${frame.y}%; width:${frame.w}%; height:${frame.h}%; animation-delay:${((i * 20) / group.images.length - 20).toFixed(3)}s`}
+      />
+    ))}
+  </div>
+  <p class="margin-caption">{group.caption}</p>
+</aside>

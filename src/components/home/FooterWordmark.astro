@@ -1,0 +1,95 @@
+---
+// The footer hero: four prominent destinations, then the supplied text-only
+// Finn Astle wordmark as a stable anchor with cutouts layered in front of and
+// behind it. Figma 8:508 (light), 52:944 (dark), 8:630 (mobile).
+//
+// The wordmark never fades and nothing in front of it covers a letter. The
+// marks around it come and go independently on long cycles.
+import { getImage } from 'astro:assets';
+import { SOCIAL } from '../../consts';
+import { FOOTER_CUTOUTS, FOOTER_LINKS, FOOTER_WORDMARK_TOP } from '../../lib/home-atmosphere';
+import { CUTOUT_IMAGES, type CutoutName } from './cutout-images';
+import wordmarkBlack from '../../assets/home/wordmark/finn-astle-wordmark-black.png';
+import wordmarkWhite from '../../assets/home/wordmark/finn-astle-wordmark-white.png';
+
+const [black, white] = await Promise.all([
+  getImage({ src: wordmarkBlack, widths: [640, 1120, 2240], format: 'webp' }),
+  getImage({ src: wordmarkWhite, widths: [640, 1120, 2240], format: 'webp' }),
+]);
+
+// Largest footer cutout renders at 280px wide; 640px covers 2x everywhere.
+const marks = await Promise.all(
+  FOOTER_CUTOUTS.map(async (cutout) => ({
+    ...cutout,
+    rendered: await getImage({
+      src: CUTOUT_IMAGES[cutout.src as CutoutName],
+      width: 640,
+      format: 'webp',
+    }),
+  })),
+);
+
+const href = (target: string) => (target === 'INSTAGRAM' ? SOCIAL.instagram : target);
+---
+<section class="fa-footer" aria-label="Elsewhere on the site">
+  <nav class="fa-footer-links" aria-label="Footer">
+    {FOOTER_LINKS.map((link) => (
+      <a
+        href={href(link.href)}
+        rel={link.href === 'INSTAGRAM' ? 'me noopener' : undefined}
+      >{link.label}</a>
+    ))}
+  </nav>
+
+  <div class="fa-paper" data-footer-marks>
+    {marks.map((mark) => (
+      <img
+        class:list={['fa-paper-mark', `fa-paper-mark--${mark.layer}`, !mark.mobile && 'fa-paper-mark--wide-only']}
+        src={mark.rendered.src}
+        alt=""
+        aria-hidden="true"
+        width={mark.rendered.attributes.width}
+        height={mark.rendered.attributes.height}
+        loading="lazy"
+        decoding="async"
+        style={[
+          `--x:${mark.x}%`, `--y:${mark.y}%`, `--w:${mark.w}%`, `--h:${mark.h}%`,
+          mark.mobile && `--mx:${mark.mobile.x}%`,
+          mark.mobile && `--my:${mark.mobile.y}%`,
+          mark.mobile && `--mw:${mark.mobile.w}%`,
+          mark.mobile && `--mh:${mark.mobile.h}%`,
+          `animation-duration:${mark.cycle}s`,
+          `animation-delay:-${mark.delay}s`,
+        ].filter(Boolean).join(';')}
+      />
+    ))}
+
+    <div class="fa-wordmark" style={`top:${FOOTER_WORDMARK_TOP}%`}>
+      <img
+        class="fa-wordmark-img fa-wordmark-img--light-ground"
+        src={black.src}
+        srcset={black.srcSet.attribute}
+        sizes="(max-width: 48rem) calc(100vw - 3rem), 70rem"
+        width={black.attributes.width}
+        height={black.attributes.height}
+        alt="Finn Astle"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        class="fa-wordmark-img fa-wordmark-img--dark-ground"
+        src={white.src}
+        srcset={white.srcSet.attribute}
+        sizes="(max-width: 48rem) calc(100vw - 3rem), 70rem"
+        width={white.attributes.width}
+        height={white.attributes.height}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <p class="fa-footer-signoff">An ongoing collection.</p>
+</section>

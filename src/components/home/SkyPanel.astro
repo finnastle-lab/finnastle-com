@@ -1,0 +1,104 @@
+---
+// The atmosphere panel. Light: the approved cloud composition with the black
+// canonical FA sunmark. Dark: a pixel star field with the white canonical FA
+// sunmark. Figma 8:429 / 52:1857 (desktop), 8:551 (mobile).
+//
+// Both halves are pixel art. The Figma study's cloud fill is a 440 x 293
+// review copy stretched across a 1248px frame, and the blockiness that came
+// out of that is the look the design approved. So the clouds ship as ordered-
+// dithered plates built on that same 440px grid by scripts/build-sky-dither.mjs
+// and scaled up with image-rendering: pixelated, and the night half answers
+// them with square stars rather than round ones.
+//
+// The plates are imported, not run through getImage: a dithered palette PNG
+// re-encoded as WebP loses the thing it exists for. They are 19 KB and 8 KB.
+import baseWide from '../../assets/home/sky/sky-base-wide.png';
+import baseNarrow from '../../assets/home/sky/sky-base-narrow.png';
+import nearWide from '../../assets/home/sky/sky-near-wide.png';
+import nearNarrow from '../../assets/home/sky/sky-near-narrow.png';
+import markDark from '../../assets/brand/fa-sunmark/fa-sunmark-dark.svg';
+import markLight from '../../assets/brand/fa-sunmark/fa-sunmark-light.svg';
+import { starField, SOUTHERN_CROSS, CRUX_CYCLE } from '../../lib/home-atmosphere';
+
+const stars = starField();
+---
+<section class="sky" aria-label="Sky">
+  <div class="sky-light" aria-hidden="true">
+    <picture class="sky-plate sky-plate--base">
+      <source media="(max-width: 47.99rem)" srcset={baseNarrow.src} width={baseNarrow.width} height={baseNarrow.height} />
+      <img src={baseWide.src} width={baseWide.width} height={baseWide.height} alt="" decoding="async" loading="lazy" />
+    </picture>
+    <picture class="sky-plate sky-plate--near">
+      <source media="(max-width: 47.99rem)" srcset={nearNarrow.src} width={nearNarrow.width} height={nearNarrow.height} />
+      <img src={nearWide.src} width={nearWide.width} height={nearWide.height} alt="" decoding="async" loading="lazy" />
+    </picture>
+  </div>
+
+  <div class="sky-dark" aria-hidden="true">
+    {stars.map((s) => (
+      <span
+        class:list={['star', s.plus && 'star--plus', s.twinkle && 'star--twinkle']}
+        style={`left:${s.x}%;top:${s.y}%;--d:${s.size}px;--o:${s.opacity};--t:${s.delay}s`}
+      ></span>
+    ))}
+
+    <div class="crux" style={`--crux-cycle:${CRUX_CYCLE}s`}>
+      {SOUTHERN_CROSS.map((star) => (
+        <span
+          class="crux-star"
+          data-crux={star.id}
+          style={`left:${star.x}%;top:${star.y}%;--d:${star.px}px;--t:${star.delay}s`}
+        ></span>
+      ))}
+    </div>
+  </div>
+
+  <img class="sky-mark sky-mark--light-ground" src={markDark.src} alt="Finn Astle" width="458" height="319" />
+  <img class="sky-mark sky-mark--dark-ground" src={markLight.src} alt="Finn Astle" width="458" height="319" aria-hidden="true" />
+</section>
+
+<script>
+  // Restrained parallax: two plates, different rates, only while the panel is
+  // in view and the tab is visible. The shift is quantised to eighths so the
+  // plates step rather than slide: a pixel grid that drifts by fractions of a
+  // pixel reads as a blurry photograph, which is the opposite of the point.
+  const panel = document.querySelector<HTMLElement>('.sky');
+  if (panel && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let visible = false;
+    let queued = false;
+    let last = '';
+
+    const measure = () => {
+      queued = false;
+      const rect = panel.getBoundingClientRect();
+      // -1 when the panel is about to enter, +1 when it has just left.
+      const progress = 1 - 2 * ((rect.top + rect.height / 2) / (innerHeight + rect.height));
+      const stepped = (Math.round(progress * 8) / 8).toFixed(3);
+      if (stepped === last) return;
+      last = stepped;
+      panel.style.setProperty('--sky-shift', stepped);
+    };
+
+    const onScroll = () => {
+      if (!queued && visible && !document.hidden) {
+        queued = true;
+        requestAnimationFrame(measure);
+      }
+    };
+
+    // data-sky-active drives the Crux blink as well as the parallax, so it has
+    // to come off when the tab goes away, not only when the panel scrolls out.
+    const setActive = () => panel.toggleAttribute('data-sky-active', visible && !document.hidden);
+
+    new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      setActive();
+      if (visible) onScroll();
+    }, { rootMargin: '120px 0px' }).observe(panel);
+
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll, { passive: true });
+    document.addEventListener('visibilitychange', () => { setActive(); onScroll(); });
+    measure();
+  }
+</script>

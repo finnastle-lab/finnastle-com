@@ -18,11 +18,15 @@ interface Props {
   // 'article' for essays; everything else is a plain website page.
   ogType?: 'website' | 'article';
   publishedTime?: Date;
+  // Let the page own its columns instead of sitting in main's 62rem box. The
+  // homepage needs the gutters between the 78rem frame and its reading column
+  // for the labelled margin cutouts; nothing else does.
+  wide?: boolean;
 }
 
 const {
   title, description = SITE.description, register = 'art', noindex = false,
-  image, imageAlt, ogType = 'website', publishedTime,
+  image, imageAlt, ogType = 'website', publishedTime, wide = false,
 } = Astro.props;
 const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
 // build.format 'file' makes Astro.url.pathname '/exhibitions.html' at build
@@ -106,13 +110,16 @@ const shareAlt = image ? (imageAlt ?? '') : 'Finn Astle, hand-brushed collage wo
     <div class="frame">
       <a class="skip" href="#main">Skip to content</a>
       <Nav />
-      <main id="main">
+      <main id="main" class={wide ? 'main--wide' : undefined}>
         <slot />
       </main>
       <footer>
         <img class="mark" src={sunMark.src} alt="" width="18" aria-hidden="true" />
-        <span>F.A. · {year} · finnastle.com · <a href="/poems">Poems</a></span>
+        <span>F.A. · {year} · finnastle.com</span>
       </footer>
+      {/* The functional footer comes first; anything a page wants below it
+          (the homepage's wordmark hero) goes here. */}
+      <slot name="after-footer" />
     </div>
 
     <script>

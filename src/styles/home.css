@@ -1,0 +1,631 @@
+/*
+  Homepage atmosphere — the approved light and dark studies, plus the first-
+  impression treatment signed off on top of them (pixel sky, pixel stars, slide
+  mounts, progressive landing).
+
+  Figma: GPT Space, "10 · finnastle.com · Atmosphere".
+    8:389 light desktop · 8:511 light mobile
+    52:890 dark desktop · 52:1438 dark mobile · 8:640 annotations
+
+  Measurements come off those frames. The design width is 1248px (78rem), the
+  reading column 944px (59rem), the body measure 640px (40rem). Section padding
+  runs more generous than the frames draw it, so each block lands on its own as
+  you scroll rather than arriving with its neighbours.
+
+  Every selector here is namespaced to the homepage. Nothing in this file
+  changes another route.
+*/
+
+/* --- Page shell ------------------------------------------------------------ */
+
+/* The homepage owns its own columns: the margin cutouts hang in the gutters
+   between the 78rem frame and the 59rem reading column, which they cannot do
+   from inside main's 62rem box. */
+main.main--wide {
+  max-width: none;
+  padding: 0;
+}
+
+.home-section {
+  position: relative;
+  padding-block: 5.5rem;
+}
+
+.home-col {
+  width: min(59rem, 100% - 3rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  text-align: center;
+}
+
+/* Centred, and centred against the column rather than against the 40rem
+   measure global.css puts on a paragraph. */
+.home-col > * { margin: 0 auto; }
+
+/* --- Type ------------------------------------------------------------------ */
+
+/* Interface voice for the eyebrow and the secondary headings; the tight serif
+   stays on the hero alone (annotation 8:640). */
+.home-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--graphite);
+}
+
+.home-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  /* 48px at 390, 96px at 1248 */
+  font-size: clamp(3rem, 1.636rem + 5.594vw, 6rem);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.home-title .amp { color: var(--accent); font-style: italic; }
+
+.home-lead {
+  font-family: var(--sans);
+  font-weight: 500;
+  /* 22px at 390, 26px at 1248 */
+  font-size: clamp(1.375rem, 1.261rem + 0.466vw, 1.625rem);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+/* The mission, stated plainly. It pairs with the lead rather than sitting a
+   whole gap below it, so the two read as one claim in two lines. */
+.home-mission {
+  margin-top: -0.875rem;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.04rem + 0.35vw, 1.3125rem);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.home-body {
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 40rem;
+}
+
+.home-pointer {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1.375rem, 1.261rem + 0.466vw, 1.625rem);
+  line-height: 1.4;
+}
+/* The whole line goes orange on highlight, not just its underline. */
+.home-pointer a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--line-strong);
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+.home-pointer a:hover,
+.home-pointer a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* The signature is the way through to the personal page. It carries a thin
+   rule at rest so it reads as signed and clickable rather than as an
+   unmarked link, and goes orange on highlight like the pointer above it. */
+.home-signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+.home-signature a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--line-strong);
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+.home-signature a:hover,
+.home-signature a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* --- Progressive landing ---------------------------------------------------
+   Armed by an inline script before the body parses, so a block starts hidden
+   rather than flashing in and out. No JS and reduced motion never arm it, and
+   every block is simply present. */
+
+html[data-reveal-armed] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 1.125rem, 0);
+}
+html[data-reveal-armed] [data-reveal][data-landed] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) calc(var(--reveal-i, 0) * 90ms),
+    transform 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) calc(var(--reveal-i, 0) * 90ms);
+}
+
+/* --- Destinations: two slide mounts ----------------------------------------
+   Two 35mm slides, ready to go. The proportions are a real mount: a 36 x 24
+   window set slightly high with rounded corners, a thumb notch on the top
+   rail, and the frame number and format stamped along the bottom. The window
+   carries a hint of the work rather than sitting empty. */
+
+.home-slides {
+  display: grid;
+  gap: 1.25rem;
+  margin-block: 0.75rem;
+  /* A screen blend on a dark ground lifts a cutout far harder than a multiply
+     blend sinks it on a light one, so the hint carries its own pair of
+     strengths per theme. Same three-block shape as global.css. */
+  --hint: 0.16;
+  --hint-on: 0.42;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .home-slides { --hint: 0.09; --hint-on: 0.26; }
+}
+:root[data-theme='dark'] .home-slides { --hint: 0.09; --hint-on: 0.26; }
+
+.home-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.25rem 1.125rem 1.125rem;
+  /* Three tonal steps: the page, the mount, the window. Without the middle
+     one a mount is just a border. */
+  background: color-mix(in srgb, var(--ink) 4%, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.home-slide:hover,
+.home-slide:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -18px rgba(0, 0, 0, 0.5);
+}
+
+/* The thumb notch, the one detail that makes a rectangle read as a mount. */
+.home-slide::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 2.5rem;
+  height: 0.4375rem;
+  transform: translateX(-50%);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 2.5rem 2.5rem;
+}
+
+.home-slide-label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.35;
+}
+
+.home-slide-window {
+  position: relative;
+  display: block;
+  aspect-ratio: 36 / 24;
+  overflow: hidden;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ink) 11%, var(--paper));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+/* A hint, not a thumbnail: enough to tell you there is work behind the link,
+   not enough to compete with the label. */
+.home-slide-hint {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  mix-blend-mode: var(--ink-blend);
+  opacity: var(--hint);
+  transition: opacity 0.3s ease;
+}
+.home-slide:hover .home-slide-hint,
+.home-slide:focus-visible .home-slide-hint { opacity: var(--hint-on); }
+
+.home-slide-rail--bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.home-slide-body {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+/* Stamped along the bottom edge of the mount, so both slides line up however
+   long their body copy runs. */
+.home-slide-code {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 0.5625rem;      /* 9px, the margin-caption size */
+  letter-spacing: 0.08em;
+  color: var(--graphite);
+}
+
+/* --- Wider than mobile ------------------------------------------------------ */
+
+@media (min-width: 48rem) {
+  /* 160px, more open than the frames' 112px: each block gets room to land. */
+  .home-section { padding-block: 10rem; }
+  .home-hero .home-col { gap: 2.25rem; }
+  .home-proof .home-col { gap: 4rem; }
+
+  .home-slides {
+    grid-template-columns: repeat(2, minmax(0, 20.5rem));
+    justify-content: center;
+    gap: 2rem;
+    margin-block: 1rem;
+  }
+  .home-slide { padding: 1.375rem 1.375rem 1.5rem; }
+}
+
+@media (max-width: 47.99rem) {
+  .home-proof .home-col { gap: 2.75rem; }
+}
+
+/* --- Sky panel --------------------------------------------------------------
+   Both halves are pixel art. The day sky is an ordered-dithered 440px plate
+   scaled up with nearest-neighbour; the night sky answers it with square
+   stars. Nothing here is round and nothing is blurred. */
+
+.sky {
+  position: relative;
+  height: 28rem;              /* 448px */
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+}
+
+@media (min-width: 48rem) {
+  .sky { height: 38rem; }     /* 608px */
+}
+
+.sky-light,
+.sky-dark {
+  position: absolute;
+  inset: 0;
+  display: var(--show-light);
+}
+/* Each ground paints before its imagery arrives, so the panel is never a
+   black hole on a light page while the plates load. Both are palette entries,
+   so the plate arriving is a change of detail, not a change of colour. */
+.sky-light { background: #b6c3d2; }
+.sky-dark { display: var(--show-dark); background: #06090d; }
+
+/* The approved composition is cloud banked left and right with a clear opening
+   between them. Two plates at different drift rates give the opening depth:
+   the base is the whole sky, the near plate keeps only its edges, its falloff
+   stippled into the alpha channel at build time so the edge dissolves pixel by
+   pixel instead of a smooth gradient blurring across a visible grid. */
+.sky-plate {
+  position: absolute;
+  left: -18%;
+  top: -10%;
+  width: 136%;
+  height: 130%;
+  display: block;
+  will-change: transform;
+}
+.sky-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+.sky-plate--base {
+  transform: translate3d(0, calc(var(--sky-shift, 0) * 24px), 0);
+}
+/* Flipped, so the near plate's cloud mass banks against the right edge and the
+   base plate's against the left: the approved composition is cloud both sides
+   with a clear opening between them, and the mark sits in that opening. */
+.sky-plate--near {
+  transform: translate3d(0, calc(var(--sky-shift, 0) * -32px), 0) scaleX(-1);
+}
+
+/* A star is one lit pixel; a brighter one is a five-pixel plus. */
+.star {
+  position: absolute;
+  width: var(--d);
+  height: var(--d);
+  background: #ffffff;
+  opacity: var(--o);
+}
+.star--plus {
+  box-shadow:
+    var(--d) 0 0 #ffffff, calc(var(--d) * -1) 0 0 #ffffff,
+    0 var(--d) 0 #ffffff, 0 calc(var(--d) * -1) 0 #ffffff;
+}
+/* Stepped, not faded: a pixel is lit or it is not. */
+.star--twinkle {
+  animation: fa-twinkle 9s var(--t) infinite steps(1, end);
+}
+@keyframes fa-twinkle {
+  0%, 46%   { opacity: 0.25; }
+  50%, 96%  { opacity: 1; }
+  100%      { opacity: 0.25; }
+}
+
+/* Crux. Real positions, not a drawn cross — see SOUTHERN_CROSS in
+   src/lib/home-atmosphere.ts. The box holds the constellation's own 0.69 : 1
+   span, so the kite keeps its shape at every width. */
+.crux {
+  position: absolute;
+  left: 68%;
+  top: 44%;
+  width: 5.25rem;
+  height: 7.6rem;
+}
+@media (min-width: 48rem) {
+  .crux { left: 71%; top: 38%; width: 8rem; height: 11.6rem; }
+}
+
+.crux-star {
+  position: absolute;
+  width: var(--d);
+  height: var(--d);
+  margin: calc(var(--d) / -2);
+  background: #ffffff;
+  box-shadow:
+    var(--d) 0 0 #ffffff, calc(var(--d) * -1) 0 0 #ffffff,
+    0 var(--d) 0 #ffffff, 0 calc(var(--d) * -1) 0 #ffffff;
+}
+/* The blink travels around the cross one star at a time, and never puts a star
+   all the way out, so the constellation stays legible throughout. Negative
+   delays put every star in its own phase at the first frame. */
+.sky[data-sky-active] .crux-star {
+  animation: fa-crux var(--crux-cycle) calc(var(--t) * -1) infinite steps(1, end);
+}
+@keyframes fa-crux {
+  0%, 88%   { opacity: 1; }
+  90%, 96%  { opacity: 0.3; }
+  100%      { opacity: 1; }
+}
+
+/* Canonical marks, both shipped, neither recoloured: the black mark serves the
+   day sky and the white one the night. */
+.sky-mark {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  /* 118px at 390, 177px at 1248 */
+  width: clamp(7.375rem, 5.7rem + 6.853vw, 11.063rem);
+  height: auto;
+  transform: translateX(-50%);
+}
+.sky-mark--light-ground { display: var(--show-light); }
+.sky-mark--dark-ground  { display: var(--show-dark); }
+
+/* --- Margin cutout rotations (desktop only) --------------------------------- */
+
+.margin-note {
+  display: none;
+  position: absolute;
+  top: var(--margin-top);
+  width: var(--margin-width);
+}
+.margin-note--left  { left: 1.5rem; }
+.margin-note--right { right: 1.5rem; }
+
+/* The gutter only exists once the 78rem frame is wider than the 59rem column
+   with room to spare. Below that the groups stay off, as designed. */
+@media (min-width: 80rem) {
+  .margin-note { display: block; }
+}
+
+.margin-window {
+  position: relative;
+  width: 100%;
+  height: var(--margin-height);
+  overflow: hidden;
+}
+
+/* Fixed window, fixed caption: a swap changes the picture and nothing else. */
+.margin-frame {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0;
+  filter: grayscale(1);
+  mix-blend-mode: var(--ink-blend);
+  pointer-events: none;
+}
+.margin-frame:first-child { opacity: 1; }
+
+.margin-note[data-playing] .margin-frame {
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.margin-note[data-playing][data-count="3"] .margin-frame { animation-name: fa-rotate-3; }
+.margin-note[data-playing][data-count="4"] .margin-frame { animation-name: fa-rotate-4; }
+
+/* 20s cycle. Three images hold 6.7s each, four hold 5s, both inside the
+   approved 5–7s band. The 0.3s crossfades sit on the boundaries so one image
+   arrives as the last one leaves. */
+@keyframes fa-rotate-3 {
+  0%, 31.83%     { opacity: 1; }
+  33.33%, 98.5%  { opacity: 0; }
+  100%           { opacity: 1; }
+}
+@keyframes fa-rotate-4 {
+  0%, 23.5%      { opacity: 1; }
+  25%, 98.5%     { opacity: 0; }
+  100%           { opacity: 1; }
+}
+
+.margin-caption {
+  margin: 0.75rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.5625rem;      /* 9px */
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--graphite);
+}
+
+/* --- Footer hero ------------------------------------------------------------ */
+
+.fa-footer {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding: 4.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.fa-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 1.5rem;
+  text-align: center;
+}
+.fa-footer-links a {
+  font-family: var(--sans);
+  font-weight: 500;
+  /* 24px at 390, 36px at 1248 */
+  font-size: clamp(1.5rem, 1.159rem + 1.399vw, 2.25rem);
+  line-height: 1.2;
+  text-decoration: none;
+}
+.fa-footer-links a:hover,
+.fa-footer-links a:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+/* The working paper: a fixed-ratio stage so every mark keeps its place at any
+   width, and nothing reflows when a mark fades. */
+.fa-paper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 342 / 350;
+}
+
+.fa-paper-mark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  object-fit: contain;
+  filter: grayscale(1);
+  mix-blend-mode: var(--ink-blend);
+  pointer-events: none;
+}
+.fa-paper-mark--behind { z-index: 0; }
+.fa-paper-mark--front  { z-index: 2; }
+.fa-paper-mark--wide-only { display: none; }
+
+/* The small paper carries three marks, in their own places. */
+@media (max-width: 47.99rem) {
+  .fa-paper-mark {
+    left: var(--mx, var(--x));
+    top: var(--my, var(--y));
+    width: var(--mw, var(--w));
+    height: var(--mh, var(--h));
+  }
+}
+
+/* Long, unsynchronised holds: each mark is out for a sixth of its own cycle,
+   and the cycles are 34–46s and co-prime enough not to line up. */
+.fa-paper[data-playing] .fa-paper-mark {
+  animation-name: fa-mark-hold;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes fa-mark-hold {
+  0%, 70%   { opacity: 1; }
+  76%, 92%  { opacity: 0; }
+  100%      { opacity: 1; }
+}
+
+/* The wordmark is the anchor. It never fades and it is never covered. */
+.fa-wordmark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.fa-wordmark-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fa-wordmark-img--light-ground { display: var(--show-light); }
+.fa-wordmark-img--dark-ground  { display: var(--show-dark); }
+
+.fa-footer-signoff {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--graphite);
+}
+
+@media (min-width: 48rem) {
+  .fa-footer {
+    padding: 7rem 4rem;
+    gap: 4rem;
+  }
+  .fa-footer-links {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .fa-paper { aspect-ratio: 1120 / 490; }
+  .fa-paper-mark--wide-only { display: block; }
+}
+
+/* --- Reduced motion ---------------------------------------------------------
+   One static image per margin group, every footer mark present, every star
+   lit, no drift and no landing. global.css already clamps durations; these
+   rules remove the animations outright so nothing lands mid-fade. */
+@media (prefers-reduced-motion: reduce) {
+  .margin-note[data-playing] .margin-frame,
+  .fa-paper[data-playing] .fa-paper-mark,
+  .sky[data-sky-active] .crux-star,
+  .star--twinkle {
+    animation: none !important;
+  }
+  .fa-paper-mark { opacity: 1; }
+  .margin-frame { opacity: 0; }
+  .margin-frame:first-child { opacity: 1; }
+  .sky-plate { transform: none !important; }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .home-slide:hover,
+  .home-slide:focus-visible { transform: none; }
+}

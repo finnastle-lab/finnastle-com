@@ -1,0 +1,71 @@
+---
+// The two on-page destinations, mounted as 35mm slides.
+//
+// There are only two of them now, so each one can carry more than a bordered
+// box would: the proportions are a real slide mount (50 x 50 outside, a 36 x 24
+// window set slightly high, rounded window corners, a thumb notch), and the
+// window holds a hint of the work rather than sitting empty. Two slides, ready
+// to go.
+import { getImage } from 'astro:assets';
+import { CUTOUT_IMAGES, type CutoutName } from './cutout-images';
+
+type Slide = {
+  href: string;
+  label: string;
+  body: string;
+  /** frame number stamped on the mount */
+  frame: string;
+  /** the work glimpsed behind the window. Decorative: the label names the
+      destination, so the hint carries no alt text of its own. */
+  hint: CutoutName;
+};
+
+interface Props { slides: Slide[] }
+const { slides } = Astro.props;
+
+// The window is never wider than 300px, so 600 covers 2x. The hint sits at
+// 16% opacity in greyscale, so it carries far less detail than its weight
+// suggests: quality 55 is indistinguishable here and a quarter of the bytes.
+const mounted = await Promise.all(
+  slides.map(async (slide) => ({
+    ...slide,
+    rendered: await getImage({
+      src: CUTOUT_IMAGES[slide.hint],
+      widths: [300, 600],
+      format: 'webp',
+      quality: 55,
+    }),
+  })),
+);
+---
+<nav class="home-slides" aria-label="Where to go next">
+  {mounted.map((slide, i) => (
+    <a class="home-slide" href={slide.href} data-reveal style={`--reveal-i:${i}`}>
+      <span class="home-slide-rail home-slide-rail--top">
+        <span class="home-slide-label">{slide.label}</span>
+      </span>
+
+      <span class="home-slide-window">
+        <img
+          class="home-slide-hint"
+          src={slide.rendered.src}
+          srcset={slide.rendered.srcSet.attribute}
+          sizes="(min-width: 48rem) 300px, calc(100vw - 5.25rem)"
+          width={slide.rendered.attributes.width}
+          height={slide.rendered.attributes.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
+
+      <span class="home-slide-rail home-slide-rail--bottom">
+        <span class="home-slide-body">{slide.body}</span>
+        <span class="home-slide-code">
+          <span>{slide.frame}</span>
+          <span>36 × 24</span>
+        </span>
+      </span>
+    </a>
+  ))}
+</nav>

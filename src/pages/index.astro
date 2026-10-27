@@ -1,140 +1,146 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image, getImage } from 'astro:assets';
-import wordmark from '../assets/brand/wordmark.png';
-import wordmarkDark from '../assets/brand/wordmark-dark.png';
-import sunFlourish from '../assets/brand/sun-flourish.png';
-import sunset from '../assets/brand/stamps/sunset.png';
-import sunStamp from '../assets/brand/fa-sunmark/fa-sunmark-dark.png';
-import portrait from '../assets/brand/finn-portrait.png';
+import SkyPanel from '../components/home/SkyPanel.astro';
+import MarginCutouts from '../components/home/MarginCutouts.astro';
+import SlideCards from '../components/home/SlideCards.astro';
+import FooterWordmark from '../components/home/FooterWordmark.astro';
+import { MARGIN_GROUPS } from '../lib/home-atmosphere';
+import '../styles/home.css';
 
-// Decorative stamps render at 64–112px; ship 2x webps rather than the
-// full-size source PNGs (the sunset alone was ~800KB).
-const [sunsetImg, flourishImg, sunStampImg] = await Promise.all([
-  getImage({ src: sunset, width: 224, format: 'webp' }),
-  getImage({ src: sunFlourish, width: 152, format: 'webp' }),
-  getImage({ src: sunStamp, width: 128, format: 'webp' }),
-]);
-
-// Studio leads: it was missing entirely, and "Work" sent anyone looking for
-// client work to the paintings. Art keeps the /work URL, loses the ambiguity.
-// Lab sits second, between the register that pays and the one that doesn't:
-// it is what makes the other two legible to a commercial reader.
-const explore = [
-  { href: '/studio', label: 'Studio', body: 'Campaigns, copy and content design. The briefs, the work and what I did.' },
-  { href: '/tools', label: 'Lab', body: 'Small machines I built. What the new tools did well, and where they fell over.' },
-  { href: '/work', label: 'Art', body: 'Collage, painting and mixed media, by chapter.' },
-  { href: '/writing', label: 'Writing', body: 'Essays, oldest mistakes included.' },
+// Studio and Lab are the two on-page destinations. Art and Writing keep theirs
+// in the footer hero, where they read larger than a card would give them.
+const destinations = [
+  {
+    href: '/studio',
+    label: 'Studio',
+    body: 'Campaigns, copy and content design. The briefs, the work and what I did.',
+    frame: '01',
+    hint: 'vegas-print-ad' as const,
+  },
+  {
+    href: '/tools',
+    label: 'Lab',
+    body: 'Creative technology and digital experiences. Small machines I built, and what they did.',
+    frame: '02',
+    hint: 'super-starliner' as const,
+  },
 ];
----
-<BaseLayout title="Finn Astle" register="art">
-  <section class="hero">
-    <img class="stamp" src={sunsetImg.src} alt="" aria-hidden="true"
-      style="top:-0.5rem; right:-0.5rem; width:112px; transform:rotate(7deg);" />
 
-    <p class="label" style="color: var(--graphite); margin-bottom: 0.5rem;">Finn Astle · Astle Creative</p>
-    <h1 class="duality">Fearless <span class="amp">&amp;</span> Answers</h1>
-    <p class="hero-sub">Proving the value of a creative thinker.</p>
-    <p>I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
-    <p>Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
-    <p><a href="/studio">See the client work</a></p>
+const margins = (section: 'hero' | 'proof') =>
+  MARGIN_GROUPS.filter((group) => group.section === section);
+---
+<BaseLayout title="Finn Astle" register="art" wide>
+  <script is:inline>
+    // Armed before the page body is parsed, so the reveal starts from hidden
+    // rather than flashing visible first. Without JS, and under reduced
+    // motion, the attribute is never set and every section is simply there.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var root = document.documentElement;
+      root.setAttribute('data-reveal-armed', '');
+      // Failsafe: if the module that lands the blocks never runs, un-arm and
+      // show the page rather than leaving it blank.
+      setTimeout(function () {
+        if (!document.querySelector('[data-reveal][data-landed]')) {
+          root.removeAttribute('data-reveal-armed');
+        }
+      }, 2500);
+    }
+  </script>
+
+  <section class="home-section home-hero">
+    <div class="home-col">
+      <p class="home-eyebrow" data-reveal style="--reveal-i:0">Finn Astle · Astle Creative</p>
+      <h1 class="home-title" data-reveal style="--reveal-i:1">Fearless <span class="amp">&amp;</span> Answers</h1>
+      <p class="home-lead" data-reveal style="--reveal-i:2">Creative thinking. Technical proficiency.</p>
+      <p class="home-mission" data-reveal style="--reveal-i:3">Proving the value of a creative thinker.</p>
+      <p class="home-body" data-reveal style="--reveal-i:4">I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
+      <p class="home-body" data-reveal style="--reveal-i:5">Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
+      <p class="home-body" data-reveal style="--reveal-i:6"><a href="/studio">See the client work</a></p>
+    </div>
+    {margins('hero').map((group) => <MarginCutouts group={group} />)}
   </section>
 
-  <img class="flourish" src={flourishImg.src} alt="" aria-hidden="true" />
+  <SkyPanel />
 
-  <div class="wordmark-card">
-    <img class="stamp stamp--ink" src={sunStampImg.src} alt="" aria-hidden="true"
-      style="top:-1.6rem; right:1rem; width:64px; transform:rotate(6deg);" />
-    <Image class="wordmark-light" src={wordmark} alt="Finn Astle, hand-brushed collage wordmark"
-      widths={[700, 1400]} sizes="(max-width: 62rem) 100vw, 62rem" loading="eager" />
-    <Image class="wordmark-dark" src={wordmarkDark} alt="" aria-hidden="true"
-      widths={[700, 1400]} sizes="(max-width: 62rem) 100vw, 62rem" />
-  </div>
+  <section class="home-section home-proof">
+    <div class="home-col">
+      <p class="home-body" data-reveal style="--reveal-i:0">You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning what the brief needs, making a version and changing how I work.</p>
+      <p class="home-pointer" data-reveal style="--reveal-i:1"><a href="/studio/fearless-answers">Searching fearlessly for answers.</a></p>
 
-  <p>You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning what the brief needs, making a version and changing how I work.</p>
-  <p><a href="/studio/fearless-answers">Searching fearlessly for answers.</a></p>
+      <SlideCards slides={destinations} />
 
-  <nav class="explore" aria-label="Explore the site">
-    {explore.map((e) => (
-      <a class="explore-card" href={e.href}>
-        <span class="explore-label">{e.label}</span>
-        <span class="explore-body">{e.body}</span>
-      </a>
-    ))}
-  </nav>
+      <p class="home-body" data-reveal style="--reveal-i:0">Copywriter, painter, collagist archiving culture. A fine art background, then traditional ad land. Both of those made me connect with symbols and meaning, and with communicating to the masses or the individual, visually and in text.</p>
+      <p class="home-signature" data-reveal style="--reveal-i:1"><a href="/personal">Finn</a></p>
+    </div>
+    {margins('proof').map((group) => <MarginCutouts group={group} />)}
+  </section>
 
-  <p>Copywriter, painter, occasional collagist of whatever's left in the gutter. Freedom needs a frame, expression needs strategy, so he picked both and called it a practice (<a href="/personal">mostly to justify the paint</a>).</p>
-
-  <div class="sign-off">
-    <Image class="portrait" src={portrait} alt="Finn Astle" width={96} height={96} />
-    <p>Finn</p>
-  </div>
+  <FooterWordmark slot="after-footer" />
 </BaseLayout>
 
-<style>
-  .explore {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin: 2.5rem 0;
-  }
-  .explore-card {
-    display: block;
-    position: relative;
-    border: 1px solid var(--line);
-    padding: 1.1rem 1.2rem;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-  .explore-card:hover { border-color: var(--accent); }
-  .explore-label {
-    display: block;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.4rem;
-    margin-bottom: 0.35rem;
-  }
-  .explore-card:hover .explore-label { color: var(--accent); }
-  .explore-body {
-    display: block;
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    color: var(--graphite);
-  }
-  /* Subtle desktop hover affordance: an arrow that slides in, and a small lift. */
-  .explore-card::after {
-    content: "→";
-    position: absolute;
-    top: 1.1rem;
-    right: 1.2rem;
-    font-family: var(--sans);
-    color: var(--accent);
-    opacity: 0;
-    transform: translateX(-0.35rem);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  @media (hover: hover) {
-    .explore-card:hover { transform: translateY(-2px); }
-    .explore-card:hover::after { opacity: 1; transform: translateX(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .explore-card:hover { transform: none; }
-  }
+<script>
+  // Everything that moves on this page moves only while it is on screen and
+  // the tab is visible. One observer drives the margin rotations and the
+  // footer marks; reduced motion turns both off in CSS, so there is nothing to
+  // start.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const stages = document.querySelectorAll<HTMLElement>('[data-margin-group], [data-footer-marks]');
+    const onScreen = new Set<HTMLElement>();
 
-  .sign-off {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    margin-top: -0.5rem;
-  }
-  .sign-off .portrait {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--line);
-  }
-  .sign-off p { margin: 0; }
-</style>
+    const sync = () => {
+      for (const stage of stages) {
+        stage.toggleAttribute('data-playing', onScreen.has(stage) && !document.hidden);
+      }
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        const stage = entry.target as HTMLElement;
+        if (entry.isIntersecting) onScreen.add(stage);
+        else onScreen.delete(stage);
+      }
+      sync();
+    }, { rootMargin: '80px 0px' });
+
+    stages.forEach((stage) => observer.observe(stage));
+    document.addEventListener('visibilitychange', sync);
+
+    // Progressive landing: each block arrives as it comes up the page, with a
+    // short stagger inside its own group so a section settles in order rather
+    // than all at once. One-way — once a block has landed it stays landed.
+    //
+    // A position test rather than an IntersectionObserver, because a jump — a
+    // long flick, a hash link, a restored scroll position — can carry a block
+    // from below the fold to above it without the observer ever seeing it
+    // intersect, and that block would then stay invisible for good. Anything
+    // at or above the trigger line has landed, including everything already
+    // scrolled past.
+    const waiting = [...document.querySelectorAll<HTMLElement>('[data-reveal]')];
+    let queued = false;
+
+    const land = () => {
+      queued = false;
+      for (let i = waiting.length - 1; i >= 0; i--) {
+        if (waiting[i].getBoundingClientRect().top < innerHeight * 0.88) {
+          waiting[i].setAttribute('data-landed', '');
+          waiting.splice(i, 1);
+        }
+      }
+      if (!waiting.length) {
+        removeEventListener('scroll', onLand);
+        removeEventListener('resize', onLand);
+      }
+    };
+
+    const onLand = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(land);
+      }
+    };
+
+    addEventListener('scroll', onLand, { passive: true });
+    addEventListener('resize', onLand, { passive: true });
+    land();
+  }
+</script>
