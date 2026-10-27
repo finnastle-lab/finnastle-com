@@ -16,7 +16,7 @@ import { SUBSCRIBE_ENDPOINT } from '../../consts';
 // The exact wording the visitor ticks. It is sent with the address and stored
 // verbatim, so the consent is showable rather than asserted. Changing this
 // line changes what lands in the Sheet, so change it in one place.
-const CONSENT = 'Email me the writing.';
+const CONSENT = "Email me what you're working on.";
 ---
 
 {/* Hidden until the script runs. Without JS the panel could not post, so a
@@ -28,7 +28,7 @@ const CONSENT = 'Email me the writing.';
     data-subscribe-open
     aria-expanded="false"
     aria-controls="fa-sub-panel"
-    aria-label="Subscribe to the writing"
+    aria-label="Stay up to date with what I'm working on"
   ></button>
 
   <div
@@ -38,11 +38,9 @@ const CONSENT = 'Email me the writing.';
     aria-labelledby="fa-sub-head"
     hidden
   >
-    <p class="fa-sub-head" id="fa-sub-head">An essay a month.</p>
+    <p class="fa-sub-head" id="fa-sub-head">What I'm working on.</p>
     <p class="fa-sub-body">
-      Mostly about what's irreducible in human making. The half-built
-      experiments and the things that never worked go on Instagram; the writing
-      comes here.
+      And what's new in creative technology in my world. About once a month.
     </p>
 
     <form class="fa-sub-form" data-subscribe-form novalidate>
