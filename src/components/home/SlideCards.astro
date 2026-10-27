@@ -15,8 +15,9 @@ type Slide = {
   body: string;
   /** frame number stamped on the mount */
   frame: string;
+  /** the work glimpsed behind the window. Decorative: the label names the
+      destination, so the hint carries no alt text of its own. */
   hint: CutoutName;
-  alt: string;
 };
 
 interface Props { slides: Slide[] }
