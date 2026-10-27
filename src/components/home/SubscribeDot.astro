@@ -1,0 +1,204 @@
+---
+// The one thing on the homepage that follows the reader: a lit pixel in the
+// bottom right corner that opens a short subscribe panel.
+//
+// A square, not a circle, and a stepped blink rather than a fade, because the
+// sky panel's rule is that nothing on this page is round and nothing is
+// blurred (see the sky comment in src/lib/home-atmosphere.ts, and
+// @keyframes fa-crux / fa-twinkle in src/styles/home.css). A smooth pulse
+// would be the one thing here that is not of the page.
+//
+// It posts same-origin to the Pages Function at functions/api/subscribe.ts,
+// which forwards to a Google Apps Script bound to one Sheet in Finn's Drive.
+// Styles live in src/styles/home.css under .fa-sub.
+import { SUBSCRIBE_ENDPOINT } from '../../consts';
+
+// The exact wording the visitor ticks. It is sent with the address and stored
+// verbatim, so the consent is showable rather than asserted. Changing this
+// line changes what lands in the Sheet, so change it in one place.
+const CONSENT = 'Email me the writing.';
+---
+
+{/* Hidden until the script runs. Without JS the panel could not post, so a
+    control that cannot work is never shown. */}
+<div class="fa-sub" data-subscribe data-endpoint={SUBSCRIBE_ENDPOINT} hidden>
+  <button
+    class="fa-sub-dot"
+    type="button"
+    data-subscribe-open
+    aria-expanded="false"
+    aria-controls="fa-sub-panel"
+    aria-label="Subscribe to the writing"
+  ></button>
+
+  <div
+    class="fa-sub-panel"
+    id="fa-sub-panel"
+    role="dialog"
+    aria-labelledby="fa-sub-head"
+    hidden
+  >
+    <p class="fa-sub-head" id="fa-sub-head">An essay a month.</p>
+    <p class="fa-sub-body">
+      Mostly about what's irreducible in human making. The half-built
+      experiments and the things that never worked go on Instagram; the writing
+      comes here.
+    </p>
+
+    <form class="fa-sub-form" data-subscribe-form novalidate>
+      <label class="fa-sub-label" for="fa-sub-email">Email address</label>
+      <input
+        class="fa-sub-input"
+        id="fa-sub-email"
+        name="email"
+        type="email"
+        inputmode="email"
+        autocomplete="email"
+        spellcheck="false"
+        required
+      />
+
+      {/* Honeypot. Off-screen rather than display:none so a bot filling every
+          field still fills this one. */}
+      <div class="fa-sub-trap" aria-hidden="true">
+        <label for="fa-sub-website">Website</label>
+        <input id="fa-sub-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <label class="fa-sub-consent">
+        <input type="checkbox" name="consent" value={CONSENT} required />
+        <span>{CONSENT}</span>
+      </label>
+
+      <button class="fa-sub-send" type="submit">Add me</button>
+      <p class="fa-sub-status" data-subscribe-status role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="fa-sub-fine">
+      Stored: your address, the date, that consent line and this page, in one
+      spreadsheet only I can open. Reply to any email and I'll take you off.
+    </p>
+
+    <div class="fa-sub-controls">
+      <button class="fa-sub-text" type="button" data-subscribe-close>Close</button>
+      <button class="fa-sub-text" type="button" data-subscribe-dismiss>No thanks</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Dismissal lives alongside the existing fa-theme key, and every read and write
+  // is wrapped the way BaseLayout wraps its theme read: a browser with site
+  // data blocked throws on access rather than returning null.
+  const KEY = 'fa-subscribe';
+
+  const root = document.querySelector<HTMLElement>('[data-subscribe]');
+  if (root) {
+    const dot = root.querySelector<HTMLButtonElement>('[data-subscribe-open]')!;
+    const panel = root.querySelector<HTMLElement>('#fa-sub-panel')!;
+    const form = root.querySelector<HTMLFormElement>('[data-subscribe-form]')!;
+    const email = form.querySelector<HTMLInputElement>('input[name="email"]')!;
+    const consent = form.querySelector<HTMLInputElement>('input[name="consent"]')!;
+    const trap = form.querySelector<HTMLInputElement>('input[name="website"]')!;
+    const send = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const status = root.querySelector<HTMLElement>('[data-subscribe-status]')!;
+    const endpoint = root.dataset.endpoint || '/api/subscribe';
+    const loaded = Date.now();
+
+    const stored = (() => {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    })();
+
+    if (!stored) {
+      root.hidden = false;
+
+      // Same rule as the margin rotations and the footer marks: nothing moves
+      // while the tab is hidden. The dot is always on screen, so visibility is
+      // the only test that applies.
+      const sync = () => root.toggleAttribute('data-playing', !document.hidden);
+      sync();
+      document.addEventListener('visibilitychange', sync);
+
+      const open = () => {
+        panel.hidden = false;
+        root.setAttribute('data-open', '');
+        dot.setAttribute('aria-expanded', 'true');
+        email.focus();
+      };
+
+      const close = (focus = true) => {
+        panel.hidden = true;
+        root.removeAttribute('data-open');
+        dot.setAttribute('aria-expanded', 'false');
+        if (focus) dot.focus();
+      };
+
+      const retire = () => {
+        try { localStorage.setItem(KEY, 'done'); } catch (e) {}
+        root.hidden = true;
+        panel.hidden = true;
+      };
+
+      dot.addEventListener('click', () => {
+        if (root.hasAttribute('data-open')) close();
+        else open();
+      });
+
+      root.querySelector('[data-subscribe-close]')!.addEventListener('click', () => close());
+      root.querySelector('[data-subscribe-dismiss]')!.addEventListener('click', retire);
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && root.hasAttribute('data-open')) close();
+      });
+
+      // A click anywhere outside closes. Pointerdown rather than click, so a
+      // drag that starts on the page does not count as a miss.
+      document.addEventListener('pointerdown', (event) => {
+        if (!root.hasAttribute('data-open')) return;
+        if (!root.contains(event.target as Node)) close(false);
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const address = email.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address)) {
+          status.textContent = 'That address looks wrong.';
+          email.focus();
+          return;
+        }
+        if (!consent.checked) {
+          status.textContent = 'Tick the box and I can send it.';
+          consent.focus();
+          return;
+        }
+
+        send.disabled = true;
+        status.textContent = 'Sending.';
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              email: address,
+              consent: consent.value,
+              website: trap.value,
+              dwell: Date.now() - loaded,
+              page: location.pathname,
+            }),
+          });
+          const result = await response.json();
+          if (result && result.ok === true) {
+            status.textContent = "You're on. Reply to any email to come off.";
+            form.hidden = true;
+            setTimeout(retire, 4000);
+            return;
+          }
+          status.textContent = 'That did not go through. Try finnastle@gmail.com.';
+        } catch (e) {
+          status.textContent = 'That did not go through. Try finnastle@gmail.com.';
+        }
+        send.disabled = false;
+      });
+    }
+  }
+</script>

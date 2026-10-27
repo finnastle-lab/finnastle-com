@@ -12,6 +12,12 @@ export const SOCIAL = {
   instagramHandle: '@finnastle',
 } as const;
 
+// Where the subscribe panel posts. Same-origin, so there is no CORS problem
+// and the Apps Script URL stays out of the page source: the Cloudflare Pages
+// Function at functions/api/subscribe.ts holds it in an environment variable.
+// Swapping the store later changes that one file and no client code.
+export const SUBSCRIBE_ENDPOINT = '/api/subscribe';
+
 type NavLink = { href: string; label: string };
 type NavItem = { label: string; href?: string; items?: NavLink[] };
 
