@@ -39,11 +39,11 @@ It works. Now I open Almanac instead of Instagram. Same behaviour, different app
 
 Years of scanned collage elements were sitting in folders with names like `IMG_4471` and `scan_final_FINAL`. I knew the material was there. Finding the right bit while working in Figma was another matter.
 
-The [Icon Pack](/tools/icon-pack) gives the elements readable, searchable names. An LLM helped turn the scanner's filing system into descriptions of what was actually on the page. Now I can leave the library open beside Figma, find a mark, and copy it across when I need it.
+[Collage cutouts](/tools/collage-cutouts) gives the elements readable, searchable names. An LLM helped turn the scanner's filing system into descriptions of what was actually on the page. Now I can leave the library open beside Figma, find a mark, and copy it across when I need it.
 
-![Screenshot of the Icon Pack: a grid of scanned collage elements on transparent backgrounds, among them a magenta letter B, a blue wave, a yellow smiley face, a pink running horse and several engraved plants and animals, each under a descriptive filename such as "clipping text smile please" and "engraving otter crayfis…". The header reads 76 scanned collage elements, with a keyword filter above the grid.](../../assets/writing/things-a-certificate-wont-teach-you/icon-pack.png)
+![Screenshot of Collage cutouts: the page title above a search box, a collection filter and a preview-ground selector, then a grid of scanned collage elements on a cream ground, among them an acrobat on a rope, a comic panel of an aircraft, an American Spirit tobacco packet, a figure standing in a niche, a winged figure, a red Apache helicopter advertisement, an Arrow staple-gun label and a painted Audi. Each sits under its collection and title with a download and a source link. The count reads 110 pieces, 131 versions.](../../assets/writing/things-a-certificate-wont-teach-you/collage-cutouts.png)
 
-*Seventy-six scanned elements, named by what's on them.*
+*A hundred and ten scanned elements, named by what's on them.*
 
 There's another benefit to having the material in one place. The agents I work with can refer to the same set of elements rather than each forming a slightly different idea of what my work looks like. I still make and choose the marks. The machine is better at remembering where I put them.
 
