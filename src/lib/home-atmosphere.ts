@@ -168,7 +168,7 @@ export const FOOTER_WORDMARK_TOP = 25.5;
 export const FOOTER_LINKS = [
   { href: '/work', label: 'Art' },
   { href: '/writing', label: 'Writing' },
-  { href: '/tools', label: 'Tools' },
+  { href: '/tools', label: 'Lab' },
   { href: 'INSTAGRAM', label: 'Instagram' },
 ] as const;
 
