@@ -1,0 +1,98 @@
+---
+// The atmosphere panel. Light: the approved cloud composition with the black
+// canonical FA sunmark. Dark: a sparse, gently twinkling star field with the
+// white canonical FA sunmark. Figma 8:429 / 52:1857 (desktop), 8:551 (mobile).
+//
+// The clouds are two layered plates rather than a volumetric sim: a base plate
+// and a soft-masked near plate that drift at different rates while the panel is
+// on screen. The panel reserves its own height, so nothing below it moves when
+// the imagery arrives.
+import { getImage } from 'astro:assets';
+import skyBase from '../../assets/elements/photo-sky-cumulus-clear-gap.webp';
+import skyNear from '../../assets/elements/photo-sky-cumulus-sparse.webp';
+import markDark from '../../assets/brand/fa-sunmark/fa-sunmark-dark.svg';
+import markLight from '../../assets/brand/fa-sunmark/fa-sunmark-light.svg';
+import { starField } from '../../lib/home-atmosphere';
+
+const [base, near] = await Promise.all([
+  getImage({ src: skyBase, widths: [780, 1280, 1860], format: 'webp' }),
+  getImage({ src: skyNear, widths: [780, 1280, 1860], format: 'webp' }),
+]);
+
+const stars = starField();
+---
+<section class="sky" aria-label="Sky">
+  <div class="sky-light" aria-hidden="true">
+    <img
+      class="sky-plate sky-plate--base"
+      src={base.src}
+      srcset={base.srcSet.attribute}
+      sizes="100vw"
+      width={base.attributes.width}
+      height={base.attributes.height}
+      alt=""
+      decoding="async"
+      loading="lazy"
+    />
+    <img
+      class="sky-plate sky-plate--near"
+      src={near.src}
+      srcset={near.srcSet.attribute}
+      sizes="100vw"
+      width={near.attributes.width}
+      height={near.attributes.height}
+      alt=""
+      decoding="async"
+      loading="lazy"
+    />
+    <div class="sky-warmth"></div>
+  </div>
+
+  <div class="sky-dark" aria-hidden="true">
+    {stars.map((s) => (
+      <span
+        class:list={['star', s.twinkle && 'star--twinkle']}
+        style={`left:${s.x}%;top:${s.y}%;--d:${s.size}px;--o:${s.opacity};--t:${s.delay}s`}
+      ></span>
+    ))}
+  </div>
+
+  <img class="sky-mark sky-mark--light-ground" src={markDark.src} alt="Finn Astle" width="458" height="319" />
+  <img class="sky-mark sky-mark--dark-ground" src={markLight.src} alt="Finn Astle" width="458" height="319" aria-hidden="true" />
+</section>
+
+<script>
+  // Restrained parallax: two plates, different rates, only while the panel is
+  // in view and the tab is visible. Reduced motion skips it entirely.
+  const panel = document.querySelector<HTMLElement>('.sky');
+  if (panel && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let visible = false;
+    let queued = false;
+
+    const measure = () => {
+      queued = false;
+      const rect = panel.getBoundingClientRect();
+      // -1 when the panel is about to enter, +1 when it has just left.
+      const progress = 1 - 2 * ((rect.top + rect.height / 2) / (innerHeight + rect.height));
+      panel.style.setProperty('--sky-shift', String(progress.toFixed(3)));
+    };
+
+    const onScroll = () => {
+      if (!queued && visible && !document.hidden) {
+        queued = true;
+        requestAnimationFrame(measure);
+      }
+    };
+
+    new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      panel.toggleAttribute('data-sky-active', visible);
+      if (visible) onScroll();
+    }, { rootMargin: '120px 0px' }).observe(panel);
+
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll, { passive: true });
+    document.addEventListener('visibilitychange', onScroll);
+    measure();
+  }
+</script>

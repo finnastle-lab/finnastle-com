@@ -20,6 +20,13 @@
   --accent-press: #a82908;
   --mark-inv: 0;           /* invert off in light */
 
+  /* Theme switches a few rules can't express with a colour. --show-light /
+     --show-dark pick which of a light-ground / dark-ground asset pair is
+     displayed; --ink-blend is how a monochrome cutout meets the paper. */
+  --show-light: block;
+  --show-dark: none;
+  --ink-blend: multiply;
+
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --mono: 'Cousine', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -39,6 +46,9 @@
     --accent: #e5451a;
     --accent-press: #f0673d;
     --mark-inv: 1;         /* flip ink marks to white on dark */
+    --show-light: none;
+    --show-dark: block;
+    --ink-blend: screen;
   }
 }
 :root[data-theme="dark"] {
@@ -52,6 +62,9 @@
   --accent: #e5451a;
   --accent-press: #f0673d;
   --mark-inv: 1;
+  --show-light: none;
+  --show-dark: block;
+  --ink-blend: screen;
 }
 
 /* --- Registers --------------------------------------------------------------
@@ -263,37 +276,8 @@ hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
 .duality .amp { color: var(--accent); font-style: italic; }
 .hero-sub { font-family: var(--mono); color: var(--graphite); max-width: 34rem; }
 
-/* Hand-brushed collage wordmark — a pinned cut-out, not a boxed sticker.
-   Card stays light (the art needs a light ground to read), but a soft shadow +
-   slight rotation + overlapping stamp read as "placed on the page" rather than
-   a flat rectangle dropped onto dark chrome. */
-.wordmark-card {
-  position: relative;
-  background: var(--card);
-  padding: clamp(1.25rem, 4vw, 2.25rem) clamp(1.5rem, 5vw, 3.5rem);
-  margin: 1.5rem auto 3.5rem;
-  max-width: 34rem;
-  transform: rotate(-0.6deg);
-  box-shadow: 0 1.5rem 3rem -1rem rgba(0, 0, 0, 0.35), 0 0.25rem 0.6rem rgba(0, 0, 0, 0.12);
-}
-.wordmark-card img { width: 100%; height: auto; display: block; position: relative; z-index: 1; }
-
-/* Dark mode swaps in the lightness-inverted, background-removed wordmark so the
-   brush lettering reads on dark while the collage colours stay intact. */
-.wordmark-card .wordmark-dark { display: none; }
-/* On dark, the wordmark is a transparent cut-out — drop the light card + slab
-   shadow so it reads as placed on the page, not a grey box. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .wordmark-card { background: transparent; box-shadow: none; }
-  :root:not([data-theme="light"]) .wordmark-card .wordmark-light { display: none; }
-  :root:not([data-theme="light"]) .wordmark-card .wordmark-dark { display: block; }
-}
-:root[data-theme="dark"] .wordmark-card { background: transparent; box-shadow: none; }
-:root[data-theme="dark"] .wordmark-card .wordmark-light { display: none; }
-:root[data-theme="dark"] .wordmark-card .wordmark-dark { display: block; }
-
 /* --- Collage stamps: found-ephemera texture in open space -------------------- */
-.hero, .wordmark-card, .section-stamped { position: relative; }
+.hero, .section-stamped { position: relative; }
 .hero > *:not(.stamp), .section-stamped > *:not(.stamp) { position: relative; z-index: 1; }
 .stamp {
   position: absolute;

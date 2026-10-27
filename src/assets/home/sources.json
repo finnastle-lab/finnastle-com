@@ -1,0 +1,370 @@
+{
+  "note": "Homepage atmosphere assets. Exported from Figma with download_assets at node resolution, then resampled down with Lanczos (aspect preserved). No redraw, no retrace, no recolour, no crop. HOPE/LESS/NESS and TIME/LESS/NESS are not listed here: they already live in the curated cutout library at src/assets/cutouts/ (nodes 1737:3 and 1737:4) and are reused from there.",
+  "assets": [
+    {
+      "name": "billboard-spokane",
+      "file": "src/assets/home/cutouts/billboard-spokane.png",
+      "group": "CAMPAIGNS",
+      "alt": "A damaged roadside billboard reading “There are no termites in Spokane”.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1195-2056",
+        "nodeId": "1195:2056"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1450,
+          1450
+        ],
+        "shippedPixels": [
+          1246,
+          822
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved",
+        "trim": "Studio File node is a presentation card on a flat #262626 ground. Figma's own placement crops that ground away with the fill's crop rectangle; this asset is the same crop, taken at the artwork's bounding box [102, 314, 1348, 1136]. Artwork pixels untouched."
+      }
+    },
+    {
+      "name": "baseball-advertising",
+      "file": "src/assets/home/cutouts/baseball-advertising.png",
+      "group": "CAMPAIGNS",
+      "alt": "A night baseball stadium with outfield advertising hoardings.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-97",
+        "nodeId": "1082:97"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1156,
+          1521
+        ],
+        "shippedPixels": [
+          1064,
+          1400
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "vegas-print-ad",
+      "file": "src/assets/home/cutouts/vegas-print-ad.png",
+      "group": "CAMPAIGNS",
+      "alt": "A vintage “Free Las Vegas Vacation” print advertisement.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1567-415",
+        "nodeId": "1567:415"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1600,
+          1099
+        ],
+        "shippedPixels": [
+          1400,
+          962
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "super-starliner",
+      "file": "src/assets/home/cutouts/super-starliner.png",
+      "group": "WORDS + FORM",
+      "alt": "Chromed “Super Starliner” script lettering from a car badge.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-67",
+        "nodeId": "1082:67"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1972,
+          247
+        ],
+        "shippedPixels": [
+          1400,
+          175
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "union-lettering",
+      "file": "src/assets/home/cutouts/union-lettering.png",
+      "group": "WORDS + FORM",
+      "alt": "The word UNION set in heavy condensed capitals on a printed card.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1195-2072",
+        "nodeId": "1195:2072"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1450,
+          1450
+        ],
+        "shippedPixels": [
+          1246,
+          841
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved",
+        "trim": "Studio File node is a presentation card on a flat #262626 ground. Figma's own placement crops that ground away with the fill's crop rectangle; this asset is the same crop, taken at the artwork's bounding box [102, 304, 1348, 1145]. Artwork pixels untouched."
+      }
+    },
+    {
+      "name": "sun-newsprint",
+      "file": "src/assets/home/cutouts/sun-newsprint.png",
+      "group": "ART + IDEAS",
+      "alt": "A sun drawn in thick black ink across a spread of newsprint.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1195-2071",
+        "nodeId": "1195:2071"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1450,
+          1450
+        ],
+        "shippedPixels": [
+          1246,
+          862
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved",
+        "trim": "Studio File node is a presentation card on a flat #262626 ground. Figma's own placement crops that ground away with the fill's crop rectangle; this asset is the same crop, taken at the artwork's bounding box [102, 294, 1348, 1156]. Artwork pixels untouched."
+      }
+    },
+    {
+      "name": "falcon-drawing",
+      "file": "src/assets/home/cutouts/falcon-drawing.png",
+      "group": "ART + IDEAS",
+      "alt": "An ink drawing of a falcon in flight beneath a sun and a cloud.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-68",
+        "nodeId": "1082:68"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          2000,
+          1890
+        ],
+        "shippedPixels": [
+          1400,
+          1323
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "greyhound-drawing",
+      "file": "src/assets/home/cutouts/greyhound-drawing.png",
+      "group": "ART + IDEAS",
+      "alt": "A loose ink drawing of a greyhound at full stretch.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-6",
+        "nodeId": "1082:6"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1482,
+          680
+        ],
+        "shippedPixels": [
+          1400,
+          642
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "landscape-drawing",
+      "file": "src/assets/home/cutouts/landscape-drawing.png",
+      "group": "ART + IDEAS",
+      "alt": "An ink landscape drawing of a mesa under a long cloud.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-31",
+        "nodeId": "1082:31"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1450,
+          922
+        ],
+        "shippedPixels": [
+          1400,
+          890
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "converse-collage",
+      "file": "src/assets/home/cutouts/converse-collage.png",
+      "group": "BRAND + CULTURE",
+      "alt": "A painted collage of a Converse sneaker over a drawn skyline.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-62",
+        "nodeId": "1082:62"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1100,
+          857
+        ],
+        "shippedPixels": [
+          1100,
+          857
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "ned-kelly",
+      "file": "src/assets/home/cutouts/ned-kelly.png",
+      "group": "BRAND + CULTURE",
+      "alt": "A black ink drawing of Ned Kelly’s helmet and armour.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-73",
+        "nodeId": "1082:73"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          901,
+          1308
+        ],
+        "shippedPixels": [
+          901,
+          1308
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "lucky-cat",
+      "file": "src/assets/home/cutouts/lucky-cat.png",
+      "group": "BRAND + CULTURE",
+      "alt": "A hand-drawn maneki-neko lucky cat in yellow and black.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1082-61",
+        "nodeId": "1082:61"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          923,
+          1450
+        ],
+        "shippedPixels": [
+          891,
+          1400
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "intermission-lettering",
+      "file": "src/assets/home/cutouts/intermission-lettering.png",
+      "group": "BRAND + CULTURE",
+      "alt": "The word INTERMISSION in condensed serif capitals on a white card.",
+      "source": {
+        "file": "Studio File",
+        "url": "https://www.figma.com/design/qyEFUAVCyOfiHMK2spNi2D/Studio-File?node-id=1572-319",
+        "nodeId": "1572:319"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 1,
+        "originalPixels": [
+          1893,
+          513
+        ],
+        "shippedPixels": [
+          1400,
+          379
+        ],
+        "resample": "Lanczos, longest edge 1400px, aspect preserved"
+      }
+    },
+    {
+      "name": "finn-astle-wordmark-black",
+      "file": "src/assets/home/wordmark/finn-astle-wordmark-black.png",
+      "group": "FOOTER WORDMARK",
+      "alt": "Finn Astle, hand-brushed wordmark",
+      "source": {
+        "file": "GPT Space",
+        "url": "https://www.figma.com/design/aDG8g8wFVk9c9RWCJV8bQQ/GPT-Space?node-id=39-874",
+        "nodeId": "39:874",
+        "ink": "black"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 2,
+        "originalPixels": [
+          3706,
+          984
+        ],
+        "shippedPixels": [
+          2400,
+          637
+        ],
+        "resample": "Lanczos, longest edge 2400px, aspect preserved"
+      }
+    },
+    {
+      "name": "finn-astle-wordmark-white",
+      "file": "src/assets/home/wordmark/finn-astle-wordmark-white.png",
+      "group": "FOOTER WORDMARK",
+      "alt": "Finn Astle, hand-brushed wordmark",
+      "source": {
+        "file": "GPT Space",
+        "url": "https://www.figma.com/design/aDG8g8wFVk9c9RWCJV8bQQ/GPT-Space?node-id=40-876",
+        "nodeId": "40:876",
+        "ink": "white"
+      },
+      "export": {
+        "tool": "figma download_assets",
+        "scale": 2,
+        "originalPixels": [
+          3706,
+          984
+        ],
+        "shippedPixels": [
+          2400,
+          637
+        ],
+        "resample": "Lanczos, longest edge 2400px, aspect preserved"
+      }
+    }
+  ]
+}

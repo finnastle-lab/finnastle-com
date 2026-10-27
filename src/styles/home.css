@@ -1,0 +1,444 @@
+/*
+  Homepage atmosphere — the approved light and dark studies.
+  Figma: GPT Space, "10 · finnastle.com · Atmosphere".
+    8:389 light desktop · 8:511 light mobile
+    52:890 dark desktop · 52:1438 dark mobile · 8:640 annotations
+
+  Measurements come straight off those frames. The design width is 1248px
+  (78rem), the reading column 944px (59rem), the body measure 640px (40rem).
+  Desktop sections are 112px (7rem) tall in the padding, mobile 72px (4.5rem).
+  Everything in between is fluid rather than stepped.
+
+  Every selector here is namespaced to the homepage. Nothing in this file
+  changes another route.
+*/
+
+/* --- Page shell ------------------------------------------------------------ */
+
+/* The homepage owns its own columns: the margin cutouts hang in the gutters
+   between the 78rem frame and the 59rem reading column, which they cannot do
+   from inside main's 62rem box. */
+main.main--wide {
+  max-width: none;
+  padding: 0;
+}
+
+.home-section {
+  position: relative;
+  padding-block: 4.5rem;
+}
+
+.home-col {
+  width: min(59rem, 100% - 3rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.home-col > * { margin: 0; }
+
+/* --- Type ------------------------------------------------------------------ */
+
+/* Interface voice for the eyebrow and the secondary headings; the tight serif
+   stays on the hero alone (annotation 8:640). */
+.home-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+.home-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  /* 48px at 390, 96px at 1248 */
+  font-size: clamp(3rem, 1.636rem + 5.594vw, 6rem);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.home-title .amp { color: var(--accent); font-style: italic; }
+
+.home-lead {
+  font-family: var(--sans);
+  font-weight: 500;
+  /* 22px at 390, 26px at 1248 */
+  font-size: clamp(1.375rem, 1.261rem + 0.466vw, 1.625rem);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.home-body {
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 40rem;
+}
+
+.home-pointer {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.4;
+}
+.home-pointer a { text-decoration-thickness: 1px; }
+
+.home-signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
+/* --- Destinations: Studio and Lab ------------------------------------------ */
+
+.home-destinations {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.home-destination {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.125rem 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+.home-destination:hover,
+.home-destination:focus-visible { border-color: var(--accent); }
+
+.home-destination-label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.35;
+}
+.home-destination-body {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+/* --- Centred from tablet up ------------------------------------------------- */
+
+@media (min-width: 48rem) {
+  .home-section { padding-block: 7rem; }
+  .home-hero .home-col { gap: 1.75rem; }
+  .home-proof .home-col { gap: 2.75rem; }
+  .home-col { text-align: center; }
+  .home-body { margin-inline: auto; }
+
+  .home-destinations {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .home-destination {
+    flex: 0 1 18.625rem;   /* 298px */
+    text-align: center;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .home-proof .home-col { gap: 2rem; }
+}
+
+/* --- Sky panel -------------------------------------------------------------- */
+
+.sky {
+  position: relative;
+  height: 25rem;              /* 400px, the mobile frame */
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+}
+
+@media (min-width: 48rem) {
+  .sky { height: 32.5rem; }   /* 520px, the desktop frame */
+}
+
+.sky-light,
+.sky-dark {
+  position: absolute;
+  inset: 0;
+  display: var(--show-light);
+}
+/* Each ground paints before its imagery arrives, so the panel is never a
+   black hole on a light page while the plates load. */
+.sky-light { background: #c9dcee; }
+.sky-dark { display: var(--show-dark); background: #06090d; }
+
+/* The approved composition is cloud banked left and right with a clear opening
+   between them. Two plates at different drift rates give the opening depth
+   without a volumetric sim: the base is the whole sky, the near plate keeps
+   only its edges.
+
+   The plates are blown up past the panel so the cloud reads at the size the
+   frames draw it, and pulled right down in saturation and contrast to the
+   frames' pale, high-key atmosphere. Measured off 8:389: mean 174/186/190,
+   saturation 0.08, nothing darker than mid grey. */
+.sky-plate {
+  position: absolute;
+  left: -18%;
+  top: -10%;
+  width: 136%;
+  height: 130%;
+  object-fit: cover;
+  filter: saturate(0.2) brightness(1.25) contrast(0.68);
+  will-change: transform;
+}
+.sky-plate--base {
+  transform: translate3d(0, calc(var(--sky-shift, 0) * 22px), 0);
+}
+.sky-plate--near {
+  opacity: 0.62;
+  transform: translate3d(0, calc(var(--sky-shift, 0) * -34px), 0);
+  -webkit-mask-image: radial-gradient(118% 86% at 50% 44%, transparent 26%, #000 72%);
+  mask-image: radial-gradient(118% 86% at 50% 44%, transparent 26%, #000 72%);
+}
+
+/* The pale warm horizon the frames carry under the cloud. Outside the plates'
+   filter, so it keeps its warmth. */
+.sky-warmth {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(247, 235, 203, 0.42), rgba(247, 235, 203, 0) 38%);
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: var(--d);
+  height: var(--d);
+  margin: calc(var(--d) / -2);
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: var(--o);
+}
+.star--twinkle {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.55);
+  animation: fa-twinkle 9s var(--t) infinite ease-in-out;
+}
+@keyframes fa-twinkle {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 1; }
+}
+
+/* Canonical marks, both shipped, neither recoloured: the black mark serves the
+   day sky and the white one the night. */
+.sky-mark {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  /* 118px at 390, 177px at 1248 */
+  width: clamp(7.375rem, 5.7rem + 6.853vw, 11.063rem);
+  height: auto;
+  transform: translateX(-50%);
+}
+.sky-mark--light-ground { display: var(--show-light); }
+.sky-mark--dark-ground  { display: var(--show-dark); }
+
+/* --- Margin cutout rotations (desktop only) --------------------------------- */
+
+.margin-note {
+  display: none;
+  position: absolute;
+  top: var(--margin-top);
+  width: var(--margin-width);
+}
+.margin-note--left  { left: 1.5rem; }
+.margin-note--right { right: 1.5rem; }
+
+/* The gutter only exists once the 78rem frame is wider than the 59rem column
+   with room to spare. Below that the groups stay off, as designed. */
+@media (min-width: 80rem) {
+  .margin-note { display: block; }
+}
+
+.margin-window {
+  position: relative;
+  width: 100%;
+  height: var(--margin-height);
+  overflow: hidden;
+}
+
+/* Fixed window, fixed caption: a swap changes the picture and nothing else. */
+.margin-frame {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0;
+  filter: grayscale(1);
+  mix-blend-mode: var(--ink-blend);
+  pointer-events: none;
+}
+.margin-frame:first-child { opacity: 1; }
+
+.margin-note[data-playing] .margin-frame {
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.margin-note[data-playing][data-count="3"] .margin-frame { animation-name: fa-rotate-3; }
+.margin-note[data-playing][data-count="4"] .margin-frame { animation-name: fa-rotate-4; }
+
+/* 20s cycle. Three images hold 6.7s each, four hold 5s, both inside the
+   approved 5–7s band. The 0.3s crossfades sit on the boundaries so one image
+   arrives as the last one leaves. */
+@keyframes fa-rotate-3 {
+  0%, 31.83%     { opacity: 1; }
+  33.33%, 98.5%  { opacity: 0; }
+  100%           { opacity: 1; }
+}
+@keyframes fa-rotate-4 {
+  0%, 23.5%      { opacity: 1; }
+  25%, 98.5%     { opacity: 0; }
+  100%           { opacity: 1; }
+}
+
+.margin-caption {
+  margin: 0.75rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.5625rem;      /* 9px */
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--graphite);
+}
+
+/* --- Footer hero ------------------------------------------------------------ */
+
+.fa-footer {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding: 3.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.fa-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 1.5rem;
+}
+.fa-footer-links a {
+  font-family: var(--sans);
+  font-weight: 500;
+  /* 24px at 390, 36px at 1248 */
+  font-size: clamp(1.5rem, 1.159rem + 1.399vw, 2.25rem);
+  line-height: 1.2;
+  text-decoration: none;
+}
+.fa-footer-links a:hover,
+.fa-footer-links a:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+/* The working paper: a fixed-ratio stage so every mark keeps its place at any
+   width, and nothing reflows when a mark fades. */
+.fa-paper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 342 / 350;
+}
+
+.fa-paper-mark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  object-fit: contain;
+  filter: grayscale(1);
+  mix-blend-mode: var(--ink-blend);
+  pointer-events: none;
+}
+.fa-paper-mark--behind { z-index: 0; }
+.fa-paper-mark--front  { z-index: 2; }
+.fa-paper-mark--wide-only { display: none; }
+
+/* The small paper carries three marks, in their own places. */
+@media (max-width: 47.99rem) {
+  .fa-paper-mark {
+    left: var(--mx, var(--x));
+    top: var(--my, var(--y));
+    width: var(--mw, var(--w));
+    height: var(--mh, var(--h));
+  }
+}
+
+/* Long, unsynchronised holds: each mark is out for a sixth of its own cycle,
+   and the cycles are 34–46s and co-prime enough not to line up. */
+.fa-paper[data-playing] .fa-paper-mark {
+  animation-name: fa-mark-hold;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes fa-mark-hold {
+  0%, 70%   { opacity: 1; }
+  76%, 92%  { opacity: 0; }
+  100%      { opacity: 1; }
+}
+
+/* The wordmark is the anchor. It never fades and it is never covered. */
+.fa-wordmark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.fa-wordmark-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fa-wordmark-img--light-ground { display: var(--show-light); }
+.fa-wordmark-img--dark-ground  { display: var(--show-dark); }
+
+.fa-footer-signoff {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+@media (min-width: 48rem) {
+  .fa-footer {
+    padding: 6rem 4rem;
+    gap: 3.5rem;
+  }
+  .fa-footer-links {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+  .fa-paper { aspect-ratio: 1120 / 490; }
+  .fa-paper-mark--wide-only { display: block; }
+  .fa-footer-signoff { text-align: center; }
+}
+
+/* --- Reduced motion ---------------------------------------------------------
+   One static image per margin group, every footer mark present, no drift.
+   global.css already clamps durations; these rules remove the animations
+   outright so nothing lands mid-fade. */
+@media (prefers-reduced-motion: reduce) {
+  .margin-note[data-playing] .margin-frame,
+  .fa-paper[data-playing] .fa-paper-mark,
+  .star--twinkle {
+    animation: none !important;
+  }
+  .fa-paper-mark { opacity: 1; }
+  .margin-frame { opacity: 0; }
+  .margin-frame:first-child { opacity: 1; }
+  .sky-plate { transform: none !important; }
+}
