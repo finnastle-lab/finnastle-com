@@ -72,9 +72,9 @@ const tools = [
         </h2>
         <p>{t.blurb}</p>
         <p class="tool-links">
-          <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined}>{t.app ? 'What it does →' : t.internal ? 'Open →' : 'Open the tool →'}</a>
+          <a href={t.href} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener' : undefined}>{t.internal ? 'What it does →' : 'Open the tool ↗'}</a>
           {t.app && <> · <a href={t.app} target="_blank" rel="noopener">Open the live tool ↗</a></>}
-          {t.repo && <> · <a href={t.repo} target="_blank" rel="noopener">Source</a></>}
+          {t.repo && <> · <a href={t.repo} target="_blank" rel="noopener">Source ↗</a></>}
           {t.case && <> · <a href={t.case}>The case study →</a></>}
         </p>
       </article>
