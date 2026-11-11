@@ -20,7 +20,7 @@ const destinations = [
   {
     href: '/tools',
     label: 'Lab',
-    body: 'Creative technology and digital experiences. Small machines I built, and what they did.',
+    body: "Creative technology. Small machines I built, and one a client's audience asked to run themselves.",
     frame: '02',
     hint: 'super-starliner' as const,
   },
@@ -53,7 +53,7 @@ const margins = (section: 'hero' | 'proof') =>
       <h1 class="home-title" data-reveal style="--reveal-i:1">Fearless <span class="amp">&amp;</span> Answers</h1>
       <p class="home-lead" data-reveal style="--reveal-i:2">Creative thinking. Technical proficiency.</p>
       <p class="home-mission" data-reveal style="--reveal-i:3">Proving the value of a creative thinker.</p>
-      <p class="home-body" data-reveal style="--reveal-i:4">I develop ideas and build what they need to work: campaigns, content and the systems behind them.</p>
+      <p class="home-body" data-reveal style="--reveal-i:4">Sometimes the work is a headline. Sometimes it's the system that lets a team produce hundreds of pieces without losing the idea.</p>
       <p class="home-body" data-reveal style="--reveal-i:5">Eight years across brands including AGL, Telstra, Coca-Cola and 7-Eleven.</p>
       <p class="home-body" data-reveal style="--reveal-i:6"><a href="/studio">See the client work</a></p>
     </div>
@@ -64,12 +64,12 @@ const margins = (section: 'hero' | 'proof') =>
 
   <section class="home-section home-proof">
     <div class="home-col">
-      <p class="home-body" data-reveal style="--reveal-i:0">You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning what the brief needs, making a version and changing how I work.</p>
+      <p class="home-body" data-reveal style="--reveal-i:0">You don't know the answer yet. You still have to make a start. I've worked across campaigns, content design and production, learning something the brief didn't say I'd need, making a version and changing how I work.</p>
       <p class="home-pointer" data-reveal style="--reveal-i:1"><a href="/studio/fearless-answers">Searching fearlessly for answers.</a></p>
 
       <SlideCards slides={destinations} />
 
-      <p class="home-body" data-reveal style="--reveal-i:0">Copywriter, painter, collagist archiving culture. A fine art background, then traditional ad land. Both of those made me connect with symbols and meaning, and with communicating to the masses or the individual, visually and in text.</p>
+      <p class="home-body" data-reveal style="--reveal-i:0">Copywriter, painter, collagist archiving culture. A fine art background, then traditional ad land. Symbols and meaning, to the masses or the individual, visually and in text.</p>
       <p class="home-signature" data-reveal style="--reveal-i:1"><a href="/personal">Finn</a></p>
     </div>
     {margins('proof').map((group) => <MarginCutouts group={group} />)}
