@@ -216,7 +216,7 @@ Only decision 03 remains, and it is not ours to take.
 | 03 | Does the rename wait for the `/tools` or `/lab` path decision? | Yes. Moving the path now costs the page two 301s and the CV two rebuilds. |
 
 Decision 03 is shared with the website repo and sits in section 5 of
-`2026-10-24-lab-shift-open-stream.md`. The rename is applied without it: the
+`My Drive/00_SYSTEM/2026-10-24-lab-shift-open-stream.md`. The rename is applied without it: the
 name changed, the path did not. Nothing here is blocked on it.
 
 Scope for V3 is now agreed. The next item that needs a go-ahead is not a
@@ -285,7 +285,8 @@ prints what it parses.
 
 Flagged here rather than edited in place, per that file's own instruction.
 
-1. `2026-10-24-lab-shift-open-stream.md` section 4 states that "Source
+1. The Lab shift open stream (now `My Drive/00_SYSTEM/2026-10-24-lab-shift-open-stream.md`)
+   section 4 states that "Source
    Material" appears "three times in the certificates essay body". It appears
    **twice** in that file, and only one is body copy: line 52 is prose, line 56
    is image alt text. The change list in section 4 is one item shorter than
