@@ -3,7 +3,7 @@ brand: The Grove Distillery
 logos: [grove-distillery]
 line: The Spirit Of
 tag: Copywriting
-meta: Astle Creative · Lead Copywriter · 2022
+meta: Astle Creative, via The Natives · Brand Strategist & Copywriter · 2019–2021
 order: 80
 hero: grove-distillery.jpg
 ---
@@ -39,5 +39,5 @@ The Hot Cross Rum media releases and key messaging. Hot Cross Rum: cheers to an
 unforgettable Easter. Infused with Easter cellar-bration. Sugar, spice,
 everything nice. Holy, Spirit! You can own a piece of Australia's distilling
 history. The rum came back every Easter after that. Concrete Playground covered
-the fourth run nationally in March 2023, 120 hand-numbered bottles at $110, with
+it nationally in March 2023, 120 hand-numbered bottles at $110, with
 labels by Perth artist Stacey Teo.
