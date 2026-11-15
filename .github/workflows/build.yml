@@ -7,7 +7,15 @@ permissions:
   contents: read
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned, not `ubuntu-latest`. On 2026-11-11 that label rolled to Ubuntu
+    # 26.04 and Playwright 1.56.1 has no chromium build for it, so
+    # `install --with-deps` died before a single assertion ran and the sunmark
+    # tests were silently skipped for four days while the check showed red.
+    # This job asserts on rendered pixels and computed styles, so a floating
+    # runner image is the wrong thing for it anyway: the browser build is part
+    # of what is being tested. Move this deliberately, with the Playwright
+    # version, not by reaching for `latest`.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
