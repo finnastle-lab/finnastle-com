@@ -121,6 +121,6 @@ If I can leave you with something. It’s as writers, our words really do matter
 It’s our responsibility as digital writers, providing info to the world through chat to keep automated conversations as human and helpful as humanly possible.
 
 #### **Save time save lives ✌️**
-If you’ve got questions about how to implement this, or want to chat about chat, say g’day at [Finn Astle](https://au.linkedin.com/in/finn-astle-794003123), or see some of our work at [Versa Agency](https://versa.agency/)
+If you’ve got questions about how to implement this, or want to chat about chat, say g’day at [Finn Astle](https://au.linkedin.com/in/finn-astle), or see some of our work at [Versa Agency](https://versa.agency/)
 
 <video class="essay-clip" src="/writing/chatbots-save-lives/01.mp4" poster="/writing/chatbots-save-lives/01.webp" width="498" height="248" muted loop playsinline preload="none" aria-label="An iMessage typing indicator: three dots pulsing inside a grey bubble."></video>
